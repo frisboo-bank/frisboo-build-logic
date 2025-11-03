@@ -8,9 +8,10 @@ spring-boot-version = "3.5.6"
 spring-dependency-management-version = "1.1.7"
 
 # Kotlin Ecosystem
-kotlinx-coroutines-version = "1.10.2"
 arrowkt-version = "2.1.0"
 jetbrains-annotations-version = "26.0.2-1"
+kotlin-logging-version = "7.0.13"
+kotlinx-coroutines-version = "1.10.2"
 
 # Spring Ecosystem
 spring-grpc-version = "0.11.0"
@@ -34,6 +35,8 @@ junit-version = "6.0.0"
 kotest-version = "6.0.4"
 mockk-version = "1.14.6"
 testcontainers-version = "2.0.1"
+test-retry-version = "1.6.4"
+dependency-analysis-version = "3.1.0"
 
 # Code Quality & Tooling
 cpd-version = "3.5"
@@ -43,11 +46,15 @@ spotless-version = "8.0.0"
 kover-version = "0.9.3"
 dokka-version = "2.1.0"
 owaspCheck-version = "12.1.8"
+gradle-versions-version = "0.53.0"
 
 # Development Utilities
+frisboo-openapi-convention-version = "0.0.1"
 jackson-version = "2.20.0"
 maven-publish-version = "0.34.0"
+openapi-generator-version = "7.14.0"
 plugin-publish-version = "2.0.0"
+springdoc-openapi-plugin-version = "1.9.0"
 
 # Miscellaneous
 jgit-version = "7.4.0.202509020913-r"
@@ -71,12 +78,15 @@ testcontainers-bom = { module = "org.testcontainers:testcontainers-bom", version
 corebanking-core = { module = "com.frisboo.corebanking:frisboo-core" }
 corebanking-http = { module = "com.frisboo.corebanking:frisboo-http" }
 corebanking-spring-boot = { module = "com.frisboo.corebanking:frisboo-spring-boot" }
+corebanking-transaction = { module = "com.frisboo.corebanking:frisboo-transaction" }
+corebanking-version = { module = "com.frisboo.corebanking:version-catalog", version.ref = "frisboo-corebanking-version" }
 
 # Kotlin Core
 arrow-kt-core = { module = "io.arrow-kt:arrow-core" }
 arrow-kt-coroutines = { module = "io.arrow-kt:arrow-fx-coroutines" }
 jetbrains-annotations = { module = "org.jetbrains:annotations", version.ref = "jetbrains-annotations-version" }
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin" }
+kotlin-logging = { module = "io.github.oshai:kotlin-logging-jvm", version.ref = "kotlin-logging-version" }
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect" }
 kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core" }
@@ -85,18 +95,23 @@ kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-t
 reactor-kotlin-extensions = { module = "io.projectreactor.kotlin:reactor-kotlin-extensions" }
 reactor-test = { module = "io.projectreactor:reactor-test" }
 
-# Spring Boot Starters
-spring-boot-starter-webflux = { module = "org.springframework.boot:spring-boot-starter-webflux" }
-spring-boot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation" }
+# Spring Boot
+spring-boot-configuration-processor = { module = "org.springframework.boot:spring-boot-configuration-processor" }
+spring-boot-devtools = { module = "org.springframework.boot:spring-boot-devtools" }
+spring-boot-security-test = { module = "org.springframework.security:spring-security-test" }
 spring-boot-starter-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
 spring-boot-starter-data-mongodb = { module = "org.springframework.boot:spring-boot-starter-data-mongodb" }
+spring-boot-starter-hateoas = { module = "org.springframework.boot:spring-boot-starter-hateoas" }
 spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }
+spring-boot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation" }
+spring-boot-starter-webflux = { module = "org.springframework.boot:spring-boot-starter-webflux" }
 
 # Database & Persistence
+exposed-kotlin-datetime = { module = "org.jetbrains.exposed:exposed-kotlin-datetime" }
 exposed-spring-boot-starter = { module = "org.jetbrains.exposed:exposed-spring-boot-starter" }
-exposed-jdbc = { module = "org.jetbrains.exposed:exposed-jdbc" }
+exposed-r2dbc = { module = "org.jetbrains.exposed:exposed-r2dbc" }
 postgresql = { module = "org.postgresql:postgresql", version.ref = "postgresql-version" }
-mongodb-driver = { module = "org.mongodb:mongodb-driver-kotlin-coroutine" }
+mongodb = { module = "org.mongodb:mongodb-driver-kotlin-coroutine" }
 h2 = { module = "com.h2database:h2", version.ref = "h2-version" }
 
 # gRPC & Protocol Buffers
@@ -108,6 +123,7 @@ spring-grpc-starter = { module = "org.springframework.grpc:spring-grpc-spring-bo
 
 # API Documentation
 springdoc-openapi-starter-webflux-ui = { module = "org.springdoc:springdoc-openapi-starter-webflux-ui" }
+springdoc-openapi-starter-webflux-api = { module = "org.springdoc:springdoc-openapi-starter-webflux-api" }
 
 # Testing
 kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest-version" }
@@ -132,8 +148,17 @@ jgit-gradle-plugin = { module = "org.eclipse.jgit:org.eclipse.jgit", version.ref
 restrict-imports-plugin = { module = "de.skuzzle.restrictimports:de.skuzzle.restrictimports.gradle.plugin", version.ref = "restrict-imports-version" }
 
 [plugins]
+# conventions
+frisboo-corebanking-convention = { id = "com.frisboo.corebanking.convention", version.ref = "frisboo-corebanking-version" }
+frisboo-corebanking-grpc-convention = { id = "com.frisboo.corebanking.grpc-convention", version.ref = "frisboo-corebanking-version" }
+frisboo-corebanking-messaging-convention = { id = "com.frisboo.corebanking.messaging-convention", version.ref = "frisboo-corebanking-version" }
+frisboo-corebanking-openapi-convention = { id = "com.frisboo.corebanking.openapi-convention", version.ref = "frisboo-corebanking-version" }
+frisboo-corebanking-persistence-convention = { id = "com.frisboo.corebanking.persistence-convention", version.ref = "frisboo-corebanking-version" }
+frisboo-corebanking-quality-convention = { id = "com.frisboo.corebanking.quality-convention", version.ref = "frisboo-corebanking-version" }
+frisboo-corebanking-springboot-convention = { id = "com.frisboo.corebanking.spring-boot-convention", version.ref = "frisboo-corebanking-version" }
+frisboo-corebanking-telemetry-convention = { id = "com.frisboo.corebanking.telemetry-convention", version.ref = "frisboo-corebanking-version" }
+
 # Core Framework
-frisboo-corebanking-convention-plugin = { id = "com.frisboo.corebanking.convention-plugin", version.ref = "frisboo-corebanking-version" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin-version" }
 kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin-version" }
 spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot-version" }
@@ -141,13 +166,18 @@ spring-dependency-management = { id = "io.spring.dependency-management", version
 
 # API & Documentation
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka-version" }
+openapi-generator = { id = "org.openapi.generator", version.ref = "openapi-generator-version" }
 protobuf = { id = "com.google.protobuf", version.ref = "protobuf-plugin-version" }
+springdoc-openapi = { id = "org.springdoc.openapi-gradle-plugin", version.ref = "springdoc-openapi-plugin-version" }
 
 # Code Quality
 cpd = { id = "de.aaschmid.cpd", version.ref = "cpd-version" }
+dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version.ref = "dependency-analysis-version" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt-version" }
+gradle-versions = { id = "com.github.ben-manes.versions", version.ref = "gradle-versions-version" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover-version" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless-version" }
+test-retry = { id = "org.gradle.test-retry", version.ref = "test-retry-version" }
 
 # Development & Publishing
 maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "maven-publish-version" }

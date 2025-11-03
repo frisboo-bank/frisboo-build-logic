@@ -9,8 +9,8 @@ plugins {
 private val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
 kotlin {
-    val kotlinVersion = libs.requiredVersion("kotlin-language-version")
-    val jvmTargetVersion = libs.requiredVersion("jvm-target-version")
+    val kotlinVersion = libs.getVersionOrFail("kotlin-language-version")
+    val jvmTargetVersion = libs.getVersionOrFail("jvm-target-version")
 
     jvmToolchain {
         languageVersion.set(JavaLanguageVersion.of(jvmTargetVersion))

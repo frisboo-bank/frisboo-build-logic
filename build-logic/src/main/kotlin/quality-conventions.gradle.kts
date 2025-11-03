@@ -72,7 +72,7 @@ private val detektBaseline =
         .asFile
 
 configure<DetektExtension> {
-    toolVersion = libs.requiredVersion("detekt-version")
+    toolVersion = libs.getVersionOrFail("detekt-version")
     parallel = true
     buildUponDefaultConfig = true
     config.setFrom(detektConfig)
