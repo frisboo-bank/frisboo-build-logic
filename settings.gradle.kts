@@ -13,12 +13,18 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
+enableFeaturePreview("STABLE_CONFIGURATION_CACHE")
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
-include(
-    "convention-plugin",
-    "version-catalog",
-)
+include("convention")
+include("grpc-convention")
+include("messaging-convention")
+include("openapi-convention")
+include("persistence-convention")
+include("quality-convention")
+include("spring-boot-convention")
+include("telemetry-convention")
+include("version-catalog")
 
 pluginManagement {
     includeBuild("build-logic")
@@ -29,10 +35,19 @@ pluginManagement {
     }
 }
 
+// plugins {
+//    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+//    id("org.danilopianini.gradle-pre-commit-git-hooks") version "2.1.3"
+// }
+
+// gitHooks {
+//    commitMsg { conventionalCommits() }
+//    createHooks()
+// }
+
 @Suppress("UnstableApiUsage")
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-
     repositories {
         mavenCentral()
         gradlePluginPortal()
@@ -43,13 +58,8 @@ dependencyResolutionManagement {
         create(
             "libs",
             Action {
-                from(files("version-catalog/libs.versions.toml"))
+                from(files("./version-catalog/libs.versions.toml"))
             },
         )
     }
-}
-
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
-    id("org.danilopianini.gradle-pre-commit-git-hooks") version "2.1.3"
 }

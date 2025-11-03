@@ -2,7 +2,9 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
 plugins {
+    base
     `java-gradle-plugin`
+    `version-catalog`
     `kotlin-dsl`
 }
 
@@ -43,3 +45,4 @@ dependencies {
 
 fun plugin(plugin: Provider<PluginDependency>) =
     plugin.map { "${it.pluginId}:${it.pluginId}.gradle.plugin:${it.version}" }
+
