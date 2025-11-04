@@ -20,12 +20,11 @@ plugins {
     alias(libs.plugins.plugin.publish)
 }
 
-description = "Gradle plugin that provides conventions for Openapi core banking apis"
+description = "Gradle plugin that provides conventions for Kotlin core banking apis"
 
 dependencies {
     api(project(":convention"))
-    api(plugin(libs.plugins.openapi.generator))
-    api(plugin(libs.plugins.springdoc.openapi))
+    api(plugin(libs.plugins.kotlin.jvm))
 }
 
 fun plugin(plugin: Provider<PluginDependency>) =
@@ -34,18 +33,18 @@ fun plugin(plugin: Provider<PluginDependency>) =
 gradlePlugin {
     plugins {
         create(
-            "frisbooCoreBankingOpenapiConvention",
+            "frisbooCoreBankingKotlinConvention",
             Action {
-                id = "com.frisboo.corebanking.openapi-convention"
-                displayName = "Frisboo Core Banking Openapi Convention"
-                description = "Gradle plugin that provides conventions for openapi core banking apis"
+                id = "com.frisboo.corebanking.kotlin-convention"
+                displayName = "Frisboo Core Banking Kotlin Convention"
+                description = "Gradle plugin that provides conventions for kotlin core banking apis"
                 tags = listOf(
                     "frisboo",
                     "frisboo-core-banking",
                     "convention-plugin",
-                    "openapi",
+                    "Kotlin",
                 )
-                implementationClass = "com.frisboo.corebanking.openapiconvention.OpenapiConvention"
+                implementationClass = "com.frisboo.corebanking.kotlinconvention.KotlinConvention"
             },
         )
     }

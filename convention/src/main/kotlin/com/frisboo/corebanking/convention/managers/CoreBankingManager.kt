@@ -15,9 +15,12 @@
  */
 package com.frisboo.corebanking.convention.managers
 
+import com.frisboo.corebanking.convention.CatalogVersionConstants
 import com.frisboo.corebanking.convention.extensions.CoreBankingExtension
 import com.frisboo.corebanking.convention.utils.getLibs
+import com.frisboo.corebanking.convention.utils.libraryOrThrow
 import org.gradle.api.Project
+import org.gradle.kotlin.dsl.dependencies
 
 public class CoreBankingManager(
     private val project: Project,
@@ -28,11 +31,11 @@ public class CoreBankingManager(
     public fun configure() {
         if (!ext.enabled.get()) return
 
-//        project.dependencies {
-//            add("implementation", libs.libraryOrThrow(CatalogVersionConstants.Libraries.COREBANKING_CORE))
-//            add("implementation", libs.libraryOrThrow(CatalogVersionConstants.Libraries.COREBANKING_HTTP))
-//            add("implementation", libs.libraryOrThrow(CatalogVersionConstants.Libraries.COREBANKING_SPRING_BOOT))
-//            add("implementation", libs.libraryOrThrow(CatalogVersionConstants.Libraries.COREBANKING_TRANSACTION))
-//        }
+        project.dependencies {
+            add("implementation", libs.libraryOrThrow(CatalogVersionConstants.Libraries.COREBANKING_CORE))
+            add("implementation", libs.libraryOrThrow(CatalogVersionConstants.Libraries.COREBANKING_HTTP))
+            add("implementation", libs.libraryOrThrow(CatalogVersionConstants.Libraries.COREBANKING_SPRING_BOOT))
+            add("implementation", libs.libraryOrThrow(CatalogVersionConstants.Libraries.COREBANKING_TRANSACTION))
+        }
     }
 }

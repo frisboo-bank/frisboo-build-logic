@@ -80,7 +80,7 @@ configure<DetektExtension> {
 }
 
 tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
-    jvmTarget = JvmTarget.JVM_21.target
+    jvmTarget = libs.getVersionOrFail("jvm-target-version")
     autoCorrect = false
 
     reports {

@@ -24,6 +24,8 @@ description = "Gradle plugin that provides conventions for SpringBoot core banki
 dependencies {
     api(project(":convention"))
     api(plugin(libs.plugins.spring.boot))
+    api(plugin(libs.plugins.spring.dependency.management))
+    api(plugin(libs.plugins.kotlin.spring))
 }
 
 fun plugin(plugin: Provider<PluginDependency>) =

@@ -21,6 +21,7 @@ import com.frisboo.corebanking.convention.utils.getVersionOrFail
 import com.frisboo.corebanking.convention.utils.pluginIdOrThrow
 import org.gradle.api.Project
 import org.gradle.api.provider.Provider
+import org.gradle.internal.cc.base.logger
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.dsl.JvmDefaultMode
@@ -37,6 +38,15 @@ public class KotlinLanguage(
     private val jvmTargetVersion = libs.getVersionOrFail(CatalogVersionConstants.Versions.JVM_TARGET_VERSION)
 
     public fun configure() {
+        logger.lifecycle("-----------------------------------------------------")
+        logger.lifecycle("Configuring Kotlin Language settings for project: ${project.name}")
+        logger.lifecycle(" - Kotlin version: $kotlinVersion")
+        logger.lifecycle(" - JVM Target version: $jvmTargetVersion")
+        logger.lifecycle(" - Warnings as Errors: ${warningsAsErrors().get()}")
+        logger.lifecycle(" - Progressive Mode: ${progressiveMode().get()}")
+        logger.lifecycle(" - Additional Opt-Ins: ${additionalOptIns().joinToString()}")
+        logger.lifecycle("-----------------------------------------------------")
+
         project.plugins.withId(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.KOTLIN_JVM)) {
             project.configure<KotlinJvmProjectExtension> {
                 jvmToolchain(jvmTargetVersion.toInt())

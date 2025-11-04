@@ -56,6 +56,7 @@ public object CatalogVersionConstants {
         public const val DOKKA: String = "dokka"
         public const val FRISBOO_COREBANKING_CONVENTION: String = "frisboo.corebanking.convention"
         public const val FRISBOO_COREBANKING_GRPC_CONVENTION: String = "frisboo.corebanking.grpc.convention"
+        public const val FRISBOO_COREBANKING_KOTLIN_CONVENTION: String = "frisboo.corebanking.kotlin.convention"
         public const val FRISBOO_COREBANKING_MESSAGING_CONVENTION: String = "frisboo.corebanking.messaging.convention"
         public const val FRISBOO_COREBANKING_OPENAPI_CONVENTION: String = "frisboo.corebanking.openapi.convention"
         public const val FRISBOO_COREBANKING_PERSISTENCE_CONVENTION: String = "frisboo.corebanking.persistence.convention"

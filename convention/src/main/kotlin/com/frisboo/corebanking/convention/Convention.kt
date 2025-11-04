@@ -16,8 +16,10 @@
 package com.frisboo.corebanking.convention
 
 import com.frisboo.corebanking.convention.extensions.PluginExtension
-import com.frisboo.corebanking.convention.managers.KotlinManager
+import com.frisboo.corebanking.convention.managers.BomManager
+import com.frisboo.corebanking.convention.managers.CoreBankingManager
 import com.frisboo.corebanking.convention.managers.RestrictImportsManager
+import com.frisboo.corebanking.convention.managers.TestingManager
 import com.frisboo.corebanking.convention.managers.language.JavaLanguage
 import com.frisboo.corebanking.convention.managers.language.KotlinLanguage
 import com.frisboo.corebanking.convention.utils.getLibs
@@ -42,25 +44,26 @@ public class Convention : Plugin<Project> {
         JavaLanguage(this).configure()
         KotlinLanguage(this).configure()
 
-        project.afterEvaluate {
-            try {
-                KotlinManager(this, ext.kotlin).configure()
-                RestrictImportsManager(this, ext).configure()
+//        project.afterEvaluate {
+        try {
+            RestrictImportsManager(this, ext).configure()
+            project.pluginManager.apply(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.FRISBOO_COREBANKING_KOTLIN_CONVENTION))
 
-//                project.pluginManager
-//                    .apply(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.FRISBOO_COREBANKING_GRPC_CONVENTION))
-//                project.pluginManager.apply(CatalogVersionConstants.Plugins.FRISBOO_COREBANKING_MESSAGING_CONVENTION)
-//                project.pluginManager.apply(CatalogVersionConstants.Plugins.FRISBOO_COREBANKING_OPENAPI_CONVENTION)
-//                project.pluginManager.apply(CatalogVersionConstants.Plugins.FRISBOO_COREBANKING_OPENAPI_CONVENTION)
-//                project.pluginManager.apply(CatalogVersionConstants.Plugins.FRISBOO_COREBANKING_OPENAPI_CONVENTION)
-//                project.pluginManager.apply(CatalogVersionConstants.Plugins.FRISBOO_COREBANKING_OPENAPI_CONVENTION)
-//                project.pluginManager.apply(CatalogVersionConstants.Plugins.FRISBOO_COREBANKING_OPENAPI_CONVENTION)
-//                BomManager(this, ext.bom).configure()
-//                TestingManager(this, ext.testing).configure()
-            } catch (e: IllegalStateException) {
-                error("Failed to configure Frisboo Core Banking Convention: ${e.message}")
-            }
+            BomManager(this, ext.bom).configure()
+            TestingManager(this, ext.testing).configure()
+            CoreBankingManager(this, ext.coreBanking).configure()
+
+            project.pluginManager.apply(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.FRISBOO_COREBANKING_GRPC_CONVENTION))
+            project.pluginManager.apply(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.FRISBOO_COREBANKING_MESSAGING_CONVENTION))
+            project.pluginManager.apply(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.FRISBOO_COREBANKING_OPENAPI_CONVENTION))
+            project.pluginManager.apply(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.FRISBOO_COREBANKING_PERSISTENCE_CONVENTION))
+            project.pluginManager.apply(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.FRISBOO_COREBANKING_QUALITY_CONVENTION))
+            project.pluginManager.apply(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.FRISBOO_COREBANKING_SPRINGBOOT_CONVENTION))
+            project.pluginManager.apply(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.FRISBOO_COREBANKING_TELEMETRY_CONVENTION))
+        } catch (e: IllegalStateException) {
+            error("Failed to configure Frisboo Core Banking Convention: ${e.message}")
         }
+//        }
 
         tasks.register("frisbooCoreBankingConventionInfo") { t ->
             group = "Help"
