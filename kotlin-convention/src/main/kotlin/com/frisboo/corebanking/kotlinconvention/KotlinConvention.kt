@@ -13,15 +13,17 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-package com.frisboo.corebanking.springbootconvention
+package com.frisboo.corebanking.kotlinconvention
 
+import com.frisboo.corebanking.convention.CatalogVersionConstants
 import com.frisboo.corebanking.convention.utils.getLibs
+import com.frisboo.corebanking.convention.utils.pluginIdOrThrow
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.create
 import org.gradle.kotlin.dsl.repositories
 
-public class SpringBootConvention : Plugin<Project> {
+public class KotlinConvention : Plugin<Project> {
     override fun apply(target: Project): Unit = with(target) {
         repositories {
             mavenCentral()
@@ -30,13 +32,15 @@ public class SpringBootConvention : Plugin<Project> {
         }
 
         val libs = getLibs()
-        val ext = extensions.create<SpringBootExtension>("coreBankingSpringBoot", libs)
+        val ext = extensions.create<KotlinExtension>("coreBankingKotlin", libs)
+
+        project.pluginManager.apply(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.KOTLIN_JVM))
 
         project.afterEvaluate {
             try {
-                SpringBootManager(this, ext).configure()
+                KotlinManager(this, ext).configure()
             } catch (e: IllegalStateException) {
-                error("Failed to configure Frisboo Core Banking SpringBoot Convention: ${e.message}")
+                error("Failed to configure Frisboo Core Banking Kotlin Convention: ${e.message}")
             }
         }
     }

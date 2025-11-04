@@ -67,10 +67,10 @@ import kotlin.collections.Map
 <%={{ }}=%>
 {{/useRequestMappingOnInterface}}
 {{#operations}}
-interface {{classname}} {
+public interface {{classname}} {
 {{#isDelegate}}
 
-    fun getDelegate(): {{classname}}Delegate{{^skipDefaultDelegateInterface}} = object: {{classname}}Delegate {}{{/skipDefaultDelegateInterface}}
+    public fun getDelegate(): {{classname}}Delegate{{^skipDefaultDelegateInterface}} = object: {{classname}}Delegate {}{{/skipDefaultDelegateInterface}}
 {{/isDelegate}}
 {{#operation}}
 
@@ -102,7 +102,7 @@ interface {{classname}} {
             produces = [{{#produces}}"{{{mediaType}}}"{{^-last}}, {{/-last}}{{/produces}}]{{/hasProduces}}{{#hasConsumes}},
             consumes = [{{#consumes}}"{{{mediaType}}}"{{^-last}}, {{/-last}}{{/consumes}}]{{/hasConsumes}}{{/singleContentTypes}}
     )
-    {{#reactive}}{{^isArray}}suspend {{/isArray}}{{#isArray}}{{^useFlowForArrayReturnType}}suspend {{/useFlowForArrayReturnType}}{{/isArray}}{{/reactive}}fun {{operationId}}({{#allParams}}{{>queryParams}}{{>pathParams}}{{>headerParams}}{{>cookieParams}}{{>bodyParams}}{{>formParams}}{{^-last}},{{/-last}}{{/allParams}}): ResponseEntity<{{>returnTypes}}>{{^skipDefaultApiInterface}} {
+    public {{#reactive}}{{^isArray}}suspend {{/isArray}}{{#isArray}}{{^useFlowForArrayReturnType}}suspend {{/useFlowForArrayReturnType}}{{/isArray}}{{/reactive}}fun {{operationId}}({{#allParams}}{{>queryParams}}{{>pathParams}}{{>headerParams}}{{>cookieParams}}{{>bodyParams}}{{>formParams}}{{^-last}},{{/-last}}{{/allParams}}): ResponseEntity<out Any>{{^skipDefaultApiInterface}} {
         {{^isDelegate}}
         return {{>returnValue}}
         {{/isDelegate}}

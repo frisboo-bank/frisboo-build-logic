@@ -19,6 +19,7 @@ import com.frisboo.corebanking.convention.CatalogVersionConstants
 import com.frisboo.corebanking.convention.extensions.TestingExtension
 import com.frisboo.corebanking.convention.utils.getLibs
 import com.frisboo.corebanking.convention.utils.libraryOrThrow
+import com.frisboo.corebanking.convention.utils.onKotlinEnabled
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
 
@@ -29,14 +30,17 @@ public class TestingManager(
     private val libs = project.getLibs()
 
     public fun configure() {
-        project.plugins.withId("org.jetbrains.kotlin.jvm") {
+        project.onKotlinEnabled {
             addKotlinTestingDependencies()
         }
     }
 
     private fun addKotlinTestingDependencies() {
         project.dependencies {
-            add("testImplementation", libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTEST_RUNNER_JUNIT5).get())
+            add(
+                "testImplementation",
+                libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTEST_RUNNER_JUNIT5).get(),
+            )
             add(
                 "testImplementation",
                 libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTEST_ASSERTIONS_CORE).get(),

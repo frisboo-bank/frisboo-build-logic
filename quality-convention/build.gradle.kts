@@ -24,6 +24,9 @@ description = "Gradle plugin that provides conventions for quality core banking 
 dependencies {
     api(project(":convention"))
     api(plugin(libs.plugins.cpd))
+    api(plugin(libs.plugins.detekt))
+    api(plugin(libs.plugins.dokka))
+    api(plugin(libs.plugins.spotless))
 }
 
 fun plugin(plugin: Provider<PluginDependency>) =

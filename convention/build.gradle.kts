@@ -25,6 +25,14 @@ description = "Gradle plugin that provides conventions for core banking apis"
 
 dependencies {
     implementation(libs.restrict.imports.plugin)
+    api(plugin(libs.plugins.frisboo.corebanking.grpc.convention))
+    api(plugin(libs.plugins.frisboo.corebanking.kotlin.convention))
+    api(plugin(libs.plugins.frisboo.corebanking.messaging.convention))
+    api(plugin(libs.plugins.frisboo.corebanking.openapi.convention))
+    api(plugin(libs.plugins.frisboo.corebanking.persistence.convention))
+    api(plugin(libs.plugins.frisboo.corebanking.quality.convention))
+    api(plugin(libs.plugins.frisboo.corebanking.springboot.convention))
+    api(plugin(libs.plugins.frisboo.corebanking.telemetry.convention))
 }
 
 fun plugin(plugin: Provider<PluginDependency>) =

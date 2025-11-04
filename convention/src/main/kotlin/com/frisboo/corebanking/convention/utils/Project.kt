@@ -15,6 +15,7 @@
  */
 package com.frisboo.corebanking.convention.utils
 
+import com.frisboo.corebanking.convention.CatalogVersionConstants
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.artifacts.VersionCatalogsExtension
@@ -23,14 +24,16 @@ public fun Project.getLibs(): VersionCatalog =
     extensions.findByType(VersionCatalogsExtension::class.java)?.named("libs")
         ?: error("Version catalog `libs` not found")
 
-public fun Project.hasJavaSources(): Boolean =
-    fileTree("src")
-        .matching { it.include("**/*.java") }
-        .files
-        .isNotEmpty()
+public fun Project.hasJavaSources(): Boolean = fileTree("src").matching { it.include("**/*.java") }.files.isNotEmpty()
 
-public fun Project.hasKotlinSources(): Boolean =
-    fileTree("src")
-        .matching { it.include("**/*.kt") }
-        .files
-        .isNotEmpty()
+public fun Project.hasKotlinSources(): Boolean = fileTree("src").matching { it.include("**/*.kt") }.files.isNotEmpty()
+
+public fun Project.onKotlinEnabled(action: Project.() -> Unit): Unit =
+    plugins.withId(getLibs().pluginIdOrThrow(CatalogVersionConstants.Plugins.KOTLIN_JVM)) {
+        this.action()
+    }
+
+public fun Project.onSpringBootEnabled(action: Project.() -> Unit): Unit =
+    plugins.withId(getLibs().pluginIdOrThrow(CatalogVersionConstants.Plugins.SPRING_BOOT)) {
+        this.action()
+    }

@@ -18,6 +18,7 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 include("convention")
 include("grpc-convention")
+include("kotlin-convention")
 include("messaging-convention")
 include("openapi-convention")
 include("persistence-convention")

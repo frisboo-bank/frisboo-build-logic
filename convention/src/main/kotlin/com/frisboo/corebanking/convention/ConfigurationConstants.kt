@@ -15,6 +15,8 @@
  */
 package com.frisboo.corebanking.convention
 
+import com.frisboo.corebanking.convention.ConfigurationConstants.Bom.BOM_PREFIX
+
 public object ConfigurationConstants {
     public object Plugin {
         public const val FRISBOO_COREBANKING_VERSION: String = "frisboo-corebanking-version"
@@ -33,27 +35,13 @@ public object ConfigurationConstants {
     public object Bom {
         private const val BOM_PREFIX = "bom"
         public const val ENABLE_BOM: String = "${BOM_PREFIX}.enabled"
-        public const val ARROW_KT: String = "${BOM_PREFIX}.arrowKt.enabled"
         public const val CORE_BANKING: String = "${BOM_PREFIX}.coreBanking.enabled"
         public const val EXPOSED: String = "${BOM_PREFIX}.exposed.enabled"
         public const val JACKSON: String = "${BOM_PREFIX}.jackson.enabled"
         public const val JUNIT: String = "${BOM_PREFIX}.junit.enabled"
-        public const val KOTLIN: String = "${BOM_PREFIX}.kotlin.enabled"
-        public const val KOTLINX_COROUTINES: String = "${BOM_PREFIX}.kotlinxCoroutines.enabled"
         public const val SPRINGDOC_OPENAPI: String = "${BOM_PREFIX}.springdocOpenapi.enabled"
         public const val SPRING_BOOT: String = "${BOM_PREFIX}.springBoot.enabled"
         public const val TESTCONTAINERS: String = "${BOM_PREFIX}.testcontainers.enabled"
-    }
-
-    public object Kotlin {
-        private const val KOTLIN_PREFIX = "kotlin"
-        public const val ARROW_KT_ENABLED: String = "${KOTLIN_PREFIX}.arrow.enabled"
-        public const val COROUTINES_ENABLED: String = "${KOTLIN_PREFIX}.coroutines.enabled"
-        public const val COROUTINES_REACTOR_ENABLED: String = "${KOTLIN_PREFIX}.coroutinesReactor.enabled"
-        public const val ENABLE_KOTLIN: String = "${KOTLIN_PREFIX}.enabled"
-        public const val JETBRAINS_ANNOTATIONS_ENABLED: String = "${KOTLIN_PREFIX}.jetbrainsAnnotations.enabled"
-        public const val KOTLIN_REFLECT_ENABLED: String = "${KOTLIN_PREFIX}.reflect.enabled"
-        public const val REACTOR_KOTLIN_EXTENSIONS_ENABLED: String = "${KOTLIN_PREFIX}.kotlinExtensions.enabled"
     }
 
     public object Testing {

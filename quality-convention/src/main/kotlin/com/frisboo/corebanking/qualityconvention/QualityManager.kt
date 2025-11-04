@@ -18,7 +18,9 @@ package com.frisboo.corebanking.qualityconvention
 import com.frisboo.corebanking.convention.utils.getLibs
 import com.frisboo.corebanking.qualityconvention.managers.configureCpd
 import com.frisboo.corebanking.qualityconvention.managers.configureDetekt
+import com.frisboo.corebanking.qualityconvention.managers.configureSpotless
 import org.gradle.api.Project
+import org.gradle.internal.cc.base.logger
 
 public class QualityManager(
     private val project: Project,
@@ -27,9 +29,15 @@ public class QualityManager(
     private val libs = project.getLibs()
 
     public fun configure() {
+        logger.lifecycle("-----------------------------------------------------------")
+        logger.lifecycle("Configuring Quality settings for project: ${project.name}")
+        logger.lifecycle(" - Enabled: ${ext.enabled.get()}")
+        logger.lifecycle("-----------------------------------------------------------")
+
         if (!ext.enabled.get()) return
 
         project.configureCpd(ext, libs)
         project.configureDetekt(ext, libs)
+        project.configureSpotless(ext, libs)
     }
 }

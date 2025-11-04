@@ -65,6 +65,5 @@ public open class PluginExtension
 
         public val bom: BomExtension = objects.newInstance<BomExtension>(libs)
         public val coreBanking: CoreBankingExtension = objects.newInstance<CoreBankingExtension>(libs)
-        public val kotlin: KotlinExtension = objects.newInstance<KotlinExtension>(libs)
         public val testing: TestingExtension = objects.newInstance<TestingExtension>(libs)
     }

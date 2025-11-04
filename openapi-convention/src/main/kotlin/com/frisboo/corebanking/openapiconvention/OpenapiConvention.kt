@@ -18,10 +18,13 @@ package com.frisboo.corebanking.openapiconvention
 import com.frisboo.corebanking.convention.utils.getLibs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.tasks.SourceSetContainer
 import org.gradle.kotlin.dsl.create
+import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.repositories
 
 public class OpenapiConvention : Plugin<Project> {
+
     override fun apply(target: Project): Unit =
         with(target) {
             repositories {

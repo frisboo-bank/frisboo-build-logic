@@ -16,12 +16,19 @@
 package com.frisboo.corebanking.springbootconvention
 
 import com.frisboo.corebanking.convention.CatalogVersionConstants
+import com.frisboo.corebanking.convention.utils.applyBomIfEnabled
 import com.frisboo.corebanking.convention.utils.getLibs
+import com.frisboo.corebanking.convention.utils.getVersionOrFail
 import com.frisboo.corebanking.convention.utils.libraryOrThrow
+import com.frisboo.corebanking.convention.utils.onKotlinEnabled
 import com.frisboo.corebanking.convention.utils.pluginIdOrThrow
 import org.gradle.api.Project
+import org.gradle.internal.cc.base.logger
+import org.gradle.kotlin.dsl.attributes
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
+import org.gradle.kotlin.dsl.named
+import org.springframework.boot.gradle.tasks.bundling.BootJar
 import org.springframework.boot.gradle.dsl.SpringBootExtension as SpringBootDslExtension
 
 public class SpringBootManager(
@@ -31,23 +38,30 @@ public class SpringBootManager(
     private val libs = project.getLibs()
 
     public fun configure() {
-        println("--- Configuring Spring Boot Manager ---")
-        println(" - Enabled: ${ext.enabled.get()}")
-        println("---------------------------------------")
+        logger.lifecycle("-----------------------------------------------------")
+        logger.lifecycle("Configuring Spring Boot settings for project: ${project.name}")
+        logger.lifecycle(" - Enabled: ${ext.enabled.get()}")
+        logger.lifecycle(" - Spring Boot version: ${libs.getVersionOrFail(CatalogVersionConstants.Versions.SPRING_BOOT_VERSION)}")
+        logger.lifecycle(" - Apply Spring Boot BOM: ${ext.springBootBom.enabled.get()}")
+        logger.lifecycle("-----------------------------------------------------")
 
         if (!ext.enabled.get()) return
 
         project.pluginManager.apply(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.SPRING_BOOT))
         project.pluginManager.apply(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.SPRING_DEPENDENCY_MANAGEMENT))
 
-        project.plugins.withId(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.KOTLIN_JVM)) {
+        project.onKotlinEnabled {
             project.pluginManager.apply(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.KOTLIN_SPRING))
         }
 
         project.dependencies {
+            applyBomIfEnabled(ext.springBootBom)
             add("implementation", libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_ACTUATOR))
             add("implementation", libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_HATEOAS))
-            add("implementation", libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_VALIDATION))
+            add(
+                "implementation",
+                libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_VALIDATION),
+            )
             add("implementation", libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_WEBFLUX))
 
             add("developmentOnly", libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_DEVTOOLS))
@@ -63,6 +77,16 @@ public class SpringBootManager(
 
         project.extensions.configure<SpringBootDslExtension> {
             buildInfo()
+        }
+
+        project.tasks.named<BootJar>("bootJar") {
+            archiveFileName.set("${project.name}-${project.version}.jar")
+            manifest.attributes(
+                "Implementation-Title" to project.name,
+                "Implementation-Version" to project.version,
+                "Built-By" to "Frisboo Core Banking",
+                "Build-Timestamp" to java.time.Instant.now(),
+            )
         }
     }
 }
