@@ -15,7 +15,6 @@
  */
 package com.frisboo.corebanking.qualityconvention.extensions
 
-import com.frisboo.corebanking.convention.ConfigurationConstants
 import com.frisboo.corebanking.convention.utils.gradleProperty
 import com.frisboo.corebanking.qualityconvention.QualityConstants
 import org.gradle.api.model.ObjectFactory
@@ -34,7 +33,7 @@ public open class OwaspDepCheckExtension
             objects.property<Boolean>().convention(
                 providers
                     .gradleProperty(
-                        QualityConstants.Configuration.OWASP_DEP_CHECK_ENABLED,
+                        QualityConstants.Configuration.ENABLE_OWASP_DEP_CHECK,
                         String::toBoolean,
                     ).orElse(true),
             )

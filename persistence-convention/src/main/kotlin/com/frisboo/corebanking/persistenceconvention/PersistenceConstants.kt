@@ -17,7 +17,7 @@ package com.frisboo.corebanking.persistenceconvention
 
 public object PersistenceConstants {
     public object Configuration {
-        public const val ENABLE_PERSISTENCE: String = "enabled"
+        public const val ENABLE_EXPOSED_BOM: String = "exposedBom.enabled"
         public const val ENABLE_EXPOSED: String = "exposed.enabled"
         public const val ENABLE_H2: String = "h2.enabled"
         public const val ENABLE_MONGODB: String = "mongodb.enabled"

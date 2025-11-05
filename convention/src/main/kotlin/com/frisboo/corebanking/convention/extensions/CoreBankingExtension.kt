@@ -15,13 +15,12 @@
  */
 package com.frisboo.corebanking.convention.extensions
 
+import com.frisboo.corebanking.convention.CatalogVersionConstants
 import com.frisboo.corebanking.convention.ConfigurationConstants
-import com.frisboo.corebanking.convention.utils.gradleProperty
+import com.frisboo.corebanking.convention.extensions.boms.BomExtensionSpec
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.model.ObjectFactory
-import org.gradle.api.provider.Property
 import org.gradle.api.provider.ProviderFactory
-import org.gradle.kotlin.dsl.property
 import javax.inject.Inject
 
 public open class CoreBankingExtension
@@ -31,14 +30,12 @@ public open class CoreBankingExtension
         providers: ProviderFactory,
         libs: VersionCatalog,
     ) {
-        public val enabled: Property<Boolean> =
-            objects.property<Boolean>().convention(
-                providers
-                    .gradleProperty(
-                        ConfigurationConstants.CoreBanking.ENABLE_COREBANKING,
-                        String::toBoolean,
-                    ).orElse(true),
+        public val coreBankingBom: BomExtensionSpec =
+            objects.newInstance(
+                BomExtensionSpec::class.java,
+                libs,
+                CatalogVersionConstants.Libraries.COREBANKING_BOM,
+                ConfigurationConstants.Bom.CORE_BANKING,
+                false,
             )
-
-        public fun enabled(value: Boolean): Unit = enabled.set(value)
     }

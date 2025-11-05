@@ -15,10 +15,8 @@
  */
 package com.frisboo.corebanking.convention.extensions
 
-import com.frisboo.corebanking.convention.ConfigurationConstants
 import com.frisboo.corebanking.convention.extensions.boms.BomExtension
 import com.frisboo.corebanking.convention.utils.getVersionOrFail
-import com.frisboo.corebanking.convention.utils.gradleProperty
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.file.ProjectLayout
 import org.gradle.api.model.ObjectFactory
@@ -65,5 +63,4 @@ public open class PluginExtension
 
         public val bom: BomExtension = objects.newInstance<BomExtension>(libs)
         public val coreBanking: CoreBankingExtension = objects.newInstance<CoreBankingExtension>(libs)
-        public val testing: TestingExtension = objects.newInstance<TestingExtension>(libs)
     }

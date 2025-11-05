@@ -17,15 +17,16 @@ package com.frisboo.corebanking.kotlinconvention
 
 public object KotlinConstants {
     public object Configuration {
-        public const val ARROW_KT_BOM_ENABLED: String = "arrowKtBom.enabled"
-        public const val KOTLIN_BOM_ENABLED: String = "kotlinBom.enabled"
-        public const val KOTLINX_COROUTINES_BOM_ENABLED: String = "kotlinxCoroutinesBom.enabled"
-        public const val ARROW_KT_ENABLED: String = "arrow.enabled"
-        public const val COROUTINES_ENABLED: String = "coroutines.enabled"
-        public const val COROUTINES_REACTOR_ENABLED: String = "coroutinesReactor.enabled"
-        public const val ENABLE_KOTLIN: String = "enabled"
-        public const val JETBRAINS_ANNOTATIONS_ENABLED: String = "jetbrainsAnnotations.enabled"
-        public const val KOTLIN_REFLECT_ENABLED: String = "reflect.enabled"
-        public const val REACTOR_KOTLIN_EXTENSIONS_ENABLED: String = "kotlinExtensions.enabled"
+        public const val ENABLE_ARROW_KT_BOM: String = "arrowKtBom.enabled"
+        public const val ENABLE_KOTLIN_BOM: String = "kotlinBom.enabled"
+        public const val ENABLE_KOTLINX_COROUTINES_BOM: String = "kotlinxCoroutinesBom.enabled"
+        public const val ENABLE_REACTOR_BOM: String = "reactorBom.enabled"
+
+        public const val ENABLE_ARROW_KT: String = "arrow.enabled"
+        public const val ENABLE_COROUTINES: String = "coroutines.enabled"
+        public const val ENABLE_COROUTINES_REACTOR: String = "coroutinesReactor.enabled"
+        public const val ENABLE_JETBRAINS_ANNOTATIONS: String = "jetbrainsAnnotations.enabled"
+        public const val ENABLE_KOTLIN_REFLECT: String = "reflect.enabled"
+        public const val ENABLE_REACTOR_KOTLIN_EXTENSIONS: String = "kotlinExtensions.enabled"
     }
 }

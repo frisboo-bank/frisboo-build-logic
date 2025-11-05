@@ -33,7 +33,7 @@ public open class SpotbugsExtension
             objects.property<Boolean>().convention(
                 providers
                     .gradleProperty(
-                        QualityConstants.Configuration.SPOTBUGS_ENABLED,
+                        QualityConstants.Configuration.ENABLE_SPOTBUGS,
                         String::toBoolean,
                     ).orElse(true),
             )

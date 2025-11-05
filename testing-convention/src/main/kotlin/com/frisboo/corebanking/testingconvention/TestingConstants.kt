@@ -13,11 +13,13 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-package com.frisboo.corebanking.openapiconvention
+package com.frisboo.corebanking.testingconvention
 
-public object OpenapiConstants {
+public object TestingConstants {
     public object Configuration {
-        public const val ENABLE_SPRINGDOC_OPENAPI_BOM: String = "springdocOpenapiBom.enabled"
-        public const val ENABLE_SPRINGDOC_OPENAPI_WEBFLUX: String = "springdocOpenapiWebflux.enabled"
+        public const val ENABLE_TESTCONTAINERS_BOM: String = "testcontainersBom.enabled"
+        public const val ENABLE_JUNIT_BOM: String = "junitBom.enabled"
+
+        public const val ENABLE_TESTCONTAINERS: String = "testcontainers.enabled"
     }
 }

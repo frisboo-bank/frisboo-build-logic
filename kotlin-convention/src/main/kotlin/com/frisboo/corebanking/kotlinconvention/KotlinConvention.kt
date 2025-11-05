@@ -24,24 +24,25 @@ import org.gradle.kotlin.dsl.create
 import org.gradle.kotlin.dsl.repositories
 
 public class KotlinConvention : Plugin<Project> {
-    override fun apply(target: Project): Unit = with(target) {
-        repositories {
-            mavenCentral()
-            gradlePluginPortal()
-            mavenLocal()
-        }
+    override fun apply(target: Project): Unit =
+        with(target) {
+            repositories {
+                mavenCentral()
+                gradlePluginPortal()
+                mavenLocal()
+            }
 
-        val libs = getLibs()
-        val ext = extensions.create<KotlinExtension>("coreBankingKotlin", libs)
+            val libs = getLibs()
+            val ext = extensions.create<KotlinExtension>("coreBankingKotlin", libs)
 
-        project.pluginManager.apply(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.KOTLIN_JVM))
+            project.pluginManager.apply(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.KOTLIN_JVM))
 
-        project.afterEvaluate {
-            try {
-                KotlinManager(this, ext).configure()
-            } catch (e: IllegalStateException) {
-                error("Failed to configure Frisboo Core Banking Kotlin Convention: ${e.message}")
+            project.afterEvaluate {
+                try {
+                    KotlinManager(this, ext).configure()
+                } catch (e: IllegalStateException) {
+                    error("Failed to configure Frisboo Core Banking Kotlin Convention: ${e.message}")
+                }
             }
         }
-    }
 }

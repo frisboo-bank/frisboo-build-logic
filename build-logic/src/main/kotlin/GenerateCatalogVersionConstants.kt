@@ -7,12 +7,6 @@ import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.TaskAction
 import java.io.File
 import java.util.Locale.getDefault
-import kotlin.io.println
-import kotlin.io.writeText
-import kotlin.text.get
-import kotlin.text.replace
-import kotlin.text.trimMargin
-import kotlin.text.uppercase
 
 public abstract class GenerateCatalogVersionConstants : DefaultTask() {
 
@@ -47,7 +41,7 @@ public abstract class GenerateCatalogVersionConstants : DefaultTask() {
         val outputDir = outputDir.get().asFile
         val namespace = namespace.get()
 
-        logger.lifecycle(
+        logger.debug(
             "Generating catalog constants in $outputDir for "
                     + "version: ${versionAliases.size}"
                     + ", plugins: ${pluginAliases.size}"
@@ -103,7 +97,7 @@ public abstract class GenerateCatalogVersionConstants : DefaultTask() {
 
         outputFile.writeText(content)
 
-        logger.lifecycle("Generated version catalog constants at: ${outputFile.absolutePath}")
+        logger.debug("Generated version catalog constants at: ${outputFile.absolutePath}")
     }
 }
 

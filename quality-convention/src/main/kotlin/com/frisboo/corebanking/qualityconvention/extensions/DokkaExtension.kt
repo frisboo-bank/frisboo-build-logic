@@ -31,6 +31,6 @@ public open class DokkaExtension
     ) {
         public val enabled: Property<Boolean> =
             objects.property<Boolean>().convention(
-                providers.gradleProperty(QualityConstants.Configuration.DOKKA_ENABLED, String::toBoolean).orElse(true),
+                providers.gradleProperty(QualityConstants.Configuration.ENABLE_DOKKA, String::toBoolean).orElse(true),
             )
     }

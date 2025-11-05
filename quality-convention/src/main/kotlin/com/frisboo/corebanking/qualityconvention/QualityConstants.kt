@@ -17,19 +17,19 @@ package com.frisboo.corebanking.qualityconvention
 
 public object QualityConstants {
     public object Configuration {
-        public const val ENABLE_QUALITY: String = "enabled"
-        public const val CPD_ENABLED: String = "cpd.enabled"
-        public const val DETEKT_ENABLED: String = "detekt.enabled"
-        public const val DOKKA_ENABLED: String = "dokka.enabled"
-        public const val JACOCO_ENABLED: String = "jacoco.enabled"
-        public const val KOVER_ENABLED: String = "kover.enabled"
-        public const val KOVER_THRESHOLDS_ENABLED: String = "kover.thresholds.enabled"
-        public const val KTLINT_ENABLED: String = "ktlint.enabled"
-        public const val OWASP_DEP_CHECK_ENABLED: String = "owasp.enabled"
+        public const val ENABLE_CPD: String = "cpd.enabled"
+        public const val ENABLE_DETEKT: String = "detekt.enabled"
+        public const val ENABLE_DOKKA: String = "dokka.enabled"
+        public const val ENABLE_JACOCO: String = "jacoco.enabled"
+        public const val ENABLE_KOVER: String = "kover.enabled"
+        public const val ENABLE_KOVER_THRESHOLDS: String = "kover.thresholds.enabled"
+        public const val ENABLE_KTLINT: String = "ktlint.enabled"
+        public const val ENABLE_OWASP_DEP_CHECK: String = "owasp.enabled"
+        public const val ENABLE_PITEST: String = "pitest.enabled"
+        public const val ENABLE_PMD: String = "pmd.enabled"
+        public const val ENABLE_SPOTBUGS: String = "spotbugs.enabled"
+        public const val ENABLE_SPOTLESS: String = "spotless.enabled"
+
         public const val OWASP_FAIL_ON_VULNERABILITIES: String = "owasp.failOnVulnerabilities"
-        public const val PITEST_ENABLED: String = "pitest.enabled"
-        public const val PMD_ENABLED: String = "pmd.enabled"
-        public const val SPOTBUGS_ENABLED: String = "spotbugs.enabled"
-        public const val SPOTLESS_ENABLED: String = "spotless.enabled"
     }
 }

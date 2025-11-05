@@ -38,12 +38,13 @@ gradlePlugin {
                 id = "com.frisboo.corebanking.kotlin-convention"
                 displayName = "Frisboo Core Banking Kotlin Convention"
                 description = "Gradle plugin that provides conventions for kotlin core banking apis"
-                tags = listOf(
-                    "frisboo",
-                    "frisboo-core-banking",
-                    "convention-plugin",
-                    "Kotlin",
-                )
+                tags =
+                    listOf(
+                        "frisboo",
+                        "frisboo-core-banking",
+                        "convention-plugin",
+                        "Kotlin",
+                    )
                 implementationClass = "com.frisboo.corebanking.kotlinconvention.KotlinConvention"
             },
         )

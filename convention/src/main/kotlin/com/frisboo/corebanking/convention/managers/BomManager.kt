@@ -37,10 +37,6 @@ public class BomManager(
     private fun DependencyHandler.configurePredefined() {
         listOf(
             Triple(ext.coreBanking.enabled, ext.coreBanking.coordinates, ext.coreBanking.testOnly),
-            Triple(ext.exposed.enabled, ext.exposed.coordinates, ext.exposed.testOnly),
-            Triple(ext.jackson.enabled, ext.jackson.coordinates, ext.jackson.testOnly),
-            Triple(ext.junit.enabled, ext.junit.coordinates, ext.junit.testOnly),
-            Triple(ext.testcontainers.enabled, ext.testcontainers.coordinates, ext.testcontainers.testOnly),
         ).forEach { (enabled, coordinates, testOnly) -> applyIfEnabled(enabled, coordinates, testOnly) }
     }
 

@@ -1,8 +1,21 @@
-// Auto-generated file. Do not modify.
+/*
+ * Copyright 2025 Frisboo Bank
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
 package com.frisboo.corebanking.convention
 
 public object CatalogVersionConstants {
-
     public object Versions {
         public const val ARROWKT_VERSION: String = "arrowkt.version"
         public const val CPD_VERSION: String = "cpd.version"
@@ -11,7 +24,6 @@ public object CatalogVersionConstants {
         public const val DOKKA_VERSION: String = "dokka.version"
         public const val EXPOSED_VERSION: String = "exposed.version"
         public const val FRISBOO_COREBANKING_VERSION: String = "frisboo.corebanking.version"
-        public const val FRISBOO_OPENAPI_CONVENTION_VERSION: String = "frisboo.openapi.convention.version"
         public const val GRADLE_VERSIONS_VERSION: String = "gradle.versions.version"
         public const val GRPC_KOTLIN_STUB_VERSION: String = "grpc.kotlin.stub.version"
         public const val GRPC_PROTOBUF_VERSION: String = "grpc.protobuf.version"
@@ -50,19 +62,20 @@ public object CatalogVersionConstants {
     }
 
     public object Plugins {
+        public const val COREBANKING_CONVENTION: String = "corebanking.convention"
+        public const val COREBANKING_GRPC_CONVENTION: String = "corebanking.grpc.convention"
+        public const val COREBANKING_KOTLIN_CONVENTION: String = "corebanking.kotlin.convention"
+        public const val COREBANKING_MESSAGING_CONVENTION: String = "corebanking.messaging.convention"
+        public const val COREBANKING_OPENAPI_CONVENTION: String = "corebanking.openapi.convention"
+        public const val COREBANKING_PERSISTENCE_CONVENTION: String = "corebanking.persistence.convention"
+        public const val COREBANKING_QUALITY_CONVENTION: String = "corebanking.quality.convention"
+        public const val COREBANKING_SPRINGBOOT_CONVENTION: String = "corebanking.springboot.convention"
+        public const val COREBANKING_TELEMETRY_CONVENTION: String = "corebanking.telemetry.convention"
+        public const val COREBANKING_TESTING_CONVENTION: String = "corebanking.testing.convention"
         public const val CPD: String = "cpd"
         public const val DEPENDENCY_ANALYSIS: String = "dependency.analysis"
         public const val DETEKT: String = "detekt"
         public const val DOKKA: String = "dokka"
-        public const val FRISBOO_COREBANKING_CONVENTION: String = "frisboo.corebanking.convention"
-        public const val FRISBOO_COREBANKING_GRPC_CONVENTION: String = "frisboo.corebanking.grpc.convention"
-        public const val FRISBOO_COREBANKING_KOTLIN_CONVENTION: String = "frisboo.corebanking.kotlin.convention"
-        public const val FRISBOO_COREBANKING_MESSAGING_CONVENTION: String = "frisboo.corebanking.messaging.convention"
-        public const val FRISBOO_COREBANKING_OPENAPI_CONVENTION: String = "frisboo.corebanking.openapi.convention"
-        public const val FRISBOO_COREBANKING_PERSISTENCE_CONVENTION: String = "frisboo.corebanking.persistence.convention"
-        public const val FRISBOO_COREBANKING_QUALITY_CONVENTION: String = "frisboo.corebanking.quality.convention"
-        public const val FRISBOO_COREBANKING_SPRINGBOOT_CONVENTION: String = "frisboo.corebanking.springboot.convention"
-        public const val FRISBOO_COREBANKING_TELEMETRY_CONVENTION: String = "frisboo.corebanking.telemetry.convention"
         public const val GRADLE_VERSIONS: String = "gradle.versions"
         public const val KOTLIN_JVM: String = "kotlin.jvm"
         public const val KOTLIN_SPRING: String = "kotlin.spring"
@@ -82,6 +95,7 @@ public object CatalogVersionConstants {
         public const val ARROW_KT_BOM: String = "arrow.kt.bom"
         public const val ARROW_KT_CORE: String = "arrow.kt.core"
         public const val ARROW_KT_COROUTINES: String = "arrow.kt.coroutines"
+        public const val COREBANKING_BOM: String = "corebanking.bom"
         public const val COREBANKING_CORE: String = "corebanking.core"
         public const val COREBANKING_HTTP: String = "corebanking.http"
         public const val COREBANKING_SPRING_BOOT: String = "corebanking.spring.boot"
@@ -92,7 +106,6 @@ public object CatalogVersionConstants {
         public const val EXPOSED_KOTLIN_DATETIME: String = "exposed.kotlin.datetime"
         public const val EXPOSED_R2DBC: String = "exposed.r2dbc"
         public const val EXPOSED_SPRING_BOOT_STARTER: String = "exposed.spring.boot.starter"
-        public const val FRISBOO_COREBANKING_BOM: String = "frisboo.corebanking.bom"
         public const val GRPC_KOTLIN_STUB: String = "grpc.kotlin.stub"
         public const val GRPC_NETTY_SHADED: String = "grpc.netty.shaded"
         public const val GRPC_PROTOBUF: String = "grpc.protobuf"
@@ -128,7 +141,8 @@ public object CatalogVersionConstants {
         public const val SPRING_BOOT_BOM: String = "spring.boot.bom"
         public const val SPRING_BOOT_CONFIGURATION_PROCESSOR: String = "spring.boot.configuration.processor"
         public const val SPRING_BOOT_DEVTOOLS: String = "spring.boot.devtools"
-        public const val SPRING_BOOT_SECURITY_TEST: String = "spring.boot.security.test"
+        public const val SPRING_BOOT_KAFKA: String = "spring.boot.kafka"
+        public const val SPRING_BOOT_KAFKA_TEST: String = "spring.boot.kafka.test"
         public const val SPRING_BOOT_STARTER_ACTUATOR: String = "spring.boot.starter.actuator"
         public const val SPRING_BOOT_STARTER_DATA_MONGODB: String = "spring.boot.starter.data.mongodb"
         public const val SPRING_BOOT_STARTER_HATEOAS: String = "spring.boot.starter.hateoas"
@@ -140,12 +154,12 @@ public object CatalogVersionConstants {
         public const val SPRINGDOC_OPENAPI_STARTER_WEBFLUX_API: String = "springdoc.openapi.starter.webflux.api"
         public const val SPRINGDOC_OPENAPI_STARTER_WEBFLUX_UI: String = "springdoc.openapi.starter.webflux.ui"
         public const val TESTCONTAINERS_BOM: String = "testcontainers.bom"
+        public const val TESTCONTAINERS_H2: String = "testcontainers.h2"
         public const val TESTCONTAINERS_JUNIT_JUPITER: String = "testcontainers.junit.jupiter"
+        public const val TESTCONTAINERS_KAFKA: String = "testcontainers.kafka"
         public const val TESTCONTAINERS_MONGODB: String = "testcontainers.mongodb"
         public const val TESTCONTAINERS_POSTGRESQL: String = "testcontainers.postgresql"
     }
 
-    public object Bundles {
-
-    }
+    public object Bundles
 }

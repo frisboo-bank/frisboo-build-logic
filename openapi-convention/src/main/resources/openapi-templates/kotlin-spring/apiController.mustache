@@ -12,7 +12,7 @@ import java.util.Optional
 <%={{ }}=%>
 {{/useRequestMappingOnController}}
 {{#operations}}
-public class {{classname}}Controller(
+public open class {{classname}}Controller(
 {{#skipDefaultDelegateInterface}}
     private val delegate: {{classname}}Delegate
 {{/skipDefaultDelegateInterface}}

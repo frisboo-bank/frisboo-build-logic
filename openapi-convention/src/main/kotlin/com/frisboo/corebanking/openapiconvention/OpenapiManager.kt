@@ -24,7 +24,6 @@ import com.frisboo.corebanking.convention.utils.onSpringBootEnabled
 import com.frisboo.corebanking.convention.utils.pluginIdOrThrow
 import org.gradle.api.Project
 import org.gradle.api.Task
-import org.gradle.api.file.Directory
 import org.gradle.api.tasks.Delete
 import org.gradle.api.tasks.SourceSetContainer
 import org.gradle.api.tasks.compile.JavaCompile
@@ -36,7 +35,6 @@ import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.openapitools.generator.gradle.plugin.extensions.OpenApiGeneratorGenerateExtension
 import org.openapitools.generator.gradle.plugin.extensions.OpenApiGeneratorValidateExtension
-import java.net.URL
 
 public class OpenapiManager(
     private val project: Project,
@@ -45,12 +43,18 @@ public class OpenapiManager(
     private val libs = project.getLibs()
 
     public fun configure() {
-        logger.lifecycle("-----------------------------------")
-        logger.lifecycle("Configuring OpenAPI settings for project: ${project.name}")
-        logger.lifecycle(" - Enabled: ${ext.enabled.get()}")
-        logger.lifecycle("-----------------------------------")
-
-        if (!ext.enabled.get()) return
+        logger.debug("-----------------------------------")
+        logger.debug("Configuring OpenAPI settings for project: ${project.name}")
+        logger.debug(" - Input Dir: ${ext.inputDir.get()}")
+        logger.debug(" - Schema Filename: ${ext.schemaFilename.get()}")
+        logger.debug(" - Output Dir: ${ext.outputDir.get()}")
+        logger.debug(" - Package Name: ${ext.packageName.get()}")
+        logger.debug(" - Generate APIs: ${ext.generateApis.get()}")
+        logger.debug(" - Generate Models: ${ext.generateModels.get()}")
+        logger.debug(" - Generate API Tests: ${ext.generateApiTests.get()}")
+        logger.debug(" - Generate Model Tests: ${ext.generateModelTests.get()}")
+        logger.debug(" - Validate Spec: ${ext.validateSpec.get()}")
+        logger.debug("-----------------------------------")
 
         project.pluginManager.apply(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.OPENAPI_GENERATOR))
 
@@ -77,37 +81,23 @@ public class OpenapiManager(
         val generatedInputSpec =
             ext.inputDir.zip(ext.schemaFilename) { dir, filename -> dir.file(filename).asFile.absolutePath }
 
-        val userTemplateDir = project.layout.buildDirectory.dir("openapi-templates").get()
-
-        // Create a task to copy templates FIRST
-        val copyOpenapiTemplatesTask = project.tasks.register<Task>("copyOpenapiTemplates") {
-            group = "openapi"
-            description = "Copies OpenAPI templates to build directory"
-
-            val templatesUrl = OpenapiManager::class.java.classLoader.getResource("openapi-templates")
-                ?: error("Failed to locate OpenAPI templates for kotlin-spring generator")
-
-            inputs.property("templatesUrl", templatesUrl.toString())
-            outputs.dir(userTemplateDir)
-
-            doFirst {
-                userTemplateDir.asFile.mkdirs()
-                templatesUrl.copyWithRecurtion(userTemplateDir)
-
-                val templateFiles = userTemplateDir.asFile.walk().filter { it.isFile }.toList()
-                logger.lifecycle("Copied ${templateFiles.size} template files to: ${userTemplateDir.asFile.absolutePath}")
-            }
-        }
+        val userTemplateDir =
+            project.layout.buildDirectory
+                .dir("openapi-templates")
+                .get()
 
         project.extensions.configure<OpenApiGeneratorGenerateExtension> {
             generatorName.set("kotlin-spring")
             inputSpec.set(generatedInputSpec)
             outputDir.set(
-                ext.outputDir.get().asFile.absolutePath,
+                ext.outputDir
+                    .get()
+                    .asFile.absolutePath,
             )
             packageName.set(ext.packageName)
             id.set("openapi-documentation")
             templateDir.set(userTemplateDir.dir("kotlin-spring").asFile.absolutePath)
+            modelNameSuffix.set("Dto")
 
             verbose.set(false)
             logToStderr.set(true)
@@ -129,9 +119,6 @@ public class OpenapiManager(
                 ),
             )
 
-            logger.lifecycle(userTemplateDir.dir("kotlin-spring").asFile.absolutePath)
-
-            // Configure template directory - this will be available during execution
             configOptions.set(
                 mapOf(
                     "useSpringBoot3" to "true",
@@ -162,19 +149,45 @@ public class OpenapiManager(
             }
         }
 
-        // Clean task for generated sources
-        val cleanOpenApi = project.tasks.register<Delete>("cleanOpenApi") {
-            group = "build"
-            description = "Cleans generated OpenAPI sources"
-            delete(ext.outputDir)
-            delete(userTemplateDir) // Also clean the template directory
+        // Create a task to copy templates FIRST
+        project.tasks.register<Task>("copyOpenapiTemplates") {
+            group = "openapi tools"
+            description = "Copies OpenAPI templates to build directory"
+
+            val templatesUrl =
+                OpenapiManager::class.java.classLoader.getResource("openapi-templates")
+                    ?: error("Failed to locate OpenAPI templates for kotlin-spring generator")
+
+            inputs.property("templatesUrl", templatesUrl.toString())
+            outputs.dir(userTemplateDir)
+
+            doFirst {
+                userTemplateDir.asFile.mkdirs()
+                templatesUrl.copyWithRecurtion(userTemplateDir)
+
+                val templateFiles =
+                    userTemplateDir.asFile
+                        .walk()
+                        .filter { it.isFile }
+                        .toList()
+                logger.debug("Copied ${templateFiles.size} template files to: ${userTemplateDir.asFile.absolutePath}")
+            }
         }
+
+        // Clean task for generated sources
+        val cleanOpenApi =
+            project.tasks.register<Delete>("cleanOpenApi") {
+                group = "openapi tools"
+                description = "Cleans generated OpenAPI sources"
+                delete(ext.outputDir)
+                delete(userTemplateDir) // Also clean the template directory
+            }
         project.tasks.named("clean").configure { it.dependsOn(cleanOpenApi) }
 
         // Wire the tasks in the correct order
         val openApiGenerateTask = project.tasks.named("openApiGenerate")
         openApiGenerateTask.configure {
-            it.dependsOn(copyOpenapiTemplatesTask) // Templates must be copied BEFORE generation
+            it.dependsOn("copyOpenapiTemplates")
         }
 
         project.tasks.withType<KotlinCompile>().configureEach {
@@ -189,7 +202,11 @@ public class OpenapiManager(
             it.inputs.property("recommend", ext.recommend.get())
 
             it.doFirst {
-                if (!ext.inputDir.get().asFile.exists()) {
+                if (!ext.inputDir
+                        .get()
+                        .asFile
+                        .exists()
+                ) {
                     it.logger.warn("OpenAPI schema directory does not exist: ${ext.inputDir.get()}")
                 }
             }
@@ -197,6 +214,10 @@ public class OpenapiManager(
 
         project.tasks.named("check") {
             it.dependsOn(project.tasks.named("openApiValidate"))
+        }
+
+        project.tasks.named("spotlessApply") {
+            it.dependsOn(openApiGenerateTask)
         }
     }
 }

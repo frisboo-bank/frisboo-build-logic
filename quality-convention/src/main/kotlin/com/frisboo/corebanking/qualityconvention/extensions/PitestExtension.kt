@@ -31,6 +31,10 @@ public open class PitestExtension
     ) {
         public val enabled: Property<Boolean> =
             objects.property<Boolean>().convention(
-                providers.gradleProperty(QualityConstants.Configuration.PITEST_ENABLED, String::toBoolean).orElse(true),
+                providers
+                    .gradleProperty(
+                        QualityConstants.Configuration.ENABLE_PITEST,
+                        String::toBoolean,
+                    ).orElse(true),
             )
     }

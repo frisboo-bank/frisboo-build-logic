@@ -15,71 +15,28 @@
  */
 package com.frisboo.corebanking.convention.extensions.boms
 
+import com.frisboo.corebanking.convention.CatalogVersionConstants
 import com.frisboo.corebanking.convention.ConfigurationConstants
-import org.gradle.api.Action
 import org.gradle.api.NamedDomainObjectContainer
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.model.ObjectFactory
 import javax.inject.Inject
 
 public open class BomExtension
-@Inject constructor(
-    objects: ObjectFactory,
-    libs: VersionCatalog,
-) {
-    public val customBoms: NamedDomainObjectContainer<CustomBomExtensionSpec> =
-        objects.domainObjectContainer(CustomBomExtensionSpec::class.java)
+    @Inject
+    constructor(
+        objects: ObjectFactory,
+        libs: VersionCatalog,
+    ) {
+        public val customBoms: NamedDomainObjectContainer<CustomBomExtensionSpec> =
+            objects.domainObjectContainer(CustomBomExtensionSpec::class.java)
 
-
-    public val coreBanking: BomExtensionSpec = objects.newInstance(
-        BomExtensionSpec::class.java,
-        libs,
-        "frisboo-corebanking-bom",
-        ConfigurationConstants.Bom.CORE_BANKING,
-        false,
-    )
-    public val exposed: BomExtensionSpec = objects.newInstance(
-        BomExtensionSpec::class.java,
-        libs,
-        "exposed-bom",
-        ConfigurationConstants.Bom.EXPOSED,
-        false,
-    )
-    public val jackson: BomExtensionSpec = objects.newInstance(
-        BomExtensionSpec::class.java,
-        libs,
-        "jackson-bom",
-        ConfigurationConstants.Bom.JACKSON,
-        false,
-    )
-    public val junit: BomExtensionSpec = objects.newInstance(
-        BomExtensionSpec::class.java,
-        libs,
-        "junit-bom",
-        ConfigurationConstants.Bom.JUNIT,
-        true,
-    )
-    public val testcontainers: BomExtensionSpec = objects.newInstance(
-        BomExtensionSpec::class.java,
-        libs,
-        "testcontainers-bom",
-        ConfigurationConstants.Bom.TESTCONTAINERS,
-        true,
-    )
-
-    public fun customBoms(action: Action<NamedDomainObjectContainer<CustomBomExtensionSpec>>) {
-        action.execute(customBoms)
+        public val coreBanking: BomExtensionSpec =
+            objects.newInstance(
+                BomExtensionSpec::class.java,
+                libs,
+                CatalogVersionConstants.Libraries.COREBANKING_BOM,
+                ConfigurationConstants.Bom.CORE_BANKING,
+                false,
+            )
     }
-    public fun exposed(action: Action<BomExtensionSpec>) {
-        action.execute(exposed)
-    }
-    public fun jackson(action: Action<BomExtensionSpec>) {
-        action.execute(jackson)
-    }
-    public fun junit(action: Action<BomExtensionSpec>) {
-        action.execute(junit)
-    }
-    public fun testcontainers(action: Action<BomExtensionSpec>) {
-        action.execute(testcontainers)
-    }
-}

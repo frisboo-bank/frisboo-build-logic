@@ -17,8 +17,6 @@ package com.frisboo.corebanking.telemetryconvention
 
 public object TelemetryConstants {
     public object Configuration {
-        public const val ENABLE_TELEMETRY: String = "enabled"
-        public const val OPENTELEMETRY_ENABLED: String = "opentelemetry.enabled"
-        public const val OPENTELEMETRY_EXPORTER_OTLP_ENABLED: String = "opentelemetryExporterOtlp.enabled"
+        public const val ENABLE_OPENTELEMETRY_EXPORTER_OTLP: String = "opentelemetryExporterOtlp.enabled"
     }
 }

@@ -15,13 +15,9 @@
  */
 package com.frisboo.corebanking.grpcconvention
 
-import com.frisboo.corebanking.convention.ConfigurationConstants
-import com.frisboo.corebanking.convention.utils.gradleProperty
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.model.ObjectFactory
-import org.gradle.api.provider.Property
 import org.gradle.api.provider.ProviderFactory
-import org.gradle.kotlin.dsl.property
 import javax.inject.Inject
 
 public open class GRPCExtension
@@ -30,11 +26,4 @@ public open class GRPCExtension
         objects: ObjectFactory,
         providers: ProviderFactory,
         libs: VersionCatalog,
-    ) {
-        public val enabled: Property<Boolean> =
-            objects.property<Boolean>().convention(
-                providers.gradleProperty(GRPCConstants.Configuration.ENABLE_GRPC, String::toBoolean).orElse(false),
-            )
-
-        public fun enabled(value: Boolean): Unit = enabled.set(value)
-    }
+    )

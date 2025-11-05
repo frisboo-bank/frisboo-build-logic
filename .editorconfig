@@ -23,5 +23,8 @@ ij_smart_tabs = false
 ij_visual_guides = 120
 ij_wrap_on_typing = false
 
+[*.{kt,kts}]
+ktlint_code_style = ktlint_official
+
 [*.yml]
 indent_size = 2

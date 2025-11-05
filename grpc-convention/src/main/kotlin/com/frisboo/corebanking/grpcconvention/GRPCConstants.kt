@@ -17,11 +17,10 @@ package com.frisboo.corebanking.grpcconvention
 
 public object GRPCConstants {
     public object Configuration {
-        public const val ENABLE_GRPC: String = "enabled"
-        public const val GRPC_KOTLIN_STUB_ENABLED: String = "kotlinStub.enabled"
-        public const val GRPC_NETTY_ENABLED: String = "netty.enabled"
-        public const val GRPC_PROTOBUF_ENABLED: String = "protobuf.enabled"
-        public const val PROTOBUF_KOTLIN_ENABLED: String = "protobufKotlin.enabled"
-        public const val PROTOBUF_PLUGIN_ENABLED: String = "protobufPlugin.enabled"
+        public const val ENABLE_GRPC_KOTLIN_STUB: String = "kotlinStub.enabled"
+        public const val ENABLE_GRPC_NETTY: String = "netty.enabled"
+        public const val ENABLE_GRPC_PROTOBUF: String = "protobuf.enabled"
+        public const val ENABLE_PROTOBUF_KOTLIN: String = "protobufKotlin.enabled"
+        public const val ENABLE_PROTOBUF_PLUGIN: String = "protobufPlugin.enabled"
     }
 }

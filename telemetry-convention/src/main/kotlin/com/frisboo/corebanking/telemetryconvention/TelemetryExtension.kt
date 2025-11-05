@@ -15,22 +15,13 @@
  */
 package com.frisboo.corebanking.telemetryconvention
 
-import com.frisboo.corebanking.convention.utils.gradleProperty
 import org.gradle.api.model.ObjectFactory
-import org.gradle.api.provider.Property
 import org.gradle.api.provider.ProviderFactory
-import org.gradle.kotlin.dsl.property
 import javax.inject.Inject
 
 public open class TelemetryExtension
-@Inject constructor(
-    objects: ObjectFactory,
-    providers: ProviderFactory,
-) {
-    public val enabled: Property<Boolean> = objects.property<Boolean>().convention(
-        providers.gradleProperty(
-                TelemetryConstants.Configuration.ENABLE_TELEMETRY,
-                String::toBoolean,
-            ).orElse(true),
+    @Inject
+    constructor(
+        objects: ObjectFactory,
+        providers: ProviderFactory,
     )
-}

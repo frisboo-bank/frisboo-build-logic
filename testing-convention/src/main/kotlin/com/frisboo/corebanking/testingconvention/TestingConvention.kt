@@ -13,7 +13,7 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-package com.frisboo.corebanking.springbootconvention
+package com.frisboo.corebanking.testingconvention
 
 import com.frisboo.corebanking.convention.utils.getLibs
 import org.gradle.api.Plugin
@@ -21,7 +21,7 @@ import org.gradle.api.Project
 import org.gradle.kotlin.dsl.create
 import org.gradle.kotlin.dsl.repositories
 
-public class SpringBootConvention : Plugin<Project> {
+public class TestingConvention : Plugin<Project> {
     override fun apply(target: Project): Unit =
         with(target) {
             repositories {
@@ -31,13 +31,13 @@ public class SpringBootConvention : Plugin<Project> {
             }
 
             val libs = getLibs()
-            val ext = extensions.create<SpringBootExtension>("coreBankingSpringBoot", libs)
+            val ext = extensions.create<TestingExtension>("coreBankingTesting", libs)
 
             project.afterEvaluate {
                 try {
-                    SpringBootManager(this, ext).configure()
+                    TestingManager(this, ext).configure()
                 } catch (e: IllegalStateException) {
-                    error("Failed to configure Frisboo Core Banking SpringBoot Convention: ${e.message}")
+                    error("Failed to configure Frisboo Core Banking Testing Convention: ${e.message}")
                 }
             }
         }

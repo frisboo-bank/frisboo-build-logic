@@ -31,6 +31,10 @@ public open class JacocoExtension
     ) {
         public val enabled: Property<Boolean> =
             objects.property<Boolean>().convention(
-                providers.gradleProperty(QualityConstants.Configuration.JACOCO_ENABLED, String::toBoolean).orElse(true),
+                providers
+                    .gradleProperty(
+                        QualityConstants.Configuration.ENABLE_JACOCO,
+                        String::toBoolean,
+                    ).orElse(true),
             )
     }

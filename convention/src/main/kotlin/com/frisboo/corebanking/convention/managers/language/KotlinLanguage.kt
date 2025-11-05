@@ -38,14 +38,14 @@ public class KotlinLanguage(
     private val jvmTargetVersion = libs.getVersionOrFail(CatalogVersionConstants.Versions.JVM_TARGET_VERSION)
 
     public fun configure() {
-        logger.lifecycle("-----------------------------------------------------")
-        logger.lifecycle("Configuring Kotlin Language settings for project: ${project.name}")
-        logger.lifecycle(" - Kotlin version: $kotlinVersion")
-        logger.lifecycle(" - JVM Target version: $jvmTargetVersion")
-        logger.lifecycle(" - Warnings as Errors: ${warningsAsErrors().get()}")
-        logger.lifecycle(" - Progressive Mode: ${progressiveMode().get()}")
-        logger.lifecycle(" - Additional Opt-Ins: ${additionalOptIns().joinToString()}")
-        logger.lifecycle("-----------------------------------------------------")
+        logger.debug("-----------------------------------------------------")
+        logger.debug("Configuring Kotlin Language settings for project: ${project.name}")
+        logger.debug(" - Kotlin version: $kotlinVersion")
+        logger.debug(" - JVM Target version: $jvmTargetVersion")
+        logger.debug(" - Warnings as Errors: ${warningsAsErrors().get()}")
+        logger.debug(" - Progressive Mode: ${progressiveMode().get()}")
+        logger.debug(" - Additional Opt-Ins: ${additionalOptIns().joinToString()}")
+        logger.debug("-----------------------------------------------------")
 
         project.plugins.withId(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.KOTLIN_JVM)) {
             project.configure<KotlinJvmProjectExtension> {

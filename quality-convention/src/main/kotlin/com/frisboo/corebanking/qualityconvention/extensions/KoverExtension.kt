@@ -31,6 +31,6 @@ public open class KoverExtension
     ) {
         public val enabled: Property<Boolean> =
             objects.property<Boolean>().convention(
-                providers.gradleProperty(QualityConstants.Configuration.KOVER_ENABLED, String::toBoolean).orElse(true),
+                providers.gradleProperty(QualityConstants.Configuration.ENABLE_KOVER, String::toBoolean).orElse(true),
             )
     }

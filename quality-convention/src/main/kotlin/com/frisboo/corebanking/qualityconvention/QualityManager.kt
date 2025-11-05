@@ -29,12 +29,9 @@ public class QualityManager(
     private val libs = project.getLibs()
 
     public fun configure() {
-        logger.lifecycle("-----------------------------------------------------------")
-        logger.lifecycle("Configuring Quality settings for project: ${project.name}")
-        logger.lifecycle(" - Enabled: ${ext.enabled.get()}")
-        logger.lifecycle("-----------------------------------------------------------")
-
-        if (!ext.enabled.get()) return
+        logger.debug("-----------------------------------------------------------")
+        logger.debug("Configuring Quality settings for project: ${project.name}")
+        logger.debug("-----------------------------------------------------------")
 
         project.configureCpd(ext, libs)
         project.configureDetekt(ext, libs)
