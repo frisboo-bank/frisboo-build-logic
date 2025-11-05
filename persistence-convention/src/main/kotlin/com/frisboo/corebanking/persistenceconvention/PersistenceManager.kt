@@ -15,9 +15,15 @@
  */
 package com.frisboo.corebanking.persistenceconvention
 
+import com.frisboo.corebanking.convention.CatalogVersionConstants
+import com.frisboo.corebanking.convention.utils.addImplementation
+import com.frisboo.corebanking.convention.utils.addRuntimeOnly
+import com.frisboo.corebanking.convention.utils.addTestImplementation
+import com.frisboo.corebanking.convention.utils.applyBomIfEnabled
 import com.frisboo.corebanking.convention.utils.getLibs
 import com.frisboo.corebanking.convention.utils.libraryOrThrow
 import org.gradle.api.Project
+import org.gradle.internal.cc.base.logger
 import org.gradle.kotlin.dsl.dependencies
 
 public class PersistenceManager(
@@ -27,52 +33,59 @@ public class PersistenceManager(
     private val libs = project.getLibs()
 
     public fun configure() {
-        if (!ext.enabled.get()) return
+        logger.debug("-----------------------------------------------------------")
+        logger.debug("Configuring Persistence settings for project ${project.name}")
+        logger.debug(" - H2 Enabled: ${ext.enableH2.get()}")
+        logger.debug(" - Mongo Enabled: ${ext.enableMongo.get()}")
+        logger.debug(" - Postgres Enabled: ${ext.enablePostgres.get()}")
+        logger.debug("-----------------------------------------------------------")
 
-        if (ext.enabledH2.get()) {
-//            configureH2()
+        if (ext.enableExposed.get()) {
+            configureExposed()
         }
 
-        if (ext.enabledMongo.get()) {
+        if (ext.enableH2.get()) {
+            configureH2()
+        }
+
+        if (ext.enableMongo.get()) {
             configureMongo()
         }
 
-        if (ext.enabledPostgres.get()) {
+        if (ext.enablePostgres.get()) {
             configurePostgres()
         }
+    }
 
-//        project.dependencies {
-//            add("implementation", "org.springframework.boot:spring-boot-starter-data-r2dbc")
-//            add("implementation", "org.springframework.boot:spring-boot-starter-data-redis-reactive")
-//
-//
-//            add("runtimeOnly", libs.libraryOrThrow(CatalogVersionConstants.Libraries.H2))
-//            add("runtimeOnly", "io.r2dbc:r2dbc-h2")
-//            add("runtimeOnly", libs.libraryOrThrow(CatalogVersionConstants.Libraries.POSTGRESQL))
-//            add("runtimeOnly", "org.postgresql:r2dbc-postgresql")
-//        }
+    private fun configureExposed() {
+        project.dependencies {
+            applyBomIfEnabled(ext.exposedBom)
+
+            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.EXPOSED_SPRING_BOOT_STARTER))
+            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.EXPOSED_R2DBC))
+            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.EXPOSED_KOTLIN_DATETIME))
+        }
+    }
+
+    private fun configureH2() {
+        project.dependencies {
+            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.H2))
+            addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.TESTCONTAINERS_H2))
+        }
     }
 
     private fun configurePostgres() {
         project.dependencies {
-            add("implementation", libs.libraryOrThrow("exposed-spring-boot-starter"))
-            add("implementation", libs.libraryOrThrow("exposed-r2dbc"))
-            add("implementation", libs.libraryOrThrow("exposed-kotlin-datetime"))
-            add("implementation", libs.libraryOrThrow("h2"))
-            add("runtimeOnly", libs.libraryOrThrow("postgresql"))
-            add("testImplementation", libs.libraryOrThrow("testcontainers-postgresql"))
+            addRuntimeOnly(libs.libraryOrThrow(CatalogVersionConstants.Libraries.POSTGRESQL))
+            addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.TESTCONTAINERS_POSTGRESQL))
         }
     }
 
     private fun configureMongo() {
         project.dependencies {
-            add("implementation", libs.libraryOrThrow("spring-boot-starter-data-mongodb"))
-            add("implementation", libs.libraryOrThrow("mongodb"))
-            add("testImplementation", libs.libraryOrThrow("testcontainers-mongodb"))
-
-            libs.findLibrary("testcontainers-junit-jupiter").ifPresent {
-                add("testImplementation", it.get())
-            }
+            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_DATA_MONGODB))
+            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.MONGODB))
+            addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.TESTCONTAINERS_MONGODB))
         }
     }
 }

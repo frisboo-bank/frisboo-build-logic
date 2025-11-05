@@ -32,10 +32,17 @@ public open class DetektExtension
     ) {
         public val enabled: Property<Boolean> =
             objects.property<Boolean>().convention(
-                providers.gradleProperty(QualityConstants.Configuration.DETEKT_ENABLED, String::toBoolean).orElse(true),
+                providers
+                    .gradleProperty(
+                        QualityConstants.Configuration.ENABLE_DETEKT,
+                        String::toBoolean,
+                    ).orElse(true),
             )
+
         public val autoCorrect: Property<Boolean> = objects.property<Boolean>().convention(false)
+
         public val failOnViolation: Property<Boolean> = objects.property<Boolean>().convention(true)
+
         public val source: Property<FileCollection> =
             objects.property<FileCollection>().convention(objects.fileCollection())
     }

@@ -17,9 +17,12 @@ package com.frisboo.corebanking.convention.managers
 
 import com.frisboo.corebanking.convention.CatalogVersionConstants
 import com.frisboo.corebanking.convention.extensions.CoreBankingExtension
+import com.frisboo.corebanking.convention.utils.addImplementation
+import com.frisboo.corebanking.convention.utils.applyBomIfEnabled
 import com.frisboo.corebanking.convention.utils.getLibs
 import com.frisboo.corebanking.convention.utils.libraryOrThrow
 import org.gradle.api.Project
+import org.gradle.internal.cc.base.logger
 import org.gradle.kotlin.dsl.dependencies
 
 public class CoreBankingManager(
@@ -29,13 +32,16 @@ public class CoreBankingManager(
     private val libs = project.getLibs()
 
     public fun configure() {
-        if (!ext.enabled.get()) return
+        logger.debug("-----------------------------------------------------------")
+        logger.debug("Configuring Core Banking settings for project ${project.name}")
+        logger.debug("-----------------------------------------------------------")
 
         project.dependencies {
-            add("implementation", libs.libraryOrThrow(CatalogVersionConstants.Libraries.COREBANKING_CORE))
-            add("implementation", libs.libraryOrThrow(CatalogVersionConstants.Libraries.COREBANKING_HTTP))
-            add("implementation", libs.libraryOrThrow(CatalogVersionConstants.Libraries.COREBANKING_SPRING_BOOT))
-            add("implementation", libs.libraryOrThrow(CatalogVersionConstants.Libraries.COREBANKING_TRANSACTION))
+            applyBomIfEnabled(ext.coreBankingBom)
+            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.COREBANKING_CORE))
+            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.COREBANKING_HTTP))
+            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.COREBANKING_SPRING_BOOT))
+            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.COREBANKING_TRANSACTION))
         }
     }
 }

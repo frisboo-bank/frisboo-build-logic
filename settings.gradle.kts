@@ -25,6 +25,7 @@ include("persistence-convention")
 include("quality-convention")
 include("spring-boot-convention")
 include("telemetry-convention")
+include("testing-convention")
 include("version-catalog")
 
 pluginManagement {

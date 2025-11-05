@@ -15,14 +15,13 @@
  */
 package com.frisboo.corebanking.convention
 
-import com.frisboo.corebanking.convention.ConfigurationConstants.Bom.BOM_PREFIX
-
 public object ConfigurationConstants {
     public object Plugin {
         public const val FRISBOO_COREBANKING_VERSION: String = "frisboo-corebanking-version"
         public const val TEST_JVM_ARGS: String = "test.jvmargs"
         public const val PUBLISH_TEST_JAR: String = "publish.testJar"
 
+        public const val ENABLE_BOM: String = "bom.enabled"
         public const val ENABLE_GRPC: String = "grpc.enabled"
         public const val ENABLE_MESSAGING: String = "messaging.enabled"
         public const val ENABLE_OPENAPI: String = "openapi.enabled"
@@ -30,44 +29,11 @@ public object ConfigurationConstants {
         public const val ENABLE_QUALITY: String = "quality.enabled"
         public const val ENABLE_SPRING_BOOT: String = "spring-boot.enabled"
         public const val ENABLE_TELEMETRY: String = "telemetry.enabled"
+        public const val ENABLE_TESTING: String = "testing.enabled"
     }
 
     public object Bom {
         private const val BOM_PREFIX = "bom"
-        public const val ENABLE_BOM: String = "${BOM_PREFIX}.enabled"
         public const val CORE_BANKING: String = "${BOM_PREFIX}.coreBanking.enabled"
-        public const val EXPOSED: String = "${BOM_PREFIX}.exposed.enabled"
-        public const val JACKSON: String = "${BOM_PREFIX}.jackson.enabled"
-        public const val JUNIT: String = "${BOM_PREFIX}.junit.enabled"
-        public const val SPRINGDOC_OPENAPI: String = "${BOM_PREFIX}.springdocOpenapi.enabled"
-        public const val SPRING_BOOT: String = "${BOM_PREFIX}.springBoot.enabled"
-        public const val TESTCONTAINERS: String = "${BOM_PREFIX}.testcontainers.enabled"
-    }
-
-    public object Testing {
-        private const val TESTING_PREFIX = "testing"
-        public const val ENABLE_TESTING: String = "${TESTING_PREFIX}.enabled"
-        public const val JUNIT_PLATFORM_LAUNCHER_ENABLED: String = "${TESTING_PREFIX}.junitPlatformLauncher.enabled"
-        public const val KOTEST_ENABLED: String = "${TESTING_PREFIX}.kotest.enabled"
-        public const val MOCKK_ENABLED: String = "${TESTING_PREFIX}.mockk.enabled"
-        public const val REACTOR_TEST_ENABLED: String = "${TESTING_PREFIX}.reactorTest.enabled"
-        public const val TESTCONTAINERS_ENABLED: String = "${TESTING_PREFIX}.testcontainers.enabled"
-        public const val TESTCONTAINERS_MONGODB_ENABLED: String = "${TESTING_PREFIX}.testcontainers.mongodb.enabled"
-        public const val TESTCONTAINERS_POSTGRESQL_ENABLED: String =
-            "${TESTING_PREFIX}.testcontainers.postgresql.enabled"
-    }
-
-    public object Development {
-        private const val DEVELOPMENT_PREFIX = "dev"
-        public const val ENABLE_DEVELOPMENT: String = "${DEVELOPMENT_PREFIX}.enabled"
-        public const val GRADLE_VERSIONS_ENABLED: String = "${DEVELOPMENT_PREFIX}.gradleVersions.enabled"
-        public const val JACKSON_KOTLIN_MODULE_ENABLED: String = "${DEVELOPMENT_PREFIX}.jacksonKotlinModule.enabled"
-    }
-
-    public object CoreBanking {
-        private const val CORE_FRAMEWORK_PREFIX = "coreBanking"
-        public const val ENABLE_COREBANKING: String = "${CORE_FRAMEWORK_PREFIX}.enabled"
-        public const val ENABLE_COREBANKING_CORE: String = "${CORE_FRAMEWORK_PREFIX}.core.enabled"
-        public const val ENABLE_COREBANKING_SPRING_BOOT: String = "${CORE_FRAMEWORK_PREFIX}.springBoot.enabled"
     }
 }

@@ -1,3 +1,18 @@
+/*
+ * Copyright 2025 Frisboo Bank
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
 package com.frisboo.corebanking.qualityconvention.managers
 
 import com.diffplug.gradle.spotless.SpotlessExtension
@@ -22,16 +37,22 @@ internal fun Project.configureSpotless(
     val editorConfig = rootProject.layout.projectDirectory.file(".editorconfig")
     val ktlintVersion = libs.findVersion("ktlint-version").get().requiredVersion
     val delimiter =
-        "^\\s*(plugins|pluginManagement|import|buildscript|" + "dependencyResolutionManagement|enableFeaturePreview|include|rootProject)\\b"
-    val commonExcludes = listOf(
-        "**/build/**",
-        "**/build-*/**",
-        "**/.gradle/**",
-        "**/.idea/**",
-        "**/.git/**",
-        "**/generated/**",
-        "**/.gradle-test-kit/**",
-    )
+        "^\\s*(plugins|pluginManagement|import|buildscript|" +
+            "dependencyResolutionManagement|enableFeaturePreview|include|rootProject)\\b"
+    val commonExcludes =
+        listOf(
+            "**/.gradle/**",
+            "**/.idea/**",
+            "**/.git/**",
+            "**/.gradle-test-kit/**",
+        )
+    val generatedDir =
+        project.layout.buildDirectory
+            .dir("generated")
+            .get()
+            .toString()
+
+    logger.debug("$generatedDir/**/*.kt")
 
     configure<SpotlessExtension> {
         kotlin { t ->

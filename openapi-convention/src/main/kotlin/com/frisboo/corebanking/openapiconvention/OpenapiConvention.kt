@@ -24,7 +24,6 @@ import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.repositories
 
 public class OpenapiConvention : Plugin<Project> {
-
     override fun apply(target: Project): Unit =
         with(target) {
             repositories {

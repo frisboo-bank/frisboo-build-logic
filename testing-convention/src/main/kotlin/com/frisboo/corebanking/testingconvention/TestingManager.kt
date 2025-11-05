@@ -13,13 +13,13 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-package com.frisboo.corebanking.convention.managers
+package com.frisboo.corebanking.testingconvention
 
 import com.frisboo.corebanking.convention.CatalogVersionConstants
-import com.frisboo.corebanking.convention.extensions.TestingExtension
+import com.frisboo.corebanking.convention.utils.addTestRuntimeOnly
+import com.frisboo.corebanking.convention.utils.applyBomIfEnabled
 import com.frisboo.corebanking.convention.utils.getLibs
 import com.frisboo.corebanking.convention.utils.libraryOrThrow
-import com.frisboo.corebanking.convention.utils.onKotlinEnabled
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
 
@@ -30,22 +30,16 @@ public class TestingManager(
     private val libs = project.getLibs()
 
     public fun configure() {
-        project.onKotlinEnabled {
-            addKotlinTestingDependencies()
-        }
-    }
-
-    private fun addKotlinTestingDependencies() {
         project.dependencies {
-            add(
-                "testImplementation",
-                libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTEST_RUNNER_JUNIT5).get(),
-            )
-            add(
-                "testImplementation",
-                libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTEST_ASSERTIONS_CORE).get(),
-            )
-            add("testImplementation", libs.libraryOrThrow(CatalogVersionConstants.Libraries.MOCKK).get())
+            applyBomIfEnabled(ext.junitBom)
+
+            addTestRuntimeOnly(libs.libraryOrThrow(CatalogVersionConstants.Libraries.JUNIT_PLATFORM_LAUNCHER))
+        }
+
+        if (ext.enableTestContainers.get()) {
+            project.dependencies {
+                applyBomIfEnabled(ext.testcontainersBom)
+            }
         }
     }
 }

@@ -13,19 +13,16 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-
 plugins {
     `jvm-test-suite`
     id("kotlin-conventions")
     alias(libs.plugins.plugin.publish)
 }
 
-description = "Gradle plugin that provides conventions for Openapi core banking apis"
+description = "Gradle plugin that provides conventions to test core banking apis"
 
 dependencies {
     api(project(":convention"))
-    api(plugin(libs.plugins.openapi.generator))
-    api(plugin(libs.plugins.springdoc.openapi))
 }
 
 fun plugin(plugin: Provider<PluginDependency>) =
@@ -34,19 +31,19 @@ fun plugin(plugin: Provider<PluginDependency>) =
 gradlePlugin {
     plugins {
         create(
-            "frisbooCoreBankingOpenapiConvention",
+            "frisbooCoreBankingTestingConvention",
             Action {
-                id = "com.frisboo.corebanking.openapi-convention"
-                displayName = "Frisboo Core Banking Openapi Convention"
-                description = "Gradle plugin that provides conventions for openapi core banking apis"
+                id = "com.frisboo.corebanking.testing-convention"
+                displayName = "Frisboo Core Banking Testing Convention"
+                description = "Gradle plugin that provides conventions for testing core banking apis"
                 tags =
                     listOf(
                         "frisboo",
                         "frisboo-core-banking",
                         "convention-plugin",
-                        "openapi",
+                        "testing",
                     )
-                implementationClass = "com.frisboo.corebanking.openapiconvention.OpenapiConvention"
+                implementationClass = "com.frisboo.corebanking.testingconvention.TestingConvention"
             },
         )
     }

@@ -15,7 +15,10 @@
  */
 package com.frisboo.corebanking.persistenceconvention
 
+import com.frisboo.corebanking.convention.CatalogVersionConstants
+import com.frisboo.corebanking.convention.extensions.boms.BomExtensionSpec
 import com.frisboo.corebanking.convention.utils.gradleProperty
+import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.model.ObjectFactory
 import org.gradle.api.provider.Property
 import org.gradle.api.provider.ProviderFactory
@@ -23,40 +26,54 @@ import org.gradle.kotlin.dsl.property
 import javax.inject.Inject
 
 public open class PersistenceExtension
-@Inject constructor(
-    objects: ObjectFactory,
-    providers: ProviderFactory,
-) {
-    public val enabled: Property<Boolean> = objects.property<Boolean>().convention(
-        providers.gradleProperty(
-                PersistenceConstants.Configuration.ENABLE_PERSISTENCE,
-                String::toBoolean,
-            ).orElse(false),
-    )
-    public val enabledMongo: Property<Boolean> = objects.property<Boolean>().convention(
-        providers.gradleProperty(
-                PersistenceConstants.Configuration.ENABLE_MONGODB,
-                String::toBoolean,
-            ).orElse(false),
-    )
-    public val enabledPostgres: Property<Boolean> = objects.property<Boolean>().convention(
-        providers.gradleProperty(
-                PersistenceConstants.Configuration.ENABLE_POSTGRESQL,
-                String::toBoolean,
-            ).orElse(false),
-    )
-    public val enabledH2: Property<Boolean> = objects.property<Boolean>().convention(
-        providers.gradleProperty(
-                PersistenceConstants.Configuration.ENABLE_H2,
-                String::toBoolean,
-            ).orElse(false),
-    )
+    @Inject
+    constructor(
+        objects: ObjectFactory,
+        providers: ProviderFactory,
+        libs: VersionCatalog,
+    ) {
+        public val exposedBom: BomExtensionSpec =
+            objects.newInstance(
+                BomExtensionSpec::class.java,
+                libs,
+                CatalogVersionConstants.Libraries.EXPOSED_BOM,
+                PersistenceConstants.Configuration.ENABLE_EXPOSED_BOM,
+                false,
+            )
 
-    public fun enabled(value: Boolean): Unit = enabled.set(value)
+        public val enableMongo: Property<Boolean> =
+            objects.property<Boolean>().convention(
+                providers
+                    .gradleProperty(
+                        PersistenceConstants.Configuration.ENABLE_MONGODB,
+                        String::toBoolean,
+                    ).orElse(false),
+            )
 
-    public fun enabledMongo(value: Boolean): Unit = enabledMongo.set(value)
+        public val enableExposed: Property<Boolean> =
+            objects.property<Boolean>().convention(
+                providers
+                    .gradleProperty(
+                        PersistenceConstants.Configuration.ENABLE_EXPOSED,
+                        String::toBoolean,
+                    ).orElse(false),
+            )
 
-    public fun enabledPostgres(value: Boolean): Unit = enabledPostgres.set(value)
+        public val enablePostgres: Property<Boolean> =
+            objects.property<Boolean>().convention(
+                providers
+                    .gradleProperty(
+                        PersistenceConstants.Configuration.ENABLE_POSTGRESQL,
+                        String::toBoolean,
+                    ).orElse(false),
+            )
 
-    public fun enabledH2(value: Boolean): Unit = enabledH2.set(value)
-}
+        public val enableH2: Property<Boolean> =
+            objects.property<Boolean>().convention(
+                providers
+                    .gradleProperty(
+                        PersistenceConstants.Configuration.ENABLE_H2,
+                        String::toBoolean,
+                    ).orElse(false),
+            )
+    }

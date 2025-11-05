@@ -22,22 +22,23 @@ import org.gradle.kotlin.dsl.create
 import org.gradle.kotlin.dsl.repositories
 
 public class QualityConvention : Plugin<Project> {
-    override fun apply(target: Project): Unit = with(target) {
-        repositories {
-            mavenCentral()
-            gradlePluginPortal()
-            mavenLocal()
-        }
+    override fun apply(target: Project): Unit =
+        with(target) {
+            repositories {
+                mavenCentral()
+                gradlePluginPortal()
+                mavenLocal()
+            }
 
-        val libs = getLibs()
-        val ext = extensions.create<QualityExtension>("coreBankingQuality")
+            getLibs()
+            val ext = extensions.create<QualityExtension>("coreBankingQuality")
 
-        project.afterEvaluate {
-            try {
-                QualityManager(this, ext).configure()
-            } catch (e: IllegalStateException) {
-                error("Failed to configure Frisboo Core Banking Quality Convention: ${e.message}")
+            project.afterEvaluate {
+                try {
+                    QualityManager(this, ext).configure()
+                } catch (e: IllegalStateException) {
+                    error("Failed to configure Frisboo Core Banking Quality Convention: ${e.message}")
+                }
             }
         }
-    }
 }

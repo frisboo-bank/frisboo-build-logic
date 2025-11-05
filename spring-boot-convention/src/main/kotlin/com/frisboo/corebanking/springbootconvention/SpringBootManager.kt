@@ -16,6 +16,10 @@
 package com.frisboo.corebanking.springbootconvention
 
 import com.frisboo.corebanking.convention.CatalogVersionConstants
+import com.frisboo.corebanking.convention.utils.addAnnotationProcessor
+import com.frisboo.corebanking.convention.utils.addDevelopmentOnly
+import com.frisboo.corebanking.convention.utils.addImplementation
+import com.frisboo.corebanking.convention.utils.addTestImplementation
 import com.frisboo.corebanking.convention.utils.applyBomIfEnabled
 import com.frisboo.corebanking.convention.utils.getLibs
 import com.frisboo.corebanking.convention.utils.getVersionOrFail
@@ -38,14 +42,14 @@ public class SpringBootManager(
     private val libs = project.getLibs()
 
     public fun configure() {
-        logger.lifecycle("-----------------------------------------------------")
-        logger.lifecycle("Configuring Spring Boot settings for project: ${project.name}")
-        logger.lifecycle(" - Enabled: ${ext.enabled.get()}")
-        logger.lifecycle(" - Spring Boot version: ${libs.getVersionOrFail(CatalogVersionConstants.Versions.SPRING_BOOT_VERSION)}")
-        logger.lifecycle(" - Apply Spring Boot BOM: ${ext.springBootBom.enabled.get()}")
-        logger.lifecycle("-----------------------------------------------------")
-
-        if (!ext.enabled.get()) return
+        logger.debug("-----------------------------------------------------------")
+        logger.debug("Configuring Spring Boot settings for project ${project.name}")
+        logger.debug(" - Spring Boot BOM Enabled: ${ext.springBootBom.enabled.get()}")
+        logger.debug(" - Jackson BOM Enabled: ${ext.jackson.enabled.get()}")
+        logger.debug(
+            " - Spring Boot Version: ${libs.getVersionOrFail(CatalogVersionConstants.Versions.SPRING_BOOT_VERSION)}",
+        )
+        logger.debug("-----------------------------------------------------------")
 
         project.pluginManager.apply(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.SPRING_BOOT))
         project.pluginManager.apply(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.SPRING_DEPENDENCY_MANAGEMENT))
@@ -56,23 +60,24 @@ public class SpringBootManager(
 
         project.dependencies {
             applyBomIfEnabled(ext.springBootBom)
-            add("implementation", libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_ACTUATOR))
-            add("implementation", libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_HATEOAS))
-            add(
-                "implementation",
-                libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_VALIDATION),
-            )
-            add("implementation", libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_WEBFLUX))
+            applyBomIfEnabled(ext.jackson)
 
-            add("developmentOnly", libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_DEVTOOLS))
+            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_ACTUATOR))
+            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_HATEOAS))
+            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_VALIDATION))
+            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_WEBFLUX))
 
-            add(
-                "annotationProcessor",
+            project.onKotlinEnabled {
+                addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.JACKSON_MODULE_KOTLIN))
+            }
+
+            addDevelopmentOnly(libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_DEVTOOLS))
+
+            addAnnotationProcessor(
                 libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_CONFIGURATION_PROCESSOR),
             )
 
-            add("testImplementation", libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_TEST))
-            add("testImplementation", libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_SECURITY_TEST))
+            addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_TEST))
         }
 
         project.extensions.configure<SpringBootDslExtension> {

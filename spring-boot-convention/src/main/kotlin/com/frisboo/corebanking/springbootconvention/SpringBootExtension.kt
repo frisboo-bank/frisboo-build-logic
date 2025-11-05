@@ -15,38 +15,35 @@
  */
 package com.frisboo.corebanking.springbootconvention
 
-import com.frisboo.corebanking.convention.ConfigurationConstants
+import com.frisboo.corebanking.convention.CatalogVersionConstants
 import com.frisboo.corebanking.convention.extensions.boms.BomExtensionSpec
-import com.frisboo.corebanking.convention.utils.gradleProperty
-import org.gradle.api.Action
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.model.ObjectFactory
-import org.gradle.api.provider.Property
 import org.gradle.api.provider.ProviderFactory
-import org.gradle.kotlin.dsl.property
 import javax.inject.Inject
 
 public open class SpringBootExtension
-@Inject constructor(
-    objects: ObjectFactory,
-    providers: ProviderFactory,
-    libs: VersionCatalog,
-) {
-    public val enabled: Property<Boolean> = objects.property<Boolean>().convention(
-        providers.gradleProperty(
-            SpringBootConstants.Configuration.ENABLE_SPRING,
-            String::toBoolean,
-        ).orElse(true),
-    )
+    @Inject
+    constructor(
+        objects: ObjectFactory,
+        providers: ProviderFactory,
+        libs: VersionCatalog,
+    ) {
+        public val springBootBom: BomExtensionSpec =
+            objects.newInstance(
+                BomExtensionSpec::class.java,
+                libs,
+                CatalogVersionConstants.Libraries.SPRING_BOOT_BOM,
+                SpringBootConstants.Configuration.ENABLE_SPRING_BOOT_BOM,
+                false,
+            )
 
-    public val springBootBom: BomExtensionSpec = objects.newInstance(
-        BomExtensionSpec::class.java,
-        libs,
-        "spring-boot-bom",
-        ConfigurationConstants.Bom.SPRING_BOOT,
-        false,
-    )
-
-    public fun enabled(value: Boolean): Unit = enabled.set(value)
-    public fun springBootBom(action: Action<BomExtensionSpec>): Unit = action.execute(springBootBom)
-}
+        public val jackson: BomExtensionSpec =
+            objects.newInstance(
+                BomExtensionSpec::class.java,
+                libs,
+                CatalogVersionConstants.Libraries.JACKSON_BOM,
+                SpringBootConstants.Configuration.ENABLE_JACKSON_BOM,
+                false,
+            )
+    }

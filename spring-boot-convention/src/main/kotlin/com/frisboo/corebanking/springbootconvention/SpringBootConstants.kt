@@ -17,12 +17,14 @@ package com.frisboo.corebanking.springbootconvention
 
 public object SpringBootConstants {
     public object Configuration {
-        public const val ENABLE_SPRING: String = "enabled"
-        public const val ACTUATOR_ENABLED: String = "actuator.enabled"
-        public const val DATA_MONGODB_ENABLED: String = "dataMongodb.enabled"
-        public const val SPRING_GRPC_ENABLED: String = "grpc.enabled"
-        public const val SPRING_TEST_ENABLED: String = "test.enabled"
-        public const val VALIDATION_ENABLED: String = "validation.enabled"
-        public const val WEBFLUX_ENABLED: String = "webflux.enabled"
+        public const val ENABLE_SPRING_BOOT_BOM: String = "springBootBom.enabled"
+        public const val ENABLE_JACKSON_BOM: String = "jacksonBom.enabled"
+
+        public const val ENABLE_SPRING_BOOT_DEVTOOLS: String = "devtools.enabled"
+        public const val ENABLE_SPRING_BOOT_WEB: String = "web.enabled"
+        public const val ENABLE_ACTUATOR: String = "actuator.enabled"
+        public const val ENABLE_SPRING_TEST: String = "test.enabled"
+        public const val ENABLE_VALIDATION: String = "validation.enabled"
+        public const val ENABLE_WEBFLUX: String = "webflux.enabled"
     }
 }

@@ -17,7 +17,6 @@ package com.frisboo.corebanking.messagingconvention
 
 public object MessagingConstants {
     public object Configuration {
-        public const val ENABLE_MESSAGING: String = "enabled"
-        public const val KAFKA_ENABLED: String = "kafka.enabled"
+        public const val ENABLE_KAFKA: String = "kafka.enabled"
     }
 }

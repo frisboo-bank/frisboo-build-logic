@@ -25,14 +25,15 @@ description = "Gradle plugin that provides conventions for core banking apis"
 
 dependencies {
     implementation(libs.restrict.imports.plugin)
-    api(plugin(libs.plugins.frisboo.corebanking.grpc.convention))
-    api(plugin(libs.plugins.frisboo.corebanking.kotlin.convention))
-    api(plugin(libs.plugins.frisboo.corebanking.messaging.convention))
-    api(plugin(libs.plugins.frisboo.corebanking.openapi.convention))
-    api(plugin(libs.plugins.frisboo.corebanking.persistence.convention))
-    api(plugin(libs.plugins.frisboo.corebanking.quality.convention))
-    api(plugin(libs.plugins.frisboo.corebanking.springboot.convention))
-    api(plugin(libs.plugins.frisboo.corebanking.telemetry.convention))
+    api(plugin(libs.plugins.corebanking.grpc.convention))
+    api(plugin(libs.plugins.corebanking.kotlin.convention))
+    api(plugin(libs.plugins.corebanking.messaging.convention))
+    api(plugin(libs.plugins.corebanking.openapi.convention))
+    api(plugin(libs.plugins.corebanking.persistence.convention))
+    api(plugin(libs.plugins.corebanking.quality.convention))
+    api(plugin(libs.plugins.corebanking.springboot.convention))
+    api(plugin(libs.plugins.corebanking.telemetry.convention))
+    api(plugin(libs.plugins.corebanking.testing.convention))
 }
 
 fun plugin(plugin: Provider<PluginDependency>) =
@@ -46,11 +47,12 @@ gradlePlugin {
                 id = "com.frisboo.corebanking.convention"
                 displayName = "Frisboo Core Banking Convention"
                 description = "Gradle plugin that provides conventions for core banking apis"
-                tags = listOf(
-                    "frisboo",
-                    "frisboo-core-banking",
-                    "convention-plugin",
-                )
+                tags =
+                    listOf(
+                        "frisboo",
+                        "frisboo-core-banking",
+                        "convention-plugin",
+                    )
                 implementationClass = "com.frisboo.corebanking.convention.Convention"
             },
         )

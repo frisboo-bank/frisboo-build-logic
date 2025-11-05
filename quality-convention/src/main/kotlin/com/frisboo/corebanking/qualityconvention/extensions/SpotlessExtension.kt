@@ -33,7 +33,7 @@ public open class SpotlessExtension
             objects.property<Boolean>().convention(
                 providers
                     .gradleProperty(
-                        QualityConstants.Configuration.SPOTLESS_ENABLED,
+                        QualityConstants.Configuration.ENABLE_SPOTLESS,
                         String::toBoolean,
                     ).orElse(true),
             )

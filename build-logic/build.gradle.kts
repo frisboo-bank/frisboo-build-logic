@@ -11,8 +11,7 @@ plugins {
 java {
     val jvmTargetVersion = libs.versions.jvm.target.version
     toolchain {
-//        languageVersion.set(jvmTargetVersion.map(JavaLanguageVersion::of))
-        languageVersion.set(JavaLanguageVersion.of(24))
+        languageVersion.set(JavaLanguageVersion.of(jvmTargetVersion.get()))
     }
 }
 
@@ -21,19 +20,19 @@ kotlin {
     val jvmTargetVersion = libs.versions.jvm.target.version
 
     jvmToolchain {
-//        languageVersion.set(jvmTargetVersion.map(JavaLanguageVersion::of))
-        languageVersion.set(JavaLanguageVersion.of(24))
+        languageVersion.set(jvmTargetVersion.map(JavaLanguageVersion::of))
+//        languageVersion.set(JavaLanguageVersion.of(jvmTargetVersion.get()))
     }
 
     explicitApi()
 
     compilerOptions {
-//        apiVersion.set(kotlinVersion.map(KotlinVersion::fromVersion))
-//        languageVersion.set(kotlinVersion.map(KotlinVersion::fromVersion))
-//        jvmTarget.set(jvmTargetVersion.map(JvmTarget::fromTarget))
-        apiVersion.set(KotlinVersion.KOTLIN_2_3)
-        languageVersion.set(KotlinVersion.KOTLIN_2_3)
-        jvmTarget.set(JvmTarget.JVM_24)
+        apiVersion.set(kotlinVersion.map(KotlinVersion::fromVersion))
+        languageVersion.set(kotlinVersion.map(KotlinVersion::fromVersion))
+        jvmTarget.set(jvmTargetVersion.map(JvmTarget::fromTarget))
+//        apiVersion.set(KotlinVersion.KOTLIN_2_3)
+//        languageVersion.set(KotlinVersion.KOTLIN_2_3)
+//        jvmTarget.set(JvmTarget.JVM_24)
 
         allWarningsAsErrors.set(true)
         progressiveMode.set(true)

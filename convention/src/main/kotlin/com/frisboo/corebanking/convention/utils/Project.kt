@@ -28,12 +28,12 @@ public fun Project.hasJavaSources(): Boolean = fileTree("src").matching { it.inc
 
 public fun Project.hasKotlinSources(): Boolean = fileTree("src").matching { it.include("**/*.kt") }.files.isNotEmpty()
 
-public fun Project.onKotlinEnabled(action: Project.() -> Unit): Unit =
+public inline fun Project.onKotlinEnabled(crossinline action: Project.() -> Unit): Unit =
     plugins.withId(getLibs().pluginIdOrThrow(CatalogVersionConstants.Plugins.KOTLIN_JVM)) {
         this.action()
     }
 
-public fun Project.onSpringBootEnabled(action: Project.() -> Unit): Unit =
+public inline fun Project.onSpringBootEnabled(crossinline action: Project.() -> Unit): Unit =
     plugins.withId(getLibs().pluginIdOrThrow(CatalogVersionConstants.Plugins.SPRING_BOOT)) {
         this.action()
     }

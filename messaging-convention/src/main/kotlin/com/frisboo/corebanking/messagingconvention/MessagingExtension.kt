@@ -30,12 +30,14 @@ public open class MessagingExtension
         providers: ProviderFactory,
         libs: VersionCatalog,
     ) {
-        public val enabled: Property<Boolean> =
+        public val enableKafka: Property<Boolean> =
             objects.property<Boolean>().convention(
                 providers
                     .gradleProperty(
-                        MessagingConstants.Configuration.ENABLE_MESSAGING,
+                        MessagingConstants.Configuration.ENABLE_KAFKA,
                         String::toBoolean,
-                    ).orElse(true),
+                    ).orElse(false),
             )
+
+        public fun enableKafka(value: Boolean): Unit = enableKafka.set(value)
     }

@@ -31,7 +31,7 @@ public class PersistenceConvention : Plugin<Project> {
             }
 
             val libs = getLibs()
-            val ext = extensions.create<PersistenceExtension>("coreBankingPersistence")
+            val ext = extensions.create<PersistenceExtension>("coreBankingPersistence", libs)
 
             project.afterEvaluate {
                 try {

@@ -15,12 +15,44 @@
  */
 package com.frisboo.corebanking.messagingconvention
 
+import com.frisboo.corebanking.convention.CatalogVersionConstants
+import com.frisboo.corebanking.convention.utils.getLibs
+import com.frisboo.corebanking.convention.utils.libraryOrThrow
 import org.gradle.api.Project
+import org.gradle.internal.cc.base.logger
+import org.gradle.kotlin.dsl.dependencies
 
 public class MessagingManager(
-    project: Project,
-    ext: MessagingExtension,
+    private val project: Project,
+    private val ext: MessagingExtension,
 ) {
+    private val libs = project.getLibs()
+
     public fun configure() {
+        logger.debug("-----------------------------------------------------------")
+        logger.debug("Configuring Messaging settings for project ${project.name}")
+        logger.debug(" - Kafka Version: ${ext.enableKafka.get()}")
+        logger.debug("-----------------------------------------------------------")
+
+        if (ext.enableKafka.get()) {
+            configureKafka()
+        }
+    }
+
+    private fun configureKafka() {
+        project.dependencies {
+            add(
+                "implementation",
+                libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_KAFKA),
+            )
+            add(
+                "testImplementation",
+                libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_KAFKA_TEST),
+            )
+            add(
+                "testImplementation",
+                libs.libraryOrThrow(CatalogVersionConstants.Libraries.TESTCONTAINERS_KAFKA),
+            )
+        }
     }
 }
