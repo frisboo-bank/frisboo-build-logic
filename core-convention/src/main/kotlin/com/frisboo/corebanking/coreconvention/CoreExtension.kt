@@ -13,29 +13,22 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-package com.frisboo.corebanking.convention.extensions
+package com.frisboo.corebanking.coreconvention
 
-import com.frisboo.corebanking.convention.CatalogVersionConstants
-import com.frisboo.corebanking.convention.ConfigurationConstants
-import com.frisboo.corebanking.convention.extensions.boms.BomExtensionSpec
+import com.frisboo.corebanking.coreconvention.utils.CustomBomExtensionSpec
+import org.gradle.api.NamedDomainObjectContainer
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.model.ObjectFactory
 import org.gradle.api.provider.ProviderFactory
 import javax.inject.Inject
 
-public open class CoreBankingExtension
+public open class CoreExtension
     @Inject
     constructor(
         objects: ObjectFactory,
         providers: ProviderFactory,
         libs: VersionCatalog,
     ) {
-        public val coreBankingBom: BomExtensionSpec =
-            objects.newInstance(
-                BomExtensionSpec::class.java,
-                libs,
-                CatalogVersionConstants.Libraries.COREBANKING_BOM,
-                ConfigurationConstants.Bom.CORE_BANKING,
-                false,
-            )
+        public val customBoms: NamedDomainObjectContainer<CustomBomExtensionSpec> =
+            objects.domainObjectContainer(CustomBomExtensionSpec::class.java)
     }

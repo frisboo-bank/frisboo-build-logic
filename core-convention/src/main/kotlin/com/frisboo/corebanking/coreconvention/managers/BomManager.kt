@@ -13,9 +13,9 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-package com.frisboo.corebanking.convention.managers
+package com.frisboo.corebanking.coreconvention.managers
 
-import com.frisboo.corebanking.convention.extensions.boms.BomExtension
+import com.frisboo.corebanking.coreconvention.CoreExtension
 import org.gradle.api.Project
 import org.gradle.api.artifacts.MinimalExternalModuleDependency
 import org.gradle.api.artifacts.dsl.DependencyHandler
@@ -25,19 +25,12 @@ import org.gradle.kotlin.dsl.dependencies
 
 public class BomManager(
     private val project: Project,
-    private val ext: BomExtension,
+    private val ext: CoreExtension,
 ) {
     public fun configure() {
         project.dependencies {
-            configurePredefined()
             configureCustom()
         }
-    }
-
-    private fun DependencyHandler.configurePredefined() {
-        listOf(
-            Triple(ext.coreBanking.enabled, ext.coreBanking.coordinates, ext.coreBanking.testOnly),
-        ).forEach { (enabled, coordinates, testOnly) -> applyIfEnabled(enabled, coordinates, testOnly) }
     }
 
     private fun DependencyHandler.configureCustom() {

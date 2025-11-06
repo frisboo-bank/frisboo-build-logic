@@ -15,9 +15,9 @@
  */
 package com.frisboo.corebanking.persistenceconvention
 
-import com.frisboo.corebanking.convention.CatalogVersionConstants
-import com.frisboo.corebanking.convention.extensions.boms.BomExtensionSpec
-import com.frisboo.corebanking.convention.utils.gradleProperty
+import com.frisboo.corebanking.coreconvention.CatalogVersionConstants
+import com.frisboo.corebanking.coreconvention.utils.BomExtensionSpec
+import com.frisboo.corebanking.coreconvention.utils.gradleProperty
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.model.ObjectFactory
 import org.gradle.api.provider.Property

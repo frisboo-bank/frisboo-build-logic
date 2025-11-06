@@ -17,6 +17,7 @@ enableFeaturePreview("STABLE_CONFIGURATION_CACHE")
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 include("convention")
+include("core-convention")
 include("grpc-convention")
 include("kotlin-convention")
 include("messaging-convention")
@@ -37,15 +38,15 @@ pluginManagement {
     }
 }
 
-// plugins {
-//    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
-//    id("org.danilopianini.gradle-pre-commit-git-hooks") version "2.1.3"
-// }
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+    id("org.danilopianini.gradle-pre-commit-git-hooks") version "2.1.3"
+}
 
-// gitHooks {
-//    commitMsg { conventionalCommits() }
-//    createHooks()
-// }
+gitHooks {
+    commitMsg { conventionalCommits() }
+    createHooks()
+}
 
 @Suppress("UnstableApiUsage")
 dependencyResolutionManagement {

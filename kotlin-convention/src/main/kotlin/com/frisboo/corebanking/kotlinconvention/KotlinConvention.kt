@@ -15,9 +15,9 @@
  */
 package com.frisboo.corebanking.kotlinconvention
 
-import com.frisboo.corebanking.convention.CatalogVersionConstants
-import com.frisboo.corebanking.convention.utils.getLibs
-import com.frisboo.corebanking.convention.utils.pluginIdOrThrow
+import com.frisboo.corebanking.coreconvention.CatalogVersionConstants
+import com.frisboo.corebanking.coreconvention.utils.getLibs
+import com.frisboo.corebanking.coreconvention.utils.pluginIdOrThrow
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.create

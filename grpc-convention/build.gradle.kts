@@ -13,18 +13,18 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 
 plugins {
     `jvm-test-suite`
     id("kotlin-conventions")
+    alias(libs.plugins.dokka)
     alias(libs.plugins.plugin.publish)
 }
 
 description = "Gradle plugin that provides conventions for GRPC core banking apis"
 
 dependencies {
-    api(project(":convention"))
+    api(project(":core-convention"))
 }
 
 fun plugin(plugin: Provider<PluginDependency>) =

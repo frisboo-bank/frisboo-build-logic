@@ -13,61 +13,67 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-package com.frisboo.corebanking.convention.utils
+package com.frisboo.corebanking.coreconvention.utils
 
 import org.gradle.api.file.Directory
+import java.net.URI
 import java.net.URL
+import java.nio.file.FileSystemAlreadyExistsException
+import java.nio.file.FileSystems
+import java.nio.file.Files
+import java.nio.file.Paths
+import java.nio.file.StandardCopyOption
 
-public fun URL.copyWithRecurtion(destination: Directory) {
+public fun URL.copyWithRecursion(destination: Directory) {
     val source = this
     val destRoot = destination.asFile.toPath()
 
     when (source.protocol) {
         "file" -> {
             val sourceRoot =
-                java.nio.file.Paths
+                Paths
                     .get(source.toURI())
-            java.nio.file.Files.walk(sourceRoot).use { paths ->
+            Files.walk(sourceRoot).use { paths ->
                 paths
                     .filter {
-                        java.nio.file.Files
+                        Files
                             .isRegularFile(it)
                     }.forEach { p ->
                         val target = destRoot.resolve(sourceRoot.relativize(p).toString())
-                        java.nio.file.Files
+                        Files
                             .createDirectories(target.parent)
-                        java.nio.file.Files
-                            .copy(p, target, java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+                        Files
+                            .copy(p, target, StandardCopyOption.REPLACE_EXISTING)
                     }
             }
         }
 
         "jar" -> {
             val rawPath = source.path
-            val fileUri = java.net.URI.create(rawPath.substringBefore("!"))
-            val jarUri = java.net.URI.create("jar:$fileUri")
+            val fileUri = URI.create(rawPath.substringBefore("!"))
+            val jarUri = URI.create("jar:$fileUri")
             val entryPath = rawPath.substringAfter("!/")
             val fs =
                 try {
-                    java.nio.file.FileSystems
+                    FileSystems
                         .newFileSystem(jarUri, emptyMap<String, Any>())
-                } catch (_: java.nio.file.FileSystemAlreadyExistsException) {
-                    java.nio.file.FileSystems
+                } catch (_: FileSystemAlreadyExistsException) {
+                    FileSystems
                         .getFileSystem(jarUri)
                 }
             fs.use { zfs ->
                 val sourceRoot = zfs.getPath("/").resolve(entryPath)
-                java.nio.file.Files.walk(sourceRoot).use { paths ->
+                Files.walk(sourceRoot).use { paths ->
                     paths
                         .filter {
-                            java.nio.file.Files
+                            Files
                                 .isRegularFile(it)
                         }.forEach { p ->
                             val target = destRoot.resolve(sourceRoot.relativize(p).toString())
-                            java.nio.file.Files
+                            Files
                                 .createDirectories(target.parent)
-                            java.nio.file.Files
-                                .copy(p, target, java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+                            Files
+                                .copy(p, target, StandardCopyOption.REPLACE_EXISTING)
                         }
                 }
             }

@@ -15,7 +15,7 @@
  */
 package com.frisboo.corebanking.telemetryconvention
 
-import com.frisboo.corebanking.convention.utils.getLibs
+import com.frisboo.corebanking.coreconvention.utils.getLibs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.create
@@ -30,7 +30,7 @@ public class TelemetryConvention : Plugin<Project> {
                 mavenLocal()
             }
 
-            val libs = getLibs()
+            getLibs()
             val ext = extensions.create<TelemetryExtension>("coreBankingTelemetry")
 
             project.afterEvaluate {

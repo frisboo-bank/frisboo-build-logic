@@ -13,27 +13,26 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-import org.gradle.api.tasks.testing.logging.TestExceptionFormat
-
 plugins {
     `jvm-test-suite`
     id("kotlin-conventions")
     alias(libs.plugins.plugin.publish)
+    alias(libs.plugins.dokka)
 }
 
-description = "Gradle plugin that provides conventions for core banking apis"
+description = "Gradle plugin convention for core banking apis"
 
 dependencies {
-    implementation(libs.restrict.imports.plugin)
-    api(plugin(libs.plugins.corebanking.grpc.convention))
-    api(plugin(libs.plugins.corebanking.kotlin.convention))
-    api(plugin(libs.plugins.corebanking.messaging.convention))
-    api(plugin(libs.plugins.corebanking.openapi.convention))
-    api(plugin(libs.plugins.corebanking.persistence.convention))
-    api(plugin(libs.plugins.corebanking.quality.convention))
-    api(plugin(libs.plugins.corebanking.springboot.convention))
-    api(plugin(libs.plugins.corebanking.telemetry.convention))
-    api(plugin(libs.plugins.corebanking.testing.convention))
+    api(project(":core-convention"))
+    api(project(":grpc-convention"))
+    api(project(":kotlin-convention"))
+    api(project(":messaging-convention"))
+    api(project(":openapi-convention"))
+    api(project(":persistence-convention"))
+    api(project(":quality-convention"))
+    api(project(":spring-boot-convention"))
+    api(project(":telemetry-convention"))
+    api(project(":testing-convention"))
 }
 
 fun plugin(plugin: Provider<PluginDependency>) =
@@ -42,7 +41,7 @@ fun plugin(plugin: Provider<PluginDependency>) =
 gradlePlugin {
     plugins {
         create(
-            "frisbooConvention",
+            "frisbooCoreBankingConvention",
             Action {
                 id = "com.frisboo.corebanking.convention"
                 displayName = "Frisboo Core Banking Convention"
@@ -53,44 +52,9 @@ gradlePlugin {
                         "frisboo-core-banking",
                         "convention-plugin",
                     )
-                implementationClass = "com.frisboo.corebanking.convention.Convention"
+                implementationClass = "com.frisboo.corebanking.convention.PluginConvention"
             },
         )
-    }
-}
-
-testing {
-    suites {
-        val test by getting(JvmTestSuite::class) {
-            useJUnitJupiter()
-        }
-
-        register<JvmTestSuite>("integrationTest") {
-
-            useJUnitJupiter()
-
-            dependencies {
-                implementation(project())
-                implementation(gradleTestKit())
-                implementation(libs.kotest.assertions.core)
-            }
-
-            targets.configureEach {
-                testTask.configure {
-
-                    classpath += files(tasks.named("pluginUnderTestMetadata"))
-
-                    shouldRunAfter(tasks.named("test"))
-
-                    testLogging {
-                        events("passed", "skipped", "failed")
-                        exceptionFormat = TestExceptionFormat.FULL
-                    }
-
-                    maxParallelForks = (Runtime.getRuntime().availableProcessors() / 2).coerceAtLeast(1)
-                }
-            }
-        }
     }
 }
 
@@ -98,23 +62,3 @@ tasks.withType<ValidatePlugins>().configureEach {
     failOnWarning.set(true)
     enableStricterValidation.set(true)
 }
-
-val catalogsExtension = extensions.getByType<VersionCatalogsExtension>()
-val libExtension = catalogsExtension.named("libs")
-
-tasks.register<GenerateCatalogVersionConstants>("generateCatalogVersionConstants") {
-    group = "Version Catalog"
-    description = "Generates constants for the version catalog"
-    namespace = "com.frisboo.corebanking.convention"
-    className = "CatalogVersionConstants"
-    outputDir = layout.projectDirectory.dir("./src/main/kotlin/com/frisboo/corebanking/convention")
-
-    versionAliases.set(libExtension.versionAliases)
-    pluginAliases.set(libExtension.pluginAliases)
-    libraryAliases.set(libExtension.libraryAliases)
-    bundleAliases.set(libExtension.bundleAliases)
-}
-
-// tasks.named("compileKotlin") {
-//    dependsOn("generateCatalogVersionConstants")
-// }

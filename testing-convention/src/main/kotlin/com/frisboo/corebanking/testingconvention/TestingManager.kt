@@ -15,11 +15,11 @@
  */
 package com.frisboo.corebanking.testingconvention
 
-import com.frisboo.corebanking.convention.CatalogVersionConstants
-import com.frisboo.corebanking.convention.utils.addTestRuntimeOnly
-import com.frisboo.corebanking.convention.utils.applyBomIfEnabled
-import com.frisboo.corebanking.convention.utils.getLibs
-import com.frisboo.corebanking.convention.utils.libraryOrThrow
+import com.frisboo.corebanking.coreconvention.CatalogVersionConstants
+import com.frisboo.corebanking.coreconvention.utils.addTestRuntimeOnly
+import com.frisboo.corebanking.coreconvention.utils.applyBomIfEnabled
+import com.frisboo.corebanking.coreconvention.utils.getLibs
+import com.frisboo.corebanking.coreconvention.utils.libraryOrThrow
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
 

@@ -15,7 +15,7 @@
  */
 package com.frisboo.corebanking.qualityconvention.extensions
 
-import com.frisboo.corebanking.convention.utils.gradleProperty
+import com.frisboo.corebanking.coreconvention.utils.gradleProperty
 import com.frisboo.corebanking.qualityconvention.QualityConstants
 import com.frisboo.corebanking.qualityconvention.QualityExtension
 import org.gradle.api.file.FileCollection

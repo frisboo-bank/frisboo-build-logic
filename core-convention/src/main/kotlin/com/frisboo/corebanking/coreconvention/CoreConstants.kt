@@ -13,12 +13,13 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-package com.frisboo.corebanking.convention.utils
+package com.frisboo.corebanking.coreconvention
 
-import org.gradle.api.provider.Provider
-import org.gradle.api.provider.ProviderFactory
+public object CoreConstants {
+    public object Configuration
 
-public fun <T : Any> ProviderFactory.gradleProperty(
-    key: String,
-    converter: (String) -> T,
-): Provider<T> = gradleProperty(key).map(converter)
+    public object Bom {
+        private const val BOM_PREFIX = "bom"
+        public const val CORE_BANKING: String = "${BOM_PREFIX}.coreBanking.enabled"
+    }
+}

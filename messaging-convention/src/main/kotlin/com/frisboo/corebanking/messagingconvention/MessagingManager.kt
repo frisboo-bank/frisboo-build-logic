@@ -15,9 +15,9 @@
  */
 package com.frisboo.corebanking.messagingconvention
 
-import com.frisboo.corebanking.convention.CatalogVersionConstants
-import com.frisboo.corebanking.convention.utils.getLibs
-import com.frisboo.corebanking.convention.utils.libraryOrThrow
+import com.frisboo.corebanking.coreconvention.CatalogVersionConstants
+import com.frisboo.corebanking.coreconvention.utils.getLibs
+import com.frisboo.corebanking.coreconvention.utils.libraryOrThrow
 import org.gradle.api.Project
 import org.gradle.internal.cc.base.logger
 import org.gradle.kotlin.dsl.dependencies
