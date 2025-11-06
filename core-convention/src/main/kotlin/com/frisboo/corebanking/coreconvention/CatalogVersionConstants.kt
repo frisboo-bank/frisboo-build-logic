@@ -13,7 +13,7 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-package com.frisboo.corebanking.convention
+package com.frisboo.corebanking.coreconvention
 
 public object CatalogVersionConstants {
     public object Versions {
@@ -63,6 +63,7 @@ public object CatalogVersionConstants {
 
     public object Plugins {
         public const val COREBANKING_CONVENTION: String = "corebanking.convention"
+        public const val COREBANKING_CORE_CONVENTION: String = "corebanking.core.convention"
         public const val COREBANKING_GRPC_CONVENTION: String = "corebanking.grpc.convention"
         public const val COREBANKING_KOTLIN_CONVENTION: String = "corebanking.kotlin.convention"
         public const val COREBANKING_MESSAGING_CONVENTION: String = "corebanking.messaging.convention"

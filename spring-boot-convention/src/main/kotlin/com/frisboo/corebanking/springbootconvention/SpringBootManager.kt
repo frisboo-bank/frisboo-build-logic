@@ -15,17 +15,17 @@
  */
 package com.frisboo.corebanking.springbootconvention
 
-import com.frisboo.corebanking.convention.CatalogVersionConstants
-import com.frisboo.corebanking.convention.utils.addAnnotationProcessor
-import com.frisboo.corebanking.convention.utils.addDevelopmentOnly
-import com.frisboo.corebanking.convention.utils.addImplementation
-import com.frisboo.corebanking.convention.utils.addTestImplementation
-import com.frisboo.corebanking.convention.utils.applyBomIfEnabled
-import com.frisboo.corebanking.convention.utils.getLibs
-import com.frisboo.corebanking.convention.utils.getVersionOrFail
-import com.frisboo.corebanking.convention.utils.libraryOrThrow
-import com.frisboo.corebanking.convention.utils.onKotlinEnabled
-import com.frisboo.corebanking.convention.utils.pluginIdOrThrow
+import com.frisboo.corebanking.coreconvention.CatalogVersionConstants
+import com.frisboo.corebanking.coreconvention.utils.addAnnotationProcessor
+import com.frisboo.corebanking.coreconvention.utils.addDevelopmentOnly
+import com.frisboo.corebanking.coreconvention.utils.addImplementation
+import com.frisboo.corebanking.coreconvention.utils.addTestImplementation
+import com.frisboo.corebanking.coreconvention.utils.applyBomIfEnabled
+import com.frisboo.corebanking.coreconvention.utils.getLibs
+import com.frisboo.corebanking.coreconvention.utils.getVersionOrFail
+import com.frisboo.corebanking.coreconvention.utils.libraryOrThrow
+import com.frisboo.corebanking.coreconvention.utils.onKotlinEnabled
+import com.frisboo.corebanking.coreconvention.utils.pluginIdOrThrow
 import org.gradle.api.Project
 import org.gradle.internal.cc.base.logger
 import org.gradle.kotlin.dsl.attributes

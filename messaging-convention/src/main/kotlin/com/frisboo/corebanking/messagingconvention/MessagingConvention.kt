@@ -15,7 +15,7 @@
  */
 package com.frisboo.corebanking.messagingconvention
 
-import com.frisboo.corebanking.convention.utils.getLibs
+import com.frisboo.corebanking.coreconvention.utils.getLibs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.create

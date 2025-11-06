@@ -15,7 +15,7 @@
  */
 package com.frisboo.corebanking.qualityconvention
 
-import com.frisboo.corebanking.convention.utils.getLibs
+import com.frisboo.corebanking.coreconvention.utils.getLibs
 import com.frisboo.corebanking.qualityconvention.managers.configureCpd
 import com.frisboo.corebanking.qualityconvention.managers.configureDetekt
 import com.frisboo.corebanking.qualityconvention.managers.configureSpotless

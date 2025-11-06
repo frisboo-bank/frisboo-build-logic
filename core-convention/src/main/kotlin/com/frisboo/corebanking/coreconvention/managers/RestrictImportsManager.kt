@@ -13,16 +13,16 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-package com.frisboo.corebanking.convention.managers
+package com.frisboo.corebanking.coreconvention.managers
 
-import com.frisboo.corebanking.convention.extensions.PluginExtension
+import com.frisboo.corebanking.coreconvention.CoreExtension
 import de.skuzzle.restrictimports.gradle.RestrictImportsExtension
 import de.skuzzle.restrictimports.gradle.RestrictImportsPlugin
 import org.gradle.api.Project
 
 public class RestrictImportsManager(
     private val project: Project,
-    private val ext: PluginExtension,
+    private val ext: CoreExtension,
 ) {
     public fun configure() {
         project.pluginManager.apply(RestrictImportsPlugin::class.java)

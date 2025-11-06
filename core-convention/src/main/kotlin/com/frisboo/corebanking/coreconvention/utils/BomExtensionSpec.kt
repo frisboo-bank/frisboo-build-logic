@@ -13,10 +13,8 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-package com.frisboo.corebanking.convention.extensions.boms
+package com.frisboo.corebanking.coreconvention.utils
 
-import com.frisboo.corebanking.convention.utils.gradleProperty
-import com.frisboo.corebanking.convention.utils.libraryOrThrow
 import org.gradle.api.artifacts.MinimalExternalModuleDependency
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.model.ObjectFactory

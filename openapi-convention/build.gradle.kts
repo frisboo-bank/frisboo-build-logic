@@ -18,12 +18,13 @@ plugins {
     `jvm-test-suite`
     id("kotlin-conventions")
     alias(libs.plugins.plugin.publish)
+    alias(libs.plugins.dokka)
 }
 
 description = "Gradle plugin that provides conventions for Openapi core banking apis"
 
 dependencies {
-    api(project(":convention"))
+    api(project(":core-convention"))
     api(plugin(libs.plugins.openapi.generator))
     api(plugin(libs.plugins.springdoc.openapi))
 }

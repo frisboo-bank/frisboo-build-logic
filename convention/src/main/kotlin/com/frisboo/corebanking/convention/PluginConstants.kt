@@ -15,14 +15,16 @@
  */
 package com.frisboo.corebanking.convention
 
-public object ConfigurationConstants {
+public object PluginConstants {
     public object Plugin {
         public const val FRISBOO_COREBANKING_VERSION: String = "frisboo-corebanking-version"
         public const val TEST_JVM_ARGS: String = "test.jvmargs"
         public const val PUBLISH_TEST_JAR: String = "publish.testJar"
+    }
 
-        public const val ENABLE_BOM: String = "bom.enabled"
+    public object Configuration {
         public const val ENABLE_GRPC: String = "grpc.enabled"
+        public const val ENABLE_KOTLIN: String = "kotlin.enabled"
         public const val ENABLE_MESSAGING: String = "messaging.enabled"
         public const val ENABLE_OPENAPI: String = "openapi.enabled"
         public const val ENABLE_PERSISTENCE: String = "persistence.enabled"
@@ -30,10 +32,5 @@ public object ConfigurationConstants {
         public const val ENABLE_SPRING_BOOT: String = "spring-boot.enabled"
         public const val ENABLE_TELEMETRY: String = "telemetry.enabled"
         public const val ENABLE_TESTING: String = "testing.enabled"
-    }
-
-    public object Bom {
-        private const val BOM_PREFIX = "bom"
-        public const val CORE_BANKING: String = "${BOM_PREFIX}.coreBanking.enabled"
     }
 }

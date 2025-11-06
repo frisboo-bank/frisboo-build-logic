@@ -16,5 +16,6 @@
 plugins {
     base
     id("quality-conventions")
-    alias(libs.plugins.maven.publish) apply false
+    alias(libs.plugins.dokka)
+    alias(libs.plugins.plugin.publish) apply false
 }

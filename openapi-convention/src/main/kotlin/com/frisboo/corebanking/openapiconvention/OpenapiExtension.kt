@@ -15,8 +15,8 @@
  */
 package com.frisboo.corebanking.openapiconvention
 
-import com.frisboo.corebanking.convention.extensions.boms.BomExtensionSpec
-import com.frisboo.corebanking.convention.utils.gradleProperty
+import com.frisboo.corebanking.coreconvention.utils.BomExtensionSpec
+import com.frisboo.corebanking.coreconvention.utils.gradleProperty
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.file.ProjectLayout

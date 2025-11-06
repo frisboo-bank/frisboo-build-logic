@@ -15,13 +15,14 @@
  */
 package com.frisboo.corebanking.openapiconvention
 
-import com.frisboo.corebanking.convention.CatalogVersionConstants
-import com.frisboo.corebanking.convention.utils.applyBomIfEnabled
-import com.frisboo.corebanking.convention.utils.copyWithRecurtion
-import com.frisboo.corebanking.convention.utils.getLibs
-import com.frisboo.corebanking.convention.utils.libraryOrThrow
-import com.frisboo.corebanking.convention.utils.onSpringBootEnabled
-import com.frisboo.corebanking.convention.utils.pluginIdOrThrow
+import com.frisboo.corebanking.coreconvention.CatalogVersionConstants
+import com.frisboo.corebanking.coreconvention.utils.addImplementation
+import com.frisboo.corebanking.coreconvention.utils.applyBomIfEnabled
+import com.frisboo.corebanking.coreconvention.utils.copyWithRecursion
+import com.frisboo.corebanking.coreconvention.utils.getLibs
+import com.frisboo.corebanking.coreconvention.utils.libraryOrThrow
+import com.frisboo.corebanking.coreconvention.utils.onSpringBootEnabled
+import com.frisboo.corebanking.coreconvention.utils.pluginIdOrThrow
 import org.gradle.api.Project
 import org.gradle.api.Task
 import org.gradle.api.tasks.Delete
@@ -68,12 +69,10 @@ public class OpenapiManager(
 
         project.dependencies {
             applyBomIfEnabled(ext.springdocOpenapiBom)
-            add(
-                "implementation",
+            addImplementation(
                 libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRINGDOC_OPENAPI_STARTER_WEBFLUX_UI),
             )
-            add(
-                "implementation",
+            addImplementation(
                 libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRINGDOC_OPENAPI_STARTER_WEBFLUX_API),
             )
         }
@@ -122,7 +121,6 @@ public class OpenapiManager(
             configOptions.set(
                 mapOf(
                     "useSpringBoot3" to "true",
-                    "useSwaggerUI" to "false",
                     "useTags" to "true",
                     "library" to "spring-boot",
                     "reactive" to "true",
@@ -163,7 +161,7 @@ public class OpenapiManager(
 
             doFirst {
                 userTemplateDir.asFile.mkdirs()
-                templatesUrl.copyWithRecurtion(userTemplateDir)
+                templatesUrl.copyWithRecursion(userTemplateDir)
 
                 val templateFiles =
                     userTemplateDir.asFile
@@ -180,11 +178,10 @@ public class OpenapiManager(
                 group = "openapi tools"
                 description = "Cleans generated OpenAPI sources"
                 delete(ext.outputDir)
-                delete(userTemplateDir) // Also clean the template directory
+                delete(userTemplateDir)
             }
         project.tasks.named("clean").configure { it.dependsOn(cleanOpenApi) }
 
-        // Wire the tasks in the correct order
         val openApiGenerateTask = project.tasks.named("openApiGenerate")
         openApiGenerateTask.configure {
             it.dependsOn("copyOpenapiTemplates")
@@ -216,7 +213,7 @@ public class OpenapiManager(
             it.dependsOn(project.tasks.named("openApiValidate"))
         }
 
-        project.tasks.named("spotlessApply") {
+        project.tasks.named("check") {
             it.dependsOn(openApiGenerateTask)
         }
     }

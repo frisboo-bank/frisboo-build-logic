@@ -15,9 +15,9 @@
  */
 package com.frisboo.corebanking.qualityconvention.managers
 
-import com.frisboo.corebanking.convention.CatalogVersionConstants
-import com.frisboo.corebanking.convention.utils.getVersionOrFail
-import com.frisboo.corebanking.convention.utils.hasKotlinSources
+import com.frisboo.corebanking.coreconvention.CatalogVersionConstants
+import com.frisboo.corebanking.coreconvention.utils.getVersionOrFail
+import com.frisboo.corebanking.coreconvention.utils.hasKotlinSources
 import com.frisboo.corebanking.qualityconvention.QualityExtension
 import dev.detekt.gradle.Detekt
 import dev.detekt.gradle.plugin.DetektPlugin

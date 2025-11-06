@@ -17,12 +17,13 @@ plugins {
     `jvm-test-suite`
     id("kotlin-conventions")
     alias(libs.plugins.plugin.publish)
+    alias(libs.plugins.dokka)
 }
 
 description = "Gradle plugin that provides conventions for Telemetry core banking apis"
 
 dependencies {
-    api(project(":convention"))
+    api(project(":core-convention"))
 }
 
 fun plugin(plugin: Provider<PluginDependency>) =

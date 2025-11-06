@@ -15,21 +15,17 @@
  */
 package com.frisboo.corebanking.convention
 
-import com.frisboo.corebanking.convention.extensions.PluginExtension
-import com.frisboo.corebanking.convention.managers.BomManager
-import com.frisboo.corebanking.convention.managers.CoreBankingManager
-import com.frisboo.corebanking.convention.managers.RestrictImportsManager
-import com.frisboo.corebanking.convention.managers.language.JavaLanguage
-import com.frisboo.corebanking.convention.managers.language.KotlinLanguage
-import com.frisboo.corebanking.convention.utils.getLibs
-import com.frisboo.corebanking.convention.utils.getVersionOrFail
-import com.frisboo.corebanking.convention.utils.pluginIdOrThrow
+import com.frisboo.corebanking.coreconvention.CatalogVersionConstants
+import com.frisboo.corebanking.coreconvention.utils.applyPlugin
+import com.frisboo.corebanking.coreconvention.utils.getLibs
+import com.frisboo.corebanking.coreconvention.utils.getVersionOrFail
+import com.frisboo.corebanking.coreconvention.utils.pluginIdOrThrow
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.create
 import org.gradle.kotlin.dsl.repositories
 
-public class Convention : Plugin<Project> {
+public class PluginConvention : Plugin<Project> {
     override fun apply(target: Project): Unit =
         with(target) {
             repositories {
@@ -39,43 +35,35 @@ public class Convention : Plugin<Project> {
             }
 
             val libs = getLibs()
-            val ext = extensions.create<PluginExtension>("coreBankingConvention", libs)
-
-            JavaLanguage(this).configure()
-            KotlinLanguage(this).configure()
+            extensions.create<PluginExtension>("coreBankingConvention", libs)
 
             try {
-                RestrictImportsManager(this, ext).configure()
-
-                BomManager(this, ext.bom).configure()
-                CoreBankingManager(this, ext.coreBanking).configure()
-
-                project.pluginManager.apply(
+                project.applyPlugin(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.COREBANKING_CORE_CONVENTION))
+                project.applyPlugin(
                     libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.COREBANKING_KOTLIN_CONVENTION),
                 )
-
-                project.pluginManager.apply(
+                project.applyPlugin(
                     libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.COREBANKING_GRPC_CONVENTION),
                 )
-                project.pluginManager.apply(
+                project.applyPlugin(
                     libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.COREBANKING_MESSAGING_CONVENTION),
                 )
-                project.pluginManager.apply(
+                project.applyPlugin(
                     libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.COREBANKING_OPENAPI_CONVENTION),
                 )
-                project.pluginManager.apply(
+                project.applyPlugin(
                     libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.COREBANKING_PERSISTENCE_CONVENTION),
                 )
-                project.pluginManager.apply(
+                project.applyPlugin(
                     libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.COREBANKING_QUALITY_CONVENTION),
                 )
-                project.pluginManager.apply(
+                project.applyPlugin(
                     libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.COREBANKING_SPRINGBOOT_CONVENTION),
                 )
-                project.pluginManager.apply(
+                project.applyPlugin(
                     libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.COREBANKING_TELEMETRY_CONVENTION),
                 )
-                project.pluginManager.apply(
+                project.applyPlugin(
                     libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.COREBANKING_TESTING_CONVENTION),
                 )
             } catch (e: IllegalStateException) {

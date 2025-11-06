@@ -113,6 +113,7 @@ testcontainers-postgresql = { module = "org.testcontainers:postgresql" }
 
 [plugins]
 corebanking-convention = { id = "com.frisboo.corebanking.convention", version.ref = "frisboo-corebanking-version" }
+corebanking-core-convention = { id = "com.frisboo.corebanking.core-convention", version.ref = "frisboo-corebanking-version" }
 corebanking-grpc-convention = { id = "com.frisboo.corebanking.grpc-convention", version.ref = "frisboo-corebanking-version" }
 corebanking-kotlin-convention = { id = "com.frisboo.corebanking.kotlin-convention", version.ref = "frisboo-corebanking-version" }
 corebanking-messaging-convention = { id = "com.frisboo.corebanking.messaging-convention", version.ref = "frisboo-corebanking-version" }
