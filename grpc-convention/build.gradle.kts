@@ -21,10 +21,11 @@ plugins {
     alias(libs.plugins.plugin.publish)
 }
 
-description = "Gradle plugin that provides conventions for GRPC core banking apis"
+description = "Gradle plugin that provides conventions for GRPC to core banking apis"
 
 dependencies {
-    api(project(":core-convention"))
+    implementation(project(":core-convention"))
+    implementation(plugin(libs.plugins.protobuf))
 }
 
 fun plugin(plugin: Provider<PluginDependency>) =
@@ -37,7 +38,7 @@ gradlePlugin {
             Action {
                 id = "com.frisboo.corebanking.grpc-convention"
                 displayName = "Frisboo Core Banking GRPC Convention"
-                description = "Gradle plugin that provides conventions for grpc core banking apis"
+                description = "Gradle plugin that provides conventions for grpc to core banking apis"
                 tags =
                     listOf(
                         "frisboo",

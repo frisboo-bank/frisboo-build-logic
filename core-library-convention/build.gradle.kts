@@ -20,35 +20,28 @@ plugins {
     alias(libs.plugins.dokka)
 }
 
-description = "Gradle plugin that provides conventions for quality to core banking apis"
+description = "Gradle plugin that provides conventions for Core Library to core banking apis"
 
 dependencies {
     implementation(project(":core-convention"))
-    implementation(plugin(libs.plugins.cpd))
-    implementation(plugin(libs.plugins.detekt))
-    implementation(plugin(libs.plugins.dokka))
-    implementation(plugin(libs.plugins.spotless))
 }
-
-fun plugin(plugin: Provider<PluginDependency>) =
-    plugin.map { "${it.pluginId}:${it.pluginId}.gradle.plugin:${it.version}" }
 
 gradlePlugin {
     plugins {
         create(
-            "frisbooCoreBankingQualityConvention",
+            "frisbooCoreBankingCoreLibraryConvention",
             Action {
-                id = "com.frisboo.corebanking.quality-convention"
-                displayName = "Frisboo Core Banking Quality Convention"
-                description = "Gradle plugin that provides conventions for quality to core banking apis"
+                id = "com.frisboo.corebanking.core-library-convention"
+                displayName = "Frisboo Core Banking Core Library Convention"
+                description = "Gradle plugin that provides conventions for core library to core banking apis"
                 tags =
                     listOf(
                         "frisboo",
                         "frisboo-core-banking",
                         "convention-plugin",
-                        "quality",
+                        "core-library",
                     )
-                implementationClass = "com.frisboo.corebanking.qualityconvention.QualityConvention"
+                implementationClass = "com.frisboo.corebanking.corelibraryconvention.CoreLibraryConvention"
             },
         )
     }

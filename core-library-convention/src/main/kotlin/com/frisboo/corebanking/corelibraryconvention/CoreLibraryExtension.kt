@@ -13,29 +13,28 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-package com.frisboo.corebanking.messagingconvention
+package com.frisboo.corebanking.corelibraryconvention
 
-import com.frisboo.corebanking.coreconvention.utils.gradleProperty
+import com.frisboo.corebanking.coreconvention.CatalogVersionConstants
+import com.frisboo.corebanking.coreconvention.utils.BomExtensionSpec
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.model.ObjectFactory
-import org.gradle.api.provider.Property
 import org.gradle.api.provider.ProviderFactory
-import org.gradle.kotlin.dsl.property
 import javax.inject.Inject
 
-public open class MessagingExtension
+public open class CoreLibraryExtension
     @Inject
     constructor(
         objects: ObjectFactory,
         providers: ProviderFactory,
         libs: VersionCatalog,
     ) {
-        public val enableKafka: Property<Boolean> =
-            objects.property<Boolean>().convention(
-                providers
-                    .gradleProperty(
-                        MessagingConstants.Configuration.ENABLE_KAFKA,
-                        String::toBoolean,
-                    ).orElse(false),
+        public val coreLibraryBom: BomExtensionSpec =
+            objects.newInstance(
+                BomExtensionSpec::class.java,
+                libs,
+                CatalogVersionConstants.Libraries.COREBANKING_BOM,
+                CoreLibraryConstants.Configuration.ENABLE_CORE_LIBRARY_BOM,
+                false,
             )
     }

@@ -16,6 +16,7 @@
 package com.frisboo.corebanking.testingconvention
 
 import com.frisboo.corebanking.coreconvention.CatalogVersionConstants
+import com.frisboo.corebanking.coreconvention.utils.addTestImplementation
 import com.frisboo.corebanking.coreconvention.utils.addTestRuntimeOnly
 import com.frisboo.corebanking.coreconvention.utils.applyBomIfEnabled
 import com.frisboo.corebanking.coreconvention.utils.getLibs
@@ -31,15 +32,22 @@ public class TestingManager(
 
     public fun configure() {
         project.dependencies {
-            applyBomIfEnabled(ext.junitBom)
+            arrayOf(
+                ext.junitBom,
+                ext.kotestBom,
+                ext.testcontainersBom,
+            ).forEach { applyBomIfEnabled(it) }
 
-            addTestRuntimeOnly(libs.libraryOrThrow(CatalogVersionConstants.Libraries.JUNIT_PLATFORM_LAUNCHER))
-        }
+            arrayOf(
+                CatalogVersionConstants.Libraries.KOTEST_ASSERTIONS_CORE,
+                CatalogVersionConstants.Libraries.KOTEST_EXTENSIONS,
+                CatalogVersionConstants.Libraries.KOTEST_PROPERTY,
+                CatalogVersionConstants.Libraries.KOTEST_PROPERTY_ARBS,
+                CatalogVersionConstants.Libraries.KOTEST_PROPERTY_DATETIME,
+                CatalogVersionConstants.Libraries.MOCKK,
+            ).forEach { addTestImplementation(libs.libraryOrThrow(it)) }
 
-        if (ext.enableTestContainers.get()) {
-            project.dependencies {
-                applyBomIfEnabled(ext.testcontainersBom)
-            }
+            addTestRuntimeOnly(libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTEST_RUNNER_JUNIT5))
         }
     }
 }

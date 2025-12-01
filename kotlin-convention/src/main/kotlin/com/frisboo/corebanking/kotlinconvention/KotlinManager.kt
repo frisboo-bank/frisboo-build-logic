@@ -16,8 +16,10 @@
 package com.frisboo.corebanking.kotlinconvention
 
 import com.frisboo.corebanking.coreconvention.CatalogVersionConstants
+import com.frisboo.corebanking.coreconvention.utils.addCompileOnly
 import com.frisboo.corebanking.coreconvention.utils.addImplementation
 import com.frisboo.corebanking.coreconvention.utils.addTestImplementation
+import com.frisboo.corebanking.coreconvention.utils.addTestRuntimeOnly
 import com.frisboo.corebanking.coreconvention.utils.applyBomIfEnabled
 import com.frisboo.corebanking.coreconvention.utils.getLibs
 import com.frisboo.corebanking.coreconvention.utils.libraryOrThrow
@@ -32,37 +34,49 @@ public class KotlinManager(
     private val libs = project.getLibs()
 
     public fun configure() {
-        logger.debug("-----------------------------------------------------------")
-        logger.debug("Configuring Kotlin settings for project ${project.name}")
-        logger.debug(" - Arrow KT BOM enabled: ${ext.arrowKtBom.enabled.get()}")
-        logger.debug(" - Kotlin BOM enabled: ${ext.kotlinBom.enabled.get()}")
-        logger.debug(" - Kotlinx Coroutines BOM enabled: ${ext.kotlinxCoroutinesBom.enabled.get()}")
-        logger.debug(" - Reactive BOM enabled: ${ext.reactiveBom.enabled.get()}")
-        logger.debug("-----------------------------------------------------------")
+        logger.info("-----------------------------------------------------------")
+        logger.info("Configuring Kotlin settings for project ${project.name}")
+        logger.info(" - Arrow KT BOM enabled: ${ext.arrowKtBom.enabled.get()}")
+        logger.info(" - Kotlin BOM enabled: ${ext.kotlinBom.enabled.get()}")
+        logger.info(" - Kotlinx Coroutines BOM enabled: ${ext.kotlinxCoroutinesBom.enabled.get()}")
+        logger.info(" - Reactive BOM enabled: ${ext.reactiveBom.enabled.get()}")
+        logger.info("-----------------------------------------------------------")
 
         project.dependencies {
-            applyBomIfEnabled(ext.arrowKtBom)
-            applyBomIfEnabled(ext.kotlinBom)
-            applyBomIfEnabled(ext.kotlinxCoroutinesBom)
-            applyBomIfEnabled(ext.reactiveBom)
+            applyBomIfEnabled(
+                ext.arrowKtBom,
+                ext.kotlinBom,
+                ext.kotlinxCoroutinesBom,
+                ext.reactiveBom,
+            )
 
-            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.ARROW_KT_CORE))
-            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.ARROW_KT_COROUTINES))
-            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTLINX_COROUTINES_CORE))
-            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTLINX_COROUTINES_REACTOR))
-            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTLIN_LOGGING))
-            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTLIN_REFLECT))
-            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.REACTOR_KOTLIN_EXTENSIONS))
+            arrayOf(
+                CatalogVersionConstants.Libraries.ARROW_KT_CORE,
+                CatalogVersionConstants.Libraries.ARROW_KT_COROUTINES,
+                CatalogVersionConstants.Libraries.JACKSON_MODULE_KOTLIN,
+                CatalogVersionConstants.Libraries.KOTLINX_COROUTINES_CORE,
+                CatalogVersionConstants.Libraries.KOTLINX_COROUTINES_REACTOR,
+                CatalogVersionConstants.Libraries.KOTLIN_LOGGING,
+                CatalogVersionConstants.Libraries.KOTLIN_REFLECT,
+                CatalogVersionConstants.Libraries.REACTOR_KOTLIN_EXTENSIONS,
+            ).forEach { addImplementation(libs.libraryOrThrow(it)) }
 
-            add("compileOnly", libs.libraryOrThrow(CatalogVersionConstants.Libraries.JETBRAINS_ANNOTATIONS))
+            addCompileOnly(libs.libraryOrThrow(CatalogVersionConstants.Libraries.JETBRAINS_ANNOTATIONS))
 
             // Test
-            addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTEST_ASSERTIONS_CORE))
-            addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTEST_RUNNER_JUNIT5))
-            addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTLINX_COROUTINES_TEST))
-            addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTLIN_TEST_JUNIT5))
-            addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.MOCKK))
-            addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.REACTOR_TEST))
+            arrayOf(
+                CatalogVersionConstants.Libraries.KOTEST_ASSERTIONS_CORE,
+                CatalogVersionConstants.Libraries.KOTEST_PROPERTY,
+                CatalogVersionConstants.Libraries.KOTEST_PROPERTY_ARBS,
+                CatalogVersionConstants.Libraries.KOTEST_PROPERTY_DATETIME,
+                CatalogVersionConstants.Libraries.KOTLINX_COROUTINES_DEBUG,
+                CatalogVersionConstants.Libraries.KOTLINX_COROUTINES_TEST,
+                CatalogVersionConstants.Libraries.KOTLIN_TEST_JUNIT5,
+                CatalogVersionConstants.Libraries.MOCKK,
+                CatalogVersionConstants.Libraries.REACTOR_TEST,
+            ).forEach { addTestImplementation(libs.libraryOrThrow(it)) }
+
+            addTestRuntimeOnly(libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTEST_RUNNER_JUNIT5))
         }
     }
 }

@@ -52,7 +52,7 @@ import kotlin.collections.Map
 @Validated
 {{/useBeanValidation}}
 {{#swagger1AnnotationLibrary}}
-@Api(value = "{{{baseName}}}", description = "The {{{baseName}}} API")
+@implementation(value = "{{{baseName}}}", description = "The {{{baseName}}} API")
 {{/swagger1AnnotationLibrary}}
 {{#useRequestMappingOnController}}
 {{=<% %>=}}

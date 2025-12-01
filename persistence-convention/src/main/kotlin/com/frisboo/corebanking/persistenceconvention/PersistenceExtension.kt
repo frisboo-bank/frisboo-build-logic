@@ -26,54 +26,51 @@ import org.gradle.kotlin.dsl.property
 import javax.inject.Inject
 
 public open class PersistenceExtension
-    @Inject
-    constructor(
-        objects: ObjectFactory,
-        providers: ProviderFactory,
-        libs: VersionCatalog,
-    ) {
-        public val exposedBom: BomExtensionSpec =
-            objects.newInstance(
-                BomExtensionSpec::class.java,
-                libs,
-                CatalogVersionConstants.Libraries.EXPOSED_BOM,
-                PersistenceConstants.Configuration.ENABLE_EXPOSED_BOM,
-                false,
-            )
+@Inject constructor(
+    objects: ObjectFactory,
+    providers: ProviderFactory,
+    libs: VersionCatalog,
+) {
+    public val enableExposed: Property<Boolean> = objects.property<Boolean>().convention(
+        providers.gradleProperty(
+            PersistenceConstants.Configuration.ENABLE_EXPOSED,
+            String::toBoolean,
+        ).orElse(false),
+    )
 
-        public val enableMongo: Property<Boolean> =
-            objects.property<Boolean>().convention(
-                providers
-                    .gradleProperty(
-                        PersistenceConstants.Configuration.ENABLE_MONGODB,
-                        String::toBoolean,
-                    ).orElse(false),
-            )
+    public val exposedBom: BomExtensionSpec = objects.newInstance(
+        BomExtensionSpec::class.java,
+        libs,
+        CatalogVersionConstants.Libraries.EXPOSED_BOM,
+        PersistenceConstants.Configuration.ENABLE_EXPOSED_BOM,
+        false,
+    )
 
-        public val enableExposed: Property<Boolean> =
-            objects.property<Boolean>().convention(
-                providers
-                    .gradleProperty(
-                        PersistenceConstants.Configuration.ENABLE_EXPOSED,
-                        String::toBoolean,
-                    ).orElse(false),
-            )
+    public val enableFlyway: Property<Boolean> = objects.property<Boolean>().convention(
+        providers.gradleProperty(
+            PersistenceConstants.Configuration.ENABLE_FLYWAY,
+            String::toBoolean,
+        ).orElse(false),
+    )
 
-        public val enablePostgres: Property<Boolean> =
-            objects.property<Boolean>().convention(
-                providers
-                    .gradleProperty(
-                        PersistenceConstants.Configuration.ENABLE_POSTGRESQL,
-                        String::toBoolean,
-                    ).orElse(false),
-            )
+    public val enableH2: Property<Boolean> = objects.property<Boolean>().convention(
+        providers.gradleProperty(
+            PersistenceConstants.Configuration.ENABLE_H2,
+            String::toBoolean,
+        ).orElse(false),
+    )
 
-        public val enableH2: Property<Boolean> =
-            objects.property<Boolean>().convention(
-                providers
-                    .gradleProperty(
-                        PersistenceConstants.Configuration.ENABLE_H2,
-                        String::toBoolean,
-                    ).orElse(false),
-            )
-    }
+    public val enableMongo: Property<Boolean> = objects.property<Boolean>().convention(
+        providers.gradleProperty(
+            PersistenceConstants.Configuration.ENABLE_MONGODB,
+            String::toBoolean,
+        ).orElse(false),
+    )
+
+    public val enablePostgres: Property<Boolean> = objects.property<Boolean>().convention(
+        providers.gradleProperty(
+            PersistenceConstants.Configuration.ENABLE_POSTGRESQL,
+            String::toBoolean,
+        ).orElse(false),
+    )
+}

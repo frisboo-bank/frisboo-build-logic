@@ -19,6 +19,7 @@ public object TestingConstants {
     public object Configuration {
         public const val ENABLE_TESTCONTAINERS_BOM: String = "testcontainersBom.enabled"
         public const val ENABLE_JUNIT_BOM: String = "junitBom.enabled"
+        public const val ENABLE_KOTEST_BOM: String = "kotestBom.enabled"
 
         public const val ENABLE_TESTCONTAINERS: String = "testcontainers.enabled"
     }

@@ -20,6 +20,7 @@ public object KotlinConstants {
         public const val ENABLE_ARROW_KT_BOM: String = "arrowKtBom.enabled"
         public const val ENABLE_KOTLIN_BOM: String = "kotlinBom.enabled"
         public const val ENABLE_KOTLINX_COROUTINES_BOM: String = "kotlinxCoroutinesBom.enabled"
+        public const val ENABLE_KOTLINX_SERIALIZATION_BOM: String = "kotlinxSerializationBom.enabled"
         public const val ENABLE_REACTOR_BOM: String = "reactorBom.enabled"
 
         public const val ENABLE_ARROW_KT: String = "arrow.enabled"

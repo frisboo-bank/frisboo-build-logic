@@ -20,10 +20,10 @@ plugins {
     alias(libs.plugins.dokka)
 }
 
-description = "Gradle plugin that provides conventions to test core banking apis"
+description = "Gradle plugin that provides conventions to test to core banking apis"
 
 dependencies {
-    api(project(":core-convention"))
+    implementation(project(":core-convention"))
 }
 
 fun plugin(plugin: Provider<PluginDependency>) =
@@ -36,7 +36,7 @@ gradlePlugin {
             Action {
                 id = "com.frisboo.corebanking.testing-convention"
                 displayName = "Frisboo Core Banking Testing Convention"
-                description = "Gradle plugin that provides conventions for testing core banking apis"
+                description = "Gradle plugin that provides conventions for testing to core banking apis"
                 tags =
                     listOf(
                         "frisboo",

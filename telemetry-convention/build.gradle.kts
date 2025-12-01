@@ -20,10 +20,10 @@ plugins {
     alias(libs.plugins.dokka)
 }
 
-description = "Gradle plugin that provides conventions for Telemetry core banking apis"
+description = "Gradle plugin that provides conventions for Telemetry to core banking apis"
 
 dependencies {
-    api(project(":core-convention"))
+    implementation(project(":core-convention"))
 }
 
 fun plugin(plugin: Provider<PluginDependency>) =
@@ -36,7 +36,7 @@ gradlePlugin {
             Action {
                 id = "com.frisboo.corebanking.telemetry-convention"
                 displayName = "Frisboo Core Banking Telemetry Convention"
-                description = "Gradle plugin that provides conventions for telemetry core banking apis"
+                description = "Gradle plugin that provides conventions for telemetry to core banking apis"
                 tags =
                     listOf(
                         "frisboo",

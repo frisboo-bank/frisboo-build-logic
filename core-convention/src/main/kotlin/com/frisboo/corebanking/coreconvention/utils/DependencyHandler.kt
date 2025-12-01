@@ -20,6 +20,10 @@ import org.gradle.api.artifacts.MinimalExternalModuleDependency
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.api.provider.Provider
 
+public fun DependencyHandler.applyBomIfEnabled(vararg bom: BomExtensionSpec) {
+    bom.forEach { applyBomIfEnabled(it) }
+}
+
 public fun DependencyHandler.applyBomIfEnabled(bom: BomExtensionSpec) {
     val enabled = bom.enabled.get()
     val coordinates = bom.coordinates.get()
@@ -30,20 +34,23 @@ public fun DependencyHandler.applyBomIfEnabled(bom: BomExtensionSpec) {
     val dep = platform(coordinates)
 
     if (!testOnly) {
-        add("implementation", dep)
+        add("api", dep)
     }
 
-    add("testImplementation", dep)
+    add("testApi", dep)
 }
 
 public fun DependencyHandler.addImplementation(library: Provider<MinimalExternalModuleDependency>): Dependency? =
-    add("implementation", library)
+    add("api", library)
 
 public fun DependencyHandler.addTestImplementation(library: Provider<MinimalExternalModuleDependency>): Dependency? =
-    add("testImplementation", library)
+    add("testApi", library)
 
 public fun DependencyHandler.addAnnotationProcessor(library: Provider<MinimalExternalModuleDependency>): Dependency? =
     add("annotationProcessor", library)
+
+public fun DependencyHandler.addCompileOnly(library: Provider<MinimalExternalModuleDependency>): Dependency? =
+    add("compileOnly", library)
 
 public fun DependencyHandler.addRuntimeOnly(library: Provider<MinimalExternalModuleDependency>): Dependency? =
     add("runtimeOnly", library)

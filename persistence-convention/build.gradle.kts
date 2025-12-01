@@ -20,10 +20,11 @@ plugins {
     alias(libs.plugins.dokka)
 }
 
-description = "Gradle plugin that provides conventions for persistence core banking apis"
+description = "Gradle plugin that provides conventions for persistence to core banking apis"
 
 dependencies {
-    api(project(":core-convention"))
+    implementation(project(":core-convention"))
+    implementation(plugin(libs.plugins.flyway))
 }
 
 fun plugin(plugin: Provider<PluginDependency>) =
@@ -36,7 +37,7 @@ gradlePlugin {
             Action {
                 id = "com.frisboo.corebanking.persistence-convention"
                 displayName = "Frisboo Core Banking Persistence Convention"
-                description = "Gradle plugin that provides conventions for persistence core banking apis"
+                description = "Gradle plugin that provides conventions for persistence to core banking apis"
                 tags =
                     listOf(
                         "frisboo",

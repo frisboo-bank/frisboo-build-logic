@@ -13,15 +13,10 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-package com.frisboo.corebanking.persistenceconvention
+package com.frisboo.corebanking.corelibraryconvention
 
-public object PersistenceConstants {
+public object CoreLibraryConstants {
     public object Configuration {
-        public const val ENABLE_EXPOSED: String = "exposed.enabled"
-        public const val ENABLE_EXPOSED_BOM: String = "exposedBom.enabled"
-        public const val ENABLE_FLYWAY: String = "flyway.enabled"
-        public const val ENABLE_H2: String = "h2.enabled"
-        public const val ENABLE_MONGODB: String = "mongodb.enabled"
-        public const val ENABLE_POSTGRESQL: String = "postgresql.enabled"
+        public const val ENABLE_CORE_LIBRARY_BOM: String = "coreLibraryBom.enabled"
     }
 }
