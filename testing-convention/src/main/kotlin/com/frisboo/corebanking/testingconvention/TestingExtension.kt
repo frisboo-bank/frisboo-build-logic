@@ -28,49 +28,58 @@ import org.gradle.kotlin.dsl.property
 import javax.inject.Inject
 
 public open class TestingExtension
-    @Inject
-    constructor(
-        objects: ObjectFactory,
-        providers: ProviderFactory,
-        libs: VersionCatalog,
-    ) {
-        public val testcontainersBom: BomExtensionSpec =
-            objects.newInstance(
-                BomExtensionSpec::class.java,
-                libs,
-                CatalogVersionConstants.Libraries.TESTCONTAINERS_BOM,
-                TestingConstants.Configuration.ENABLE_TESTCONTAINERS_BOM,
-                true,
-            )
+@Inject
+constructor(
+    objects: ObjectFactory,
+    providers: ProviderFactory,
+    libs: VersionCatalog,
+) {
+    public val testcontainersBom: BomExtensionSpec =
+        objects.newInstance(
+            BomExtensionSpec::class.java,
+            libs,
+            CatalogVersionConstants.Libraries.TESTCONTAINERS_BOM,
+            TestingConstants.Configuration.ENABLE_TESTCONTAINERS_BOM,
+            true,
+        )
 
-        public val junitBom: BomExtensionSpec =
-            objects.newInstance(
-                BomExtensionSpec::class.java,
-                libs,
-                CatalogVersionConstants.Libraries.JUNIT_BOM,
-                TestingConstants.Configuration.ENABLE_JUNIT_BOM,
-                true,
-            )
+    public val junitBom: BomExtensionSpec =
+        objects.newInstance(
+            BomExtensionSpec::class.java,
+            libs,
+            CatalogVersionConstants.Libraries.JUNIT_BOM,
+            TestingConstants.Configuration.ENABLE_JUNIT_BOM,
+            true,
+        )
 
-        public val enableTestContainers: Property<Boolean> =
-            objects.property<Boolean>().convention(
-                providers
-                    .gradleProperty(
-                        TestingConstants.Configuration.ENABLE_TESTCONTAINERS,
-                        String::toBoolean,
-                    ).orElse(true),
-            )
+    public val kotestBom: BomExtensionSpec =
+        objects.newInstance(
+            BomExtensionSpec::class.java,
+            libs,
+            CatalogVersionConstants.Libraries.KOTEST_BOM,
+            TestingConstants.Configuration.ENABLE_KOTEST_BOM,
+            true,
+        )
 
-        public val testJvmArguments: ListProperty<String> =
-            objects.listProperty<String>().convention(
+    public val enableTestContainers: Property<Boolean> =
+        objects.property<Boolean>().convention(
+            providers
+                .gradleProperty(
+                    TestingConstants.Configuration.ENABLE_TESTCONTAINERS,
+                    String::toBoolean,
+                ).orElse(true),
+        )
+
+    public val testJvmArguments: ListProperty<String> =
+        objects.listProperty<String>().convention(
 //                gradleProperty(providers, Configurations.Plugin.TEST_JVM_ARGS) {
 //                    it.split(",").map(String::trim)
 //                }.orElse(
-                listOf(
-                    "--add-opens=java.base/java.lang=ALL-UNNAMED",
-                    "--add-opens=java.base/java.io=ALL-UNNAMED",
-                    "--add-opens=java.base/java.util=ALL-UNNAMED",
-                ),
+            listOf(
+                "--add-opens=java.base/java.lang=ALL-UNNAMED",
+                "--add-opens=java.base/java.io=ALL-UNNAMED",
+                "--add-opens=java.base/java.util=ALL-UNNAMED",
+            ),
 //                ),
-            )
-    }
+        )
+}

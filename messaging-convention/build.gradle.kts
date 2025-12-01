@@ -20,14 +20,11 @@ plugins {
     alias(libs.plugins.dokka)
 }
 
-description = "Gradle plugin that provides conventions for Messaging core banking apis"
+description = "Gradle plugin that provides conventions for Messaging to core banking apis"
 
 dependencies {
-    api(project(":core-convention"))
+    implementation(project(":core-convention"))
 }
-
-fun plugin(plugin: Provider<PluginDependency>) =
-    plugin.map { "${it.pluginId}:${it.pluginId}.gradle.plugin:${it.version}" }
 
 gradlePlugin {
     plugins {
@@ -36,7 +33,7 @@ gradlePlugin {
             Action {
                 id = "com.frisboo.corebanking.messaging-convention"
                 displayName = "Frisboo Core Banking Messaging Convention"
-                description = "Gradle plugin that provides conventions for messaging core banking apis"
+                description = "Gradle plugin that provides conventions for messaging to core banking apis"
                 tags =
                     listOf(
                         "frisboo",

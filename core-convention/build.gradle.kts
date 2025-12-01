@@ -21,11 +21,15 @@ plugins {
     alias(libs.plugins.plugin.publish)
 }
 
-description = "Gradle plugin that provides core convention features for core banking apis"
+description = "Gradle plugin that provides core convention features for to core banking apis"
 
 dependencies {
-    api(libs.restrict.imports.plugin)
+    implementation(plugin(libs.plugins.restrictimports))
 }
+
+fun plugin(plugin: Provider<PluginDependency>) =
+    plugin.map { "${it.pluginId}:${it.pluginId}.gradle.plugin:${it.version}" }
+
 
 gradlePlugin {
     plugins {
@@ -34,7 +38,7 @@ gradlePlugin {
             Action {
                 id = "com.frisboo.corebanking.core-convention"
                 displayName = "Frisboo Core Banking Core Convention"
-                description = "Gradle plugin that provides core convention features for core banking apis"
+                description = "Gradle plugin that provides core convention features for to core banking apis"
                 tags =
                     listOf(
                         "frisboo",

@@ -15,7 +15,7 @@ class SpringDocConfiguration {
 
     @Bean
     fun apiInfo(): OpenAPI {
-        return OpenAPI()
+        return Openimplementation()
             .info(
                 Info(){{#appName}}
                     .title("{{appName}}"){{/appName}}

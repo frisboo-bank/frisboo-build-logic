@@ -22,6 +22,7 @@ import com.frisboo.corebanking.coreconvention.utils.addTestImplementation
 import com.frisboo.corebanking.coreconvention.utils.applyBomIfEnabled
 import com.frisboo.corebanking.coreconvention.utils.getLibs
 import com.frisboo.corebanking.coreconvention.utils.libraryOrThrow
+import com.frisboo.corebanking.coreconvention.utils.pluginIdOrThrow
 import org.gradle.api.Project
 import org.gradle.internal.cc.base.logger
 import org.gradle.kotlin.dsl.dependencies
@@ -35,57 +36,60 @@ public class PersistenceManager(
     public fun configure() {
         logger.debug("-----------------------------------------------------------")
         logger.debug("Configuring Persistence settings for project ${project.name}")
+        logger.debug(" - Exposed Enabled: ${ext.enableExposed.get()}")
+        logger.debug(" - Exposed BOM Enabled: ${ext.exposedBom.enabled.get()}")
+        logger.debug(" - Flyway Enabled: ${ext.enableFlyway.get()}")
         logger.debug(" - H2 Enabled: ${ext.enableH2.get()}")
         logger.debug(" - Mongo Enabled: ${ext.enableMongo.get()}")
         logger.debug(" - Postgres Enabled: ${ext.enablePostgres.get()}")
         logger.debug("-----------------------------------------------------------")
 
+        project.dependencies {
+            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_DATA_JPA))
+        }
+
         if (ext.enableExposed.get()) {
-            configureExposed()
+            project.dependencies {
+                applyBomIfEnabled(ext.exposedBom)
+                addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.EXPOSED_SPRING_BOOT_STARTER))
+                addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.EXPOSED_JSON))
+                addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.EXPOSED_KOTLIN_DATETIME))
+            }
+        }
+
+        if (ext.enableFlyway.get()) {
+            project.pluginManager.apply(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.FLYWAY))
+            project.dependencies {
+                addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.FLYWAY_CORE))
+                if (ext.enableMongo.get()) {
+//                    addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.FLYWAY_DATABASE_MONGODB))
+                }
+                if (ext.enablePostgres.get()) {
+                    addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.FLYWAY_DATABASE_POSTGRESQL))
+                }
+            }
         }
 
         if (ext.enableH2.get()) {
-            configureH2()
+            project.dependencies {
+                addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.H2))
+                addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.TESTCONTAINERS_H2))
+            }
         }
 
         if (ext.enableMongo.get()) {
-            configureMongo()
+            project.dependencies {
+                addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_DATA_MONGODB))
+                addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.MONGODB))
+                addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.TESTCONTAINERS_MONGODB))
+            }
         }
 
         if (ext.enablePostgres.get()) {
-            configurePostgres()
-        }
-    }
-
-    private fun configureExposed() {
-        project.dependencies {
-            applyBomIfEnabled(ext.exposedBom)
-
-            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.EXPOSED_SPRING_BOOT_STARTER))
-            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.EXPOSED_R2DBC))
-            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.EXPOSED_KOTLIN_DATETIME))
-        }
-    }
-
-    private fun configureH2() {
-        project.dependencies {
-            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.H2))
-            addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.TESTCONTAINERS_H2))
-        }
-    }
-
-    private fun configurePostgres() {
-        project.dependencies {
-            addRuntimeOnly(libs.libraryOrThrow(CatalogVersionConstants.Libraries.POSTGRESQL))
-            addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.TESTCONTAINERS_POSTGRESQL))
-        }
-    }
-
-    private fun configureMongo() {
-        project.dependencies {
-            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_DATA_MONGODB))
-            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.MONGODB))
-            addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.TESTCONTAINERS_MONGODB))
+            project.dependencies {
+                addRuntimeOnly(libs.libraryOrThrow(CatalogVersionConstants.Libraries.POSTGRESQL))
+                addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.TESTCONTAINERS_POSTGRESQL))
+            }
         }
     }
 }

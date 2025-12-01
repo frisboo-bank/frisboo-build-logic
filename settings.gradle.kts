@@ -13,11 +13,14 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
+rootProject.name = "gradle-convention-plugin"
+
 enableFeaturePreview("STABLE_CONFIGURATION_CACHE")
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 include("convention")
 include("core-convention")
+include("core-library-convention")
 include("grpc-convention")
 include("kotlin-convention")
 include("messaging-convention")

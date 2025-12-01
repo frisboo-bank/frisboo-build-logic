@@ -39,12 +39,12 @@ public class KotlinLanguage(
 
     public fun configure() {
         logger.debug("-----------------------------------------------------")
-        logger.debug("Configuring Kotlin Language settings for project: ${project.name}")
-        logger.debug(" - Kotlin version: $kotlinVersion")
-        logger.debug(" - JVM Target version: $jvmTargetVersion")
-        logger.debug(" - Warnings as Errors: ${warningsAsErrors().get()}")
-        logger.debug(" - Progressive Mode: ${progressiveMode().get()}")
-        logger.debug(" - Additional Opt-Ins: ${additionalOptIns().joinToString()}")
+        logger.debug("Configuring Kotlin Language settings for project: {}", project.name)
+        logger.debug(" - Kotlin version: {}", kotlinVersion)
+        logger.debug(" - JVM Target version: {}", jvmTargetVersion)
+        logger.debug(" - Warnings as Errors: {}", warningsAsErrors().get())
+        logger.debug(" - Progressive Mode: {}", progressiveMode().get())
+        logger.debug(" - Additional Opt-Ins: {}", additionalOptIns().joinToString())
         logger.debug("-----------------------------------------------------")
 
         project.plugins.withId(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.KOTLIN_JVM)) {
@@ -57,18 +57,36 @@ public class KotlinLanguage(
 
             project.tasks.withType<KotlinCompile>().configureEach { t ->
                 t.compilerOptions {
+                    // Set the Kotlin API and language versions
                     apiVersion.set(KotlinVersion.fromVersion(kotlinVersion))
                     languageVersion.set(KotlinVersion.fromVersion(kotlinVersion))
                     jvmTarget.set(JvmTarget.fromTarget(jvmTargetVersion))
 
+                    // Treat all warnings as errors
                     allWarningsAsErrors.set(warningsAsErrors())
+
+                    // Enable progressive mode for the compiler
                     progressiveMode.set(progressiveMode())
 
+                    // Opt-in to experimental Kotlin features
                     optIn.add("kotlin.RequiresOptIn")
-                    optIn.addAll(additionalOptIns())
+                    optIn.add("kotlin.time.ExperimentalTime")
 
+                    // Opt-in to common coroutine experimental APIs
+                    optIn.add("kotlinx.coroutines.ExperimentalCoroutinesApi")
+                    optIn.add("kotlinx.coroutines.FlowPreview")
+
+                    // Enable default methods in Kotlin interfaces
                     jvmDefault.set(JvmDefaultMode.ENABLE)
-                    freeCompilerArgs.addAll(listOf("-Xjsr305=strict"))
+
+                    // Add additional compiler arguments
+                    freeCompilerArgs.addAll(
+                        listOf(
+                            "-Xlambdas=indy", // Improve lambda performance on modern JVMs (requires Java 11+)
+                            "-Xjsr305=strict", // Enable strict nullability checks for Java interop
+                            "-Xannotation-default-target=param-property", // Set default annotation targets
+                        ),
+                    )
                 }
             }
         }

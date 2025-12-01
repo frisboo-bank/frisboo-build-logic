@@ -23,45 +23,45 @@ import org.gradle.api.provider.ProviderFactory
 import javax.inject.Inject
 
 public open class KotlinExtension
-    @Inject
-    constructor(
-        objects: ObjectFactory,
-        providers: ProviderFactory,
-        libs: VersionCatalog,
-    ) {
-        public val arrowKtBom: BomExtensionSpec =
-            objects.newInstance(
-                BomExtensionSpec::class.java,
-                libs,
-                CatalogVersionConstants.Libraries.ARROW_KT_BOM,
-                KotlinConstants.Configuration.ENABLE_ARROW_KT_BOM,
-                false,
-            )
+@Inject
+constructor(
+    objects: ObjectFactory,
+    providers: ProviderFactory,
+    libs: VersionCatalog,
+) {
+    public val arrowKtBom: BomExtensionSpec =
+        objects.newInstance(
+            BomExtensionSpec::class.java,
+            libs,
+            CatalogVersionConstants.Libraries.ARROW_KT_BOM,
+            KotlinConstants.Configuration.ENABLE_ARROW_KT_BOM,
+            false,
+        )
 
-        public val kotlinBom: BomExtensionSpec =
-            objects.newInstance(
-                BomExtensionSpec::class.java,
-                libs,
-                CatalogVersionConstants.Libraries.KOTLIN_BOM,
-                KotlinConstants.Configuration.ENABLE_KOTLIN_BOM,
-                false,
-            )
+    public val kotlinBom: BomExtensionSpec =
+        objects.newInstance(
+            BomExtensionSpec::class.java,
+            libs,
+            CatalogVersionConstants.Libraries.KOTLIN_BOM,
+            KotlinConstants.Configuration.ENABLE_KOTLIN_BOM,
+            false,
+        )
 
-        public val kotlinxCoroutinesBom: BomExtensionSpec =
-            objects.newInstance(
-                BomExtensionSpec::class.java,
-                libs,
-                CatalogVersionConstants.Libraries.KOTLINX_COROUTINES_BOM,
-                KotlinConstants.Configuration.ENABLE_KOTLINX_COROUTINES_BOM,
-                false,
-            )
+    public val kotlinxCoroutinesBom: BomExtensionSpec =
+        objects.newInstance(
+            BomExtensionSpec::class.java,
+            libs,
+            CatalogVersionConstants.Libraries.KOTLINX_COROUTINES_BOM,
+            KotlinConstants.Configuration.ENABLE_KOTLINX_COROUTINES_BOM,
+            false,
+        )
 
-        public val reactiveBom: BomExtensionSpec =
-            objects.newInstance(
-                BomExtensionSpec::class.java,
-                libs,
-                CatalogVersionConstants.Libraries.REACTOR_BOM,
-                KotlinConstants.Configuration.ENABLE_REACTOR_BOM,
-                false,
-            )
-    }
+    public val reactiveBom: BomExtensionSpec =
+        objects.newInstance(
+            BomExtensionSpec::class.java,
+            libs,
+            CatalogVersionConstants.Libraries.REACTOR_BOM,
+            KotlinConstants.Configuration.ENABLE_REACTOR_BOM,
+            false,
+        )
+}

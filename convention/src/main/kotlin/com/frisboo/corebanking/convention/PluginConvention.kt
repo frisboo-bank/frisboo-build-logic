@@ -38,33 +38,9 @@ public class PluginConvention : Plugin<Project> {
             extensions.create<PluginExtension>("coreBankingConvention", libs)
 
             try {
-                project.applyPlugin(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.COREBANKING_CORE_CONVENTION))
+                project.applyPlugin(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.COREBANKING_CONVENTION_CORE))
                 project.applyPlugin(
-                    libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.COREBANKING_KOTLIN_CONVENTION),
-                )
-                project.applyPlugin(
-                    libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.COREBANKING_GRPC_CONVENTION),
-                )
-                project.applyPlugin(
-                    libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.COREBANKING_MESSAGING_CONVENTION),
-                )
-                project.applyPlugin(
-                    libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.COREBANKING_OPENAPI_CONVENTION),
-                )
-                project.applyPlugin(
-                    libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.COREBANKING_PERSISTENCE_CONVENTION),
-                )
-                project.applyPlugin(
-                    libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.COREBANKING_QUALITY_CONVENTION),
-                )
-                project.applyPlugin(
-                    libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.COREBANKING_SPRINGBOOT_CONVENTION),
-                )
-                project.applyPlugin(
-                    libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.COREBANKING_TELEMETRY_CONVENTION),
-                )
-                project.applyPlugin(
-                    libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.COREBANKING_TESTING_CONVENTION),
+                    libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.COREBANKING_CONVENTION_KOTLIN),
                 )
             } catch (e: IllegalStateException) {
                 error("Failed to configure Frisboo Core Banking Convention: ${e.message}")
