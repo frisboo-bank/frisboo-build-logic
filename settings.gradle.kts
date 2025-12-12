@@ -18,26 +18,13 @@ rootProject.name = "gradle-convention-plugin"
 enableFeaturePreview("STABLE_CONFIGURATION_CACHE")
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
-include("convention")
-include("core-convention")
-include("core-library-convention")
-include("grpc-convention")
-include("kotlin-convention")
-include("messaging-convention")
-include("openapi-convention")
-include("persistence-convention")
-include("quality-convention")
-include("spring-boot-convention")
-include("telemetry-convention")
-include("testing-convention")
 include("version-catalog")
+include("convention-plugin")
 
 pluginManagement {
     includeBuild("build-logic")
     repositories {
-        mavenCentral()
         gradlePluginPortal()
-        mavenLocal()
     }
 }
 
@@ -57,15 +44,20 @@ dependencyResolutionManagement {
     repositories {
         mavenCentral()
         gradlePluginPortal()
+        maven {
+            name = "FrisbooGitHubPackages"
+            url = uri("https://maven.pkg.github.com/jolafrite/frisboo-core-banking")
+            credentials {
+                username = providers.gradleProperty("frisboo.gpr.user").orNull ?: System.getenv("FRISBOO_GPR_USERNAME")
+                password = providers.gradleProperty("frisboo.gpr.key").orNull ?: System.getenv("FRISBOO_GPR_TOKEN")
+            }
+        }
         mavenLocal()
     }
 
     versionCatalogs {
-        create(
-            "libs",
-            Action {
-                from(files("./version-catalog/libs.versions.toml"))
-            },
-        )
+        create("baseLibs") {
+            from(files("./version-catalog/libs.versions.toml"))
+        }
     }
 }

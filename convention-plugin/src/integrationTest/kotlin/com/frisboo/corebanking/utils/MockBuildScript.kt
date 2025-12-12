@@ -13,8 +13,26 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-plugins {
-    base
-    id("quality-conventions")
-    alias(baseLibs.plugins.maven.publish) apply false
-}
+package com.frisboo.corebanking.utils
+
+fun mockBuildScript(
+    content: String = "",
+    bomBlock: String = "",
+    qualityBlock: String = "",
+    dependenciesBlock: String = "",
+): String =
+    """
+    plugins {
+        kotlin("jvm") version "2.2.20"
+        id("com.frisboo.corebanking.gradle-convention-plugin") version "0.0.1-alpha1"
+    }
+
+    ${
+        content.ifBlank {
+            """
+            """.trimIndent()
+        }
+    }
+
+    ${dependenciesBlock.ifBlank { "" }}
+    """.trimIndent()

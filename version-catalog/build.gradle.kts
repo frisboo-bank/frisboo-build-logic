@@ -16,9 +16,12 @@
 import com.vanniktech.maven.publish.VersionCatalog
 
 plugins {
+    kotlin("jvm")
     `version-catalog`
-    alias(libs.plugins.maven.publish)
+    alias(baseLibs.plugins.maven.publish)
 }
+
+description = "Version catalog for dependencies used in Core Banking modules"
 
 catalog {
     versionCatalog {
@@ -28,4 +31,18 @@ catalog {
 
 mavenPublishing {
     configure(VersionCatalog())
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "FrisbooGitHubPackages"
+            url = uri("https://maven.pkg.github.com/jolafrite/frisboo-core-banking")
+            credentials {
+                username =
+                    project.findProperty("frisboo.gpr.user") as String? ?: System.getenv("FRISBOO_GPR_USERNAME")
+                password = project.findProperty("frisboo.gpr.key") as String? ?: System.getenv("FRISBOO_GPR_TOKEN")
+            }
+        }
+    }
 }
