@@ -13,8 +13,17 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-plugins {
-    base
-    id("quality-conventions")
-    alias(baseLibs.plugins.maven.publish) apply false
-}
+package com.frisboo.corebanking.extensions
+
+import org.gradle.api.artifacts.VersionCatalog
+import org.gradle.api.model.ObjectFactory
+import org.gradle.api.provider.ProviderFactory
+import javax.inject.Inject
+
+public open class TelemetryExtension
+    @Inject
+    constructor(
+        objects: ObjectFactory,
+        providers: ProviderFactory,
+        libs: VersionCatalog,
+    )

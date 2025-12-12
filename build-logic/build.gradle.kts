@@ -9,19 +9,18 @@ plugins {
 }
 
 java {
-    val jvmTargetVersion = libs.versions.jvm.target.version
+    val jvmTargetVersion = baseLibs.versions.jvm.target
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(jvmTargetVersion.get()))
     }
 }
 
 kotlin {
-    val kotlinVersion = libs.versions.kotlin.language.version
-    val jvmTargetVersion = libs.versions.jvm.target.version
+    val kotlinVersion = baseLibs.versions.kotlin.language
+    val jvmTargetVersion = baseLibs.versions.jvm.target
 
     jvmToolchain {
         languageVersion.set(jvmTargetVersion.map(JavaLanguageVersion::of))
-//        languageVersion.set(JavaLanguageVersion.of(jvmTargetVersion.get()))
     }
 
     explicitApi()
@@ -30,9 +29,6 @@ kotlin {
         apiVersion.set(kotlinVersion.map(KotlinVersion::fromVersion))
         languageVersion.set(kotlinVersion.map(KotlinVersion::fromVersion))
         jvmTarget.set(jvmTargetVersion.map(JvmTarget::fromTarget))
-//        apiVersion.set(KotlinVersion.KOTLIN_2_3)
-//        languageVersion.set(KotlinVersion.KOTLIN_2_3)
-//        jvmTarget.set(JvmTarget.JVM_24)
 
         allWarningsAsErrors.set(true)
         progressiveMode.set(true)
@@ -42,9 +38,9 @@ kotlin {
 }
 
 dependencies {
-    implementation(plugin(libs.plugins.kotlin.jvm))
-    implementation(plugin(libs.plugins.spotless))
-    implementation(plugin(libs.plugins.detekt))
+    implementation(plugin(baseLibs.plugins.kotlin.jvm))
+    implementation(plugin(baseLibs.plugins.spotless))
+    implementation(plugin(baseLibs.plugins.detekt))
 }
 
 fun plugin(plugin: Provider<PluginDependency>) =

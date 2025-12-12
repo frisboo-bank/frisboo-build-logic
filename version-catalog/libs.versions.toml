@@ -1,163 +1,154 @@
 [versions]
-arrowkt-version = "2.1.0"
+arrowkt = "2.1.0"
 context-propagation = "1.2.0"
-cpd-version = "3.5"
-dependency-analysis-version = "3.1.0"
-detekt-version = "2.0.0-alpha.1"
-dokka-version = "2.1.0"
-exposed-version = "1.0.0-rc-3"
-flyway-version = "11.15.0"
-frisboo-corebanking-version = "0.0.1"
-gradle-versions-version = "0.53.0"
-grpc-version = "1.77.0"
-grpc-kotlin-stub-version = "1.5.0"
-grpc-netty-shaded-version = "1.77.0"
-grpc-protobuf-version = "1.77.0"
-h2-version = "2.4.240"
-jackson-annotations-version = "3.0-rc5"
-jackson-datatype-jsr310-version = "3.0.0-rc2"
-jackson-version = "2.20.1"
-jetbrains-annotations-version = "26.0.2-1"
-jgit-version = "7.4.0.202509020913-r"
-junit-version = "6.0.0"
-jvm-target-version = "24"
-kotest-property-arbs-version = "2.1.2"
-kotest-property-datetime-version = "2.0.0"
-kotest-version = "6.0.5"
-kotlin-language-version = "2.2"
-kotlin-logging-version = "7.0.13"
-kotlin-version = "2.2.21"
-kotlinx-coroutines-version = "1.10.2"
-kotlinx-datetime-version = "0.7.1-0.6.x-compat"
-kover-version = "0.9.3"
-ktlint-version = "1.7.1"
-maven-publish-version = "0.34.0"
-mockk-version = "1.14.6"
-mongodb-version = "5.6.1"
-openapi-generator-version = "7.14.0"
-owaspCheck-version = "12.1.8"
-plugin-publish-version = "2.0.0"
-postgresql-version = "42.7.8"
-protobuf-plugin-version = "0.9.5"
-protobuf-version = "4.33.1"
-protoc-gen-grpc-java-version = "1.77.0"
-protoc-gen-grpc-kotlin-version = "1.5.0"
-protoc-version = "4.33.1"
-protovalidate-version = "1.0.1"
-reactor-version = "2024.0.11"
-restrict-imports-version = "3.0.0"
-spotless-version = "8.0.0"
-spring-boot-grpc-version = "0.12.0"
-spring-boot-version = "3.5.8"
-spring-dependency-management-version = "1.1.7"
-springdoc-openapi-plugin-version = "1.9.0"
-springdoc-openapi-version = "2.8.13"
-test-retry-version = "1.6.4"
-testcontainers-version = "2.0.1"
+cpd-plugin = "3.5"
+dependency-analysis-plugin = "3.1.0"
+detekt = "2.0.0-alpha.1"
+detekt-plugin = "2.0.0-alpha.1"
+dokka-plugin = "2.1.0"
+exposed = "1.0.0-rc-3"
+flyway = "11.19.0"
+flyway-plugin = "11.19.0"
+gradles-plugin = "0.53.0"
+grpc = "1.77.0"
+grpc-kotlin-stub = "1.5.0"
+grpc-netty-shaded = "1.77.0"
+grpc-protobuf = "1.77.0"
+h2 = "2.4.240"
+jackson = "2.20.1"
+jackson-annotations = "3.0-rc5"
+jackson-datatype-jsr310 = "3.0.0-rc2"
+jetbrains-annotations = "26.0.2-1"
+jgit = "7.4.0.202509020913-r"
+junit = "6.0.0"
+jvm-target = "24"
+kotest = "6.0.5"
+kotest-assertions-arrow = "2.0.0"
+kotest-property-arbs = "2.1.2"
+kotest-property-datetime = "2.0.0"
+kotlin = "2.2.21"
+kotlin-language = "2.2"
+kotlin-logging = "7.0.13"
+kotlin-plugin = "2.2.21"
+kotlinx-coroutines = "1.10.2"
+kotlinx-datetime = "0.7.1-0.6.x-compat"
+kover = "0.9.3"
+kover-plugin = "0.9.3"
+ktlint = "1.8.0"
+maven-publish-plugin = "0.34.0"
+mockk = "1.14.6"
+mongodb = "5.6.1"
+openapi-generator-plugin = "7.14.0"
+owasp-dependencycheck-plugin = "12.1.9"
+postgresql = "42.7.8"
+protobuf = "4.33.1"
+protobuf-plugin = "0.9.5"
+protoc = "4.33.1"
+protoc-gen-grpc-java = "1.77.0"
+protoc-gen-grpc-kotlin = "1.5.0"
+protovalidate = "1.0.1"
+reactor = "2024.0.11"
+restrict-imports-plugin = "3.0.0"
+spotless-plugin = "8.1.0"
+spring-boot = "3.5.8"
+spring-boot-grpc = "0.12.0"
+spring-boot-plugin = "3.5.8"
+spring-dependency-management-plugin = "1.1.7"
+springdoc-openapi = "2.8.13"
+springdoc-openapi-plugin = "1.9.0"
+test-retry-plugin = "1.6.4"
+testcontainers = "2.0.1"
 
 [libraries]
-# Core Banking Platform
-corebanking-bom = { group = "com.frisboo.corebanking", name = "frisboo-bom", version.ref = "frisboo-corebanking-version" }
-corebanking-core = { group = "com.frisboo.corebanking", name = "frisboo-core" }
-corebanking-data = { group = "com.frisboo.corebanking", name = "frisboo-data" }
-corebanking-grpc = { group = "com.frisboo.corebanking", name = "frisboo-grpc" }
-corebanking-http = { group = "com.frisboo.corebanking", name = "frisboo-http" }
-corebanking-messaging = { group = "com.frisboo.corebanking", name = "frisboo-messaging" }
-corebanking-persistence = { group = "com.frisboo.corebanking", name = "frisboo-persistence" }
-corebanking-tests = { group = "com.frisboo.corebanking", name = "frisboo-tests" }
-corebanking-version = { group = "com.frisboo.corebanking", name = "version-catalog", version.ref = "frisboo-corebanking-version" }
-
 # Kotlin
-kotlin-bom = { group = "org.jetbrains.kotlin", name = "kotlin-bom", version.ref = "kotlin-version" }
-kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin-version" }
+kotlin-bom = { group = "org.jetbrains.kotlin", name = "kotlin-bom", version.ref = "kotlin" }
+kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect" }
 kotlin-test-junit5 = { group = "org.jetbrains.kotlin", name = "kotlin-test-junit5" }
-kotlin-logging = { group = "io.github.oshai", name = "kotlin-logging-jvm", version.ref = "kotlin-logging-version" }
+kotlin-logging = { group = "io.github.oshai", name = "kotlin-logging-jvm", version.ref = "kotlin-logging" }
 
 # Kotlin Extensions
-kotlinx-coroutines-bom = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-bom", version.ref = "kotlinx-coroutines-version" }
+kotlinx-coroutines-bom = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-bom", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core" }
 kotlinx-coroutines-debug = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-debug" }
 kotlinx-coroutines-reactor = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-reactor" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test" }
-kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinx-datetime-version" }
+kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinx-datetime" }
 
 # ArrowKT
-arrow-kt-bom = { group = "io.arrow-kt", name = "arrow-stack", version.ref = "arrowkt-version" }
+arrow-kt-bom = { group = "io.arrow-kt", name = "arrow-stack", version.ref = "arrowkt" }
 arrow-kt-core = { group = "io.arrow-kt", name = "arrow-core" }
 arrow-kt-coroutines = { group = "io.arrow-kt", name = "arrow-fx-coroutines" }
 
 # Spring
-spring-boot-bom = { group = "org.springframework.boot", name = "spring-boot-dependencies", version.ref = "spring-boot-version" }
 spring-boot-autoconfigure = { group = "org.springframework.boot", name = "spring-boot-autoconfigure" }
+spring-boot-bom = { group = "org.springframework.boot", name = "spring-boot-dependencies", version.ref = "spring-boot" }
 spring-boot-configuration-processor = { group = "org.springframework.boot", name = "spring-boot-configuration-processor" }
 spring-boot-devtools = { group = "org.springframework.boot", name = "spring-boot-devtools" }
+spring-boot-kafka = { group = "org.springframework.kafka", name = "spring-kafka" }
+spring-boot-kafka-test = { group = "org.springframework.kafka", name = "spring-kafka-test" }
+spring-boot-kotlin = { group = "org.jetbrains.kotlin.plugin.spring", name = "org.jetbrains.kotlin.plugin.spring.gradle.plugin", version = "2.2.21" }
 spring-boot-starter-actuator = { group = "org.springframework.boot", name = "spring-boot-starter-actuator" }
-spring-boot-starter-data-jpa = { group = "org.springframework.boot", name = "spring-boot-starter-data-jpa" }
 spring-boot-starter-data-mongodb = { group = "org.springframework.boot", name = "spring-boot-starter-data-mongodb" }
-spring-boot-starter-hateoas = { group = "org.springframework.boot", name = "spring-boot-starter-hateoas" }
+spring-boot-starter-data-redis = { group = "org.springframework.boot", name = "spring-boot-starter-data-redis" }
+spring-boot-starter-data-redix-reactive = { group = "org.springframework.boot", name = "spring-boot-starter-data-redis-reactive" }
 spring-boot-starter-test = { group = "org.springframework.boot", name = "spring-boot-starter-test" }
 spring-boot-starter-validation = { group = "org.springframework.boot", name = "spring-boot-starter-validation" }
 spring-boot-starter-webflux = { group = "org.springframework.boot", name = "spring-boot-starter-webflux" }
 spring-boot-testcontainers = { group = "org.springframework.boot", name = "spring-boot-testcontainers" }
-spring-boot-kafka = { group = "org.springframework.kafka", name = "spring-kafka" }
-spring-boot-kafka-test = { group = "org.springframework.kafka", name = "spring-kafka-test" }
 
 # SpringDoc OpenAPI
-springdoc-openapi-bom = { group = "org.springdoc", name = "springdoc-openapi-bom", version.ref = "springdoc-openapi-version" }
+springdoc-openapi-bom = { group = "org.springdoc", name = "springdoc-openapi-bom", version.ref = "springdoc-openapi" }
 springdoc-openapi-starter-webflux-api = { group = "org.springdoc", name = "springdoc-openapi-starter-webflux-api" }
 springdoc-openapi-starter-webflux-ui = { group = "org.springdoc", name = "springdoc-openapi-starter-webflux-ui" }
 
 # Reactor
-reactor-bom = { group = "io.projectreactor", name = "reactor-bom", version.ref = "reactor-version" }
+reactor-bom = { group = "io.projectreactor", name = "reactor-bom", version.ref = "reactor" }
 reactor-kotlin-extensions = { group = "io.projectreactor.kotlin", name = "reactor-kotlin-extensions" }
 reactor-test = { group = "io.projectreactor", name = "reactor-test" }
 
 # Database & Persistence
-exposed-bom = { group = "org.jetbrains.exposed", name = "exposed-bom", version.ref = "exposed-version" }
+exposed-bom = { group = "org.jetbrains.exposed", name = "exposed-bom", version.ref = "exposed" }
 exposed-json = { group = "org.jetbrains.exposed", name = "exposed-json" }
 exposed-kotlin-datetime = { group = "org.jetbrains.exposed", name = "exposed-kotlin-datetime" }
 exposed-spring-boot-starter = { group = "org.jetbrains.exposed", name = "exposed-spring-boot-starter" }
-flyway-core = { group = "org.flywaydb", name = "flyway-core", version.ref = "flyway-version" }
-flyway-database-mongodb = { group = "org.flywaydb", name = "flyway-database-mongodb", version.ref = "flyway-version" }
-flyway-database-postgresql = { group = "org.flywaydb", name = "flyway-database-postgresql", version.ref = "flyway-version" }
-h2 = { group = "com.h2database", name = "h2", version.ref = "h2-version" }
-postgresql = { group = "org.postgresql", name = "postgresql", version.ref = "postgresql-version" }
+flyway-core = { group = "org.flywaydb", name = "flyway-core", version.ref = "flyway" }
+flyway-database-mongodb = { group = "org.flywaydb", name = "flyway-database-mongodb", version.ref = "flyway" }
+flyway-database-postgresql = { group = "org.flywaydb", name = "flyway-database-postgresql", version.ref = "flyway" }
+h2 = { group = "com.h2database", name = "h2", version.ref = "h2" }
+postgresql = { group = "org.postgresql", name = "postgresql", version.ref = "postgresql" }
 mongodb = { group = "org.mongodb", name = "mongodb-driver-kotlin-coroutine" }
 
 # gRPC
 context-propagation = { group = "io.micrometer", name = "context-propagation", version.ref = "context-propagation" }
-grpc-bom = { group = "io.grpc", name = "grpc-bom", version.ref = "grpc-version" }
-grpc-kotlin-stub = { group = "io.grpc", name = "grpc-kotlin-stub", version.ref = "grpc-kotlin-stub-version" }
-grpc-netty-shaded = { group = "io.grpc", name = "grpc-netty-shaded", version.ref = "grpc-netty-shaded-version" }
+grpc-bom = { group = "io.grpc", name = "grpc-bom", version.ref = "grpc" }
+grpc-kotlin-stub = { group = "io.grpc", name = "grpc-kotlin-stub", version.ref = "grpc-kotlin-stub" }
+grpc-netty-shaded = { group = "io.grpc", name = "grpc-netty-shaded", version.ref = "grpc-netty-shaded" }
 grpc-protobuf = { group = "io.grpc", name = "grpc-protobuf" }
-grpc-services = { group = "io.grpc", name = "grpc-services", version.ref = "grpc-version" }
+grpc-services = { group = "io.grpc", name = "grpc-services", version.ref = "grpc" }
 grpc-servlet = { group = "io.grpc", name = "grpc-servlet", version = "1.77.0" }
 grpc-stub = { group = "io.grpc", name = "grpc-stub" }
-protobuf-java = { group = "com.google.protobuf", name = "protobuf-java", version.ref = "protobuf-version" }
-protobuf-java-util = { group = "com.google.protobuf", name = "protobuf-java-util", version.ref = "protobuf-version" }
-protobuf-kotlin = { group = "com.google.protobuf", name = "protobuf-kotlin", version.ref = "protobuf-version" }
-protoc = { group = "com.google.protobuf", name = "protoc", version.ref = "protoc-version" }
-protoc-gen-grpc-java = { group = "io.grpc", name = "protoc-gen-grpc-java", version.ref = "protoc-gen-grpc-java-version" }
-protoc-gen-grpc-kotlin = { group = "io.grpc", name = "protoc-gen-grpc-kotlin", version.ref = "protoc-gen-grpc-kotlin-version" }
-protovalidate = { group = "build.buf", name = "protovalidate", version.ref = "protovalidate-version" }
-spring-boot-grpc-bom = { group = "org.springframework.grpc", name = "spring-grpc-dependencies", version.ref = "spring-boot-grpc-version" }
-spring-boot-grpc-starter = { group = "org.springframework.grpc", name = "spring-grpc-spring-boot-starter", version.ref = "spring-boot-grpc-version" }
+protobuf-java = { group = "com.google.protobuf", name = "protobuf-java", version.ref = "protobuf" }
+protobuf-java-util = { group = "com.google.protobuf", name = "protobuf-java-util", version.ref = "protobuf" }
+protobuf-kotlin = { group = "com.google.protobuf", name = "protobuf-kotlin", version.ref = "protobuf" }
+spring-boot-grpc-bom = { group = "org.springframework.grpc", name = "spring-grpc-dependencies", version.ref = "spring-boot-grpc" }
+spring-boot-grpc-starter = { group = "org.springframework.grpc", name = "spring-grpc-spring-boot-starter", version.ref = "spring-boot-grpc" }
 spring-boot-grpc-test = { group = "org.springframework.grpc", name = "spring-grpc-test" }
 
 # Testing
-junit-bom = { group = "org.junit", name = "junit-bom", version.ref = "junit-version" }
-kotest-assertions-core = { group = "io.kotest", name = "kotest-assertions-core" }
-kotest-bom = { group = "io.kotest", name = "kotest-bom", version.ref = "kotest-version" }
-kotest-extensions = { group = "io.kotest", name = "kotest-extensions", version.ref = "kotest-version" }
+junit-bom = { group = "org.junit", name = "junit-bom", version.ref = "junit" }
+kotest-assertions-arrow = { group = "io.kotest.extensions", name = "kotest-assertions-arrow", version.ref = "kotest-assertions-arrow" }
+kotest-assertions-core = { group = "io.kotest", name = "kotest-assertions-core", version.ref = "kotest" }
+kotest-bom = { group = "io.kotest", name = "kotest-bom", version.ref = "kotest" }
+kotest-extensions = { group = "io.kotest", name = "kotest-extensions", version.ref = "kotest" }
 kotest-property = { group = "io.kotest", name = "kotest-property" }
-kotest-property-arbs = { group = "io.kotest.extensions", name = "kotest-property-arbs", version.ref = "kotest-property-arbs-version" }
-kotest-property-datetime = { group = "io.kotest.extensions", name = "kotest-property-datetime", version.ref = "kotest-property-datetime-version" }
+kotest-property-arbs = { group = "io.kotest.extensions", name = "kotest-property-arbs", version.ref = "kotest-property-arbs" }
+kotest-property-datetime = { group = "io.kotest.extensions", name = "kotest-property-datetime", version.ref = "kotest-property-datetime" }
 kotest-runner-junit5 = { group = "io.kotest", name = "kotest-runner-junit5" }
-mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk-version" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 
 # Testcontainers
-testcontainers-bom = { group = "org.testcontainers", name = "testcontainers-bom", version.ref = "testcontainers-version" }
+testcontainers-bom = { group = "org.testcontainers", name = "testcontainers-bom", version.ref = "testcontainers" }
 testcontainers-junit-jupiter = { group = "org.testcontainers", name = "junit-jupiter" }
 testcontainers-postgresql = { group = "org.testcontainers", name = "postgresql" }
 testcontainers-mongodb = { group = "org.testcontainers", name = "mongodb" }
@@ -166,71 +157,55 @@ testcontainers-h2 = { group = "org.testcontainers", name = "h2" }
 
 # Jackson
 jackson-annotations = { group = "com.fasterxml.jackson.core", name = "jackson-annotations" }
-jackson-bom = { group = "com.fasterxml.jackson", name = "jackson-bom", version.ref = "jackson-version" }
+jackson-bom = { group = "com.fasterxml.jackson", name = "jackson-bom", version.ref = "jackson" }
 jackson-core = { group = "com.fasterxml.jackson.core", name = "jackson-core" }
 jackson-databind = { group = "com.fasterxml.jackson.core", name = "jackson-databind" }
 jackson-datatype-jsr310 = { group = "com.fasterxml.jackson.datatype", name = "jackson-datatype-jsr310" }
 jackson-module-kotlin = { group = "com.fasterxml.jackson.module", name = "jackson-module-kotlin" }
 
 # Miscellaneous
-jetbrains-annotations = { group = "org.jetbrains", name = "annotations", version.ref = "jetbrains-annotations-version" }
-jgit-gradle-plugin = { group = "org.eclipse.jgit", name = "org.eclipse.jgit", version.ref = "jgit-version" }
-kover = { group = "org.jetbrains.kotlinx", name = "kover", version.ref = "kover-version" }
+jetbrains-annotations = { group = "org.jetbrains", name = "annotations", version.ref = "jetbrains-annotations" }
+jgit-gradle-plugin = { group = "org.eclipse.jgit", name = "org.eclipse.jgit", version.ref = "jgit" }
+kover = { group = "org.jetbrains.kotlinx", name = "kover", version.ref = "kover" }
 
 [plugins]
-# Core Banking Platform Plugins
-corebanking-convention = { id = "com.frisboo.corebanking.convention", version.ref = "frisboo-corebanking-version" }
-corebanking-convention-core = { id = "com.frisboo.corebanking.core-convention", version.ref = "frisboo-corebanking-version" }
-corebanking-convention-corelibrary = { id = "com.frisboo.corebanking.core-library-convention", version.ref = "frisboo-corebanking-version" }
-corebanking-convention-grpc = { id = "com.frisboo.corebanking.grpc-convention", version.ref = "frisboo-corebanking-version" }
-corebanking-convention-kotlin = { id = "com.frisboo.corebanking.kotlin-convention", version.ref = "frisboo-corebanking-version" }
-corebanking-convention-messaging = { id = "com.frisboo.corebanking.messaging-convention", version.ref = "frisboo-corebanking-version" }
-corebanking-convention-openapi = { id = "com.frisboo.corebanking.openapi-convention", version.ref = "frisboo-corebanking-version" }
-corebanking-convention-persistence = { id = "com.frisboo.corebanking.persistence-convention", version.ref = "frisboo-corebanking-version" }
-corebanking-convention-quality = { id = "com.frisboo.corebanking.quality-convention", version.ref = "frisboo-corebanking-version" }
-corebanking-convention-springboot = { id = "com.frisboo.corebanking.spring-boot-convention", version.ref = "frisboo-corebanking-version" }
-corebanking-convention-telemetry = { id = "com.frisboo.corebanking.telemetry-convention", version.ref = "frisboo-corebanking-version" }
-corebanking-convention-testing = { id = "com.frisboo.corebanking.testing-convention", version.ref = "frisboo-corebanking-version" }
-
 # Kotlin
-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin-version" }
-kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin-version" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin-plugin" }
+kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin-plugin" }
 
 # Spring
-spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot-version" }
-spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "spring-dependency-management-version" }
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot-plugin" }
+spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "spring-dependency-management-plugin" }
 
 # Code Quality
-cpd = { id = "de.aaschmid.cpd", version.ref = "cpd-version" }
-dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version.ref = "dependency-analysis-version" }
-detekt = { id = "dev.detekt", version.ref = "detekt-version" }
-kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover-version" }
-owasp = { id = "org.owasp", version.ref = "owaspCheck-version" }
-restrictimports = { id = "de.skuzzle.restrictimports", version.ref = "restrict-imports-version" }
-spotless = { id = "com.diffplug.spotless", version.ref = "spotless-version" }
+cpd = { id = "de.aaschmid.cpd", version.ref = "cpd-plugin" }
+dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version.ref = "dependency-analysis-plugin" }
+detekt = { id = "dev.detekt", version.ref = "detekt-plugin" }
+kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover-plugin" }
+owasp = { id = "org.owasp.dependencycheck", version.ref = "owasp-dependencycheck-plugin" }
+restrictimports = { id = "de.skuzzle.restrictimports", version.ref = "restrict-imports-plugin" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless-plugin" }
 
 # Documentation
-dokka = { id = "org.jetbrains.dokka", version.ref = "dokka-version" }
-openapi-generator = { id = "org.openapi.generator", version.ref = "openapi-generator-version" }
-springdoc-openapi = { id = "org.springdoc.openapi-gradle-plugin", version.ref = "springdoc-openapi-plugin-version" }
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka-plugin" }
+openapi-generator = { id = "org.openapi.generator", version.ref = "openapi-generator-plugin" }
+springdoc-openapi = { id = "org.springdoc.openapi-gradle-plugin", version.ref = "springdoc-openapi-plugin" }
 
 # Database
-flyway = { id = "org.flywaydb.flyway", version.ref = "flyway-version" }
+flyway = { id = "org.flywaydb.flyway", version.ref = "flyway-plugin" }
 
 # gRPC & Protobuf
-protobuf = { id = "com.google.protobuf", version.ref = "protobuf-plugin-version" }
+protobuf = { id = "com.google.protobuf", version.ref = "protobuf-plugin" }
 
 # Publishing
-maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "maven-publish-version" }
-plugin-publish = { id = "com.gradle.plugin-publish", version.ref = "plugin-publish-version" }
+maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "maven-publish-plugin" }
 
 # Build Tools
-gradle-versions = { id = "com.github.ben-manes.versions", version.ref = "gradle-versions-version" }
-test-retry = { id = "org.gradle.test-retry", version.ref = "test-retry-version" }
+gradles = { id = "com.github.ben-manes.versions", version.ref = "gradles-plugin" }
+test-retry = { id = "org.gradle.test-retry", version.ref = "test-retry-plugin" }
 
 [bundles]
-serialization = [
-    "jackson-annotations",
+serialization = ["jackson-annotations",
     "jackson-core",
     "jackson-databind",
     "jackson-datatype-jsr310",

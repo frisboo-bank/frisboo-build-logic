@@ -13,8 +13,15 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-plugins {
-    base
-    id("quality-conventions")
-    alias(baseLibs.plugins.maven.publish) apply false
+package com.frisboo.corebanking.managers
+
+import com.frisboo.corebanking.extensions.TelemetryExtension
+import org.gradle.api.Project
+
+public class TelemetryManager(
+    project: Project,
+    ext: TelemetryExtension,
+) {
+    public fun configure() {
+    }
 }

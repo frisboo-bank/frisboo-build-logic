@@ -13,8 +13,12 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-plugins {
-    base
-    id("quality-conventions")
-    alias(baseLibs.plugins.maven.publish) apply false
-}
+package com.frisboo.corebanking.utils
+
+import org.gradle.api.provider.Provider
+import org.gradle.api.provider.ProviderFactory
+
+public fun <T : Any> ProviderFactory.gradleProperty(
+    key: String,
+    converter: (String) -> T,
+): Provider<T> = gradleProperty(key).map(converter)

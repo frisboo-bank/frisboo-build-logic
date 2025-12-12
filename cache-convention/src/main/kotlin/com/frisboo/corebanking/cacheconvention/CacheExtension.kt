@@ -13,8 +13,20 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-plugins {
-    base
-    id("quality-conventions")
-    alias(baseLibs.plugins.maven.publish) apply false
-}
+package com.frisboo.corebanking.cacheconvention
+
+import org.gradle.api.artifacts.VersionCatalog
+import org.gradle.api.model.ObjectFactory
+import org.gradle.api.provider.ProviderFactory
+import javax.inject.Inject
+
+/**
+ * Gradle extension that exposes cache-related feature toggles configured via project properties.
+ */
+public open class CacheExtension
+    @Inject
+    constructor(
+        objects: ObjectFactory,
+        providers: ProviderFactory,
+        libs: VersionCatalog,
+    )

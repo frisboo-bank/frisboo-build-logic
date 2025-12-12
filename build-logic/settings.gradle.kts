@@ -13,7 +13,7 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
     versionCatalogs {
         create(
-            "libs",
+            "baseLibs",
             Action {
                 from(files("../version-catalog/libs.versions.toml"))
             },

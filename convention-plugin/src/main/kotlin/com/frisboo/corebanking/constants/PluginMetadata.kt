@@ -13,8 +13,12 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-plugins {
-    base
-    id("quality-conventions")
-    alias(baseLibs.plugins.maven.publish) apply false
+package com.frisboo.corebanking.constants
+
+public object PluginMetadata {
+    public const val BOM_EXTENSION: String = "bom"
+    public const val EXTENSION_NAME: String = "coreBankingConvention"
+    public const val MIN_GRADLE_VERSION: String = "9.0"
+    public const val PUBLIC_REPO_URL: String = "https://maven.pkg.github.com/jolafrite/frisboo-core-banking"
+    public const val VERSION_CATALOG: String = "baseLibs"
 }
