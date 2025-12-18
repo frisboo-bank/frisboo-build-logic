@@ -18,6 +18,7 @@ package com.frisboo.corebanking
 import com.frisboo.corebanking.constants.PluginMetadata.EXTENSION_NAME
 import com.frisboo.corebanking.constants.PluginMetadata.PUBLIC_REPO_URL
 import com.frisboo.corebanking.extensions.PluginExtension
+import com.frisboo.corebanking.managers.CachingManager
 import com.frisboo.corebanking.managers.GRPCManager
 import com.frisboo.corebanking.managers.KotlinManager
 import com.frisboo.corebanking.managers.MessagingManager
@@ -83,6 +84,7 @@ public class CoreBankingConventionPlugin : Plugin<Project> {
                     RestrictImportsManager(this, ext.restrictImports).configure()
 
                     listOf(
+                        ext.enableCaching to { CachingManager(this, ext.caching).configure() },
                         ext.enableGRPC to { GRPCManager(this, ext.grpc).configure() },
                         ext.enableMessaging to { MessagingManager(this, ext.messaging).configure() },
                         ext.enableOpenapi to { OpenapiManager(this, ext.openapi).configure() },
