@@ -20,6 +20,7 @@ public object ConfigurationConstants {
      * General plugin configuration keys.
      */
     public object Plugin {
+        public const val ENABLE_CACHING: String = "caching.enabled"
         public const val ENABLE_GRPC: String = "grpc.enabled"
         public const val ENABLE_KOTLIN: String = "kotlin.enabled"
         public const val ENABLE_MESSAGING: String = "messaging.enabled"
@@ -70,6 +71,11 @@ public object ConfigurationConstants {
         public const val ENABLE_JETBRAINS_ANNOTATIONS: String = "$KOTLIN_PREFIX.jetbrainsAnnotations.enabled"
         public const val ENABLE_KOTLIN_REFLECT: String = "$KOTLIN_PREFIX.reflect.enabled"
         public const val ENABLE_REACTOR_KOTLIN_EXTENSIONS: String = "$KOTLIN_PREFIX.kotlinExtensions.enabled"
+    }
+
+    public object Caching {
+        private const val CACHING_PREFIX = "caching"
+        public const val ENABLE_REDIS: String = "$CACHING_PREFIX.redis.enabled"
     }
 
     /**

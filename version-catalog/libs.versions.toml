@@ -91,8 +91,10 @@ spring-boot-kotlin = { group = "org.jetbrains.kotlin.plugin.spring", name = "org
 spring-boot-starter-actuator = { group = "org.springframework.boot", name = "spring-boot-starter-actuator" }
 spring-boot-starter-data-mongodb = { group = "org.springframework.boot", name = "spring-boot-starter-data-mongodb" }
 spring-boot-starter-data-redis = { group = "org.springframework.boot", name = "spring-boot-starter-data-redis" }
-spring-boot-starter-data-redix-reactive = { group = "org.springframework.boot", name = "spring-boot-starter-data-redis-reactive" }
-spring-boot-starter-test = { group = "org.springframework.boot", name = "spring-boot-starter-test" }
+spring-boot-starter-data-redis-reactive = { group = "org.springframework.boot", name = "spring-boot-starter-data-redis-reactive" }
+spring-boot-starter-data-redis-reactive_test = { group = "org.springframework.boot", name = "spring-boot-starter-data-redis-reactive-test" }
+spring-boot-starter-data-redis_test = { group = "org.springframework.boot", name = "spring-boot-starter-data-redis-test" }
+spring-boot-starter-test = { group = "org.springframework.boot", name = "spring-boot-starter-test", version.ref = "spring-boot" }
 spring-boot-starter-validation = { group = "org.springframework.boot", name = "spring-boot-starter-validation" }
 spring-boot-starter-webflux = { group = "org.springframework.boot", name = "spring-boot-starter-webflux" }
 spring-boot-testcontainers = { group = "org.springframework.boot", name = "spring-boot-testcontainers" }
@@ -116,8 +118,8 @@ flyway-core = { group = "org.flywaydb", name = "flyway-core", version.ref = "fly
 flyway-database-mongodb = { group = "org.flywaydb", name = "flyway-database-mongodb", version.ref = "flyway" }
 flyway-database-postgresql = { group = "org.flywaydb", name = "flyway-database-postgresql", version.ref = "flyway" }
 h2 = { group = "com.h2database", name = "h2", version.ref = "h2" }
-postgresql = { group = "org.postgresql", name = "postgresql", version.ref = "postgresql" }
 mongodb = { group = "org.mongodb", name = "mongodb-driver-kotlin-coroutine" }
+postgresql = { group = "org.postgresql", name = "postgresql", version.ref = "postgresql" }
 
 # gRPC
 context-propagation = { group = "io.micrometer", name = "context-propagation", version.ref = "context-propagation" }

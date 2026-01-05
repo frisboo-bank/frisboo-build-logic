@@ -13,20 +13,30 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-package com.frisboo.corebanking.cacheconvention
+package com.frisboo.corebanking.extensions
 
+import com.frisboo.corebanking.constants.ConfigurationConstants
+import com.frisboo.corebanking.utils.gradleProperty
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.model.ObjectFactory
+import org.gradle.api.provider.Property
 import org.gradle.api.provider.ProviderFactory
+import org.gradle.kotlin.dsl.property
 import javax.inject.Inject
 
-/**
- * Gradle extension that exposes cache-related feature toggles configured via project properties.
- */
-public open class CacheExtension
-    @Inject
-    constructor(
-        objects: ObjectFactory,
-        providers: ProviderFactory,
-        libs: VersionCatalog,
-    )
+public open class CachingExtension
+@Inject
+constructor(
+    objects: ObjectFactory,
+    providers: ProviderFactory,
+    libs: VersionCatalog,
+) {
+    public val enableRedis: Property<Boolean> =
+        objects.property<Boolean>().convention(
+            providers
+                .gradleProperty(
+                    ConfigurationConstants.Caching.ENABLE_REDIS,
+                    String::toBoolean,
+                ).orElse(false),
+        )
+}
