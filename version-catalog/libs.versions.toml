@@ -1,5 +1,7 @@
 [versions]
 arrowkt = "2.1.0"
+bucket4j-core = "8.17.0"
+caffeine = "3.2.3"
 context-propagation = "1.2.0"
 cpd-plugin = "3.5"
 dependency-analysis-plugin = "3.1.0"
@@ -39,6 +41,7 @@ maven-publish-plugin = "0.34.0"
 mockk = "1.14.6"
 mongodb = "5.6.1"
 openapi-generator-plugin = "7.14.0"
+opentelemetry = "2.26.1"
 owasp-dependencycheck-plugin = "12.1.9"
 postgresql = "42.7.8"
 protobuf = "4.33.1"
@@ -48,6 +51,7 @@ protoc-gen-grpc-java = "1.77.0"
 protoc-gen-grpc-kotlin = "1.5.0"
 protovalidate = "1.0.1"
 reactor = "2024.0.11"
+resilience4j = "2.2.0"
 restrict-imports-plugin = "3.0.0"
 spotless-plugin = "8.1.0"
 spring-boot = "3.5.8"
@@ -80,6 +84,15 @@ arrow-kt-bom = { group = "io.arrow-kt", name = "arrow-stack", version.ref = "arr
 arrow-kt-core = { group = "io.arrow-kt", name = "arrow-core" }
 arrow-kt-coroutines = { group = "io.arrow-kt", name = "arrow-fx-coroutines" }
 
+# Bucket4j
+bucket4j-caffeine = { group = "com.bucket4j", name = "bucket4j_jdk17-caffeine", version.ref = "bucket4j-core" }
+bucket4j-core = { group = "com.bucket4j", name = "bucket4j_jdk17-core", version.ref = "bucket4j-core" }
+bucket4j-lettuce = { group = "com.bucket4j", name = "bucket4j_jdk17-lettuce", version.ref = "bucket4j-core" }
+bucket4j-redis = { group = "com.bucket4j", name = "bucket4j_jdk17-redis-common", version.ref = "bucket4j-core" }
+
+# Caffeine
+caffeine = { group = "com.github.ben-manes.caffeine", name = "caffeine", version.ref = "caffeine" }
+
 # Spring
 spring-boot-autoconfigure = { group = "org.springframework.boot", name = "spring-boot-autoconfigure" }
 spring-boot-bom = { group = "org.springframework.boot", name = "spring-boot-dependencies", version.ref = "spring-boot" }
@@ -89,6 +102,7 @@ spring-boot-kafka = { group = "org.springframework.kafka", name = "spring-kafka"
 spring-boot-kafka-test = { group = "org.springframework.kafka", name = "spring-kafka-test" }
 spring-boot-kotlin = { group = "org.jetbrains.kotlin.plugin.spring", name = "org.jetbrains.kotlin.plugin.spring.gradle.plugin", version = "2.2.21" }
 spring-boot-starter-actuator = { group = "org.springframework.boot", name = "spring-boot-starter-actuator" }
+spring-boot-starter-cache = { group = "org.springframework.boot", name = "spring-boot-starter-cache" }
 spring-boot-starter-data-mongodb = { group = "org.springframework.boot", name = "spring-boot-starter-data-mongodb" }
 spring-boot-starter-data-redis = { group = "org.springframework.boot", name = "spring-boot-starter-data-redis" }
 spring-boot-starter-data-redis-reactive = { group = "org.springframework.boot", name = "spring-boot-starter-data-redis-reactive" }
@@ -137,6 +151,11 @@ spring-boot-grpc-bom = { group = "org.springframework.grpc", name = "spring-grpc
 spring-boot-grpc-starter = { group = "org.springframework.grpc", name = "spring-grpc-spring-boot-starter", version.ref = "spring-boot-grpc" }
 spring-boot-grpc-test = { group = "org.springframework.grpc", name = "spring-grpc-test" }
 
+# Resilience4j
+resilience4j-bom = { group = "io.github.resilience4j", name = "resilience4j-bom", version.ref = "resilience4j" }
+resilience4j-circuitbreaker = { group = "io.github.resilience4j", name = "resilience4j-circuitbreaker" }
+resilience4j-kotlin = { group = "io.github.resilience4j", name = "resilience4j-kotlin" }
+
 # Testing
 junit-bom = { group = "org.junit", name = "junit-bom", version.ref = "junit" }
 kotest-assertions-arrow = { group = "io.kotest.extensions", name = "kotest-assertions-arrow", version.ref = "kotest-assertions-arrow" }
@@ -169,6 +188,10 @@ jackson-module-kotlin = { group = "com.fasterxml.jackson.module", name = "jackso
 jetbrains-annotations = { group = "org.jetbrains", name = "annotations", version.ref = "jetbrains-annotations" }
 jgit-gradle-plugin = { group = "org.eclipse.jgit", name = "org.eclipse.jgit", version.ref = "jgit" }
 kover = { group = "org.jetbrains.kotlinx", name = "kover", version.ref = "kover" }
+
+# Opentelemetry
+opentelemetry-bom = { group = "io.opentelemetry.instrumentation", name = "opentelemetry-instrumentation-bom", version.ref = "opentelemetry" }
+opentelemetry-spring-boot-starter = { group = "io.opentelemetry.instrumentation", name = "opentelemetry-spring-boot-starter" }
 
 [plugins]
 # Kotlin

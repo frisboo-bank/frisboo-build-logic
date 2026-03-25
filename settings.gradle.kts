@@ -38,18 +38,20 @@ gitHooks {
     createHooks()
 }
 
-@Suppress("UnstableApiUsage")
-dependencyResolutionManagement {
+@Suppress("UnstableApiUsage") dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         mavenCentral()
         gradlePluginPortal()
-        maven {
-            name = "FrisbooGitHubPackages"
-            url = uri("https://maven.pkg.github.com/jolafrite/frisboo-core-banking")
-            credentials {
-                username = providers.gradleProperty("frisboo.gpr.user").orNull ?: System.getenv("FRISBOO_GPR_USERNAME")
-                password = providers.gradleProperty("frisboo.gpr.key").orNull ?: System.getenv("FRISBOO_GPR_TOKEN")
+        if (providers.gradleProperty("frisboo.gpr.user").isPresent || System.getenv("FRISBOO_GPR_USERNAME") != null) {
+            maven {
+                name = "FrisbooGitHubPackages"
+                url = uri("https://maven.pkg.github.com/jolafrite/frisboo-core-banking")
+                credentials {
+                    username =
+                        providers.gradleProperty("frisboo.gpr.user").orNull ?: System.getenv("FRISBOO_GPR_USERNAME")
+                    password = providers.gradleProperty("frisboo.gpr.key").orNull ?: System.getenv("FRISBOO_GPR_TOKEN")
+                }
             }
         }
         mavenLocal()
