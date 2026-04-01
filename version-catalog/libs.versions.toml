@@ -2,6 +2,7 @@
 arrowkt = "2.1.0"
 bucket4j-core = "8.17.0"
 caffeine = "3.2.3"
+caffeine-coroutines = "2.0.4"
 context-propagation = "1.2.0"
 cpd-plugin = "3.5"
 dependency-analysis-plugin = "3.1.0"
@@ -37,6 +38,7 @@ kotlinx-datetime = "0.7.1-0.6.x-compat"
 kover = "0.9.3"
 kover-plugin = "0.9.3"
 ktlint = "1.8.0"
+lettuce = "7.5.0.RELEASE"
 maven-publish-plugin = "0.34.0"
 mockk = "1.14.6"
 mongodb = "5.6.1"
@@ -62,6 +64,7 @@ springdoc-openapi = "2.8.13"
 springdoc-openapi-plugin = "1.9.0"
 test-retry-plugin = "1.6.4"
 testcontainers = "2.0.1"
+tink = "1.16.0"
 
 [libraries]
 # Kotlin
@@ -85,13 +88,14 @@ arrow-kt-core = { group = "io.arrow-kt", name = "arrow-core" }
 arrow-kt-coroutines = { group = "io.arrow-kt", name = "arrow-fx-coroutines" }
 
 # Bucket4j
-bucket4j-caffeine = { group = "com.bucket4j", name = "bucket4j_jdk17-caffeine", version.ref = "bucket4j-core" }
 bucket4j-core = { group = "com.bucket4j", name = "bucket4j_jdk17-core", version.ref = "bucket4j-core" }
-bucket4j-lettuce = { group = "com.bucket4j", name = "bucket4j_jdk17-lettuce", version.ref = "bucket4j-core" }
-bucket4j-redis = { group = "com.bucket4j", name = "bucket4j_jdk17-redis-common", version.ref = "bucket4j-core" }
 
 # Caffeine
 caffeine = { group = "com.github.ben-manes.caffeine", name = "caffeine", version.ref = "caffeine" }
+caffeine-coroutines = { group = "dev.hsbrysk", name = "caffeine-coroutines", version.ref = "caffeine-coroutines" }
+
+# Redis
+lettuce-core = { group = "io.lettuce", name = "lettuce-core", version.ref = "lettuce" }
 
 # Spring
 spring-boot-autoconfigure = { group = "org.springframework.boot", name = "spring-boot-autoconfigure" }
@@ -188,6 +192,7 @@ jackson-module-kotlin = { group = "com.fasterxml.jackson.module", name = "jackso
 jetbrains-annotations = { group = "org.jetbrains", name = "annotations", version.ref = "jetbrains-annotations" }
 jgit-gradle-plugin = { group = "org.eclipse.jgit", name = "org.eclipse.jgit", version.ref = "jgit" }
 kover = { group = "org.jetbrains.kotlinx", name = "kover", version.ref = "kover" }
+tink = { group = "com.google.crypto.tink", name = "tink", version.ref = "tink" }
 
 # Opentelemetry
 opentelemetry-bom = { group = "io.opentelemetry.instrumentation", name = "opentelemetry-instrumentation-bom", version.ref = "opentelemetry" }
