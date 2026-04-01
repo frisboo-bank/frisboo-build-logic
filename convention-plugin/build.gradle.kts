@@ -58,24 +58,20 @@ val catalogsExtension = extensions.getByType<VersionCatalogsExtension>()
 val libExtension: VersionCatalog = catalogsExtension.named("baseLibs")
 
 gradlePlugin {
+    website = "https://github.com/jolafrite/frisboo-core-banking"
+    vcsUrl = "https://github.com/jolafrite/frisboo-core-banking.git"
     plugins {
-        website = "https://github.com/jolafrite/frisboo-core-banking"
-        vcsUrl = "https://github.com/jolafrite/frisboo-core-banking.git"
-        create(
-            "coreBankingConvention",
-            Action {
-                id = "com.frisboo.corebanking.gradle-convention-plugin"
-                displayName = "Frisboo Core Banking Gradle Convention"
-                description = "Gradle plugin that provides conventions for to core banking apis"
-                tags =
-                    listOf(
-                        "frisboo",
-                        "frisboo-core-banking",
-                        "convention-plugin",
-                    )
-                implementationClass = "com.frisboo.corebanking.CoreBankingConventionPlugin"
-            },
-        )
+        create("coreBankingConvention") {
+            id = "com.frisboo.corebanking.gradle-convention-plugin"
+            displayName = "Frisboo Core Banking Gradle Convention"
+            description = "Gradle plugin that provides conventions for to core banking apis"
+            tags = listOf(
+                "frisboo",
+                "frisboo-core-banking",
+                "convention-plugin",
+            )
+            implementationClass = "com.frisboo.corebanking.CoreBankingConventionPlugin"
+        }
     }
 }
 
@@ -102,7 +98,6 @@ testing {
             useJUnitJupiter()
 
             dependencies {
-                implementation(project())
                 implementation(gradleTestKit())
                 implementation(platform(baseLibs.kotest.bom))
                 implementation(platform(baseLibs.kotlinx.coroutines.bom))
