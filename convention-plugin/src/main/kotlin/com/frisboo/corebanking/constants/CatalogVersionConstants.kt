@@ -7,6 +7,7 @@ public object CatalogVersionConstants {
         public const val ARROWKT: String = "arrowkt"
         public const val BUCKET4J_CORE: String = "bucket4j.core"
         public const val CAFFEINE: String = "caffeine"
+        public const val CAFFEINE_COROUTINES: String = "caffeine.coroutines"
         public const val CONTEXT_PROPAGATION: String = "context.propagation"
         public const val CPD_PLUGIN: String = "cpd.plugin"
         public const val DEPENDENCY_ANALYSIS_PLUGIN: String = "dependency.analysis.plugin"
@@ -42,6 +43,7 @@ public object CatalogVersionConstants {
         public const val KOVER: String = "kover"
         public const val KOVER_PLUGIN: String = "kover.plugin"
         public const val KTLINT: String = "ktlint"
+        public const val LETTUCE: String = "lettuce"
         public const val MAVEN_PUBLISH_PLUGIN: String = "maven.publish.plugin"
         public const val MOCKK: String = "mockk"
         public const val MONGODB: String = "mongodb"
@@ -67,6 +69,7 @@ public object CatalogVersionConstants {
         public const val SPRINGDOC_OPENAPI_PLUGIN: String = "springdoc.openapi.plugin"
         public const val TEST_RETRY_PLUGIN: String = "test.retry.plugin"
         public const val TESTCONTAINERS: String = "testcontainers"
+        public const val TINK: String = "tink"
     }
 
     public object Plugins {
@@ -95,11 +98,9 @@ public object CatalogVersionConstants {
         public const val ARROW_KT_BOM: String = "arrow.kt.bom"
         public const val ARROW_KT_CORE: String = "arrow.kt.core"
         public const val ARROW_KT_COROUTINES: String = "arrow.kt.coroutines"
-        public const val BUCKET4J_CAFFEINE: String = "bucket4j.caffeine"
         public const val BUCKET4J_CORE: String = "bucket4j.core"
-        public const val BUCKET4J_LETTUCE: String = "bucket4j.lettuce"
-        public const val BUCKET4J_REDIS: String = "bucket4j.redis"
         public const val CAFFEINE: String = "caffeine"
+        public const val CAFFEINE_COROUTINES: String = "caffeine.coroutines"
         public const val CONTEXT_PROPAGATION: String = "context.propagation"
         public const val EXPOSED_BOM: String = "exposed.bom"
         public const val EXPOSED_JSON: String = "exposed.json"
@@ -145,6 +146,7 @@ public object CatalogVersionConstants {
         public const val KOTLINX_COROUTINES_TEST: String = "kotlinx.coroutines.test"
         public const val KOTLINX_DATETIME: String = "kotlinx.datetime"
         public const val KOVER: String = "kover"
+        public const val LETTUCE_CORE: String = "lettuce.core"
         public const val MOCKK: String = "mockk"
         public const val MONGODB: String = "mongodb"
         public const val OPENTELEMETRY_BOM: String = "opentelemetry.bom"
@@ -159,6 +161,7 @@ public object CatalogVersionConstants {
         public const val RESILIENCE4J_BOM: String = "resilience4j.bom"
         public const val RESILIENCE4J_CIRCUITBREAKER: String = "resilience4j.circuitbreaker"
         public const val RESILIENCE4J_KOTLIN: String = "resilience4j.kotlin"
+        public const val RESILIENCE4J_RATELIMITER: String = "resilience4j.ratelimiter"
         public const val SPRING_BOOT_AUTOCONFIGURE: String = "spring.boot.autoconfigure"
         public const val SPRING_BOOT_BOM: String = "spring.boot.bom"
         public const val SPRING_BOOT_CONFIGURATION_PROCESSOR: String = "spring.boot.configuration.processor"
@@ -189,6 +192,7 @@ public object CatalogVersionConstants {
         public const val TESTCONTAINERS_KAFKA: String = "testcontainers.kafka"
         public const val TESTCONTAINERS_MONGODB: String = "testcontainers.mongodb"
         public const val TESTCONTAINERS_POSTGRESQL: String = "testcontainers.postgresql"
+        public const val TINK: String = "tink"
     }
 
     public object Bundles {
