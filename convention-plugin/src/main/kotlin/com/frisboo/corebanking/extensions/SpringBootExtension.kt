@@ -18,9 +18,12 @@ package com.frisboo.corebanking.extensions
 import com.frisboo.corebanking.constants.CatalogVersionConstants
 import com.frisboo.corebanking.constants.ConfigurationConstants
 import com.frisboo.corebanking.utils.BomExtensionSpec
+import com.frisboo.corebanking.utils.gradleProperty
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.model.ObjectFactory
+import org.gradle.api.provider.Property
 import org.gradle.api.provider.ProviderFactory
+import org.gradle.kotlin.dsl.property
 import javax.inject.Inject
 
 public open class SpringBootExtension
@@ -46,5 +49,50 @@ public open class SpringBootExtension
                 CatalogVersionConstants.Libraries.JACKSON_BOM,
                 ConfigurationConstants.SpringBoot.ENABLE_JACKSON_BOM,
                 false,
+            )
+
+        public val enableActuator: Property<Boolean> =
+            objects.property<Boolean>().convention(
+                providers
+                    .gradleProperty(
+                        ConfigurationConstants.SpringBoot.ENABLE_ACTUATOR,
+                        String::toBoolean,
+                    ).orElse(true),
+            )
+
+        public val enableDevtools: Property<Boolean> =
+            objects.property<Boolean>().convention(
+                providers
+                    .gradleProperty(
+                        ConfigurationConstants.SpringBoot.ENABLE_SPRING_BOOT_DEVTOOLS,
+                        String::toBoolean,
+                    ).orElse(true),
+            )
+
+        public val enableSpringTest: Property<Boolean> =
+            objects.property<Boolean>().convention(
+                providers
+                    .gradleProperty(
+                        ConfigurationConstants.SpringBoot.ENABLE_SPRING_TEST,
+                        String::toBoolean,
+                    ).orElse(true),
+            )
+
+        public val enableValidation: Property<Boolean> =
+            objects.property<Boolean>().convention(
+                providers
+                    .gradleProperty(
+                        ConfigurationConstants.SpringBoot.ENABLE_VALIDATION,
+                        String::toBoolean,
+                    ).orElse(true),
+            )
+
+        public val enableWebFlux: Property<Boolean> =
+            objects.property<Boolean>().convention(
+                providers
+                    .gradleProperty(
+                        ConfigurationConstants.SpringBoot.ENABLE_WEBFLUX,
+                        String::toBoolean,
+                    ).orElse(true),
             )
     }

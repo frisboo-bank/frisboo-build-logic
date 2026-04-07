@@ -31,8 +31,6 @@ internal fun Project.configureSpotless(
 
     pluginManager.apply(SpotlessPlugin::class.java)
 
-//    variantResolution("spotless")
-
     val headerFile = rootProject.layout.projectDirectory.file("config/license-header.txt")
     val editorConfig = rootProject.layout.projectDirectory.file(".editorconfig")
     val ktlintVersion = libs.findVersion("ktlint").get().requiredVersion

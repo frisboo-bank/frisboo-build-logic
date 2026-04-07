@@ -70,12 +70,14 @@ public class OpenapiManager(
 
         project.dependencies {
             applyBomIfEnabled(ext.springdocOpenapiBom)
-            addImplementation(
-                libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRINGDOC_OPENAPI_STARTER_WEBFLUX_UI),
-            )
-            addImplementation(
-                libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRINGDOC_OPENAPI_STARTER_WEBFLUX_API),
-            )
+            if (ext.springdocOpenapiWebflux.get()) {
+                addImplementation(
+                    libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRINGDOC_OPENAPI_STARTER_WEBFLUX_UI),
+                )
+                addImplementation(
+                    libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRINGDOC_OPENAPI_STARTER_WEBFLUX_API),
+                )
+            }
         }
 
         val generatedInputSpec =
@@ -120,14 +122,15 @@ public class OpenapiManager(
             )
 
             configOptions.set(
-                mapOf(
-                    "useSpringBoot3" to "true",
-                    "useTags" to "true",
-                    "library" to "spring-boot",
-                    "reactive" to "true",
-                    "delegatePattern" to "true",
-                    "useCoroutines" to "true",
-                ),
+                buildMap {
+                    put("useSpringBoot3", ext.useSpringBoot3.get().toString())
+                    put("useTags", ext.useTags.get().toString())
+                    put("library", "spring-boot")
+                    put("reactive", ext.useReactive.get().toString())
+                    put("delegatePattern", "true")
+                    put("useCoroutines", "true")
+                    putAll(ext.configOptions.get())
+                },
             )
         }
 

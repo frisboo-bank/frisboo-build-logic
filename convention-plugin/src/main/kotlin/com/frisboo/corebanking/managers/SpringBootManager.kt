@@ -51,22 +51,34 @@ public class SpringBootManager(
                 ext.jackson,
             )
 
-            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_ACTUATOR))
-            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_VALIDATION))
-            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_WEBFLUX))
+            if (ext.enableActuator.get()) {
+                addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_ACTUATOR))
+            }
+            if (ext.enableValidation.get()) {
+                addImplementation(
+                    libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_VALIDATION),
+                )
+            }
+            if (ext.enableWebFlux.get()) {
+                addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_WEBFLUX))
+            }
 
             project.onKotlinEnabled {
                 addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_KOTLIN))
                 addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.JACKSON_MODULE_KOTLIN))
             }
 
-            addDevelopmentOnly(libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_DEVTOOLS))
+            if (ext.enableDevtools.get()) {
+                addDevelopmentOnly(libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_DEVTOOLS))
+            }
 
             addAnnotationProcessor(
                 libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_CONFIGURATION_PROCESSOR),
             )
 
-            addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_TEST))
+            if (ext.enableSpringTest.get()) {
+                addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_TEST))
+            }
         }
 
         project.extensions.configure<SpringBootDslExtension> {

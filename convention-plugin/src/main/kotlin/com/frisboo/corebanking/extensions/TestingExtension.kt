@@ -71,16 +71,30 @@ public open class TestingExtension
                     ).orElse(true),
             )
 
+        public val enableKotest: Property<Boolean> =
+            objects.property<Boolean>().convention(
+                providers
+                    .gradleProperty(
+                        ConfigurationConstants.Testing.ENABLE_KOTEST,
+                        String::toBoolean,
+                    ).orElse(true),
+            )
+
+        public val enableMockk: Property<Boolean> =
+            objects.property<Boolean>().convention(
+                providers
+                    .gradleProperty(
+                        ConfigurationConstants.Testing.ENABLE_MOCKK,
+                        String::toBoolean,
+                    ).orElse(true),
+            )
+
         public val testJvmArguments: ListProperty<String> =
             objects.listProperty<String>().convention(
-//                gradleProperty(providers, Configurations.Plugin.TEST_JVM_ARGS) {
-//                    it.split(",").map(String::trim)
-//                }.orElse(
                 listOf(
                     "--add-opens=java.base/java.lang=ALL-UNNAMED",
                     "--add-opens=java.base/java.io=ALL-UNNAMED",
                     "--add-opens=java.base/java.util=ALL-UNNAMED",
                 ),
-//                ),
             )
     }

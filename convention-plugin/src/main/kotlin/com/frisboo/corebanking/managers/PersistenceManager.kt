@@ -48,9 +48,6 @@ public class PersistenceManager(
 
             project.dependencies {
                 addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.FLYWAY_CORE))
-                if (ext.enableMongo.get()) {
-//                    addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.FLYWAY_DATABASE_MONGODB))
-                }
                 if (ext.enablePostgres.get()) {
                     addImplementation(
                         libs.libraryOrThrow(CatalogVersionConstants.Libraries.FLYWAY_DATABASE_POSTGRESQL),

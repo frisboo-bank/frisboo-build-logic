@@ -25,18 +25,18 @@ import org.gradle.kotlin.dsl.property
 import javax.inject.Inject
 
 public open class CachingExtension
-@Inject
-constructor(
-    objects: ObjectFactory,
-    providers: ProviderFactory,
-    libs: VersionCatalog,
-) {
-    public val enableRedis: Property<Boolean> =
-        objects.property<Boolean>().convention(
-            providers
-                .gradleProperty(
-                    ConfigurationConstants.Caching.ENABLE_REDIS,
-                    String::toBoolean,
-                ).orElse(false),
-        )
-}
+    @Inject
+    constructor(
+        objects: ObjectFactory,
+        providers: ProviderFactory,
+        libs: VersionCatalog,
+    ) {
+        public val enableRedis: Property<Boolean> =
+            objects.property<Boolean>().convention(
+                providers
+                    .gradleProperty(
+                        ConfigurationConstants.Caching.ENABLE_REDIS,
+                        String::toBoolean,
+                    ).orElse(false),
+            )
+    }

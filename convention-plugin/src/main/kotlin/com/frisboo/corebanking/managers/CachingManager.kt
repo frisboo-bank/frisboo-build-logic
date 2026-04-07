@@ -43,12 +43,6 @@ public class CachingManager(
             addImplementation(
                 libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_DATA_REDIS_REACTIVE),
             )
-//            addTestImplementation(
-//                libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_DATA_REDIS_TEST),
-//            )
-//            addTestImplementation(
-//                libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_DATA_REDIS_REACTIVE_TEST),
-//            )
         }
     }
 }

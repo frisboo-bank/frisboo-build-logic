@@ -18,9 +18,12 @@ package com.frisboo.corebanking.extensions
 import com.frisboo.corebanking.constants.CatalogVersionConstants
 import com.frisboo.corebanking.constants.ConfigurationConstants
 import com.frisboo.corebanking.utils.BomExtensionSpec
+import com.frisboo.corebanking.utils.gradleProperty
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.model.ObjectFactory
+import org.gradle.api.provider.Property
 import org.gradle.api.provider.ProviderFactory
+import org.gradle.kotlin.dsl.property
 import javax.inject.Inject
 
 public open class KotlinExtension
@@ -64,5 +67,47 @@ public open class KotlinExtension
                 CatalogVersionConstants.Libraries.REACTOR_BOM,
                 ConfigurationConstants.Kotlin.ENABLE_REACTOR_BOM,
                 false,
+            )
+
+        public val enableArrowKt: Property<Boolean> =
+            objects.property<Boolean>().convention(
+                providers
+                    .gradleProperty(ConfigurationConstants.Kotlin.ENABLE_ARROW_KT, String::toBoolean)
+                    .orElse(true),
+            )
+
+        public val enableCoroutines: Property<Boolean> =
+            objects.property<Boolean>().convention(
+                providers
+                    .gradleProperty(ConfigurationConstants.Kotlin.ENABLE_COROUTINES, String::toBoolean)
+                    .orElse(true),
+            )
+
+        public val enableCoroutinesReactor: Property<Boolean> =
+            objects.property<Boolean>().convention(
+                providers
+                    .gradleProperty(ConfigurationConstants.Kotlin.ENABLE_COROUTINES_REACTOR, String::toBoolean)
+                    .orElse(true),
+            )
+
+        public val enableJetbrainsAnnotations: Property<Boolean> =
+            objects.property<Boolean>().convention(
+                providers
+                    .gradleProperty(ConfigurationConstants.Kotlin.ENABLE_JETBRAINS_ANNOTATIONS, String::toBoolean)
+                    .orElse(true),
+            )
+
+        public val enableKotlinReflect: Property<Boolean> =
+            objects.property<Boolean>().convention(
+                providers
+                    .gradleProperty(ConfigurationConstants.Kotlin.ENABLE_KOTLIN_REFLECT, String::toBoolean)
+                    .orElse(true),
+            )
+
+        public val enableReactorKotlinExtensions: Property<Boolean> =
+            objects.property<Boolean>().convention(
+                providers
+                    .gradleProperty(ConfigurationConstants.Kotlin.ENABLE_REACTOR_KOTLIN_EXTENSIONS, String::toBoolean)
+                    .orElse(true),
             )
     }

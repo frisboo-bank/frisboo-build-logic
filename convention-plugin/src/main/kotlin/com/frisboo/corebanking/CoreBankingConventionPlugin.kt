@@ -35,6 +35,7 @@ import com.frisboo.corebanking.utils.GradleVersionUtils
 import com.frisboo.corebanking.utils.getLibs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.internal.cc.base.logger
 import org.gradle.kotlin.dsl.create
 import org.gradle.kotlin.dsl.repositories
 
@@ -83,21 +84,17 @@ public class CoreBankingConventionPlugin : Plugin<Project> {
                     KotlinManager(this, ext.kotlin).configure()
                     RestrictImportsManager(this, ext.restrictImports).configure()
 
-                    listOf(
-                        ext.enableCaching to { CachingManager(this, ext.caching).configure() },
-                        ext.enableGRPC to { GRPCManager(this, ext.grpc).configure() },
-                        ext.enableMessaging to { MessagingManager(this, ext.messaging).configure() },
-                        ext.enableOpenapi to { OpenapiManager(this, ext.openapi).configure() },
-                        ext.enablePersistence to { PersistenceManager(this, ext.persistence).configure() },
-                        ext.enableQuality to { QualityManager(this, ext.quality).configure() },
-                        ext.enableSpringBoot to { SpringBootManager(this, ext.springBoot).configure() },
-                        ext.enableTelemetry to { TelemetryManager(this, ext.telemetry).configure() },
-                        ext.enableTesting to { TestingManager(this, ext.testing).configure() },
-                    ).forEach { (flag, configure) ->
-                        flag.getOrElse(false).takeIf { it }?.let { configure() }
-                    }
+                    if (ext.enableCaching.getOrElse(false)) CachingManager(this, ext.caching).configure()
+                    if (ext.enableGRPC.getOrElse(false)) GRPCManager(this, ext.grpc).configure()
+                    if (ext.enableMessaging.getOrElse(false)) MessagingManager(this, ext.messaging).configure()
+                    if (ext.enableOpenapi.getOrElse(false)) OpenapiManager(this, ext.openapi).configure()
+                    if (ext.enablePersistence.getOrElse(false)) PersistenceManager(this, ext.persistence).configure()
+                    if (ext.enableQuality.getOrElse(false)) QualityManager(this, ext.quality).configure()
+                    if (ext.enableSpringBoot.getOrElse(false)) SpringBootManager(this, ext.springBoot).configure()
+                    if (ext.enableTelemetry.getOrElse(false)) TelemetryManager(this, ext.telemetry).configure()
+                    if (ext.enableTesting.getOrElse(false)) TestingManager(this, ext.testing).configure()
                 } catch (e: IllegalStateException) {
-                    error("Failed to configure Frisboo Core Banking Convention: ${e.message}")
+                    throw IllegalStateException("Failed to configure Frisboo Core Banking Convention: ${e.message}", e)
                 }
             }
 
@@ -105,13 +102,8 @@ public class CoreBankingConventionPlugin : Plugin<Project> {
                 group = "Help"
                 description = "Displays information about the Frisboo Core Banking Convention"
 
-                val version =
-                    project.provider {
-//                        extensions.getByType<PluginExtension>().pluginVersion.orNull
-                    }
-
                 t.doLast {
-                    println("Frisboo Core Banking Convention Applied: $version")
+                    logger.lifecycle("Frisboo Core Banking Convention Applied")
                 }
             }
         }

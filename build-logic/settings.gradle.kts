@@ -3,7 +3,8 @@ rootProject.name = "build-logic"
 enableFeaturePreview("STABLE_CONFIGURATION_CACHE")
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
-@Suppress("UnstableApiUsage") dependencyResolutionManagement {
+@Suppress("UnstableApiUsage")
+dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         mavenCentral()
@@ -12,11 +13,8 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
     }
 
     versionCatalogs {
-        create(
-            "baseLibs",
-            Action {
-                from(files("../version-catalog/libs.versions.toml"))
-            },
-        )
+        create("baseLibs") {
+            from(files("../version-catalog/libs.versions.toml"))
+        }
     }
 }

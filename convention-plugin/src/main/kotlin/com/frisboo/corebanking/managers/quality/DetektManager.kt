@@ -35,11 +35,6 @@ internal fun Project.configureDetekt(
 
     pluginManager.apply(DetektPlugin::class.java)
 
-    rootProject.layout.projectDirectory.file("config/detekt/detekt.yml")
-    rootProject.layout.projectDirectory
-        .file("config/detekt/detekt-baseline.xml")
-        .asFile
-
     configure<DetektExtensionDLS> {
         toolVersion.set(libs.getVersionOrFail(CatalogVersionConstants.Versions.DETEKT))
         autoCorrect.set(ext.detekt.autoCorrect.get())
