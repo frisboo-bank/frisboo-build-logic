@@ -1,4 +1,18 @@
-// Auto-generated file. Do not modify.
+/*
+ * Copyright 2025 Frisboo Bank
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
 package com.frisboo.corebanking.constants
 
 public object CatalogVersionConstants {
@@ -69,7 +83,9 @@ public object CatalogVersionConstants {
         public const val SPRINGDOC_OPENAPI_PLUGIN: String = "springdoc.openapi.plugin"
         public const val TEST_RETRY_PLUGIN: String = "test.retry.plugin"
         public const val TESTCONTAINERS: String = "testcontainers"
+        public const val TESTCONTAINERS_REDIS: String = "testcontainers.redis"
         public const val TINK: String = "tink"
+        public const val TOXICPROXY: String = "toxicproxy"
     }
 
     public object Plugins {
@@ -130,6 +146,7 @@ public object CatalogVersionConstants {
         public const val KOTEST_ASSERTIONS_CORE: String = "kotest.assertions.core"
         public const val KOTEST_BOM: String = "kotest.bom"
         public const val KOTEST_EXTENSIONS: String = "kotest.extensions"
+        public const val KOTEST_EXTENSIONS_TESTCONTAINERS: String = "kotest.extensions.testcontainers"
         public const val KOTEST_PROPERTY: String = "kotest.property"
         public const val KOTEST_PROPERTY_ARBS: String = "kotest.property.arbs"
         public const val KOTEST_PROPERTY_DATETIME: String = "kotest.property.datetime"
@@ -192,7 +209,10 @@ public object CatalogVersionConstants {
         public const val TESTCONTAINERS_KAFKA: String = "testcontainers.kafka"
         public const val TESTCONTAINERS_MONGODB: String = "testcontainers.mongodb"
         public const val TESTCONTAINERS_POSTGRESQL: String = "testcontainers.postgresql"
+        public const val TESTCONTAINERS_REDIS: String = "testcontainers.redis"
+        public const val TESTCONTAINERS_TOXIPROXY: String = "testcontainers.toxiproxy"
         public const val TINK: String = "tink"
+        public const val TOXIPROXY: String = "toxiproxy"
     }
 
     public object Bundles {

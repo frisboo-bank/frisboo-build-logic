@@ -161,5 +161,7 @@ public object ConfigurationConstants {
         public const val ENABLE_JUNIT_BOM: String = "$TESTING_PREFIX.junitBom.enabled"
         public const val ENABLE_KOTEST_BOM: String = "$TESTING_PREFIX.kotestBom.enabled"
         public const val ENABLE_TESTCONTAINERS: String = "$TESTING_PREFIX.testcontainers.enabled"
+        public const val ENABLE_KOTEST: String = "$TESTING_PREFIX.kotest.enabled"
+        public const val ENABLE_MOCKK: String = "$TESTING_PREFIX.mockk.enabled"
     }
 }

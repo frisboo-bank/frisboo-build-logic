@@ -58,12 +58,12 @@ public fun Project.applyPluginIf(
     pluginId: String,
 ) {
     if (!assert) {
-        logger.lifecycle("Skipping plugin: $pluginId")
+        logger.debug("Skipping plugin: $pluginId")
         return
     }
 
-    logger.lifecycle("Applying plugin: $pluginId")
-    project.applyPlugin(pluginId)
+    logger.debug("Applying plugin: $pluginId")
+    applyPlugin(pluginId)
 }
 
 /**

@@ -79,6 +79,8 @@ public fun URL.copyWithRecursion(destination: Directory) {
             }
         }
 
-        else -> error("Unsupported protocol: ${source.protocol}")
+        else -> {
+            error("Unsupported protocol: ${source.protocol}")
+        }
     }
 }

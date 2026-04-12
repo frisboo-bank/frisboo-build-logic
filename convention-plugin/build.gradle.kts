@@ -15,22 +15,6 @@
  */
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 
-/*
- * Copyright 2025 Frisboo Bank
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
- * or implied. See the License for the specific language governing
- * permissions and limitations under the License.
- */
-
 plugins {
     `java-gradle-plugin`
     `jvm-test-suite`
@@ -65,11 +49,12 @@ gradlePlugin {
             id = "com.frisboo.corebanking.gradle-convention-plugin"
             displayName = "Frisboo Core Banking Gradle Convention"
             description = "Gradle plugin that provides conventions for to core banking apis"
-            tags = listOf(
-                "frisboo",
-                "frisboo-core-banking",
-                "convention-plugin",
-            )
+            tags =
+                listOf(
+                    "frisboo",
+                    "frisboo-core-banking",
+                    "convention-plugin",
+                )
             implementationClass = "com.frisboo.corebanking.CoreBankingConventionPlugin"
         }
     }

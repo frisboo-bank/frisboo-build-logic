@@ -93,7 +93,7 @@ public abstract class GenerateCatalogVersionConstants : DefaultTask() {
         val outputFile = File(outputDir, "$className.kt")
         outputFile.parentFile.mkdirs()
 
-        println(outputFile.absoluteFile)
+        logger.info("Writing catalog constants to: {}", outputFile.absoluteFile)
 
         outputFile.writeText(content)
 

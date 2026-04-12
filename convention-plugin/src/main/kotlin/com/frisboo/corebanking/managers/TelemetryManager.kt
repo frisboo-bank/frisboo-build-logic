@@ -22,6 +22,7 @@ public class TelemetryManager(
     project: Project,
     ext: TelemetryExtension,
 ) {
+    // TODO: Wire OpenTelemetry exporter, Micrometer metrics, and trace propagation dependencies
     public fun configure() {
     }
 }

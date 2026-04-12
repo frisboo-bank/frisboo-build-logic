@@ -20,12 +20,10 @@ import com.frisboo.corebanking.extensions.KotlinExtension
 import com.frisboo.corebanking.utils.addCompileOnly
 import com.frisboo.corebanking.utils.addImplementation
 import com.frisboo.corebanking.utils.addTestImplementation
-import com.frisboo.corebanking.utils.addTestRuntimeOnly
 import com.frisboo.corebanking.utils.applyBomIfEnabled
 import com.frisboo.corebanking.utils.getLibs
 import com.frisboo.corebanking.utils.libraryOrThrow
 import org.gradle.api.Project
-import org.gradle.internal.cc.base.logger
 import org.gradle.kotlin.dsl.dependencies
 
 public class KotlinManager(
@@ -43,34 +41,44 @@ public class KotlinManager(
                 ext.reactiveBom,
             )
 
-            arrayOf(
-                CatalogVersionConstants.Libraries.ARROW_KT_CORE,
-                CatalogVersionConstants.Libraries.ARROW_KT_COROUTINES,
-                CatalogVersionConstants.Libraries.JACKSON_MODULE_KOTLIN,
-                CatalogVersionConstants.Libraries.KOTLINX_COROUTINES_CORE,
-                CatalogVersionConstants.Libraries.KOTLINX_COROUTINES_REACTOR,
-                CatalogVersionConstants.Libraries.KOTLIN_LOGGING,
-                CatalogVersionConstants.Libraries.KOTLIN_REFLECT,
-                CatalogVersionConstants.Libraries.REACTOR_KOTLIN_EXTENSIONS,
-            ).forEach { addImplementation(libs.libraryOrThrow(it)) }
+            if (ext.enableArrowKt.get()) {
+                addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.ARROW_KT_CORE))
+                addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.ARROW_KT_COROUTINES))
+            }
 
-            addCompileOnly(libs.libraryOrThrow(CatalogVersionConstants.Libraries.JETBRAINS_ANNOTATIONS))
+            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.JACKSON_MODULE_KOTLIN))
 
-            // Test
-            arrayOf(
-                CatalogVersionConstants.Libraries.KOTEST_ASSERTIONS_CORE,
-                CatalogVersionConstants.Libraries.KOTEST_ASSERTIONS_ARROW,
-                CatalogVersionConstants.Libraries.KOTEST_PROPERTY,
-                CatalogVersionConstants.Libraries.KOTEST_PROPERTY_ARBS,
-                CatalogVersionConstants.Libraries.KOTEST_PROPERTY_DATETIME,
-                CatalogVersionConstants.Libraries.KOTLINX_COROUTINES_DEBUG,
-                CatalogVersionConstants.Libraries.KOTLINX_COROUTINES_TEST,
-                CatalogVersionConstants.Libraries.KOTLIN_TEST_JUNIT5,
-                CatalogVersionConstants.Libraries.MOCKK,
-                CatalogVersionConstants.Libraries.REACTOR_TEST,
-            ).forEach { addTestImplementation(libs.libraryOrThrow(it)) }
+            if (ext.enableCoroutines.get()) {
+                addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTLINX_COROUTINES_CORE))
+            }
+            if (ext.enableCoroutinesReactor.get()) {
+                addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTLINX_COROUTINES_REACTOR))
+            }
 
-            addTestRuntimeOnly(libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTEST_RUNNER_JUNIT5))
+            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTLIN_LOGGING))
+
+            if (ext.enableKotlinReflect.get()) {
+                addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTLIN_REFLECT))
+            }
+            if (ext.enableReactorKotlinExtensions.get()) {
+                addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.REACTOR_KOTLIN_EXTENSIONS))
+            }
+            if (ext.enableJetbrainsAnnotations.get()) {
+                addCompileOnly(libs.libraryOrThrow(CatalogVersionConstants.Libraries.JETBRAINS_ANNOTATIONS))
+            }
+
+            // Test — Kotlin-specific test deps only (kotest/mockk owned by TestingManager)
+            if (ext.enableArrowKt.get()) {
+                addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTEST_ASSERTIONS_ARROW))
+            }
+            if (ext.enableCoroutines.get()) {
+                addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTLINX_COROUTINES_DEBUG))
+                addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTLINX_COROUTINES_TEST))
+            }
+            addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTLIN_TEST_JUNIT5))
+            if (ext.enableReactorKotlinExtensions.get()) {
+                addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.REACTOR_TEST))
+            }
         }
     }
 }

@@ -32,8 +32,7 @@ public class QualityManager(
         logger.debug("Configuring Quality settings for project: ${project.name}")
         logger.debug("-----------------------------------------------------------")
 
-//        project.configureCpd(ext, libs)
-//        project.configureDetekt(ext, libs)
         project.configureSpotless(ext, libs)
+        // TODO: Wire configureDetekt, configureCpd, and remaining quality sub-extensions (kover, jacoco, pitest, etc.)
     }
 }

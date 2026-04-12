@@ -63,7 +63,9 @@ spring-dependency-management-plugin = "1.1.7"
 springdoc-openapi = "2.8.13"
 springdoc-openapi-plugin = "1.9.0"
 test-retry-plugin = "1.6.4"
-testcontainers = "2.0.1"
+testcontainers = "2.0.4"
+testcontainers-redis = "2.2.4"
+toxicproxy = "2.1.7"
 tink = "1.16.0"
 
 [libraries]
@@ -167,19 +169,21 @@ kotest-assertions-arrow = { group = "io.kotest.extensions", name = "kotest-asser
 kotest-assertions-core = { group = "io.kotest", name = "kotest-assertions-core", version.ref = "kotest" }
 kotest-bom = { group = "io.kotest", name = "kotest-bom", version.ref = "kotest" }
 kotest-extensions = { group = "io.kotest", name = "kotest-extensions", version.ref = "kotest" }
+kotest-extensions-testcontainers = { group = "io.kotest", name = "kotest-extensions-testcontainers", version.ref = "kotest" }
 kotest-property = { group = "io.kotest", name = "kotest-property" }
 kotest-property-arbs = { group = "io.kotest.extensions", name = "kotest-property-arbs", version.ref = "kotest-property-arbs" }
 kotest-property-datetime = { group = "io.kotest.extensions", name = "kotest-property-datetime", version.ref = "kotest-property-datetime" }
 kotest-runner-junit5 = { group = "io.kotest", name = "kotest-runner-junit5" }
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
-
-# Testcontainers
 testcontainers-bom = { group = "org.testcontainers", name = "testcontainers-bom", version.ref = "testcontainers" }
-testcontainers-junit-jupiter = { group = "org.testcontainers", name = "junit-jupiter" }
-testcontainers-postgresql = { group = "org.testcontainers", name = "postgresql" }
-testcontainers-mongodb = { group = "org.testcontainers", name = "mongodb" }
-testcontainers-kafka = { group = "org.testcontainers", name = "kafka" }
 testcontainers-h2 = { group = "org.testcontainers", name = "h2" }
+testcontainers-junit-jupiter = { group = "org.testcontainers", name = "junit-jupiter" }
+testcontainers-kafka = { group = "org.testcontainers", name = "kafka" }
+testcontainers-mongodb = { group = "org.testcontainers", name = "mongodb" }
+testcontainers-postgresql = { group = "org.testcontainers", name = "postgresql" }
+testcontainers-toxiproxy = { group = "org.testcontainers", name = "testcontainers-toxiproxy" }
+testcontainers-redis = { group = "com.redis", name = "testcontainers-redis", version.ref = "testcontainers-redis" }
+toxiproxy = { group = "eu.rekawek.toxiproxy", name = "toxiproxy-java", version.ref = "toxicproxy" }
 
 # Jackson
 jackson-annotations = { group = "com.fasterxml.jackson.core", name = "jackson-annotations" }

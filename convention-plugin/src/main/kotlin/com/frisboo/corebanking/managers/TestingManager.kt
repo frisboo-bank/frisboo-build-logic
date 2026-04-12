@@ -33,22 +33,25 @@ public class TestingManager(
 
     public fun configure() {
         project.dependencies {
-            arrayOf(
-                ext.junitBom,
-                ext.kotestBom,
-                ext.testcontainersBom,
-            ).forEach { applyBomIfEnabled(it) }
+            applyBomIfEnabled(ext.junitBom)
 
-            arrayOf(
-                CatalogVersionConstants.Libraries.KOTEST_ASSERTIONS_CORE,
-                CatalogVersionConstants.Libraries.KOTEST_EXTENSIONS,
-                CatalogVersionConstants.Libraries.KOTEST_PROPERTY,
-                CatalogVersionConstants.Libraries.KOTEST_PROPERTY_ARBS,
-                CatalogVersionConstants.Libraries.KOTEST_PROPERTY_DATETIME,
-                CatalogVersionConstants.Libraries.MOCKK,
-            ).forEach { addTestImplementation(libs.libraryOrThrow(it)) }
+            if (ext.enableKotest.get()) {
+                applyBomIfEnabled(ext.kotestBom)
+                addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTEST_ASSERTIONS_CORE))
+                addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTEST_EXTENSIONS))
+                addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTEST_PROPERTY))
+                addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTEST_PROPERTY_ARBS))
+                addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTEST_PROPERTY_DATETIME))
+                addTestRuntimeOnly(libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTEST_RUNNER_JUNIT5))
+            }
 
-            addTestRuntimeOnly(libs.libraryOrThrow(CatalogVersionConstants.Libraries.KOTEST_RUNNER_JUNIT5))
+            if (ext.enableTestContainers.get()) {
+                applyBomIfEnabled(ext.testcontainersBom)
+            }
+
+            if (ext.enableMockk.get()) {
+                addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.MOCKK))
+            }
         }
     }
 }

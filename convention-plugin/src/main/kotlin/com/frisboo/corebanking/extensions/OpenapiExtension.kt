@@ -15,6 +15,7 @@
  */
 package com.frisboo.corebanking.extensions
 
+import com.frisboo.corebanking.constants.CatalogVersionConstants
 import com.frisboo.corebanking.constants.ConfigurationConstants
 import com.frisboo.corebanking.utils.BomExtensionSpec
 import com.frisboo.corebanking.utils.gradleProperty
@@ -42,7 +43,7 @@ public open class OpenapiExtension
             objects.newInstance(
                 BomExtensionSpec::class.java,
                 libs,
-                "springdoc-openapi-bom",
+                CatalogVersionConstants.Libraries.SPRINGDOC_OPENAPI_BOM,
                 ConfigurationConstants.Openapi.ENABLE_SPRINGDOC_OPENAPI_BOM,
                 false,
             )

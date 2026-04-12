@@ -35,12 +35,14 @@ public class GRPCManager(
 
     public fun configure() {
         logger.info("-----------------------------------------------------------")
-        logger.info("Configuring Persistence settings for project {}", project.name)
+        logger.info("Configuring GRPC settings for project {}", project.name)
         logger.info(" - Protobuf Plugin Enabled: {}", ext.enableProtobufPlugin.get())
         logger.info(" - GRPC Spring Boot BOM Enabled: {}", ext.springBootGrpcBom.enabled.get())
         logger.info("-----------------------------------------------------------")
 
-        project.pluginManager.apply(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.PROTOBUF))
+        if (ext.enableProtobufPlugin.get()) {
+            project.pluginManager.apply(libs.pluginIdOrThrow(CatalogVersionConstants.Plugins.PROTOBUF))
+        }
 
         project.dependencies {
             applyBomIfEnabled(
@@ -48,51 +50,29 @@ public class GRPCManager(
                 ext.springBootGrpcBom,
             )
 
-            arrayOf(
-                CatalogVersionConstants.Libraries.CONTEXT_PROPAGATION,
-                CatalogVersionConstants.Libraries.GRPC_KOTLIN_STUB,
-                CatalogVersionConstants.Libraries.GRPC_NETTY_SHADED,
-                CatalogVersionConstants.Libraries.GRPC_PROTOBUF,
-                CatalogVersionConstants.Libraries.GRPC_SERVICES,
-                CatalogVersionConstants.Libraries.GRPC_SERVLET,
-                CatalogVersionConstants.Libraries.GRPC_STUB,
-                CatalogVersionConstants.Libraries.PROTOBUF_JAVA,
-                CatalogVersionConstants.Libraries.PROTOBUF_JAVA_UTIL,
-                CatalogVersionConstants.Libraries.PROTOBUF_KOTLIN,
-                CatalogVersionConstants.Libraries.SPRING_BOOT_GRPC_STARTER,
-            ).forEach { addImplementation(libs.libraryOrThrow(it)) }
+            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.CONTEXT_PROPAGATION))
+            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.GRPC_SERVICES))
+            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.GRPC_SERVLET))
+            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.GRPC_STUB))
+            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.PROTOBUF_JAVA))
+            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.PROTOBUF_JAVA_UTIL))
 
-            arrayOf(
-                CatalogVersionConstants.Libraries.SPRING_BOOT_GRPC_TEST,
-            ).forEach { addTestImplementation(libs.libraryOrThrow(it)) }
+            if (ext.enableGrpcKotlinStub.get()) {
+                addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.GRPC_KOTLIN_STUB))
+            }
+            if (ext.enableGrpcNetty.get()) {
+                addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.GRPC_NETTY_SHADED))
+            }
+            if (ext.enableGrpcProtobuf.get()) {
+                addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.GRPC_PROTOBUF))
+            }
+            if (ext.enableProtobufKotlin.get()) {
+                addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.PROTOBUF_KOTLIN))
+            }
+            if (ext.enableSpringBootGrpcStarter.get()) {
+                addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_GRPC_STARTER))
+                addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_GRPC_TEST))
+            }
         }
-
-//        project.configure<ProtobufExtension> {
-//            protoc {
-//                it.artifact = libs.libraryOrThrow(CatalogVersionConstants.Libraries.PROTOC_BASE).get().toString()
-//            }
-//            plugins {
-//                it.id("grpc") {
-//                    artifact =
-//                        libs.libraryOrThrow(CatalogVersionConstants.Libraries.PROTOC_GEN_GRPC_JAVA).get().toString()
-//                }
-//                it.id("grpckt") {
-//                    artifact = "${
-//                        libs.libraryOrThrow(CatalogVersionConstants.Libraries.PROTOC_GEN_GRPC_KOTLIN).get()
-//                    }:jdk8@jar"
-//                }
-//            }
-//            generateProtoTasks {
-//                it.all().forEach { task ->
-//                    task.plugins { plugin ->
-//                        plugin.id("grpc") {}
-//                        plugin.id("grpckt") {}
-//                    }
-//                    task.builtins { cfg ->
-//                        cfg.id("kotlin")
-//                    }
-//                }
-//            }
-//        }
     }
 }

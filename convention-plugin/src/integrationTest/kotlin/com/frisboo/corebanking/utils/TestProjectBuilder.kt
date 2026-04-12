@@ -56,7 +56,8 @@ class TestProjectBuilder(
         Files.createDirectories(sourceDir)
         val fileContent =
             content
-                ?: """
+                ?:
+                    """
                     package $packageName
 
                     class $className {
