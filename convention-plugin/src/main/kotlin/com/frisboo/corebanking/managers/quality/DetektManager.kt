@@ -40,7 +40,13 @@ internal fun Project.configureDetekt(
         autoCorrect.set(ext.detekt.autoCorrect.get())
         buildUponDefaultConfig.set(true)
         ignoreFailures.set(!ext.detekt.failOnViolation.get())
-        source.setFrom(files("src/main/kotlin", "src/test/kotlin").plus(ext.detekt.source.get()))
+        source.setFrom(
+            files(
+                "src/main/kotlin",
+                "src/test/kotlin",
+                "src/testFixtures/kotlin",
+            ).plus(ext.detekt.source.get()),
+        )
 //        config.setFrom(detektConfig)
 //        baseline = detektBaseline
         parallel.set(true)
