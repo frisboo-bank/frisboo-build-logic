@@ -34,7 +34,7 @@ public open class SpotlessExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.Quality.ENABLE_SPOTLESS,
-                        String::toBoolean,
-                    ).orElse(true),
+                        String::toBoolean
+                    ).orElse(true)
             )
     }

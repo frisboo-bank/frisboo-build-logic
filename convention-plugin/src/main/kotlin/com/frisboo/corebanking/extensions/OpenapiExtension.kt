@@ -45,28 +45,28 @@ public open class OpenapiExtension
                 libs,
                 CatalogVersionConstants.Libraries.SPRINGDOC_OPENAPI_BOM,
                 ConfigurationConstants.Openapi.ENABLE_SPRINGDOC_OPENAPI_BOM,
-                false,
+                false
             )
 
         public val springdocOpenapiWebflux: Property<Boolean> =
             objects.property<Boolean>().convention(
                 providers
                     .gradleProperty(ConfigurationConstants.Openapi.ENABLE_SPRINGDOC_OPENAPI_WEBFLUX, String::toBoolean)
-                    .orElse(true),
+                    .orElse(true)
             )
 
         // --- Paths and Naming ---
         public val outputDir: DirectoryProperty =
             objects.directoryProperty().convention(
-                layout.buildDirectory.dir("generated/sources/openapi"),
+                layout.buildDirectory.dir("generated/sources/openapi")
             )
         public val packageName: Property<String> =
             objects.property(String::class.java).convention(
-                "com.frisboo.corebanking.${projectName.replace("-", "")}",
+                "com.frisboo.corebanking.${projectName.replace("-", "")}"
             )
         public val inputDir: DirectoryProperty =
             objects.directoryProperty().convention(
-                layout.projectDirectory.dir("src/api/schemas"),
+                layout.projectDirectory.dir("src/api/schemas")
             )
         public val schemaFilename: Property<String> = objects.property<String>().convention("$projectName-api.yaml")
 

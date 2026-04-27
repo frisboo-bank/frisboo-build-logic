@@ -34,7 +34,7 @@ public open class OwaspDepCheckExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.Quality.ENABLE_OWASP_DEP_CHECK,
-                        String::toBoolean,
-                    ).orElse(true),
+                        String::toBoolean
+                    ).orElse(true)
             )
     }

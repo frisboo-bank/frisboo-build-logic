@@ -72,10 +72,10 @@ public class OpenapiManager(
             applyBomIfEnabled(ext.springdocOpenapiBom)
             if (ext.springdocOpenapiWebflux.get()) {
                 addImplementation(
-                    libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRINGDOC_OPENAPI_STARTER_WEBFLUX_UI),
+                    libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRINGDOC_OPENAPI_STARTER_WEBFLUX_UI)
                 )
                 addImplementation(
-                    libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRINGDOC_OPENAPI_STARTER_WEBFLUX_API),
+                    libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRINGDOC_OPENAPI_STARTER_WEBFLUX_API)
                 )
             }
         }
@@ -94,7 +94,7 @@ public class OpenapiManager(
             outputDir.set(
                 ext.outputDir
                     .get()
-                    .asFile.absolutePath,
+                    .asFile.absolutePath
             )
             packageName.set(ext.packageName)
             id.set("openapi-documentation")
@@ -117,8 +117,8 @@ public class OpenapiManager(
             globalProperties.set(
                 mapOf(
                     "apis" to if (ext.generateApis.get()) "" else "false",
-                    "models" to if (ext.generateModels.get()) "" else "false",
-                ),
+                    "models" to if (ext.generateModels.get()) "" else "false"
+                )
             )
 
             configOptions.set(
@@ -130,7 +130,7 @@ public class OpenapiManager(
                     put("delegatePattern", "true")
                     put("useCoroutines", "true")
                     putAll(ext.configOptions.get())
-                },
+                }
             )
         }
 
@@ -145,8 +145,8 @@ public class OpenapiManager(
                 it.java.setSrcDirs(
                     listOf(
                         ext.outputDir.get().file("src/main/java"),
-                        ext.outputDir.get().file("src/main/kotlin"),
-                    ),
+                        ext.outputDir.get().file("src/main/kotlin")
+                    )
                 )
             }
         }

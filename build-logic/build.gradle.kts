@@ -31,7 +31,6 @@ kotlin {
         jvmTarget.set(jvmTargetVersion.map(JvmTarget::fromTarget))
 
         allWarningsAsErrors.set(true)
-        progressiveMode.set(true)
         optIn.add("kotlin.RequiresOptIn")
         freeCompilerArgs.addAll("-Xjsr305=strict")
     }
@@ -43,6 +42,4 @@ dependencies {
     implementation(plugin(baseLibs.plugins.detekt))
 }
 
-fun plugin(plugin: Provider<PluginDependency>) =
-    plugin.map { "${it.pluginId}:${it.pluginId}.gradle.plugin:${it.version}" }
-
+fun plugin(plugin: Provider<PluginDependency>) = plugin.map { "${it.pluginId}:${it.pluginId}.gradle.plugin:${it.version}" }

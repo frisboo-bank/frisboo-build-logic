@@ -34,7 +34,7 @@ public open class JacocoExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.Quality.ENABLE_JACOCO,
-                        String::toBoolean,
-                    ).orElse(true),
+                        String::toBoolean
+                    ).orElse(true)
             )
     }

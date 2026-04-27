@@ -34,7 +34,7 @@ public open class PitestExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.Quality.ENABLE_PITEST,
-                        String::toBoolean,
-                    ).orElse(true),
+                        String::toBoolean
+                    ).orElse(true)
             )
     }

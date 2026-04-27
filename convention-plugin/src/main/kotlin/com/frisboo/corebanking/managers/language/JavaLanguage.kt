@@ -45,7 +45,7 @@ public class JavaLanguage(
             it.options.encoding = "UTF-8"
             it.options.release.set(jvmTargetVersion.toInt())
             it.options.compilerArgs.addAll(
-                listOf("-parameters", "-Xlint:all,-serial"),
+                listOf("-parameters", "-Xlint:all,-serial")
             )
         }
 

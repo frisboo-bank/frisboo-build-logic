@@ -41,8 +41,8 @@ public open class GRPCExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.GRPC.ENABLE_GRPC_NETTY,
-                        String::toBoolean,
-                    ).orElse(true),
+                        String::toBoolean
+                    ).orElse(true)
             )
 
         public val enableGrpcKotlinStub: Property<Boolean> =
@@ -50,8 +50,8 @@ public open class GRPCExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.GRPC.ENABLE_GRPC_KOTLIN_STUB,
-                        String::toBoolean,
-                    ).orElse(true),
+                        String::toBoolean
+                    ).orElse(true)
             )
 
         public val enableGrpcProtobuf: Property<Boolean> =
@@ -59,8 +59,8 @@ public open class GRPCExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.GRPC.ENABLE_GRPC_PROTOBUF,
-                        String::toBoolean,
-                    ).orElse(true),
+                        String::toBoolean
+                    ).orElse(true)
             )
 
         public val enableProtobufKotlin: Property<Boolean> =
@@ -68,8 +68,8 @@ public open class GRPCExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.GRPC.ENABLE_PROTOBUF_KOTLIN,
-                        String::toBoolean,
-                    ).orElse(true),
+                        String::toBoolean
+                    ).orElse(true)
             )
 
         public val enableProtobufPlugin: Property<Boolean> =
@@ -77,8 +77,8 @@ public open class GRPCExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.GRPC.ENABLE_PROTOBUF_PLUGIN,
-                        String::toBoolean,
-                    ).orElse(true),
+                        String::toBoolean
+                    ).orElse(true)
             )
 
         public val grpcBom: BomExtensionSpec =
@@ -87,7 +87,7 @@ public open class GRPCExtension
                 libs,
                 CatalogVersionConstants.Libraries.GRPC_BOM,
                 ConfigurationConstants.GRPC.ENABLE_GRPC_BOM,
-                true,
+                true
             )
 
         public val springBootGrpcBom: BomExtensionSpec =
@@ -96,7 +96,7 @@ public open class GRPCExtension
                 libs,
                 CatalogVersionConstants.Libraries.SPRING_BOOT_GRPC_BOM,
                 ConfigurationConstants.GRPC.ENABLE_SPRING_BOOT_GRPC_BOM,
-                true,
+                true
             )
 
         public val enableSpringBootGrpcStarter: Property<Boolean> =
@@ -104,7 +104,7 @@ public open class GRPCExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.GRPC.ENABLE_SPRING_BOOT_GRPC_STARTER,
-                        String::toBoolean,
-                    ).orElse(true),
+                        String::toBoolean
+                    ).orElse(true)
             )
     }

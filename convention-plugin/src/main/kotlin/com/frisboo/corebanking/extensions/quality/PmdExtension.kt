@@ -31,6 +31,6 @@ public open class PmdExtension
     ) {
         public val enabled: Property<Boolean> =
             objects.property<Boolean>().convention(
-                providers.gradleProperty(ConfigurationConstants.Quality.ENABLE_PMD, String::toBoolean).orElse(true),
+                providers.gradleProperty(ConfigurationConstants.Quality.ENABLE_PMD, String::toBoolean).orElse(true)
             )
     }

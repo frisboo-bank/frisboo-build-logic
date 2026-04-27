@@ -38,10 +38,10 @@ public class CachingManager(
     private fun configureRedis() {
         project.dependencies {
             addImplementation(
-                libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_DATA_REDIS),
+                libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_DATA_REDIS)
             )
             addImplementation(
-                libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_DATA_REDIS_REACTIVE),
+                libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_DATA_REDIS_REACTIVE)
             )
         }
     }

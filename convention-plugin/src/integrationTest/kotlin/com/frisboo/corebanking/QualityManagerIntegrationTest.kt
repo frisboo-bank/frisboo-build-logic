@@ -50,7 +50,7 @@ class QualityManagerIntegrationTest {
                             }
                         }
 
-                        """.trimIndent(),
+                        """.trimIndent()
                 )
 
         val result = builder.runGradleAndFail("detekt")

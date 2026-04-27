@@ -27,7 +27,6 @@ import com.frisboo.corebanking.managers.PersistenceManager
 import com.frisboo.corebanking.managers.QualityManager
 import com.frisboo.corebanking.managers.RestrictImportsManager
 import com.frisboo.corebanking.managers.SpringBootManager
-import com.frisboo.corebanking.managers.TelemetryManager
 import com.frisboo.corebanking.managers.TestingManager
 import com.frisboo.corebanking.managers.language.JavaLanguage
 import com.frisboo.corebanking.managers.language.KotlinLanguage
@@ -35,22 +34,10 @@ import com.frisboo.corebanking.utils.GradleVersionUtils
 import com.frisboo.corebanking.utils.getLibs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.internal.cc.base.logger
 import org.gradle.kotlin.dsl.create
 import org.gradle.kotlin.dsl.repositories
 
 public class CoreBankingConventionPlugin : Plugin<Project> {
-    /**
-     * Applies the Frisboo Core Banking Convention to the given [project].
-     *
-     * This method configures the project with a set of predefined conventions and settings
-     * tailored for Frisboo Core Banking applications. It sets up repositories, applies language
-     * configurations, and initializes various managers for features like gRPC, Kotlin, messaging,
-     * OpenAPI, persistence, quality checks, import restrictions, Spring Boot, telemetry, and testing.
-     *
-     * @param project The Gradle project to which the convention will be applied.
-     * @throws IllegalStateException if any configuration step fails.
-     */
     override fun apply(project: Project) {
         with(project) {
             GradleVersionUtils.checkGradleVersion()
@@ -91,7 +78,6 @@ public class CoreBankingConventionPlugin : Plugin<Project> {
                     if (ext.enablePersistence.getOrElse(false)) PersistenceManager(this, ext.persistence).configure()
                     if (ext.enableQuality.getOrElse(false)) QualityManager(this, ext.quality).configure()
                     if (ext.enableSpringBoot.getOrElse(false)) SpringBootManager(this, ext.springBoot).configure()
-                    if (ext.enableTelemetry.getOrElse(false)) TelemetryManager(this, ext.telemetry).configure()
                     if (ext.enableTesting.getOrElse(false)) TestingManager(this, ext.testing).configure()
                 } catch (e: IllegalStateException) {
                     throw IllegalStateException("Failed to configure Frisboo Core Banking Convention: ${e.message}", e)

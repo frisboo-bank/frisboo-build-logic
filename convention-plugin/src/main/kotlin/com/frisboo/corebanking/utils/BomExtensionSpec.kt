@@ -43,7 +43,7 @@ public open class BomExtensionSpec
     ) {
         public val enabled: Property<Boolean> =
             objects.property<Boolean>().convention(
-                providers.gradleProperty(configurationKey, String::toBoolean).orElse(true),
+                providers.gradleProperty(configurationKey, String::toBoolean).orElse(true)
             )
         public val coordinates: Provider<MinimalExternalModuleDependency> = libs.libraryOrThrow(alias)
         public val testOnly: Property<Boolean> = objects.property<Boolean>().convention(defaultTestOnly)
