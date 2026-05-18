@@ -53,7 +53,7 @@ internal fun Project.configureCpd(
                     "**/*.java",
                     "**/*.groovy",
                     "**/*.kt",
-                    "**/*.kts",
+                    "**/*.kts"
                 )
             }
 

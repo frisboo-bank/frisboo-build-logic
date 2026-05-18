@@ -33,7 +33,7 @@ public open class CpdExtension
     ) {
         public val enabled: Property<Boolean> =
             objects.property<Boolean>().convention(
-                providers.gradleProperty(ConfigurationConstants.Quality.ENABLE_CPD, String::toBoolean).orElse(true),
+                providers.gradleProperty(ConfigurationConstants.Quality.ENABLE_CPD, String::toBoolean).orElse(true)
             )
 
         public val failOnViolation: Property<Boolean> = objects.property<Boolean>().convention(true)

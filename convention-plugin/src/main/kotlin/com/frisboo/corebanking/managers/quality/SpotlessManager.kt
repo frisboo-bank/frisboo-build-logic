@@ -42,7 +42,7 @@ internal fun Project.configureSpotless(
             "**/.gradle/**",
             "**/.idea/**",
             "**/.git/**",
-            "**/.gradle-test-kit/**",
+            "**/.gradle-test-kit/**"
         )
     val generatedDir =
         project.layout.buildDirectory
@@ -79,7 +79,7 @@ internal fun Project.configureSpotless(
                 "**/*.yaml",
                 "**/*.xml",
                 "**/.gitignore",
-                "**/*.txt",
+                "**/*.txt"
             )
             t.targetExclude(commonExcludes)
             t.trimTrailingWhitespace()

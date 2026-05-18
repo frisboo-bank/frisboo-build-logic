@@ -50,7 +50,7 @@ public class PersistenceManager(
                 addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.FLYWAY_CORE))
                 if (ext.enablePostgres.get()) {
                     addImplementation(
-                        libs.libraryOrThrow(CatalogVersionConstants.Libraries.FLYWAY_DATABASE_POSTGRESQL),
+                        libs.libraryOrThrow(CatalogVersionConstants.Libraries.FLYWAY_DATABASE_POSTGRESQL)
                     )
                 }
             }
@@ -66,7 +66,7 @@ public class PersistenceManager(
         if (ext.enableMongo.get()) {
             project.dependencies {
                 addImplementation(
-                    libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_DATA_MONGODB),
+                    libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_DATA_MONGODB)
                 )
                 addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.MONGODB))
                 addTestImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.TESTCONTAINERS_MONGODB))

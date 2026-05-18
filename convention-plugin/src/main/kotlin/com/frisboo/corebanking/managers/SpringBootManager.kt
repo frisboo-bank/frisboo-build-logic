@@ -48,7 +48,7 @@ public class SpringBootManager(
         project.dependencies {
             applyBomIfEnabled(
                 ext.springBootBom,
-                ext.jackson,
+                ext.jackson
             )
 
             if (ext.enableActuator.get()) {
@@ -56,7 +56,7 @@ public class SpringBootManager(
             }
             if (ext.enableValidation.get()) {
                 addImplementation(
-                    libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_VALIDATION),
+                    libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_STARTER_VALIDATION)
                 )
             }
             if (ext.enableWebFlux.get()) {
@@ -73,7 +73,7 @@ public class SpringBootManager(
             }
 
             addAnnotationProcessor(
-                libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_CONFIGURATION_PROCESSOR),
+                libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_CONFIGURATION_PROCESSOR)
             )
 
             if (ext.enableSpringTest.get()) {
@@ -91,7 +91,7 @@ public class SpringBootManager(
                 "Implementation-Title" to project.name,
                 "Implementation-Version" to project.version,
                 "Built-By" to "Frisboo Core Banking",
-                "Build-Timestamp" to Instant.now(),
+                "Build-Timestamp" to Instant.now()
             )
         }
     }

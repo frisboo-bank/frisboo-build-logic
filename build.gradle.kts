@@ -18,3 +18,6 @@ plugins {
     id("quality-conventions")
     alias(baseLibs.plugins.maven.publish) apply false
 }
+
+group = "com.frisboo.corebanking"
+version = "0.0.1-SNAPSHOT"

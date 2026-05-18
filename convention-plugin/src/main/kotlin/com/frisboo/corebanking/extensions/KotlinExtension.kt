@@ -39,7 +39,7 @@ public open class KotlinExtension
                 libs,
                 CatalogVersionConstants.Libraries.ARROW_KT_BOM,
                 ConfigurationConstants.Kotlin.ENABLE_ARROW_KT_BOM,
-                false,
+                false
             )
 
         public val kotlinBom: BomExtensionSpec =
@@ -48,7 +48,7 @@ public open class KotlinExtension
                 libs,
                 CatalogVersionConstants.Libraries.KOTLIN_BOM,
                 ConfigurationConstants.Kotlin.ENABLE_KOTLIN_BOM,
-                false,
+                false
             )
 
         public val kotlinxCoroutinesBom: BomExtensionSpec =
@@ -57,7 +57,7 @@ public open class KotlinExtension
                 libs,
                 CatalogVersionConstants.Libraries.KOTLINX_COROUTINES_BOM,
                 ConfigurationConstants.Kotlin.ENABLE_KOTLINX_COROUTINES_BOM,
-                false,
+                false
             )
 
         public val reactiveBom: BomExtensionSpec =
@@ -66,48 +66,48 @@ public open class KotlinExtension
                 libs,
                 CatalogVersionConstants.Libraries.REACTOR_BOM,
                 ConfigurationConstants.Kotlin.ENABLE_REACTOR_BOM,
-                false,
+                false
             )
 
         public val enableArrowKt: Property<Boolean> =
             objects.property<Boolean>().convention(
                 providers
                     .gradleProperty(ConfigurationConstants.Kotlin.ENABLE_ARROW_KT, String::toBoolean)
-                    .orElse(true),
+                    .orElse(true)
             )
 
         public val enableCoroutines: Property<Boolean> =
             objects.property<Boolean>().convention(
                 providers
                     .gradleProperty(ConfigurationConstants.Kotlin.ENABLE_COROUTINES, String::toBoolean)
-                    .orElse(true),
+                    .orElse(true)
             )
 
         public val enableCoroutinesReactor: Property<Boolean> =
             objects.property<Boolean>().convention(
                 providers
                     .gradleProperty(ConfigurationConstants.Kotlin.ENABLE_COROUTINES_REACTOR, String::toBoolean)
-                    .orElse(true),
+                    .orElse(true)
             )
 
         public val enableJetbrainsAnnotations: Property<Boolean> =
             objects.property<Boolean>().convention(
                 providers
                     .gradleProperty(ConfigurationConstants.Kotlin.ENABLE_JETBRAINS_ANNOTATIONS, String::toBoolean)
-                    .orElse(true),
+                    .orElse(true)
             )
 
         public val enableKotlinReflect: Property<Boolean> =
             objects.property<Boolean>().convention(
                 providers
                     .gradleProperty(ConfigurationConstants.Kotlin.ENABLE_KOTLIN_REFLECT, String::toBoolean)
-                    .orElse(true),
+                    .orElse(true)
             )
 
         public val enableReactorKotlinExtensions: Property<Boolean> =
             objects.property<Boolean>().convention(
                 providers
                     .gradleProperty(ConfigurationConstants.Kotlin.ENABLE_REACTOR_KOTLIN_EXTENSIONS, String::toBoolean)
-                    .orElse(true),
+                    .orElse(true)
             )
     }

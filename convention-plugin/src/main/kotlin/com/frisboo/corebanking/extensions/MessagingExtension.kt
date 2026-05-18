@@ -36,7 +36,7 @@ public open class MessagingExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.Messaging.ENABLE_KAFKA,
-                        String::toBoolean,
-                    ).orElse(false),
+                        String::toBoolean
+                    ).orElse(false)
             )
     }

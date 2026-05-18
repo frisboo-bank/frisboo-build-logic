@@ -35,8 +35,8 @@ public open class DetektExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.Quality.ENABLE_DETEKT,
-                        String::toBoolean,
-                    ).orElse(true),
+                        String::toBoolean
+                    ).orElse(true)
             )
 
         public val autoCorrect: Property<Boolean> = objects.property<Boolean>().convention(false)

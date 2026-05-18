@@ -40,19 +40,19 @@ public open class PluginExtension
 
         public val conventionPluginVersion: Property<String> =
             objects.property<String>().convention(
-                providers.gradleProperty("corebanking-convention"),
+                providers.gradleProperty("corebanking-convention")
             )
 
         public val artifactId: Property<String> =
             objects.property<String>().convention(
-                projectName.removePrefix("frisboo-corebanking-").removeSuffix("-plugin"),
+                projectName.removePrefix("frisboo-corebanking-").removeSuffix("-plugin")
             )
 
         public val displayName: Property<String> =
             objects.property<String>().convention(
                 artifactId.map { id ->
                     id.split("-").joinToString(" ") { part -> part.replaceFirstChar { it.titlecase() } }
-                },
+                }
             )
 
         public val enableCaching: Property<Boolean> =
@@ -60,8 +60,8 @@ public open class PluginExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.Plugin.ENABLE_CACHING,
-                        String::toBoolean,
-                    ).orElse(false),
+                        String::toBoolean
+                    ).orElse(false)
             )
 
         public val enableGRPC: Property<Boolean> =
@@ -69,8 +69,8 @@ public open class PluginExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.Plugin.ENABLE_GRPC,
-                        String::toBoolean,
-                    ).orElse(false),
+                        String::toBoolean
+                    ).orElse(false)
             )
 
         public val enableMessaging: Property<Boolean> =
@@ -78,8 +78,8 @@ public open class PluginExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.Plugin.ENABLE_MESSAGING,
-                        String::toBoolean,
-                    ).orElse(false),
+                        String::toBoolean
+                    ).orElse(false)
             )
 
         public val enableOpenapi: Property<Boolean> =
@@ -87,8 +87,8 @@ public open class PluginExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.Plugin.ENABLE_OPENAPI,
-                        String::toBoolean,
-                    ).orElse(false),
+                        String::toBoolean
+                    ).orElse(false)
             )
 
         public val enablePersistence: Property<Boolean> =
@@ -96,8 +96,8 @@ public open class PluginExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.Plugin.ENABLE_PERSISTENCE,
-                        String::toBoolean,
-                    ).orElse(false),
+                        String::toBoolean
+                    ).orElse(false)
             )
 
         public val enableQuality: Property<Boolean> =
@@ -105,8 +105,8 @@ public open class PluginExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.Plugin.ENABLE_QUALITY,
-                        String::toBoolean,
-                    ).orElse(true),
+                        String::toBoolean
+                    ).orElse(true)
             )
 
         public val enableSpringBoot: Property<Boolean> =
@@ -114,8 +114,8 @@ public open class PluginExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.Plugin.ENABLE_SPRING_BOOT,
-                        String::toBoolean,
-                    ).orElse(true),
+                        String::toBoolean
+                    ).orElse(true)
             )
 
         public val enableTelemetry: Property<Boolean> =
@@ -123,8 +123,8 @@ public open class PluginExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.Plugin.ENABLE_TELEMETRY,
-                        String::toBoolean,
-                    ).orElse(false),
+                        String::toBoolean
+                    ).orElse(false)
             )
 
         public val enableTesting: Property<Boolean> =
@@ -132,8 +132,8 @@ public open class PluginExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.Plugin.ENABLE_TESTING,
-                        String::toBoolean,
-                    ).orElse(true),
+                        String::toBoolean
+                    ).orElse(true)
             )
 
         public val caching: CachingExtension = objects.newInstance<CachingExtension>(libs)
@@ -150,7 +150,6 @@ public open class PluginExtension
                 allowedImports.convention(listOf("org.junit.jupiter.**"))
             }
         public val springBoot: SpringBootExtension = objects.newInstance<SpringBootExtension>(libs)
-        public val telemetry: TelemetryExtension = objects.newInstance<TelemetryExtension>(libs)
         public val testing: TestingExtension = objects.newInstance<TestingExtension>(libs)
 
         public fun enableCaching(value: Boolean): Unit = enableCaching.set(value)
@@ -188,8 +187,6 @@ public open class PluginExtension
         public fun restrictImports(action: Action<RestrictImportsExtension>): Unit = action.execute(restrictImports)
 
         public fun springBoot(action: Action<SpringBootExtension>): Unit = action.execute(springBoot)
-
-        public fun telemetry(action: Action<TelemetryExtension>): Unit = action.execute(telemetry)
 
         public fun testing(action: Action<TestingExtension>): Unit = action.execute(testing)
     }

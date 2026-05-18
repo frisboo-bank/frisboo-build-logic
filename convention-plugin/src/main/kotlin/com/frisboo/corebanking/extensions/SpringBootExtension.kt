@@ -39,7 +39,7 @@ public open class SpringBootExtension
                 libs,
                 CatalogVersionConstants.Libraries.SPRING_BOOT_BOM,
                 ConfigurationConstants.SpringBoot.ENABLE_SPRING_BOOT_BOM,
-                false,
+                false
             )
 
         public val jackson: BomExtensionSpec =
@@ -48,7 +48,7 @@ public open class SpringBootExtension
                 libs,
                 CatalogVersionConstants.Libraries.JACKSON_BOM,
                 ConfigurationConstants.SpringBoot.ENABLE_JACKSON_BOM,
-                false,
+                false
             )
 
         public val enableActuator: Property<Boolean> =
@@ -56,8 +56,8 @@ public open class SpringBootExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.SpringBoot.ENABLE_ACTUATOR,
-                        String::toBoolean,
-                    ).orElse(true),
+                        String::toBoolean
+                    ).orElse(true)
             )
 
         public val enableDevtools: Property<Boolean> =
@@ -65,8 +65,8 @@ public open class SpringBootExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.SpringBoot.ENABLE_SPRING_BOOT_DEVTOOLS,
-                        String::toBoolean,
-                    ).orElse(true),
+                        String::toBoolean
+                    ).orElse(true)
             )
 
         public val enableSpringTest: Property<Boolean> =
@@ -74,8 +74,8 @@ public open class SpringBootExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.SpringBoot.ENABLE_SPRING_TEST,
-                        String::toBoolean,
-                    ).orElse(true),
+                        String::toBoolean
+                    ).orElse(true)
             )
 
         public val enableValidation: Property<Boolean> =
@@ -83,8 +83,8 @@ public open class SpringBootExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.SpringBoot.ENABLE_VALIDATION,
-                        String::toBoolean,
-                    ).orElse(true),
+                        String::toBoolean
+                    ).orElse(true)
             )
 
         public val enableWebFlux: Property<Boolean> =
@@ -92,7 +92,7 @@ public open class SpringBootExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.SpringBoot.ENABLE_WEBFLUX,
-                        String::toBoolean,
-                    ).orElse(true),
+                        String::toBoolean
+                    ).orElse(true)
             )
     }

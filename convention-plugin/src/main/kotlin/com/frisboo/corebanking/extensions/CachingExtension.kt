@@ -36,7 +36,7 @@ public open class CachingExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.Caching.ENABLE_REDIS,
-                        String::toBoolean,
-                    ).orElse(false),
+                        String::toBoolean
+                    ).orElse(false)
             )
     }

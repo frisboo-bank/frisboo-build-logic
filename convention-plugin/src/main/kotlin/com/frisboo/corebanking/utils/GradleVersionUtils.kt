@@ -29,7 +29,7 @@ public object GradleVersionUtils {
                 "Frisboo Core Banking Convention Plugin requires Gradle " +
                     "${PluginMetadata.MIN_GRADLE_VERSION} or higher. " +
                     "Current version is ${currentVersion.version}. " +
-                    "Please upgrade your Gradle version.",
+                    "Please upgrade your Gradle version."
             )
         }
     }

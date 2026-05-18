@@ -3,7 +3,6 @@ arrowkt = "2.1.0"
 bucket4j-core = "8.17.0"
 caffeine = "3.2.3"
 caffeine-coroutines = "2.0.4"
-context-propagation = "1.2.0"
 cpd-plugin = "3.5"
 dependency-analysis-plugin = "3.1.0"
 detekt = "2.0.0-alpha.1"
@@ -29,7 +28,7 @@ kotest = "6.0.5"
 kotest-assertions-arrow = "2.0.0"
 kotest-property-arbs = "2.1.2"
 kotest-property-datetime = "2.0.0"
-kotlin = "2.2.21"
+kotlin = "2.3.21"
 kotlin-language = "2.2"
 kotlin-logging = "7.0.13"
 kotlin-plugin = "2.2.21"
@@ -40,10 +39,11 @@ kover-plugin = "0.9.3"
 ktlint = "1.8.0"
 lettuce = "7.5.0.RELEASE"
 maven-publish-plugin = "0.34.0"
+micrometer = "1.16.5"
 mockk = "1.14.6"
 mongodb = "5.6.1"
 openapi-generator-plugin = "7.14.0"
-opentelemetry = "2.26.1"
+opentelemetry = "2.27.0"
 owasp-dependencycheck-plugin = "12.1.9"
 postgresql = "42.7.8"
 protobuf = "4.33.1"
@@ -142,7 +142,6 @@ mongodb = { group = "org.mongodb", name = "mongodb-driver-kotlin-coroutine" }
 postgresql = { group = "org.postgresql", name = "postgresql", version.ref = "postgresql" }
 
 # gRPC
-context-propagation = { group = "io.micrometer", name = "context-propagation", version.ref = "context-propagation" }
 grpc-bom = { group = "io.grpc", name = "grpc-bom", version.ref = "grpc" }
 grpc-kotlin-stub = { group = "io.grpc", name = "grpc-kotlin-stub", version.ref = "grpc-kotlin-stub" }
 grpc-netty-shaded = { group = "io.grpc", name = "grpc-netty-shaded", version.ref = "grpc-netty-shaded" }
@@ -203,6 +202,11 @@ tink = { group = "com.google.crypto.tink", name = "tink", version.ref = "tink" }
 opentelemetry-bom = { group = "io.opentelemetry.instrumentation", name = "opentelemetry-instrumentation-bom", version.ref = "opentelemetry" }
 opentelemetry-spring-boot-starter = { group = "io.opentelemetry.instrumentation", name = "opentelemetry-spring-boot-starter" }
 
+# Micrometer
+micrometer-bom = { group = "io.micrometer", name = "micrometer-bom", version.ref = "micrometer" }
+micrometer-context-propagation = { group = "io.micrometer", name = "context-propagation" }
+micrometer-registry-otlp = { group = "io.micrometer", name = "micrometer-registry-otlp" }
+
 [plugins]
 # Kotlin
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin-plugin" }
@@ -240,7 +244,8 @@ gradles = { id = "com.github.ben-manes.versions", version.ref = "gradles-plugin"
 test-retry = { id = "org.gradle.test-retry", version.ref = "test-retry-plugin" }
 
 [bundles]
-serialization = ["jackson-annotations",
+serialization = [
+    "jackson-annotations",
     "jackson-core",
     "jackson-databind",
     "jackson-datatype-jsr310",

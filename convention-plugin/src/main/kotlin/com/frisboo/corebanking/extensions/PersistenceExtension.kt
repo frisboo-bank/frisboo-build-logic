@@ -38,8 +38,8 @@ public open class PersistenceExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.Persistence.ENABLE_EXPOSED,
-                        String::toBoolean,
-                    ).orElse(false),
+                        String::toBoolean
+                    ).orElse(false)
             )
 
         public val exposedBom: BomExtensionSpec =
@@ -48,7 +48,7 @@ public open class PersistenceExtension
                 libs,
                 CatalogVersionConstants.Libraries.EXPOSED_BOM,
                 ConfigurationConstants.Persistence.ENABLE_EXPOSED_BOM,
-                false,
+                false
             )
 
         public val enableFlyway: Property<Boolean> =
@@ -56,8 +56,8 @@ public open class PersistenceExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.Persistence.ENABLE_FLYWAY,
-                        String::toBoolean,
-                    ).orElse(false),
+                        String::toBoolean
+                    ).orElse(false)
             )
 
         public val enableH2: Property<Boolean> =
@@ -65,8 +65,8 @@ public open class PersistenceExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.Persistence.ENABLE_H2,
-                        String::toBoolean,
-                    ).orElse(false),
+                        String::toBoolean
+                    ).orElse(false)
             )
 
         public val enableMongo: Property<Boolean> =
@@ -74,8 +74,8 @@ public open class PersistenceExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.Persistence.ENABLE_MONGODB,
-                        String::toBoolean,
-                    ).orElse(false),
+                        String::toBoolean
+                    ).orElse(false)
             )
 
         public val enablePostgres: Property<Boolean> =
@@ -83,7 +83,7 @@ public open class PersistenceExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.Persistence.ENABLE_POSTGRESQL,
-                        String::toBoolean,
-                    ).orElse(false),
+                        String::toBoolean
+                    ).orElse(false)
             )
     }

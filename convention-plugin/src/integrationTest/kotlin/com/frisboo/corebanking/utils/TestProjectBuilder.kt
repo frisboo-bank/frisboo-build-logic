@@ -118,7 +118,6 @@ class TestProjectBuilder(
             """
             [versions]
             arrowkt = "2.1.0"
-            context-propagation = "1.2.0"
             cpd-plugin = "3.5"
             dependency-analysis-plugin = "3.1.0"
             detekt = "2.0.0-alpha.1"
@@ -238,7 +237,6 @@ class TestProjectBuilder(
             mongodb = { group = "org.mongodb", name = "mongodb-driver-kotlin-coroutine" }
 
             # gRPC
-            context-propagation = { group = "io.micrometer", name = "context-propagation", version.ref = "context-propagation" }
             grpc-bom = { group = "io.grpc", name = "grpc-bom", version.ref = "grpc" }
             grpc-kotlin-stub = { group = "io.grpc", name = "grpc-kotlin-stub", version.ref = "grpc-kotlin-stub" }
             grpc-netty-shaded = { group = "io.grpc", name = "grpc-netty-shaded", version.ref = "grpc-netty-shaded" }

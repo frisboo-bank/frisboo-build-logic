@@ -38,7 +38,7 @@ public class KotlinManager(
                 ext.arrowKtBom,
                 ext.kotlinBom,
                 ext.kotlinxCoroutinesBom,
-                ext.reactiveBom,
+                ext.reactiveBom
             )
 
             if (ext.enableArrowKt.get()) {

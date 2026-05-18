@@ -41,7 +41,7 @@ public open class TestingExtension
                 libs,
                 CatalogVersionConstants.Libraries.TESTCONTAINERS_BOM,
                 ConfigurationConstants.Testing.ENABLE_TESTCONTAINERS_BOM,
-                true,
+                true
             )
 
         public val junitBom: BomExtensionSpec =
@@ -50,7 +50,7 @@ public open class TestingExtension
                 libs,
                 CatalogVersionConstants.Libraries.JUNIT_BOM,
                 ConfigurationConstants.Testing.ENABLE_JUNIT_BOM,
-                true,
+                true
             )
 
         public val kotestBom: BomExtensionSpec =
@@ -59,7 +59,7 @@ public open class TestingExtension
                 libs,
                 CatalogVersionConstants.Libraries.KOTEST_BOM,
                 ConfigurationConstants.Testing.ENABLE_KOTEST_BOM,
-                true,
+                true
             )
 
         public val enableTestContainers: Property<Boolean> =
@@ -67,8 +67,8 @@ public open class TestingExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.Testing.ENABLE_TESTCONTAINERS,
-                        String::toBoolean,
-                    ).orElse(true),
+                        String::toBoolean
+                    ).orElse(true)
             )
 
         public val enableKotest: Property<Boolean> =
@@ -76,8 +76,8 @@ public open class TestingExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.Testing.ENABLE_KOTEST,
-                        String::toBoolean,
-                    ).orElse(true),
+                        String::toBoolean
+                    ).orElse(true)
             )
 
         public val enableMockk: Property<Boolean> =
@@ -85,8 +85,8 @@ public open class TestingExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.Testing.ENABLE_MOCKK,
-                        String::toBoolean,
-                    ).orElse(true),
+                        String::toBoolean
+                    ).orElse(true)
             )
 
         public val testJvmArguments: ListProperty<String> =
@@ -94,7 +94,7 @@ public open class TestingExtension
                 listOf(
                     "--add-opens=java.base/java.lang=ALL-UNNAMED",
                     "--add-opens=java.base/java.io=ALL-UNNAMED",
-                    "--add-opens=java.base/java.util=ALL-UNNAMED",
-                ),
+                    "--add-opens=java.base/java.util=ALL-UNNAMED"
+                )
             )
     }

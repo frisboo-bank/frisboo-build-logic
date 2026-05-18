@@ -47,10 +47,9 @@ public class GRPCManager(
         project.dependencies {
             applyBomIfEnabled(
                 ext.grpcBom,
-                ext.springBootGrpcBom,
+                ext.springBootGrpcBom
             )
 
-            addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.CONTEXT_PROPAGATION))
             addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.GRPC_SERVICES))
             addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.GRPC_SERVLET))
             addImplementation(libs.libraryOrThrow(CatalogVersionConstants.Libraries.GRPC_STUB))

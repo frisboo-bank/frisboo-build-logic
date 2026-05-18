@@ -44,8 +44,8 @@ internal fun Project.configureDetekt(
             files(
                 "src/main/kotlin",
                 "src/test/kotlin",
-                "src/testFixtures/kotlin",
-            ).plus(ext.detekt.source.get()),
+                "src/testFixtures/kotlin"
+            ).plus(ext.detekt.source.get())
         )
 //        config.setFrom(detektConfig)
 //        baseline = detektBaseline

@@ -45,13 +45,13 @@ public class MessagingManager(
     private fun configureKafka() {
         project.dependencies {
             addImplementation(
-                libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_KAFKA),
+                libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_KAFKA)
             )
             addTestImplementation(
-                libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_KAFKA_TEST),
+                libs.libraryOrThrow(CatalogVersionConstants.Libraries.SPRING_BOOT_KAFKA_TEST)
             )
             addTestImplementation(
-                libs.libraryOrThrow(CatalogVersionConstants.Libraries.TESTCONTAINERS_KAFKA),
+                libs.libraryOrThrow(CatalogVersionConstants.Libraries.TESTCONTAINERS_KAFKA)
             )
         }
     }

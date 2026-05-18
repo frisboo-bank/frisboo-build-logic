@@ -34,7 +34,7 @@ public open class SpotbugsExtension
                 providers
                     .gradleProperty(
                         ConfigurationConstants.Quality.ENABLE_SPOTBUGS,
-                        String::toBoolean,
-                    ).orElse(true),
+                        String::toBoolean
+                    ).orElse(true)
             )
     }
