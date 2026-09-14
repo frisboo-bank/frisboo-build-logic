@@ -1,0 +1,2364 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "gradle-convention-plugin",
+    "languages": [
+      "kotlin",
+      "yaml",
+      "gradle",
+      "toml",
+      "properties",
+      "shell",
+      "batch",
+      "python",
+      "json",
+      "txt",
+      "mustache"
+    ],
+    "frameworks": [
+      "Gradle",
+      "Gradle Plugin API",
+      "Kotlin DSL"
+    ],
+    "description": "A Gradle convention plugin and build-logic repository for Frisboo Bank that centralizes Kotlin/JVM toolchain, quality (spotless, detekt, ktlint), Spring Boot, gRPC, OpenAPI, Kafka, Redis, persistence, and testing conventions into a reusable plugin.",
+    "analyzedAt": "2026-09-13T17:30:00.000Z",
+    "gitCommitHash": "05798d4ff99c2b1c259710f4a9941d05a3d1b1a8"
+  },
+  "nodes": [
+    {
+      "id": "file:build.gradle.kts",
+      "type": "file",
+      "name": "build.gradle.kts",
+      "filePath": "build.gradle.kts",
+      "summary": "Root project build script applying base, quality-conventions and maven-publish plugins.",
+      "tags": [
+        "gradle",
+        "build-script",
+        "root"
+      ]
+    },
+    {
+      "id": "file:settings.gradle.kts",
+      "type": "file",
+      "name": "settings.gradle.kts",
+      "filePath": "settings.gradle.kts",
+      "summary": "Settings file declaring root project name, feature previews, included builds (build-logic) and version catalog.",
+      "tags": [
+        "gradle",
+        "settings",
+        "root"
+      ]
+    },
+    {
+      "id": "file:.github/workflows/ci.yaml",
+      "type": "file",
+      "name": "ci.yaml",
+      "filePath": ".github/workflows/ci.yaml",
+      "summary": "GitHub Actions CI workflow that runs Gradle build and publish on push and pull request.",
+      "tags": [
+        "ci",
+        "github-actions",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "file:gradle/gradle-daemon-jvm.properties",
+      "type": "file",
+      "name": "gradle-daemon-jvm.properties",
+      "filePath": "gradle/gradle-daemon-jvm.properties",
+      "summary": "Gradle daemon JVM args configuration.",
+      "tags": [
+        "gradle",
+        "config"
+      ]
+    },
+    {
+      "id": "file:gradle/wrapper/gradle-wrapper.properties",
+      "type": "file",
+      "name": "gradle-wrapper.properties",
+      "filePath": "gradle/wrapper/gradle-wrapper.properties",
+      "summary": "Gradle wrapper distribution URL and version pin.",
+      "tags": [
+        "gradle",
+        "wrapper",
+        "config"
+      ]
+    },
+    {
+      "id": "file:gradlew",
+      "type": "file",
+      "name": "gradlew",
+      "filePath": "gradlew",
+      "summary": "Gradle wrapper shell script for Unix.",
+      "tags": [
+        "gradle",
+        "wrapper",
+        "script"
+      ]
+    },
+    {
+      "id": "file:gradlew.bat",
+      "type": "file",
+      "name": "gradlew.bat",
+      "filePath": "gradlew.bat",
+      "summary": "Gradle wrapper batch script for Windows.",
+      "tags": [
+        "gradle",
+        "wrapper",
+        "script"
+      ]
+    },
+    {
+      "id": "file:config/license-header.txt",
+      "type": "file",
+      "name": "license-header.txt",
+      "filePath": "config/license-header.txt",
+      "summary": "Apache 2.0 license header applied by spotless to source files.",
+      "tags": [
+        "license",
+        "spotless",
+        "config"
+      ]
+    },
+    {
+      "id": "file:config/detekt/detekt.yml",
+      "type": "file",
+      "name": "detekt.yml",
+      "filePath": "config/detekt/detekt.yml",
+      "summary": "Detekt static analysis rule configuration.",
+      "tags": [
+        "detekt",
+        "quality",
+        "config"
+      ]
+    },
+    {
+      "id": "file:.editorconfig",
+      "type": "file",
+      "name": ".editorconfig",
+      "filePath": ".editorconfig",
+      "summary": "EditorConfig defining indentation and line-ending conventions.",
+      "tags": [
+        "editor",
+        "config"
+      ]
+    },
+    {
+      "id": "file:.gitignore",
+      "type": "file",
+      "name": ".gitignore",
+      "filePath": ".gitignore",
+      "summary": "Git ignore rules for build output and IDE files.",
+      "tags": [
+        "git",
+        "config"
+      ]
+    },
+    {
+      "id": "file:.gitattributes",
+      "type": "file",
+      "name": ".gitattributes",
+      "filePath": ".gitattributes",
+      "summary": "Git attributes controlling line endings and diff.",
+      "tags": [
+        "git",
+        "config"
+      ]
+    },
+    {
+      "id": "file:version-catalog/build.gradle.kts",
+      "type": "file",
+      "name": "build.gradle.kts",
+      "filePath": "version-catalog/build.gradle.kts",
+      "summary": "Version catalog subproject build script applying version-catalog plugin.",
+      "tags": [
+        "gradle",
+        "version-catalog",
+        "build-script"
+      ]
+    },
+    {
+      "id": "file:version-catalog/libs.versions.toml",
+      "type": "file",
+      "name": "libs.versions.toml",
+      "filePath": "version-catalog/libs.versions.toml",
+      "summary": "Gradle version catalog pinning versions and aliases for plugins, libraries and bundles.",
+      "tags": [
+        "gradle",
+        "version-catalog",
+        "config"
+      ]
+    },
+    {
+      "id": "file:version-catalog",
+      "type": "file",
+      "name": "version-catalog",
+      "filePath": "version-catalog",
+      "summary": "Version catalog subproject directory.",
+      "tags": [
+        "gradle",
+        "version-catalog"
+      ]
+    },
+    {
+      "id": "file:build-logic",
+      "type": "file",
+      "name": "build-logic",
+      "filePath": "build-logic",
+      "summary": "Included build providing reusable Gradle conventions.",
+      "tags": [
+        "gradle",
+        "included-build"
+      ]
+    },
+    {
+      "id": "file:build-logic/build.gradle.kts",
+      "type": "file",
+      "name": "build.gradle.kts",
+      "filePath": "build-logic/build.gradle.kts",
+      "summary": "Included build (build-logic) build script applying base, kotlin-dsl, version-catalog and kotlin-dsl plugins.",
+      "tags": [
+        "gradle",
+        "included-build",
+        "build-script"
+      ]
+    },
+    {
+      "id": "file:build-logic/settings.gradle.kts",
+      "type": "file",
+      "name": "settings.gradle.kts",
+      "filePath": "build-logic/settings.gradle.kts",
+      "summary": "Included build settings declaring build-logic name and baseLibs version catalog.",
+      "tags": [
+        "gradle",
+        "included-build",
+        "settings"
+      ]
+    },
+    {
+      "id": "file:build-logic/src/main/kotlin/kotlin-conventions.gradle.kts",
+      "type": "file",
+      "name": "kotlin-conventions.gradle.kts",
+      "filePath": "build-logic/src/main/kotlin/kotlin-conventions.gradle.kts",
+      "summary": "Kotlin JVM convention plugin: toolchain, explicit API, compiler options and dependencies.",
+      "tags": [
+        "gradle",
+        "convention",
+        "kotlin"
+      ]
+    },
+    {
+      "id": "file:build-logic/src/main/kotlin/quality-conventions.gradle.kts",
+      "type": "file",
+      "name": "quality-conventions.gradle.kts",
+      "filePath": "build-logic/src/main/kotlin/quality-conventions.gradle.kts",
+      "summary": "Quality convention plugin applying spotless and detekt with license header and editorconfig.",
+      "tags": [
+        "gradle",
+        "convention",
+        "quality",
+        "spotless",
+        "detekt"
+      ]
+    },
+    {
+      "id": "file:build-logic/src/main/kotlin/GenerateCatalogVersionConstants.kt",
+      "type": "file",
+      "name": "GenerateCatalogVersionConstants.kt",
+      "filePath": "build-logic/src/main/kotlin/GenerateCatalogVersionConstants.kt",
+      "summary": "Gradle task generating Kotlin constants object from version catalog aliases.",
+      "tags": [
+        "gradle",
+        "task",
+        "code-generation"
+      ]
+    },
+    {
+      "id": "file:build-logic/src/main/kotlin/VersionCatalog.kt",
+      "type": "file",
+      "name": "VersionCatalog.kt",
+      "filePath": "build-logic/src/main/kotlin/VersionCatalog.kt",
+      "summary": "VersionCatalog extension functions: getVersionOrFail, libraryOrThrow, pluginOrThrow, pluginIdOrThrow.",
+      "tags": [
+        "gradle",
+        "version-catalog",
+        "utility"
+      ]
+    },
+    {
+      "id": "file:convention-plugin",
+      "type": "file",
+      "name": "convention-plugin",
+      "filePath": "convention-plugin",
+      "summary": "Gradle convention plugin subproject directory.",
+      "tags": [
+        "gradle",
+        "plugin"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/build.gradle.kts",
+      "type": "file",
+      "name": "build.gradle.kts",
+      "filePath": "convention-plugin/build.gradle.kts",
+      "summary": "Convention plugin subproject build script registering the coreBankingConvention Gradle plugin.",
+      "tags": [
+        "gradle",
+        "plugin",
+        "build-script"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt",
+      "type": "file",
+      "name": "CoreBankingConventionPlugin.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt",
+      "summary": "Main Gradle plugin entry point applying all convention managers conditionally.",
+      "tags": [
+        "gradle",
+        "plugin",
+        "entry-point"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/PluginMetadata.kt",
+      "type": "file",
+      "name": "PluginMetadata.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/PluginMetadata.kt",
+      "summary": "Plugin metadata constants: extension name, public repo URL, min Gradle version.",
+      "tags": [
+        "gradle",
+        "constants",
+        "config"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/ConfigurationConstants.kt",
+      "type": "file",
+      "name": "ConfigurationConstants.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/ConfigurationConstants.kt",
+      "summary": "Gradle property key constants for toggling plugin features per subsystem.",
+      "tags": [
+        "gradle",
+        "constants",
+        "config"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "type": "file",
+      "name": "CatalogVersionConstants.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "summary": "Generated Kotlin object exposing version, plugin, library and bundle aliases as constants.",
+      "tags": [
+        "gradle",
+        "constants",
+        "generated"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PluginExtension.kt",
+      "type": "file",
+      "name": "PluginExtension.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PluginExtension.kt",
+      "summary": "Top-level Gradle extension exposing all subsystem extensions and toggles.",
+      "tags": [
+        "gradle",
+        "extension",
+        "config"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/KotlinExtension.kt",
+      "type": "file",
+      "name": "KotlinExtension.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/KotlinExtension.kt",
+      "summary": "Extension for Kotlin subsystem: Arrow, kotlinx-coroutines, Reactor BOMs and toggles.",
+      "tags": [
+        "gradle",
+        "extension",
+        "kotlin"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/CachingExtension.kt",
+      "type": "file",
+      "name": "CachingExtension.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/CachingExtension.kt",
+      "summary": "Extension for caching subsystem (Redis toggle).",
+      "tags": [
+        "gradle",
+        "extension",
+        "caching"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/GRPCExtension.kt",
+      "type": "file",
+      "name": "GRPCExtension.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/GRPCExtension.kt",
+      "summary": "Extension for gRPC subsystem (protobuf plugin and gRPC Spring Boot BOM toggles).",
+      "tags": [
+        "gradle",
+        "extension",
+        "grpc"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/MessagingExtension.kt",
+      "type": "file",
+      "name": "MessagingExtension.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/MessagingExtension.kt",
+      "summary": "Extension for messaging subsystem (Kafka toggle).",
+      "tags": [
+        "gradle",
+        "extension",
+        "messaging"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/OpenapiExtension.kt",
+      "type": "file",
+      "name": "OpenapiExtension.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/OpenapiExtension.kt",
+      "summary": "Extension for OpenAPI code generation subsystem (generator, templates, options).",
+      "tags": [
+        "gradle",
+        "extension",
+        "openapi"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PersistenceExtension.kt",
+      "type": "file",
+      "name": "PersistenceExtension.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PersistenceExtension.kt",
+      "summary": "Extension for persistence subsystem (Exposed, Flyway, MongoDB toggles).",
+      "tags": [
+        "gradle",
+        "extension",
+        "persistence"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/QualityExtension.kt",
+      "type": "file",
+      "name": "QualityExtension.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/QualityExtension.kt",
+      "summary": "Extension aggregating quality sub-extensions: cpd, detekt, dokka, jacoco, kover, owasp, pitest, pmd, spotbugs, spotless.",
+      "tags": [
+        "gradle",
+        "extension",
+        "quality"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/SpringBootExtension.kt",
+      "type": "file",
+      "name": "SpringBootExtension.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/SpringBootExtension.kt",
+      "summary": "Extension for Spring Boot subsystem (BOM, starters, devtools, actuator, web, validation toggles).",
+      "tags": [
+        "gradle",
+        "extension",
+        "spring-boot"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/TestingExtension.kt",
+      "type": "file",
+      "name": "TestingExtension.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/TestingExtension.kt",
+      "summary": "Extension for testing subsystem (JUnit, Kotest, Testcontainers, Mockk toggles).",
+      "tags": [
+        "gradle",
+        "extension",
+        "testing"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/CpdExtension.kt",
+      "type": "file",
+      "name": "CpdExtension.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/CpdExtension.kt",
+      "summary": "CPD (copy-paste-detection) quality sub-extension.",
+      "tags": [
+        "gradle",
+        "extension",
+        "quality",
+        "cpd"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/DetektExtension.kt",
+      "type": "file",
+      "name": "DetektExtension.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/DetektExtension.kt",
+      "summary": "Detekt quality sub-extension.",
+      "tags": [
+        "gradle",
+        "extension",
+        "quality",
+        "detekt"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/DokkaExtension.kt",
+      "type": "file",
+      "name": "DokkaExtension.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/DokkaExtension.kt",
+      "summary": "Dokka documentation quality sub-extension.",
+      "tags": [
+        "gradle",
+        "extension",
+        "quality",
+        "dokka"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/JacocoExtension.kt",
+      "type": "file",
+      "name": "JacocoExtension.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/JacocoExtension.kt",
+      "summary": "Jacoco coverage quality sub-extension.",
+      "tags": [
+        "gradle",
+        "extension",
+        "quality",
+        "jacoco"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/KoverExtension.kt",
+      "type": "file",
+      "name": "KoverExtension.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/KoverExtension.kt",
+      "summary": "Kover coverage quality sub-extension.",
+      "tags": [
+        "gradle",
+        "extension",
+        "quality",
+        "kover"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/OwaspDepCheckExtension.kt",
+      "type": "file",
+      "name": "OwaspDepCheckExtension.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/OwaspDepCheckExtension.kt",
+      "summary": "OWASP dependency check quality sub-extension.",
+      "tags": [
+        "gradle",
+        "extension",
+        "quality",
+        "owasp"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/PitestExtension.kt",
+      "type": "file",
+      "name": "PitestExtension.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/PitestExtension.kt",
+      "summary": "Pitest mutation testing quality sub-extension.",
+      "tags": [
+        "gradle",
+        "extension",
+        "quality",
+        "pitest"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/PmdExtension.kt",
+      "type": "file",
+      "name": "PmdExtension.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/PmdExtension.kt",
+      "summary": "PMD static analysis quality sub-extension.",
+      "tags": [
+        "gradle",
+        "extension",
+        "quality",
+        "pmd"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/SpotbugsExtension.kt",
+      "type": "file",
+      "name": "SpotbugsExtension.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/SpotbugsExtension.kt",
+      "summary": "SpotBugs static analysis quality sub-extension.",
+      "tags": [
+        "gradle",
+        "extension",
+        "quality",
+        "spotbugs"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/SpotlessExtension.kt",
+      "type": "file",
+      "name": "SpotlessExtension.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/SpotlessExtension.kt",
+      "summary": "Spotless formatting quality sub-extension.",
+      "tags": [
+        "gradle",
+        "extension",
+        "quality",
+        "spotless"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/CachingManager.kt",
+      "type": "file",
+      "name": "CachingManager.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/CachingManager.kt",
+      "summary": "Manager applying Redis caching dependencies when enabled.",
+      "tags": [
+        "gradle",
+        "manager",
+        "caching"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/GRPCManager.kt",
+      "type": "file",
+      "name": "GRPCManager.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/GRPCManager.kt",
+      "summary": "Manager applying protobuf and gRPC Spring Boot plugin and dependencies.",
+      "tags": [
+        "gradle",
+        "manager",
+        "grpc"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/KotlinManager.kt",
+      "type": "file",
+      "name": "KotlinManager.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/KotlinManager.kt",
+      "summary": "Manager applying Kotlin BOMs, Arrow, kotlinx-coroutines and serialization dependencies.",
+      "tags": [
+        "gradle",
+        "manager",
+        "kotlin"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/MessagingManager.kt",
+      "type": "file",
+      "name": "MessagingManager.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/MessagingManager.kt",
+      "summary": "Manager applying Spring Kafka dependencies when enabled.",
+      "tags": [
+        "gradle",
+        "manager",
+        "messaging"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/resources/openapi-templates/kotlin-spring",
+      "type": "file",
+      "name": "kotlin-spring",
+      "filePath": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring",
+      "summary": "OpenAPI generator Mustache templates for Kotlin Spring Boot services.",
+      "tags": [
+        "openapi",
+        "templates",
+        "mustache"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/OpenapiManager.kt",
+      "type": "file",
+      "name": "OpenapiManager.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/OpenapiManager.kt",
+      "summary": "Manager configuring OpenAPI generator, templates, source sets and validation tasks.",
+      "tags": [
+        "gradle",
+        "manager",
+        "openapi"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/PersistenceManager.kt",
+      "type": "file",
+      "name": "PersistenceManager.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/PersistenceManager.kt",
+      "summary": "Manager applying Exposed, Flyway and MongoDB persistence dependencies.",
+      "tags": [
+        "gradle",
+        "manager",
+        "persistence"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/QualityManager.kt",
+      "type": "file",
+      "name": "QualityManager.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/QualityManager.kt",
+      "summary": "Manager delegating quality configuration to Spotless (detekt/cpd pending).",
+      "tags": [
+        "gradle",
+        "manager",
+        "quality"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/RestrictImportsManager.kt",
+      "type": "file",
+      "name": "RestrictImportsManager.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/RestrictImportsManager.kt",
+      "summary": "Manager applying restrictimports plugin and banning JUnit 4 in favour of JUnit 5.",
+      "tags": [
+        "gradle",
+        "manager",
+        "quality"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/SpringBootManager.kt",
+      "type": "file",
+      "name": "SpringBootManager.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/SpringBootManager.kt",
+      "summary": "Manager applying Spring Boot plugin, BOM, starters, actuator, validation and bootJar configuration.",
+      "tags": [
+        "gradle",
+        "manager",
+        "spring-boot"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/TestingManager.kt",
+      "type": "file",
+      "name": "TestingManager.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/TestingManager.kt",
+      "summary": "Manager applying JUnit, Kotest, Testcontainers and Mockk test dependencies.",
+      "tags": [
+        "gradle",
+        "manager",
+        "testing"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/JavaLanguage.kt",
+      "type": "file",
+      "name": "JavaLanguage.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/JavaLanguage.kt",
+      "summary": "Manager configuring Java toolchain, encoding, release args and reproducible archive tasks.",
+      "tags": [
+        "gradle",
+        "manager",
+        "java"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/KotlinLanguage.kt",
+      "type": "file",
+      "name": "KotlinLanguage.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/KotlinLanguage.kt",
+      "summary": "Manager configuring Kotlin JVM plugin, compiler options, BOM and JetBrains annotations.",
+      "tags": [
+        "gradle",
+        "manager",
+        "kotlin"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/CpdManager.kt",
+      "type": "file",
+      "name": "CpdManager.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/CpdManager.kt",
+      "summary": "Internal helper configuring CPD plugin when Kotlin sources are present.",
+      "tags": [
+        "gradle",
+        "quality",
+        "cpd"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/DetektManager.kt",
+      "type": "file",
+      "name": "DetektManager.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/DetektManager.kt",
+      "summary": "Internal helper configuring Detekt plugin with config and baseline.",
+      "tags": [
+        "gradle",
+        "quality",
+        "detekt"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/SpotlessManager.kt",
+      "type": "file",
+      "name": "SpotlessManager.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/SpotlessManager.kt",
+      "summary": "Internal helper configuring Spotless with ktlint, license header and editorconfig for Kotlin and Gradle.",
+      "tags": [
+        "gradle",
+        "quality",
+        "spotless"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/File.kt",
+      "type": "file",
+      "name": "File.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/File.kt",
+      "summary": "Utility extending URL.copyWithRecursion to copy file/jar resources into a Directory.",
+      "tags": [
+        "gradle",
+        "utility",
+        "file"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/VersionCatalog.kt",
+      "type": "file",
+      "name": "VersionCatalog.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/VersionCatalog.kt",
+      "summary": "VersionCatalog extension functions: getVersionOrFail, libraryOrThrow, pluginOrThrow, pluginIdOrThrow.",
+      "tags": [
+        "gradle",
+        "version-catalog",
+        "utility"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/DependencyHandler.kt",
+      "type": "file",
+      "name": "DependencyHandler.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/DependencyHandler.kt",
+      "summary": "Utility functions on DependencyHandler: applyBomIfEnabled, addImplementation, addTestImplementation, etc.",
+      "tags": [
+        "gradle",
+        "utility",
+        "dependencies"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/BomExtensionSpec.kt",
+      "type": "file",
+      "name": "BomExtensionSpec.kt",
+      "filePath": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/BomExtensionSpec.kt",
+      "summary": "Reusable BOM extension spec with enabled, coordinates and testOnly properties.",
+      "tags": [
+        "gradle",
+        "utility",
+        "bom"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/PluginManagerIntegrationTest.kt",
+      "type": "file",
+      "name": "PluginManagerIntegrationTest.kt",
+      "filePath": "convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/PluginManagerIntegrationTest.kt",
+      "summary": "Integration test verifying the plugin applies and exposes its extension.",
+      "tags": [
+        "test",
+        "integration",
+        "gradle"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/QualityManagerIntegrationTest.kt",
+      "type": "file",
+      "name": "QualityManagerIntegrationTest.kt",
+      "filePath": "convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/QualityManagerIntegrationTest.kt",
+      "summary": "Integration test verifying quality manager configures Spotless and Detekt.",
+      "tags": [
+        "test",
+        "integration",
+        "gradle"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/utils/MockBuildScript.kt",
+      "type": "file",
+      "name": "MockBuildScript.kt",
+      "filePath": "convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/utils/MockBuildScript.kt",
+      "summary": "Test utility providing mock Gradle build script snippets.",
+      "tags": [
+        "test",
+        "utility"
+      ]
+    },
+    {
+      "id": "file:convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/utils/TestProjectBuilder.kt",
+      "type": "file",
+      "name": "TestProjectBuilder.kt",
+      "filePath": "convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/utils/TestProjectBuilder.kt",
+      "summary": "Test utility building an isolated Gradle test project for plugin integration tests.",
+      "tags": [
+        "test",
+        "utility"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:settings.gradle.kts",
+      "target": "file:build-logic",
+      "type": "includes_build",
+      "weight": 0.7
+    },
+    {
+      "source": "file:settings.gradle.kts",
+      "target": "file:version-catalog",
+      "type": "includes_project",
+      "weight": 0.7
+    },
+    {
+      "source": "file:settings.gradle.kts",
+      "target": "file:convention-plugin",
+      "type": "includes_project",
+      "weight": 0.7
+    },
+    {
+      "source": "file:settings.gradle.kts",
+      "target": "file:version-catalog/libs.versions.toml",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:build.gradle.kts",
+      "target": "file:build-logic/src/main/kotlin/quality-conventions.gradle.kts",
+      "type": "applies_convention",
+      "weight": 0.7
+    },
+    {
+      "source": "file:build.gradle.kts",
+      "target": "file:version-catalog/libs.versions.toml",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:build-logic/settings.gradle.kts",
+      "target": "file:version-catalog/libs.versions.toml",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:build-logic/build.gradle.kts",
+      "target": "file:build-logic/src/main/kotlin/kotlin-conventions.gradle.kts",
+      "type": "applies_convention",
+      "weight": 0.7
+    },
+    {
+      "source": "file:build-logic/build.gradle.kts",
+      "target": "file:build-logic/src/main/kotlin/quality-conventions.gradle.kts",
+      "type": "applies_convention",
+      "weight": 0.7
+    },
+    {
+      "source": "file:build-logic/build.gradle.kts",
+      "target": "file:version-catalog/libs.versions.toml",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/build.gradle.kts",
+      "target": "file:build-logic/src/main/kotlin/kotlin-conventions.gradle.kts",
+      "type": "applies_convention",
+      "weight": 0.7
+    },
+    {
+      "source": "file:convention-plugin/build.gradle.kts",
+      "target": "file:build-logic/src/main/kotlin/quality-conventions.gradle.kts",
+      "type": "applies_convention",
+      "weight": 0.7
+    },
+    {
+      "source": "file:convention-plugin/build.gradle.kts",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt",
+      "type": "registers_plugin",
+      "weight": 0.7
+    },
+    {
+      "source": "file:convention-plugin/build.gradle.kts",
+      "target": "file:build-logic/src/main/kotlin/GenerateCatalogVersionConstants.kt",
+      "type": "registers_task",
+      "weight": 0.7
+    },
+    {
+      "source": "file:convention-plugin/build.gradle.kts",
+      "target": "file:version-catalog/libs.versions.toml",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/build.gradle.kts",
+      "target": "file:config/license-header.txt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/build.gradle.kts",
+      "target": "file:config/detekt/detekt.yml",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:.github/workflows/ci.yaml",
+      "target": "file:build.gradle.kts",
+      "type": "triggers",
+      "weight": 0.6
+    },
+    {
+      "source": "file:.github/workflows/ci.yaml",
+      "target": "file:gradlew",
+      "type": "invokes",
+      "weight": 0.5
+    },
+    {
+      "source": "file:build-logic/src/main/kotlin/GenerateCatalogVersionConstants.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "type": "generates",
+      "weight": 0.7
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PluginExtension.kt",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/KotlinManager.kt",
+      "type": "calls",
+      "weight": 0.8
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/RestrictImportsManager.kt",
+      "type": "calls",
+      "weight": 0.8
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/CachingManager.kt",
+      "type": "calls",
+      "weight": 0.8
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/GRPCManager.kt",
+      "type": "calls",
+      "weight": 0.8
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/MessagingManager.kt",
+      "type": "calls",
+      "weight": 0.8
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/OpenapiManager.kt",
+      "type": "calls",
+      "weight": 0.8
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/PersistenceManager.kt",
+      "type": "calls",
+      "weight": 0.8
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/QualityManager.kt",
+      "type": "calls",
+      "weight": 0.8
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/SpringBootManager.kt",
+      "type": "calls",
+      "weight": 0.8
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/TestingManager.kt",
+      "type": "calls",
+      "weight": 0.8
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/JavaLanguage.kt",
+      "type": "calls",
+      "weight": 0.8
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/KotlinLanguage.kt",
+      "type": "calls",
+      "weight": 0.8
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/PluginMetadata.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/ConfigurationConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/DependencyHandler.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/BomExtensionSpec.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/File.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PluginExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/CachingExtension.kt",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PluginExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/GRPCExtension.kt",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PluginExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/KotlinExtension.kt",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PluginExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/MessagingExtension.kt",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PluginExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/OpenapiExtension.kt",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PluginExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PersistenceExtension.kt",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PluginExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/QualityExtension.kt",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PluginExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/SpringBootExtension.kt",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PluginExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/TestingExtension.kt",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/QualityExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/CpdExtension.kt",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/QualityExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/DetektExtension.kt",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/QualityExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/DokkaExtension.kt",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/QualityExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/JacocoExtension.kt",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/QualityExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/KoverExtension.kt",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/QualityExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/OwaspDepCheckExtension.kt",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/QualityExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/PitestExtension.kt",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/QualityExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/PmdExtension.kt",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/QualityExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/SpotbugsExtension.kt",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/QualityExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/SpotlessExtension.kt",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/QualityManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/SpotlessManager.kt",
+      "type": "calls",
+      "weight": 0.8
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/SpotlessManager.kt",
+      "target": "file:config/license-header.txt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/SpotlessManager.kt",
+      "target": "file:.editorconfig",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/SpotlessManager.kt",
+      "target": "file:build-logic/src/main/kotlin/quality-conventions.gradle.kts",
+      "type": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/DetektManager.kt",
+      "target": "file:config/detekt/detekt.yml",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/CpdManager.kt",
+      "target": "file:build-logic/src/main/kotlin/quality-conventions.gradle.kts",
+      "type": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/OpenapiManager.kt",
+      "target": "file:convention-plugin/src/main/resources/openapi-templates/kotlin-spring",
+      "type": "uses_templates",
+      "weight": 0.7
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/OpenapiManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/OpenapiExtension.kt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/SpringBootManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/SpringBootExtension.kt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/CachingManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/CachingExtension.kt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/GRPCManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/GRPCExtension.kt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/MessagingManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/MessagingExtension.kt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/PersistenceManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PersistenceExtension.kt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/TestingManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/TestingExtension.kt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/KotlinManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/KotlinExtension.kt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/RestrictImportsManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PluginExtension.kt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/JavaLanguage.kt",
+      "target": "file:build-logic/src/main/kotlin/kotlin-conventions.gradle.kts",
+      "type": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/KotlinLanguage.kt",
+      "target": "file:build-logic/src/main/kotlin/kotlin-conventions.gradle.kts",
+      "type": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/DependencyHandler.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/BomExtensionSpec.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/BomExtensionSpec.kt",
+      "target": "file:version-catalog/libs.versions.toml",
+      "type": "reads_from",
+      "weight": 0.5
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/DependencyHandler.kt",
+      "target": "file:version-catalog/libs.versions.toml",
+      "type": "reads_from",
+      "weight": 0.5
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/VersionCatalog.kt",
+      "target": "file:version-catalog/libs.versions.toml",
+      "type": "reads_from",
+      "weight": 0.5
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "target": "file:version-catalog/libs.versions.toml",
+      "type": "documents",
+      "weight": 0.5
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/ConfigurationConstants.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PluginExtension.kt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/PluginManagerIntegrationTest.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt",
+      "type": "tested_by",
+      "weight": 0.5
+    },
+    {
+      "source": "file:convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/QualityManagerIntegrationTest.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/QualityManager.kt",
+      "type": "tested_by",
+      "weight": 0.5
+    },
+    {
+      "source": "file:convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/utils/TestProjectBuilder.kt",
+      "target": "file:convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/PluginManagerIntegrationTest.kt",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/utils/TestProjectBuilder.kt",
+      "target": "file:convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/QualityManagerIntegrationTest.kt",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/utils/MockBuildScript.kt",
+      "target": "file:convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/utils/TestProjectBuilder.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:build-logic/src/main/kotlin/GenerateCatalogVersionConstants.kt",
+      "target": "file:build-logic/src/main/kotlin/VersionCatalog.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:build-logic/src/main/kotlin/VersionCatalog.kt",
+      "target": "file:version-catalog/libs.versions.toml",
+      "type": "reads_from",
+      "weight": 0.5
+    },
+    {
+      "source": "file:build-logic/src/main/kotlin/kotlin-conventions.gradle.kts",
+      "target": "file:version-catalog/libs.versions.toml",
+      "type": "reads_from",
+      "weight": 0.5
+    },
+    {
+      "source": "file:build-logic/src/main/kotlin/quality-conventions.gradle.kts",
+      "target": "file:version-catalog/libs.versions.toml",
+      "type": "reads_from",
+      "weight": 0.5
+    },
+    {
+      "source": "file:build-logic/src/main/kotlin/quality-conventions.gradle.kts",
+      "target": "file:config/license-header.txt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:build-logic/src/main/kotlin/quality-conventions.gradle.kts",
+      "target": "file:config/detekt/detekt.yml",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:build-logic/src/main/kotlin/quality-conventions.gradle.kts",
+      "target": "file:.editorconfig",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/SpringBootManager.kt",
+      "target": "file:convention-plugin/src/main/resources/openapi-templates/kotlin-spring",
+      "type": "uses_templates",
+      "weight": 0.5
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/KotlinLanguage.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/JavaLanguage.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/KotlinManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/CachingManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/GRPCManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/MessagingManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/OpenapiManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/PersistenceManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/TestingManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/KotlinExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/SpringBootExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/TestingExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/OpenapiExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PersistenceExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/QualityExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/GRPCExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/CachingExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/MessagingExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PluginExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/ConfigurationConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/KotlinExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/ConfigurationConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/SpringBootExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/ConfigurationConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/TestingExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/ConfigurationConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/OpenapiExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/ConfigurationConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PersistenceExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/ConfigurationConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/QualityExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/ConfigurationConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/GRPCExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/ConfigurationConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/CachingExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/ConfigurationConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/MessagingExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/ConfigurationConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/CpdManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/DetektManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/SpotlessManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/CpdManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/ConfigurationConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/DetektManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/ConfigurationConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/SpotlessManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/ConfigurationConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/JavaLanguage.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/ConfigurationConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/KotlinLanguage.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/ConfigurationConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/JavaLanguage.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/DependencyHandler.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/KotlinLanguage.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/DependencyHandler.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/KotlinManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/DependencyHandler.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/CachingManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/DependencyHandler.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/GRPCManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/DependencyHandler.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/MessagingManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/DependencyHandler.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/OpenapiManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/DependencyHandler.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/PersistenceManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/DependencyHandler.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/TestingManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/DependencyHandler.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/SpringBootManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/DependencyHandler.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/CpdManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/DependencyHandler.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/DetektManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/DependencyHandler.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/SpotlessManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/DependencyHandler.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PluginExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/DependencyHandler.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PluginExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/BomExtensionSpec.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PluginExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/File.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/KotlinExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/BomExtensionSpec.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/SpringBootExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/BomExtensionSpec.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/TestingExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/BomExtensionSpec.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/OpenapiExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/BomExtensionSpec.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PersistenceExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/BomExtensionSpec.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/QualityExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/BomExtensionSpec.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/GRPCExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/BomExtensionSpec.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/CachingExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/BomExtensionSpec.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/MessagingExtension.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/BomExtensionSpec.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/SpringBootManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/File.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/OpenapiManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/File.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/JavaLanguage.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/File.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/KotlinLanguage.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/File.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/CpdManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/File.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/DetektManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/File.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/SpotlessManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/File.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/OpenapiManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/DependencyHandler.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/SpringBootManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/DependencyHandler.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/RestrictImportsManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/DependencyHandler.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/RestrictImportsManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/ConfigurationConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/RestrictImportsManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/RestrictImportsManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PluginExtension.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/RestrictImportsManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/BomExtensionSpec.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/RestrictImportsManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/File.kt",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/CpdManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/QualityExtension.kt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/DetektManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/QualityExtension.kt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/SpotlessManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/QualityExtension.kt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/CachingManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/CachingExtension.kt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/GRPCManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/GRPCExtension.kt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/MessagingManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/MessagingExtension.kt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/OpenapiManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/OpenapiExtension.kt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/PersistenceManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PersistenceExtension.kt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/TestingManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/TestingExtension.kt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/SpringBootManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/SpringBootExtension.kt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/KotlinManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/KotlinExtension.kt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/RestrictImportsManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PluginExtension.kt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/JavaLanguage.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PluginExtension.kt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/KotlinLanguage.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PluginExtension.kt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/CpdManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/CpdExtension.kt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/DetektManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/DetektExtension.kt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/SpotlessManager.kt",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/SpotlessExtension.kt",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:gradle/wrapper/gradle-wrapper.properties",
+      "target": "file:gradlew",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:gradle/gradle-daemon-jvm.properties",
+      "target": "file:gradlew",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:gradlew",
+      "target": "file:gradlew.bat",
+      "type": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:gradlew.bat",
+      "target": "file:gradle/wrapper/gradle-wrapper.properties",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:.gitignore",
+      "target": "file:settings.gradle.kts",
+      "type": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:.gitattributes",
+      "target": "file:settings.gradle.kts",
+      "type": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:.gitignore",
+      "target": "file:.gitattributes",
+      "type": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:version-catalog/build.gradle.kts",
+      "target": "file:version-catalog/libs.versions.toml",
+      "type": "configures",
+      "weight": 0.6
+    },
+    {
+      "source": "file:version-catalog",
+      "target": "file:version-catalog/libs.versions.toml",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:version-catalog",
+      "target": "file:version-catalog/build.gradle.kts",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:build-logic",
+      "target": "file:build-logic/build.gradle.kts",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:build-logic",
+      "target": "file:build-logic/settings.gradle.kts",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:convention-plugin",
+      "target": "file:convention-plugin/build.gradle.kts",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:convention-plugin",
+      "target": "file:version-catalog",
+      "type": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "file:convention-plugin/src/main/resources/openapi-templates/kotlin-spring",
+      "target": "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/OpenapiManager.kt",
+      "type": "used_by",
+      "weight": 0.5
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:root-build",
+      "name": "Root Build & Settings",
+      "description": "Top-level Gradle settings, root build script and CI pipeline that orchestrate the whole repository.",
+      "nodeIds": [
+        "file:build.gradle.kts",
+        "file:settings.gradle.kts",
+        "file:.github/workflows/ci.yaml",
+        "file:gradle/gradle-daemon-jvm.properties",
+        "file:gradle/wrapper/gradle-wrapper.properties",
+        "file:gradlew",
+        "file:gradlew.bat"
+      ]
+    },
+    {
+      "id": "layer:version-catalog",
+      "name": "Version Catalog",
+      "description": "Gradle version catalog subproject pinning versions, plugins, libraries and bundles used across the build.",
+      "nodeIds": [
+        "file:version-catalog/build.gradle.kts",
+        "file:version-catalog/libs.versions.toml"
+      ]
+    },
+    {
+      "id": "layer:build-logic",
+      "name": "Build Logic (Included Build)",
+      "description": "Included build providing Kotlin and quality Gradle conventions plus the catalog constants generator task.",
+      "nodeIds": [
+        "file:build-logic/build.gradle.kts",
+        "file:build-logic/settings.gradle.kts",
+        "file:build-logic/src/main/kotlin/kotlin-conventions.gradle.kts",
+        "file:build-logic/src/main/kotlin/quality-conventions.gradle.kts",
+        "file:build-logic/src/main/kotlin/GenerateCatalogVersionConstants.kt",
+        "file:build-logic/src/main/kotlin/VersionCatalog.kt"
+      ]
+    },
+    {
+      "id": "layer:convention-plugin",
+      "name": "Convention Plugin",
+      "description": "Main Gradle plugin exposing the Frisboo Core Banking convention through extensions, managers and utilities.",
+      "nodeIds": [
+        "file:convention-plugin/build.gradle.kts",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/PluginMetadata.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/ConfigurationConstants.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PluginExtension.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/CachingExtension.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/GRPCExtension.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/KotlinExtension.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/MessagingExtension.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/OpenapiExtension.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PersistenceExtension.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/QualityExtension.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/SpringBootExtension.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/TestingExtension.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/CpdExtension.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/DetektExtension.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/DokkaExtension.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/JacocoExtension.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/KoverExtension.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/OwaspDepCheckExtension.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/PitestExtension.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/PmdExtension.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/SpotbugsExtension.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/SpotlessExtension.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/CachingManager.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/GRPCManager.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/KotlinManager.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/MessagingManager.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/OpenapiManager.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/PersistenceManager.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/QualityManager.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/RestrictImportsManager.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/SpringBootManager.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/TestingManager.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/JavaLanguage.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/KotlinLanguage.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/CpdManager.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/DetektManager.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/SpotlessManager.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/File.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/VersionCatalog.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/DependencyHandler.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/BomExtensionSpec.kt",
+        "file:version-catalog",
+        "file:build-logic",
+        "file:convention-plugin",
+        "file:convention-plugin/src/main/resources/openapi-templates/kotlin-spring"
+      ]
+    },
+    {
+      "id": "layer:integration-tests",
+      "name": "Integration Tests",
+      "description": "Gradle plugin integration tests using Gradle TestKit to verify plugin behavior.",
+      "nodeIds": [
+        "file:convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/PluginManagerIntegrationTest.kt",
+        "file:convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/QualityManagerIntegrationTest.kt",
+        "file:convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/utils/MockBuildScript.kt",
+        "file:convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/utils/TestProjectBuilder.kt"
+      ]
+    },
+    {
+      "id": "layer:configuration",
+      "name": "Configuration & Quality Rules",
+      "description": "Shared quality and license configuration consumed by conventions.",
+      "nodeIds": [
+        "file:config/license-header.txt",
+        "file:config/detekt/detekt.yml",
+        "file:.editorconfig",
+        "file:.gitignore",
+        "file:.gitattributes"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "Project Overview",
+      "description": "Start with the settings file to understand the project name, included builds and version catalog wiring.",
+      "nodeIds": [
+        "file:settings.gradle.kts"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "CI Pipeline",
+      "description": "The GitHub Actions workflow triggers the Gradle build and publish on every push and pull request.",
+      "nodeIds": [
+        "file:.github/workflows/ci.yaml",
+        "file:gradlew"
+      ]
+    },
+    {
+      "order": 3,
+      "title": "Version Catalog",
+      "description": "The version catalog pins every plugin, library and bundle version used across the build.",
+      "nodeIds": [
+        "file:version-catalog/libs.versions.toml",
+        "file:version-catalog/build.gradle.kts"
+      ]
+    },
+    {
+      "order": 4,
+      "title": "Build Logic Included Build",
+      "description": "The included build-logic provides reusable Kotlin and quality Gradle conventions plus a catalog constants generator.",
+      "nodeIds": [
+        "file:build-logic/settings.gradle.kts",
+        "file:build-logic/build.gradle.kts",
+        "file:build-logic/src/main/kotlin/kotlin-conventions.gradle.kts",
+        "file:build-logic/src/main/kotlin/quality-conventions.gradle.kts",
+        "file:build-logic/src/main/kotlin/GenerateCatalogVersionConstants.kt",
+        "file:build-logic/src/main/kotlin/VersionCatalog.kt"
+      ]
+    },
+    {
+      "order": 5,
+      "title": "Convention Plugin Entry Point",
+      "description": "CoreBankingConventionPlugin is the main Gradle plugin that conditionally applies all subsystem managers.",
+      "nodeIds": [
+        "file:convention-plugin/build.gradle.kts",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt"
+      ]
+    },
+    {
+      "order": 6,
+      "title": "Plugin Configuration Model",
+      "description": "PluginExtension exposes toggles and nested subsystem extensions; ConfigurationConstants and CatalogVersionConstants provide keys and aliases.",
+      "nodeIds": [
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PluginExtension.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/ConfigurationConstants.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/PluginMetadata.kt"
+      ]
+    },
+    {
+      "order": 7,
+      "title": "Subsystem Managers",
+      "description": "Each manager configures a subsystem (Kotlin, Spring Boot, quality, gRPC, messaging, persistence, caching, testing) using its extension and the version catalog.",
+      "nodeIds": [
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/KotlinManager.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/SpringBootManager.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/QualityManager.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/GRPCManager.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/MessagingManager.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/PersistenceManager.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/CachingManager.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/TestingManager.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/RestrictImportsManager.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/OpenapiManager.kt"
+      ]
+    },
+    {
+      "order": 8,
+      "title": "Language Toolchain Managers",
+      "description": "JavaLanguage and KotlinLanguage configure toolchains, compiler options and dependencies.",
+      "nodeIds": [
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/JavaLanguage.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/KotlinLanguage.kt"
+      ]
+    },
+    {
+      "order": 9,
+      "title": "Quality Sub-Extensions & Helpers",
+      "description": "Quality extension aggregates cpd, detekt, dokka, jacoco, kover, owasp, pitest, pmd, spotbugs and spotless; helpers configure each tool.",
+      "nodeIds": [
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/QualityExtension.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/SpotlessManager.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/DetektManager.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/CpdManager.kt",
+        "file:config/detekt/detekt.yml",
+        "file:config/license-header.txt"
+      ]
+    },
+    {
+      "order": 10,
+      "title": "Shared Utilities",
+      "description": "DependencyHandler, BomExtensionSpec and File provide reusable helpers used by managers and extensions.",
+      "nodeIds": [
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/DependencyHandler.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/BomExtensionSpec.kt",
+        "file:convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/File.kt"
+      ]
+    },
+    {
+      "order": 11,
+      "title": "Integration Tests",
+      "description": "Gradle TestKit-based integration tests verify the plugin applies and configures quality correctly.",
+      "nodeIds": [
+        "file:convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/PluginManagerIntegrationTest.kt",
+        "file:convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/QualityManagerIntegrationTest.kt",
+        "file:convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/utils/TestProjectBuilder.kt",
+        "file:convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/utils/MockBuildScript.kt"
+      ]
+    },
+    {
+      "order": 12,
+      "title": "Root Build & Configuration",
+      "description": "The root build script and editor/license configuration tie everything together.",
+      "nodeIds": [
+        "file:build.gradle.kts",
+        "file:.editorconfig",
+        "file:.gitignore",
+        "file:.gitattributes"
+      ]
+    }
+  ]
+}

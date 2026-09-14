@@ -1,0 +1,868 @@
+{
+  "scriptCompleted": true,
+  "contentDigest": "1e1d83bbdd037d39ae199b1d4b88f0a1a9e8bc4eef6b7f9f9cd0345a1eef8ec9",
+  "files": [
+    {
+      "path": ".editorconfig",
+      "language": "unknown",
+      "sizeLines": 131,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".gitattributes",
+      "language": "unknown",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".github/workflows/ci.yaml",
+      "language": "yaml",
+      "sizeLines": 16,
+      "fileCategory": "infra"
+    },
+    {
+      "path": ".gitignore",
+      "language": "unknown",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".ua-plugin/build-fingerprints.mjs",
+      "language": "javascript",
+      "sizeLines": 102,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".ua-plugin/compute-batches.mjs",
+      "language": "javascript",
+      "sizeLines": 687,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".ua-plugin/extract-structure.mjs",
+      "language": "javascript",
+      "sizeLines": 170,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".ua-plugin/finalize-incremental.mjs",
+      "language": "javascript",
+      "sizeLines": 512,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".ua-plugin/generate-ignore.mjs",
+      "language": "javascript",
+      "sizeLines": 69,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".ua-plugin/index.js",
+      "language": "javascript",
+      "sizeLines": 192,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".ua-plugin/merge-batch-graphs.py",
+      "language": "python",
+      "sizeLines": 1346,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".ua-plugin/merge-subdomain-graphs.py",
+      "language": "python",
+      "sizeLines": 404,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".ua-plugin/node_modules/@understand-anything/core/package.json",
+      "language": "json",
+      "sizeLines": 6,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua-plugin/prepare-incremental.mjs",
+      "language": "javascript",
+      "sizeLines": 752,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".ua-plugin/prepare-symbol-retry.mjs",
+      "language": "javascript",
+      "sizeLines": 137,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".ua-plugin/scan-project.mjs",
+      "language": "javascript",
+      "sizeLines": 918,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".ua-plugin/validate-incremental-symbols.mjs",
+      "language": "javascript",
+      "sizeLines": 497,
+      "fileCategory": "code"
+    },
+    {
+      "path": "build-logic/build.gradle.kts",
+      "language": "kotlin",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "build-logic/settings.gradle.kts",
+      "language": "kotlin",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "build-logic/src/main/kotlin/GenerateCatalogVersionConstants.kt",
+      "language": "kotlin",
+      "sizeLines": 106,
+      "fileCategory": "code"
+    },
+    {
+      "path": "build-logic/src/main/kotlin/VersionCatalog.kt",
+      "language": "kotlin",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "build-logic/src/main/kotlin/kotlin-conventions.gradle.kts",
+      "language": "kotlin",
+      "sizeLines": 85,
+      "fileCategory": "code"
+    },
+    {
+      "path": "build-logic/src/main/kotlin/quality-conventions.gradle.kts",
+      "language": "kotlin",
+      "sizeLines": 89,
+      "fileCategory": "code"
+    },
+    {
+      "path": "build.gradle.kts",
+      "language": "kotlin",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/detekt/detekt.yml",
+      "language": "yaml",
+      "sizeLines": 797,
+      "fileCategory": "config"
+    },
+    {
+      "path": "config/license-header.txt",
+      "language": "txt",
+      "sizeLines": 15,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "convention-plugin/build.gradle.kts",
+      "language": "kotlin",
+      "sizeLines": 130,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/PluginManagerIntegrationTest.kt",
+      "language": "kotlin",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/QualityManagerIntegrationTest.kt",
+      "language": "kotlin",
+      "sizeLines": 71,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/utils/MockBuildScript.kt",
+      "language": "kotlin",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/utils/TestProjectBuilder.kt",
+      "language": "kotlin",
+      "sizeLines": 354,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt",
+      "language": "kotlin",
+      "sizeLines": 97,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+      "language": "kotlin",
+      "sizeLines": 223,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/ConfigurationConstants.kt",
+      "language": "kotlin",
+      "sizeLines": 167,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/PluginMetadata.kt",
+      "language": "kotlin",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/CachingExtension.kt",
+      "language": "kotlin",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/GRPCExtension.kt",
+      "language": "kotlin",
+      "sizeLines": 110,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/KotlinExtension.kt",
+      "language": "kotlin",
+      "sizeLines": 113,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/MessagingExtension.kt",
+      "language": "kotlin",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/OpenapiExtension.kt",
+      "language": "kotlin",
+      "sizeLines": 108,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PersistenceExtension.kt",
+      "language": "kotlin",
+      "sizeLines": 89,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PluginExtension.kt",
+      "language": "kotlin",
+      "sizeLines": 192,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/QualityExtension.kt",
+      "language": "kotlin",
+      "sizeLines": 60,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/SpringBootExtension.kt",
+      "language": "kotlin",
+      "sizeLines": 98,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/TestingExtension.kt",
+      "language": "kotlin",
+      "sizeLines": 100,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/CpdExtension.kt",
+      "language": "kotlin",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/DetektExtension.kt",
+      "language": "kotlin",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/DokkaExtension.kt",
+      "language": "kotlin",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/JacocoExtension.kt",
+      "language": "kotlin",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/KoverExtension.kt",
+      "language": "kotlin",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/OwaspDepCheckExtension.kt",
+      "language": "kotlin",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/PitestExtension.kt",
+      "language": "kotlin",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/PmdExtension.kt",
+      "language": "kotlin",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/SpotbugsExtension.kt",
+      "language": "kotlin",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/SpotlessExtension.kt",
+      "language": "kotlin",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/CachingManager.kt",
+      "language": "kotlin",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/GRPCManager.kt",
+      "language": "kotlin",
+      "sizeLines": 77,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/KotlinManager.kt",
+      "language": "kotlin",
+      "sizeLines": 84,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/MessagingManager.kt",
+      "language": "kotlin",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/OpenapiManager.kt",
+      "language": "kotlin",
+      "sizeLines": 228,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/PersistenceManager.kt",
+      "language": "kotlin",
+      "sizeLines": 83,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/QualityManager.kt",
+      "language": "kotlin",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/RestrictImportsManager.kt",
+      "language": "kotlin",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/SpringBootManager.kt",
+      "language": "kotlin",
+      "sizeLines": 98,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/TestingManager.kt",
+      "language": "kotlin",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/JavaLanguage.kt",
+      "language": "kotlin",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/KotlinLanguage.kt",
+      "language": "kotlin",
+      "sizeLines": 65,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/CpdManager.kt",
+      "language": "kotlin",
+      "sizeLines": 69,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/DetektManager.kt",
+      "language": "kotlin",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/SpotlessManager.kt",
+      "language": "kotlin",
+      "sizeLines": 94,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/BomExtensionSpec.kt",
+      "language": "kotlin",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/DependencyHandler.kt",
+      "language": "kotlin",
+      "sizeLines": 62,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/File.kt",
+      "language": "kotlin",
+      "sizeLines": 86,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/GradleVersionUtils.kt",
+      "language": "kotlin",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/Project.kt",
+      "language": "kotlin",
+      "sizeLines": 101,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/ProviderFactory.kt",
+      "language": "kotlin",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/VersionCatalog.kt",
+      "language": "kotlin",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/api.mustache",
+      "language": "mustache",
+      "sizeLines": 91,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/apiController.mustache",
+      "language": "mustache",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/apiDelegate.mustache",
+      "language": "mustache",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/apiInterface.mustache",
+      "language": "mustache",
+      "sizeLines": 103,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/apiUtil.mustache",
+      "language": "mustache",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/api_test.mustache",
+      "language": "mustache",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/beanValidation.mustache",
+      "language": "mustache",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/beanValidationBodyParams.mustache",
+      "language": "mustache",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/beanValidationCore.mustache",
+      "language": "mustache",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/beanValidationModel.mustache",
+      "language": "mustache",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/beanValidationPathParams.mustache",
+      "language": "mustache",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/beanValidationQueryParams.mustache",
+      "language": "mustache",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/bodyParams.mustache",
+      "language": "mustache",
+      "sizeLines": 11,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/converter.mustache",
+      "language": "mustache",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/cookieParams.mustache",
+      "language": "mustache",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/dataClass.mustache",
+      "language": "mustache",
+      "sizeLines": 80,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/dataClassOptVar.mustache",
+      "language": "mustache",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/dataClassReqVar.mustache",
+      "language": "mustache",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/enumClass.mustache",
+      "language": "mustache",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/exceptions.mustache",
+      "language": "mustache",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/formParams.mustache",
+      "language": "mustache",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/generatedAnnotation.mustache",
+      "language": "mustache",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/headerParams.mustache",
+      "language": "mustache",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/homeController.mustache",
+      "language": "mustache",
+      "sizeLines": 89,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/interfaceOptVar.mustache",
+      "language": "mustache",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/interfaceReqVar.mustache",
+      "language": "mustache",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/README.mustache",
+      "language": "mustache",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/application.mustache",
+      "language": "mustache",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/buildGradle-sb3-Kts.mustache",
+      "language": "mustache",
+      "sizeLines": 63,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/buildGradleKts.mustache",
+      "language": "mustache",
+      "sizeLines": 69,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/defaultBasePath.mustache",
+      "language": "mustache",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/gradle-wrapper.jar",
+      "language": "jar",
+      "sizeLines": 149,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/gradle-wrapper.properties.mustache",
+      "language": "mustache",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/gradlew.bat.mustache",
+      "language": "mustache",
+      "sizeLines": 92,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/gradlew.mustache",
+      "language": "mustache",
+      "sizeLines": 249,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/pom-sb3.mustache",
+      "language": "mustache",
+      "sizeLines": 212,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/pom.mustache",
+      "language": "mustache",
+      "sizeLines": 199,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/settingsGradle.mustache",
+      "language": "mustache",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/springBootApplication.mustache",
+      "language": "mustache",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/swagger-ui.mustache",
+      "language": "mustache",
+      "sizeLines": 60,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/methodBody.mustache",
+      "language": "mustache",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/model.mustache",
+      "language": "mustache",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/modelMutable.mustache",
+      "language": "mustache",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/openapi.mustache",
+      "language": "mustache",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/optionalDataType.mustache",
+      "language": "mustache",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/pathParams.mustache",
+      "language": "mustache",
+      "sizeLines": 2,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/queryParams.mustache",
+      "language": "mustache",
+      "sizeLines": 2,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/returnTypes.mustache",
+      "language": "mustache",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/returnValue.mustache",
+      "language": "mustache",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/service.mustache",
+      "language": "mustache",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/serviceImpl.mustache",
+      "language": "mustache",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/springdocDocumentationConfig.mustache",
+      "language": "mustache",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/springfoxDocumentationConfig.mustache",
+      "language": "mustache",
+      "sizeLines": 67,
+      "fileCategory": "code"
+    },
+    {
+      "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/typeInfoAnnotation.mustache",
+      "language": "mustache",
+      "sizeLines": 11,
+      "fileCategory": "code"
+    },
+    {
+      "path": "gradle/gradle-daemon-jvm.properties",
+      "language": "properties",
+      "sizeLines": 12,
+      "fileCategory": "config"
+    },
+    {
+      "path": "gradle/wrapper/gradle-wrapper.jar",
+      "language": "jar",
+      "sizeLines": 159,
+      "fileCategory": "code"
+    },
+    {
+      "path": "gradle/wrapper/gradle-wrapper.properties",
+      "language": "properties",
+      "sizeLines": 6,
+      "fileCategory": "config"
+    },
+    {
+      "path": "gradlew",
+      "language": "unknown",
+      "sizeLines": 248,
+      "fileCategory": "code"
+    },
+    {
+      "path": "gradlew.bat",
+      "language": "batch",
+      "sizeLines": 93,
+      "fileCategory": "script"
+    },
+    {
+      "path": "settings.gradle.kts",
+      "language": "kotlin",
+      "sizeLines": 60,
+      "fileCategory": "code"
+    },
+    {
+      "path": "version-catalog/build.gradle.kts",
+      "language": "kotlin",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "version-catalog/libs.versions.toml",
+      "language": "toml",
+      "sizeLines": 253,
+      "fileCategory": "config"
+    }
+  ],
+  "totalFiles": 139,
+  "filteredByIgnore": 1,
+  "estimatedComplexity": "moderate",
+  "failures": [],
+  "stats": {
+    "filesScanned": 139,
+    "byCategory": {
+      "code": 131,
+      "infra": 1,
+      "config": 5,
+      "docs": 1,
+      "script": 1
+    },
+    "byLanguage": {
+      "unknown": 4,
+      "yaml": 2,
+      "javascript": 10,
+      "python": 2,
+      "json": 1,
+      "kotlin": 60,
+      "txt": 1,
+      "mustache": 53,
+      "jar": 2,
+      "properties": 2,
+      "batch": 1,
+      "toml": 1
+    }
+  }
+}
