@@ -1,0 +1,975 @@
+{
+  ".editorconfig": {
+    "path": ".editorconfig",
+    "language": null,
+    "sizeBytes": 5697,
+    "contentHash": "a838f1a7b49e573f4ff8950ced862a059f603bee08fb586e79819c871a4b2c7c",
+    "structuralHash": "a838f1a7b49e573f4ff8950ced862a059f603bee08fb586e79819c871a4b2c7c"
+  },
+  ".gitattributes": {
+    "path": ".gitattributes",
+    "language": null,
+    "sizeBytes": 54,
+    "contentHash": "193fbf6c445dea576a6f238c5262320931945a2ea03bae24b161b30856919a09",
+    "structuralHash": "193fbf6c445dea576a6f238c5262320931945a2ea03bae24b161b30856919a09"
+  },
+  ".github/workflows/ci.yaml": {
+    "path": ".github/workflows/ci.yaml",
+    "language": null,
+    "sizeBytes": 309,
+    "contentHash": "e17dbf597693ff990c52b048953b0f5ea9621633cb43a703831b3e337348bb1f",
+    "structuralHash": "e17dbf597693ff990c52b048953b0f5ea9621633cb43a703831b3e337348bb1f"
+  },
+  ".gitignore": {
+    "path": ".gitignore",
+    "language": null,
+    "sizeBytes": 468,
+    "contentHash": "df257f667f127521a4af0153d49a334caf127551ba07754647d3c65c345fdcf9",
+    "structuralHash": "df257f667f127521a4af0153d49a334caf127551ba07754647d3c65c345fdcf9"
+  },
+  ".ua-plugin/build-fingerprints.mjs": {
+    "path": ".ua-plugin/build-fingerprints.mjs",
+    "language": null,
+    "sizeBytes": 3831,
+    "contentHash": "652a1b46dbffdf773901cd705ff5131e76dc8da4adcbcc651b7b67866bfe318e",
+    "structuralHash": "652a1b46dbffdf773901cd705ff5131e76dc8da4adcbcc651b7b67866bfe318e"
+  },
+  ".ua-plugin/compute-batches.mjs": {
+    "path": ".ua-plugin/compute-batches.mjs",
+    "language": null,
+    "sizeBytes": 26980,
+    "contentHash": "49d6bdd660ab19828fb792d49b1a93d2286ce6c96331022a06feedc9f50a6727",
+    "structuralHash": "49d6bdd660ab19828fb792d49b1a93d2286ce6c96331022a06feedc9f50a6727"
+  },
+  ".ua-plugin/extract-structure.mjs": {
+    "path": ".ua-plugin/extract-structure.mjs",
+    "language": null,
+    "sizeBytes": 5946,
+    "contentHash": "8112caee53f94f1e1ff1da4842eef01efc3bd7218f759518dcea88eba97a2149",
+    "structuralHash": "8112caee53f94f1e1ff1da4842eef01efc3bd7218f759518dcea88eba97a2149"
+  },
+  ".ua-plugin/finalize-incremental.mjs": {
+    "path": ".ua-plugin/finalize-incremental.mjs",
+    "language": null,
+    "sizeBytes": 17437,
+    "contentHash": "07bb6f25b8ecd54db69d61a6d991390df92896aa94fdf55da33e874780824b32",
+    "structuralHash": "07bb6f25b8ecd54db69d61a6d991390df92896aa94fdf55da33e874780824b32"
+  },
+  ".ua-plugin/generate-ignore.mjs": {
+    "path": ".ua-plugin/generate-ignore.mjs",
+    "language": null,
+    "sizeBytes": 2538,
+    "contentHash": "253bb28abb00dfdd2e40d3e816a200a576c7419ef90b700e267e27890dcb0a8c",
+    "structuralHash": "253bb28abb00dfdd2e40d3e816a200a576c7419ef90b700e267e27890dcb0a8c"
+  },
+  ".ua-plugin/index.js": {
+    "path": ".ua-plugin/index.js",
+    "language": null,
+    "sizeBytes": 6234,
+    "contentHash": "c6a83e48f0e63502d1b6eacf92fd0bdc496b1652b850e6de411ba7cab2ef4e24",
+    "structuralHash": "c6a83e48f0e63502d1b6eacf92fd0bdc496b1652b850e6de411ba7cab2ef4e24"
+  },
+  ".ua-plugin/merge-batch-graphs.py": {
+    "path": ".ua-plugin/merge-batch-graphs.py",
+    "language": null,
+    "sizeBytes": 55598,
+    "contentHash": "0d9714763e01dba35a83f258a6e86bd3bc41af101f69f7b80b67952f375b608f",
+    "structuralHash": "0d9714763e01dba35a83f258a6e86bd3bc41af101f69f7b80b67952f375b608f"
+  },
+  ".ua-plugin/merge-subdomain-graphs.py": {
+    "path": ".ua-plugin/merge-subdomain-graphs.py",
+    "language": null,
+    "sizeBytes": 16031,
+    "contentHash": "b984a478a18eb7a0186f5374dd733fc001bc77806215bd067f404107911fa059",
+    "structuralHash": "b984a478a18eb7a0186f5374dd733fc001bc77806215bd067f404107911fa059"
+  },
+  ".ua-plugin/node_modules/@understand-anything/core/package.json": {
+    "path": ".ua-plugin/node_modules/@understand-anything/core/package.json",
+    "language": null,
+    "sizeBytes": 106,
+    "contentHash": "1fd70fc21e461f7713b6fe0b759aa7685f990fbe1b700912792c1ecd09352aa4",
+    "structuralHash": "1fd70fc21e461f7713b6fe0b759aa7685f990fbe1b700912792c1ecd09352aa4"
+  },
+  ".ua-plugin/prepare-incremental.mjs": {
+    "path": ".ua-plugin/prepare-incremental.mjs",
+    "language": null,
+    "sizeBytes": 25971,
+    "contentHash": "0b176f9fc8005e440aca116600c6ebaed2aa863a14777947167d232f6177b5b3",
+    "structuralHash": "0b176f9fc8005e440aca116600c6ebaed2aa863a14777947167d232f6177b5b3"
+  },
+  ".ua-plugin/prepare-symbol-retry.mjs": {
+    "path": ".ua-plugin/prepare-symbol-retry.mjs",
+    "language": null,
+    "sizeBytes": 7573,
+    "contentHash": "9bc4078f7fcd046182c06357a2ed52ee20781ac514afb444b5c645006bc5b81c",
+    "structuralHash": "9bc4078f7fcd046182c06357a2ed52ee20781ac514afb444b5c645006bc5b81c"
+  },
+  ".ua-plugin/scan-project.mjs": {
+    "path": ".ua-plugin/scan-project.mjs",
+    "language": null,
+    "sizeBytes": 32137,
+    "contentHash": "62f075686400959d3fb6634f73798485b82b89c743f9deecc62a601ce398ebb3",
+    "structuralHash": "62f075686400959d3fb6634f73798485b82b89c743f9deecc62a601ce398ebb3"
+  },
+  ".ua-plugin/validate-incremental-symbols.mjs": {
+    "path": ".ua-plugin/validate-incremental-symbols.mjs",
+    "language": null,
+    "sizeBytes": 26448,
+    "contentHash": "96688d46e3d84d31f5bf796482d30f48444d556e1bc24d1b9e4520a78621be48",
+    "structuralHash": "96688d46e3d84d31f5bf796482d30f48444d556e1bc24d1b9e4520a78621be48"
+  },
+  "build-logic/build.gradle.kts": {
+    "path": "build-logic/build.gradle.kts",
+    "language": null,
+    "sizeBytes": 1276,
+    "contentHash": "13e2288aff37e3df22bc56d000a236922f96f340a8bd21e78d5c36644ab3dee6",
+    "structuralHash": "13e2288aff37e3df22bc56d000a236922f96f340a8bd21e78d5c36644ab3dee6"
+  },
+  "build-logic/settings.gradle.kts": {
+    "path": "build-logic/settings.gradle.kts",
+    "language": null,
+    "sizeBytes": 498,
+    "contentHash": "e873d3de602ae445ebad7f1e02617c2c383030ea558d8803a4ab7b3329c714ce",
+    "structuralHash": "e873d3de602ae445ebad7f1e02617c2c383030ea558d8803a4ab7b3329c714ce"
+  },
+  "build-logic/src/main/kotlin/GenerateCatalogVersionConstants.kt": {
+    "path": "build-logic/src/main/kotlin/GenerateCatalogVersionConstants.kt",
+    "language": null,
+    "sizeBytes": 3273,
+    "contentHash": "9ae1b28ebc05bc09ef43b53859698ce4e7e6baa718f9305c07bc5853c62dd578",
+    "structuralHash": "9ae1b28ebc05bc09ef43b53859698ce4e7e6baa718f9305c07bc5853c62dd578"
+  },
+  "build-logic/src/main/kotlin/VersionCatalog.kt": {
+    "path": "build-logic/src/main/kotlin/VersionCatalog.kt",
+    "language": null,
+    "sizeBytes": 1769,
+    "contentHash": "8e1053d97f6b8807572862736782d76aeb3722365e0901b160ebe8bf8b819344",
+    "structuralHash": "8e1053d97f6b8807572862736782d76aeb3722365e0901b160ebe8bf8b819344"
+  },
+  "build-logic/src/main/kotlin/kotlin-conventions.gradle.kts": {
+    "path": "build-logic/src/main/kotlin/kotlin-conventions.gradle.kts",
+    "language": null,
+    "sizeBytes": 3308,
+    "contentHash": "00dc85fbfa836fd10300d9dd38c2abaca83d3f6aa3f42c5d2b9b52e2251cc7da",
+    "structuralHash": "00dc85fbfa836fd10300d9dd38c2abaca83d3f6aa3f42c5d2b9b52e2251cc7da"
+  },
+  "build-logic/src/main/kotlin/quality-conventions.gradle.kts": {
+    "path": "build-logic/src/main/kotlin/quality-conventions.gradle.kts",
+    "language": null,
+    "sizeBytes": 2641,
+    "contentHash": "da3a136fe8082fc8c0089d4f904fcfc6abcf4020bec1d8a31d38dda99876f077",
+    "structuralHash": "da3a136fe8082fc8c0089d4f904fcfc6abcf4020bec1d8a31d38dda99876f077"
+  },
+  "build.gradle.kts": {
+    "path": "build.gradle.kts",
+    "language": null,
+    "sizeBytes": 763,
+    "contentHash": "b240d28057e1c1810f85ae5b8f73064c6fb566b67276c37e9ff525dd26bb2558",
+    "structuralHash": "b240d28057e1c1810f85ae5b8f73064c6fb566b67276c37e9ff525dd26bb2558"
+  },
+  "config/detekt/detekt.yml": {
+    "path": "config/detekt/detekt.yml",
+    "language": null,
+    "sizeBytes": 21790,
+    "contentHash": "12ea471749a58f06e6f518c3ac451ca25a857a50021b5a81f0371a500e94ef32",
+    "structuralHash": "12ea471749a58f06e6f518c3ac451ca25a857a50021b5a81f0371a500e94ef32"
+  },
+  "config/license-header.txt": {
+    "path": "config/license-header.txt",
+    "language": null,
+    "sizeBytes": 596,
+    "contentHash": "c3e07c43a4a91e677ab66279c9f9e9bdf6c70b5761ffcbaf3ec38909598c1dd7",
+    "structuralHash": "c3e07c43a4a91e677ab66279c9f9e9bdf6c70b5761ffcbaf3ec38909598c1dd7"
+  },
+  "convention-plugin/build.gradle.kts": {
+    "path": "convention-plugin/build.gradle.kts",
+    "language": null,
+    "sizeBytes": 4856,
+    "contentHash": "fcea4cce8ec0d7a5b497a9dbed4cf7f81d462c2858edb98ba84099dece7cb7e7",
+    "structuralHash": "fcea4cce8ec0d7a5b497a9dbed4cf7f81d462c2858edb98ba84099dece7cb7e7"
+  },
+  "convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/PluginManagerIntegrationTest.kt": {
+    "path": "convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/PluginManagerIntegrationTest.kt",
+    "language": null,
+    "sizeBytes": 1788,
+    "contentHash": "43cf63db54215f1b933f0e4d721664b26fa47eb5ea5828b8d2e3d1e503f7c5d9",
+    "structuralHash": "43cf63db54215f1b933f0e4d721664b26fa47eb5ea5828b8d2e3d1e503f7c5d9"
+  },
+  "convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/QualityManagerIntegrationTest.kt": {
+    "path": "convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/QualityManagerIntegrationTest.kt",
+    "language": null,
+    "sizeBytes": 2745,
+    "contentHash": "75af9fb3864e9b202f99ebb0d12fa20a11597002e4a25f1a6f5a6abf956cb49a",
+    "structuralHash": "75af9fb3864e9b202f99ebb0d12fa20a11597002e4a25f1a6f5a6abf956cb49a"
+  },
+  "convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/utils/MockBuildScript.kt": {
+    "path": "convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/utils/MockBuildScript.kt",
+    "language": null,
+    "sizeBytes": 1098,
+    "contentHash": "410decd87e00f31bf3141663ca163db44a38c4cbbd66adec923f7cd9ef52e4a9",
+    "structuralHash": "410decd87e00f31bf3141663ca163db44a38c4cbbd66adec923f7cd9ef52e4a9"
+  },
+  "convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/utils/TestProjectBuilder.kt": {
+    "path": "convention-plugin/src/integrationTest/kotlin/com/frisboo/corebanking/utils/TestProjectBuilder.kt",
+    "language": null,
+    "sizeBytes": 18584,
+    "contentHash": "4ddc5f1fc0617eb45af31dd79dc2fa883b819820e2497a52047695a9994e76d2",
+    "structuralHash": "4ddc5f1fc0617eb45af31dd79dc2fa883b819820e2497a52047695a9994e76d2"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/CoreBankingConventionPlugin.kt",
+    "language": null,
+    "sizeBytes": 4487,
+    "contentHash": "ffe5f7857bb6999a9251a28a8ec03de7f82a2a2e170dd821643f714209a21239",
+    "structuralHash": "ffe5f7857bb6999a9251a28a8ec03de7f82a2a2e170dd821643f714209a21239"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/CatalogVersionConstants.kt",
+    "language": null,
+    "sizeBytes": 14648,
+    "contentHash": "2d7a71d8ce10e8b47edd7c9cbd2e495c5ff5cac834ec755270fe79104f2cea95",
+    "structuralHash": "2d7a71d8ce10e8b47edd7c9cbd2e495c5ff5cac834ec755270fe79104f2cea95"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/ConfigurationConstants.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/ConfigurationConstants.kt",
+    "language": null,
+    "sizeBytes": 8450,
+    "contentHash": "df15b996200eee6f4373ff5433c17a7aac1f5c3c7bb4823855f078dfbf1f083c",
+    "structuralHash": "df15b996200eee6f4373ff5433c17a7aac1f5c3c7bb4823855f078dfbf1f083c"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/PluginMetadata.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/constants/PluginMetadata.kt",
+    "language": null,
+    "sizeBytes": 1016,
+    "contentHash": "616b07787ae4b9649c618cca2701f6ac0991b332caed6223d538c9c93aaded58",
+    "structuralHash": "616b07787ae4b9649c618cca2701f6ac0991b332caed6223d538c9c93aaded58"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/CachingExtension.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/CachingExtension.kt",
+    "language": null,
+    "sizeBytes": 1502,
+    "contentHash": "6c688eb76c53948e43f9ea81520cfe03ac5bab84bb03df7036699c8b5c96a40c",
+    "structuralHash": "6c688eb76c53948e43f9ea81520cfe03ac5bab84bb03df7036699c8b5c96a40c"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/GRPCExtension.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/GRPCExtension.kt",
+    "language": null,
+    "sizeBytes": 4105,
+    "contentHash": "30444d854fda5aba1dcbf43f7d3373277e45c8f53f16aa93b5a73f3b01063b09",
+    "structuralHash": "30444d854fda5aba1dcbf43f7d3373277e45c8f53f16aa93b5a73f3b01063b09"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/KotlinExtension.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/KotlinExtension.kt",
+    "language": null,
+    "sizeBytes": 4385,
+    "contentHash": "9dac7f7c597c87c940ddaf28c545e8b0fb33ec6353f5c9727816ba4624f48de1",
+    "structuralHash": "9dac7f7c597c87c940ddaf28c545e8b0fb33ec6353f5c9727816ba4624f48de1"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/MessagingExtension.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/MessagingExtension.kt",
+    "language": null,
+    "sizeBytes": 1506,
+    "contentHash": "f59bbad1f7c380d320e242d1cbdeeb6e9c132fefeed7130ab90108f6f535e714",
+    "structuralHash": "f59bbad1f7c380d320e242d1cbdeeb6e9c132fefeed7130ab90108f6f535e714"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/OpenapiExtension.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/OpenapiExtension.kt",
+    "language": null,
+    "sizeBytes": 5677,
+    "contentHash": "1b5d33153bddb64a71ea6493b97ac423c7dcad53650cd1f4cd6928812ef7fcbe",
+    "structuralHash": "1b5d33153bddb64a71ea6493b97ac423c7dcad53650cd1f4cd6928812ef7fcbe"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PersistenceExtension.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PersistenceExtension.kt",
+    "language": null,
+    "sizeBytes": 3293,
+    "contentHash": "27b69074ea17ef0d1b32eb4ce02bd6e09f06795316655093a712d9100311bab1",
+    "structuralHash": "27b69074ea17ef0d1b32eb4ce02bd6e09f06795316655093a712d9100311bab1"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PluginExtension.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/PluginExtension.kt",
+    "language": null,
+    "sizeBytes": 8085,
+    "contentHash": "7136efe513dd302e4a66298150e2d96036a28d12e7280d6d978e6aac8550667d",
+    "structuralHash": "7136efe513dd302e4a66298150e2d96036a28d12e7280d6d978e6aac8550667d"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/QualityExtension.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/QualityExtension.kt",
+    "language": null,
+    "sizeBytes": 2796,
+    "contentHash": "1a1de4fa93b7fa06cb28a7e20203ae766b7a125ff019849badfd2c01b553b2b5",
+    "structuralHash": "1a1de4fa93b7fa06cb28a7e20203ae766b7a125ff019849badfd2c01b553b2b5"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/SpringBootExtension.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/SpringBootExtension.kt",
+    "language": null,
+    "sizeBytes": 3649,
+    "contentHash": "4d6ce7ad3370ae27baed5808a5d1f412161adb94344e0923dd7826b2ff7a2571",
+    "structuralHash": "4d6ce7ad3370ae27baed5808a5d1f412161adb94344e0923dd7826b2ff7a2571"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/TestingExtension.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/TestingExtension.kt",
+    "language": null,
+    "sizeBytes": 3715,
+    "contentHash": "9ef780211de9b7911b3fa040f283ba0e1cbde7ada8f6a9f53059d6fdbe75e2f0",
+    "structuralHash": "9ef780211de9b7911b3fa040f283ba0e1cbde7ada8f6a9f53059d6fdbe75e2f0"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/CpdExtension.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/CpdExtension.kt",
+    "language": null,
+    "sizeBytes": 2132,
+    "contentHash": "b52573e65039b3ae3f1342f25e147458c0ed80e4b3acc5b2d8d060eda1e7a5a6",
+    "structuralHash": "b52573e65039b3ae3f1342f25e147458c0ed80e4b3acc5b2d8d060eda1e7a5a6"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/DetektExtension.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/DetektExtension.kt",
+    "language": null,
+    "sizeBytes": 1810,
+    "contentHash": "abcf806d84232f15a9d932406a58944f4e861de2a88214d5d6ddd218546ea0d1",
+    "structuralHash": "abcf806d84232f15a9d932406a58944f4e861de2a88214d5d6ddd218546ea0d1"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/DokkaExtension.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/DokkaExtension.kt",
+    "language": null,
+    "sizeBytes": 1335,
+    "contentHash": "58b2f75a04230e83b5d12e7d1a05505108d7c3b554f4b759230f04710a23e04a",
+    "structuralHash": "58b2f75a04230e83b5d12e7d1a05505108d7c3b554f4b759230f04710a23e04a"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/JacocoExtension.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/JacocoExtension.kt",
+    "language": null,
+    "sizeBytes": 1428,
+    "contentHash": "08c51f21f10fd298741a174b4d1da4a31f160fa8c1f2f8dbe415f26667bb664b",
+    "structuralHash": "08c51f21f10fd298741a174b4d1da4a31f160fa8c1f2f8dbe415f26667bb664b"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/KoverExtension.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/KoverExtension.kt",
+    "language": null,
+    "sizeBytes": 1335,
+    "contentHash": "0b4001bf141792b98fa6810dc1a0b8f38b6f310523d13d1df6130b0f896bdb7a",
+    "structuralHash": "0b4001bf141792b98fa6810dc1a0b8f38b6f310523d13d1df6130b0f896bdb7a"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/OwaspDepCheckExtension.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/OwaspDepCheckExtension.kt",
+    "language": null,
+    "sizeBytes": 1444,
+    "contentHash": "ded27849bf1f19e17a2d1a2446cc83dc247c4b9cdeeb5b1738a0c40b717c8cfe",
+    "structuralHash": "ded27849bf1f19e17a2d1a2446cc83dc247c4b9cdeeb5b1738a0c40b717c8cfe"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/PitestExtension.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/PitestExtension.kt",
+    "language": null,
+    "sizeBytes": 1428,
+    "contentHash": "784f4869dbf18a94fb0076ed0dcc5d227ee06ba4a32bffaeed91713d8169ba97",
+    "structuralHash": "784f4869dbf18a94fb0076ed0dcc5d227ee06ba4a32bffaeed91713d8169ba97"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/PmdExtension.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/PmdExtension.kt",
+    "language": null,
+    "sizeBytes": 1331,
+    "contentHash": "b71484c27e9853ba0591dce72e98fe83fefdd916f4f11caabea037556ceacea5",
+    "structuralHash": "b71484c27e9853ba0591dce72e98fe83fefdd916f4f11caabea037556ceacea5"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/SpotbugsExtension.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/SpotbugsExtension.kt",
+    "language": null,
+    "sizeBytes": 1432,
+    "contentHash": "1c7b8b60c5e08fd81449e1f0aa497543405991ff865d284eb77f625475eb3215",
+    "structuralHash": "1c7b8b60c5e08fd81449e1f0aa497543405991ff865d284eb77f625475eb3215"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/SpotlessExtension.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/extensions/quality/SpotlessExtension.kt",
+    "language": null,
+    "sizeBytes": 1432,
+    "contentHash": "56e17b71f3dd2460939fa12c4d08517d28219f7f1e06c4679489058eb8de0785",
+    "structuralHash": "56e17b71f3dd2460939fa12c4d08517d28219f7f1e06c4679489058eb8de0785"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/CachingManager.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/CachingManager.kt",
+    "language": null,
+    "sizeBytes": 1634,
+    "contentHash": "f3503bf344d9c6b35afe112eede3e6dcf4225e927f9038fd4a21c80e5c652896",
+    "structuralHash": "f3503bf344d9c6b35afe112eede3e6dcf4225e927f9038fd4a21c80e5c652896"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/GRPCManager.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/GRPCManager.kt",
+    "language": null,
+    "sizeBytes": 3591,
+    "contentHash": "6f85a01545880c84b7c21a5d845a9e99d6b1091b387ee43b2e4fded4f32f430c",
+    "structuralHash": "6f85a01545880c84b7c21a5d845a9e99d6b1091b387ee43b2e4fded4f32f430c"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/KotlinManager.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/KotlinManager.kt",
+    "language": null,
+    "sizeBytes": 3791,
+    "contentHash": "d2fd9bb5c2aa292f5d03e6f94f4b27dde99c592cf65c896eedb2f560bc61566f",
+    "structuralHash": "d2fd9bb5c2aa292f5d03e6f94f4b27dde99c592cf65c896eedb2f560bc61566f"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/MessagingManager.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/MessagingManager.kt",
+    "language": null,
+    "sizeBytes": 2175,
+    "contentHash": "bf28fa3c4b6d0e136626c8feebef54a4d497e0a3fc01c430c8f51e8a167f6e46",
+    "structuralHash": "bf28fa3c4b6d0e136626c8feebef54a4d497e0a3fc01c430c8f51e8a167f6e46"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/OpenapiManager.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/OpenapiManager.kt",
+    "language": null,
+    "sizeBytes": 8877,
+    "contentHash": "ff219a589f672f494675ff1fd1899bd5f1aa052830163b31234cc73ac2bac4b7",
+    "structuralHash": "ff219a589f672f494675ff1fd1899bd5f1aa052830163b31234cc73ac2bac4b7"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/PersistenceManager.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/PersistenceManager.kt",
+    "language": null,
+    "sizeBytes": 3492,
+    "contentHash": "b10b9d786c12f418f7b6b05152dd66186ce9291ccd794b6f384ef7400e317a55",
+    "structuralHash": "b10b9d786c12f418f7b6b05152dd66186ce9291ccd794b6f384ef7400e317a55"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/QualityManager.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/QualityManager.kt",
+    "language": null,
+    "sizeBytes": 1482,
+    "contentHash": "78feb7e8b193068881e482eaa38dcaf76b071c23a6637527888844e7c6967cc3",
+    "structuralHash": "78feb7e8b193068881e482eaa38dcaf76b071c23a6637527888844e7c6967cc3"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/RestrictImportsManager.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/RestrictImportsManager.kt",
+    "language": null,
+    "sizeBytes": 1422,
+    "contentHash": "c60598d26d9e7ebc28f1c7292fba80e144f0b3deaa0fde86df25c1195a9235ec",
+    "structuralHash": "c60598d26d9e7ebc28f1c7292fba80e144f0b3deaa0fde86df25c1195a9235ec"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/SpringBootManager.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/SpringBootManager.kt",
+    "language": null,
+    "sizeBytes": 3994,
+    "contentHash": "de06f6540a782b73ae42412fc8441a08a9ef45f4155ad5e302b767cf3c4ab51d",
+    "structuralHash": "de06f6540a782b73ae42412fc8441a08a9ef45f4155ad5e302b767cf3c4ab51d"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/TestingManager.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/TestingManager.kt",
+    "language": null,
+    "sizeBytes": 2441,
+    "contentHash": "62b588677f9c07c2739fd3521a48382960caf7a69bb555828389933495ad8a01",
+    "structuralHash": "62b588677f9c07c2739fd3521a48382960caf7a69bb555828389933495ad8a01"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/JavaLanguage.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/JavaLanguage.kt",
+    "language": null,
+    "sizeBytes": 2087,
+    "contentHash": "8e899b472df7b7e3a12803d358facd3adbcee42047772dd42a24d1351812bf9f",
+    "structuralHash": "8e899b472df7b7e3a12803d358facd3adbcee42047772dd42a24d1351812bf9f"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/KotlinLanguage.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/language/KotlinLanguage.kt",
+    "language": null,
+    "sizeBytes": 2850,
+    "contentHash": "e974e975de543110b4446e299991b9096d8d827244f6b4c92ffdd9be8c814ce7",
+    "structuralHash": "e974e975de543110b4446e299991b9096d8d827244f6b4c92ffdd9be8c814ce7"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/CpdManager.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/CpdManager.kt",
+    "language": null,
+    "sizeBytes": 2456,
+    "contentHash": "acaf8fbfd2e9ccc4bb8123c8825e107e0602e07ec3d89b8c8c31e9423e8758a5",
+    "structuralHash": "acaf8fbfd2e9ccc4bb8123c8825e107e0602e07ec3d89b8c8c31e9423e8758a5"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/DetektManager.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/DetektManager.kt",
+    "language": null,
+    "sizeBytes": 2250,
+    "contentHash": "c1d3eb8b0895d1dc561783afa1c3dcdd0106ec80a432b4982d284de52ae6e421",
+    "structuralHash": "c1d3eb8b0895d1dc561783afa1c3dcdd0106ec80a432b4982d284de52ae6e421"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/SpotlessManager.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/managers/quality/SpotlessManager.kt",
+    "language": null,
+    "sizeBytes": 3195,
+    "contentHash": "a93554777a38ed2bd82cf9a3c79b2acd774cc26cdaf3cbbe87b381841affe946",
+    "structuralHash": "a93554777a38ed2bd82cf9a3c79b2acd774cc26cdaf3cbbe87b381841affe946"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/BomExtensionSpec.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/BomExtensionSpec.kt",
+    "language": null,
+    "sizeBytes": 2137,
+    "contentHash": "325c12ad84d3cf0a7939e3197a14c72a91c4bbe53868d1235fcd03263905a66c",
+    "structuralHash": "325c12ad84d3cf0a7939e3197a14c72a91c4bbe53868d1235fcd03263905a66c"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/DependencyHandler.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/DependencyHandler.kt",
+    "language": null,
+    "sizeBytes": 2375,
+    "contentHash": "95ce8e378d590224083d59c928df1ce42ca9c183bd87adf47b2025a384537c44",
+    "structuralHash": "95ce8e378d590224083d59c928df1ce42ca9c183bd87adf47b2025a384537c44"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/File.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/File.kt",
+    "language": null,
+    "sizeBytes": 3082,
+    "contentHash": "9b787aac340d0a6880fba680ef1716801e592cd37175744c79277384c0cd92b7",
+    "structuralHash": "9b787aac340d0a6880fba680ef1716801e592cd37175744c79277384c0cd92b7"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/GradleVersionUtils.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/GradleVersionUtils.kt",
+    "language": null,
+    "sizeBytes": 1374,
+    "contentHash": "fc939ab9e602a7ec2d1f7710be3c826bb79d09bd99d327b83f05e2cf1bfc7074",
+    "structuralHash": "fc939ab9e602a7ec2d1f7710be3c826bb79d09bd99d327b83f05e2cf1bfc7074"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/Project.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/Project.kt",
+    "language": null,
+    "sizeBytes": 3475,
+    "contentHash": "250098a1ec0dfa58f96d42392f48578ed0507f09a4be077bf6de55aebfc69bac",
+    "structuralHash": "250098a1ec0dfa58f96d42392f48578ed0507f09a4be077bf6de55aebfc69bac"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/ProviderFactory.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/ProviderFactory.kt",
+    "language": null,
+    "sizeBytes": 875,
+    "contentHash": "0900941985bab23014d8067f82dba66b10b70ff5378ac33afd320082c0323c15",
+    "structuralHash": "0900941985bab23014d8067f82dba66b10b70ff5378ac33afd320082c0323c15"
+  },
+  "convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/VersionCatalog.kt": {
+    "path": "convention-plugin/src/main/kotlin/com/frisboo/corebanking/utils/VersionCatalog.kt",
+    "language": null,
+    "sizeBytes": 1797,
+    "contentHash": "38d7b76efb430b3d198befe4c98167cb91b11ecb85224049a2035db4b33c6f39",
+    "structuralHash": "38d7b76efb430b3d198befe4c98167cb91b11ecb85224049a2035db4b33c6f39"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/api.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/api.mustache",
+    "language": null,
+    "sizeBytes": 4356,
+    "contentHash": "7d8db142c9e1704568090de7c9e489ea7b0e89dfd7247e5fde2349c001fe6cb9",
+    "structuralHash": "7d8db142c9e1704568090de7c9e489ea7b0e89dfd7247e5fde2349c001fe6cb9"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/apiController.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/apiController.mustache",
+    "language": null,
+    "sizeBytes": 1017,
+    "contentHash": "7cabd5d968baed03c0254b738b0e26c9a69075403e0bb34c612a32551cb103e4",
+    "structuralHash": "7cabd5d968baed03c0254b738b0e26c9a69075403e0bb34c612a32551cb103e4"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/apiDelegate.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/apiDelegate.mustache",
+    "language": null,
+    "sizeBytes": 1742,
+    "contentHash": "6d581fc6036ad8b74a765e253e4d81a1304af9f637df708783a43f49bbaa2df3",
+    "structuralHash": "6d581fc6036ad8b74a765e253e4d81a1304af9f637df708783a43f49bbaa2df3"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/apiInterface.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/apiInterface.mustache",
+    "language": null,
+    "sizeBytes": 4461,
+    "contentHash": "caf887ffd75037d9e454870e2994b64b4d5a7da8a00128a754d486ada4463a65",
+    "structuralHash": "caf887ffd75037d9e454870e2994b64b4d5a7da8a00128a754d486ada4463a65"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/apiUtil.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/apiUtil.mustache",
+    "language": null,
+    "sizeBytes": 660,
+    "contentHash": "32ad7f15669956395fe40db54ed6aa8d40bf232d366fe278efbfa7eba2e3bbd9",
+    "structuralHash": "32ad7f15669956395fe40db54ed6aa8d40bf232d366fe278efbfa7eba2e3bbd9"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/api_test.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/api_test.mustache",
+    "language": null,
+    "sizeBytes": 1135,
+    "contentHash": "76e0a6a5157cfd7f278fced7294d9ff99f66406f912d20a2ce89c3ac6d448775",
+    "structuralHash": "76e0a6a5157cfd7f278fced7294d9ff99f66406f912d20a2ce89c3ac6d448775"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/beanValidation.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/beanValidation.mustache",
+    "language": null,
+    "sizeBytes": 284,
+    "contentHash": "2711e5cfa11aaaadc8fc145d7969443a52d735f12d5dd81943f6a954b76ec77c",
+    "structuralHash": "2711e5cfa11aaaadc8fc145d7969443a52d735f12d5dd81943f6a954b76ec77c"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/beanValidationBodyParams.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/beanValidationBodyParams.mustache",
+    "language": null,
+    "sizeBytes": 100,
+    "contentHash": "cb2a12c0abb4636de5ef69ef3633633a989613c20b3155830db5c7ef242cf025",
+    "structuralHash": "cb2a12c0abb4636de5ef69ef3633633a989613c20b3155830db5c7ef242cf025"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/beanValidationCore.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/beanValidationCore.mustache",
+    "language": null,
+    "sizeBytes": 2964,
+    "contentHash": "7c0ced75b6e3543bc2a6f0d8ba26ed0784ed5a3c9020fb30fee8ed08acc1391b",
+    "structuralHash": "7c0ced75b6e3543bc2a6f0d8ba26ed0784ed5a3c9020fb30fee8ed08acc1391b"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/beanValidationModel.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/beanValidationModel.mustache",
+    "language": null,
+    "sizeBytes": 3103,
+    "contentHash": "51b45033366f8734ff7a9ed28ee8816dcdf4b46753e0e08fd868c55bef6ad66b",
+    "structuralHash": "51b45033366f8734ff7a9ed28ee8816dcdf4b46753e0e08fd868c55bef6ad66b"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/beanValidationPathParams.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/beanValidationPathParams.mustache",
+    "language": null,
+    "sizeBytes": 81,
+    "contentHash": "09b466b9d38fb57b14407dc4504bd39f679def4ed473b5b06b858c1496b3cc89",
+    "structuralHash": "09b466b9d38fb57b14407dc4504bd39f679def4ed473b5b06b858c1496b3cc89"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/beanValidationQueryParams.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/beanValidationQueryParams.mustache",
+    "language": null,
+    "sizeBytes": 58,
+    "contentHash": "b1a8d572214dc52b8a815bedc10acf78ca509a880e671b15ca7ea88c3f034246",
+    "structuralHash": "b1a8d572214dc52b8a815bedc10acf78ca509a880e671b15ca7ea88c3f034246"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/bodyParams.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/bodyParams.mustache",
+    "language": null,
+    "sizeBytes": 1332,
+    "contentHash": "7d0e102ebe562dc21252f986861d7f69c6038397744bb650cd90223d21d5daf3",
+    "structuralHash": "7d0e102ebe562dc21252f986861d7f69c6038397744bb650cd90223d21d5daf3"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/converter.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/converter.mustache",
+    "language": null,
+    "sizeBytes": 1230,
+    "contentHash": "08677e5351c8c3459a065180a09ebc4b5033cbd50169586c2f5a294f052d44eb",
+    "structuralHash": "08677e5351c8c3459a065180a09ebc4b5033cbd50169586c2f5a294f052d44eb"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/cookieParams.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/cookieParams.mustache",
+    "language": null,
+    "sizeBytes": 288,
+    "contentHash": "c0b52b12e31966068f2215517171c0c432e12d27159c07708d84b77197d93f7d",
+    "structuralHash": "c0b52b12e31966068f2215517171c0c432e12d27159c07708d84b77197d93f7d"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/dataClass.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/dataClass.mustache",
+    "language": null,
+    "sizeBytes": 3603,
+    "contentHash": "899b2e64125315497a63787dd431bc5f6d8bb7d002745619360f818592253dbb",
+    "structuralHash": "899b2e64125315497a63787dd431bc5f6d8bb7d002745619360f818592253dbb"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/dataClassOptVar.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/dataClassOptVar.mustache",
+    "language": null,
+    "sizeBytes": 992,
+    "contentHash": "b073216b3940a1514c5ba48f9b7039cd14ea2060cae3da4e2566231018a0ee5e",
+    "structuralHash": "b073216b3940a1514c5ba48f9b7039cd14ea2060cae3da4e2566231018a0ee5e"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/dataClassReqVar.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/dataClassReqVar.mustache",
+    "language": null,
+    "sizeBytes": 966,
+    "contentHash": "aa5dff89f656a6a2e4236de8d081daea99fb8ba8b977b83cbafb47ecd68c9d89",
+    "structuralHash": "aa5dff89f656a6a2e4236de8d081daea99fb8ba8b977b83cbafb47ecd68c9d89"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/enumClass.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/enumClass.mustache",
+    "language": null,
+    "sizeBytes": 780,
+    "contentHash": "0af4d014b972fd6b58429658b2f2da6ad714b25188f7bd59b2a76d973c8e6ecb",
+    "structuralHash": "0af4d014b972fd6b58429658b2f2da6ad714b25188f7bd59b2a76d973c8e6ecb"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/exceptions.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/exceptions.mustache",
+    "language": null,
+    "sizeBytes": 1443,
+    "contentHash": "a9dc9c520c756a6c0b6f9e3c43e0be8eb6bcb822478869ea43f941be1009e3d9",
+    "structuralHash": "a9dc9c520c756a6c0b6f9e3c43e0be8eb6bcb822478869ea43f941be1009e3d9"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/formParams.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/formParams.mustache",
+    "language": null,
+    "sizeBytes": 1775,
+    "contentHash": "cadb221538b1e398a49f469a54f8f5b0d318648abc0f9c965d6fac36f88740dc",
+    "structuralHash": "cadb221538b1e398a49f469a54f8f5b0d318648abc0f9c965d6fac36f88740dc"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/generatedAnnotation.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/generatedAnnotation.mustache",
+    "language": null,
+    "sizeBytes": 215,
+    "contentHash": "4c98d555485fb4eb3da400a5d5f04c0f5c5aa7dccd3f7af0c94184c81c4ed31b",
+    "structuralHash": "4c98d555485fb4eb3da400a5d5f04c0f5c5aa7dccd3f7af0c94184c81c4ed31b"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/headerParams.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/headerParams.mustache",
+    "language": null,
+    "sizeBytes": 1638,
+    "contentHash": "bff83cc1b4472e2e6813080f359414ac7f6de0735e1abefbd408d55c59cc98ce",
+    "structuralHash": "bff83cc1b4472e2e6813080f359414ac7f6de0735e1abefbd408d55c59cc98ce"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/homeController.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/homeController.mustache",
+    "language": null,
+    "sizeBytes": 3046,
+    "contentHash": "533ee8031ca3feffb59040ab8828826425a47c42248bdb51929daf10c933454a",
+    "structuralHash": "533ee8031ca3feffb59040ab8828826425a47c42248bdb51929daf10c933454a"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/interfaceOptVar.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/interfaceOptVar.mustache",
+    "language": null,
+    "sizeBytes": 941,
+    "contentHash": "355941c936d8cc6a77c5de23b6cb21a7b05ddc60e6bd03493864c84c4e34161f",
+    "structuralHash": "355941c936d8cc6a77c5de23b6cb21a7b05ddc60e6bd03493864c84c4e34161f"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/interfaceReqVar.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/interfaceReqVar.mustache",
+    "language": null,
+    "sizeBytes": 505,
+    "contentHash": "20c0282c0b79496ea6fa5b78c4c9830baeb07a22ce38385ebc5ebaf275032dec",
+    "structuralHash": "20c0282c0b79496ea6fa5b78c4c9830baeb07a22ce38385ebc5ebaf275032dec"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/README.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/README.mustache",
+    "language": null,
+    "sizeBytes": 1047,
+    "contentHash": "17fe9e76b3b3aa39d649ac4611685d3aa4b2186dbb8d6b82ab2eb602cdf54f2a",
+    "structuralHash": "17fe9e76b3b3aa39d649ac4611685d3aa4b2186dbb8d6b82ab2eb602cdf54f2a"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/application.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/application.mustache",
+    "language": null,
+    "sizeBytes": 145,
+    "contentHash": "73a787bc1c74e9268db3ba6110c0c5634e8a68ee9d9ef2c4e4692ccbfde09492",
+    "structuralHash": "73a787bc1c74e9268db3ba6110c0c5634e8a68ee9d9ef2c4e4692ccbfde09492"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/buildGradle-sb3-Kts.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/buildGradle-sb3-Kts.mustache",
+    "language": null,
+    "sizeBytes": 3394,
+    "contentHash": "e403633745139ea43d86f5987defdac80cf93c95acf0dc82cac46ce8661aaa64",
+    "structuralHash": "e403633745139ea43d86f5987defdac80cf93c95acf0dc82cac46ce8661aaa64"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/buildGradleKts.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/buildGradleKts.mustache",
+    "language": null,
+    "sizeBytes": 3346,
+    "contentHash": "01daab556732e58265b63d83027e9dd200e5d53856beffb4e9d3cb9757948ad8",
+    "structuralHash": "01daab556732e58265b63d83027e9dd200e5d53856beffb4e9d3cb9757948ad8"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/defaultBasePath.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/defaultBasePath.mustache",
+    "language": null,
+    "sizeBytes": 15,
+    "contentHash": "6476d791ed75656e3fa91096866c36b9c4cc25f2a3779a141d997f6a54402e5b",
+    "structuralHash": "6476d791ed75656e3fa91096866c36b9c4cc25f2a3779a141d997f6a54402e5b"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/gradle-wrapper.jar": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/gradle-wrapper.jar",
+    "language": null,
+    "sizeBytes": 41575,
+    "contentHash": "374580f75b685059204fedb73faa7a87270a023f202e89403db53fe97e718e09",
+    "structuralHash": "374580f75b685059204fedb73faa7a87270a023f202e89403db53fe97e718e09"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/gradle-wrapper.properties.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/gradle-wrapper.properties.mustache",
+    "language": null,
+    "sizeBytes": 252,
+    "contentHash": "2ea28a9dacab2dcc4519532661957e3b8529d2efce5b6e3670f39b9c0e700f8e",
+    "structuralHash": "2ea28a9dacab2dcc4519532661957e3b8529d2efce5b6e3670f39b9c0e700f8e"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/gradlew.bat.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/gradlew.bat.mustache",
+    "language": null,
+    "sizeBytes": 2826,
+    "contentHash": "95e8ae8e8a256a2f066cdd745d56f7a3fc87aa058a2e4beb483300db7171bd1f",
+    "structuralHash": "95e8ae8e8a256a2f066cdd745d56f7a3fc87aa058a2e4beb483300db7171bd1f"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/gradlew.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/gradlew.mustache",
+    "language": null,
+    "sizeBytes": 8133,
+    "contentHash": "211b176cd033866b3d40159e58d7f0120c5a620056ae85f83567880f6de15b1d",
+    "structuralHash": "211b176cd033866b3d40159e58d7f0120c5a620056ae85f83567880f6de15b1d"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/pom-sb3.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/pom-sb3.mustache",
+    "language": null,
+    "sizeBytes": 9976,
+    "contentHash": "850ea60e6a057e0274de89a26b2f33a79d0a4e8b448999e5f7216e4ebacc1079",
+    "structuralHash": "850ea60e6a057e0274de89a26b2f33a79d0a4e8b448999e5f7216e4ebacc1079"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/pom.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/pom.mustache",
+    "language": null,
+    "sizeBytes": 9476,
+    "contentHash": "9f4d237ef8d3efa8026a21f3327c1c119b8c0fa227f4bd428c3207022a76ceec",
+    "structuralHash": "9f4d237ef8d3efa8026a21f3327c1c119b8c0fa227f4bd428c3207022a76ceec"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/settingsGradle.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/settingsGradle.mustache",
+    "language": null,
+    "sizeBytes": 480,
+    "contentHash": "1171dddd2a952f8d6f1a55eda5166ddd6a48487758bf576bdb71f06331ba345b",
+    "structuralHash": "1171dddd2a952f8d6f1a55eda5166ddd6a48487758bf576bdb71f06331ba345b"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/springBootApplication.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/springBootApplication.mustache",
+    "language": null,
+    "sizeBytes": 405,
+    "contentHash": "da8837e09a4e40ccf976d959ca57e585beac43401e5beae76137153683520032",
+    "structuralHash": "da8837e09a4e40ccf976d959ca57e585beac43401e5beae76137153683520032"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/swagger-ui.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/libraries/spring-boot/swagger-ui.mustache",
+    "language": null,
+    "sizeBytes": 1417,
+    "contentHash": "4167acf92673cae326e2cf97f3959ac77368e1de2cd1e7336319a6957dc7597a",
+    "structuralHash": "4167acf92673cae326e2cf97f3959ac77368e1de2cd1e7336319a6957dc7597a"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/methodBody.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/methodBody.mustache",
+    "language": null,
+    "sizeBytes": 1666,
+    "contentHash": "ec1f34a22c058a334bcddf397c107cf53646cd75fa220de2b383804742ff7e57",
+    "structuralHash": "ec1f34a22c058a334bcddf397c107cf53646cd75fa220de2b383804742ff7e57"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/model.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/model.mustache",
+    "language": null,
+    "sizeBytes": 1048,
+    "contentHash": "85c5ab55784b0be220a781c0da108961af611f851725e5f036159440167defc5",
+    "structuralHash": "85c5ab55784b0be220a781c0da108961af611f851725e5f036159440167defc5"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/modelMutable.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/modelMutable.mustache",
+    "language": null,
+    "sizeBytes": 74,
+    "contentHash": "b7e89e62df1afc5a9ff410096e79140830ebd6e159169624ec9ee9fd6199ea35",
+    "structuralHash": "b7e89e62df1afc5a9ff410096e79140830ebd6e159169624ec9ee9fd6199ea35"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/openapi.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/openapi.mustache",
+    "language": null,
+    "sizeBytes": 18,
+    "contentHash": "80979dee35c5552346fddddbf7ee54c8bbdd82d73da791b38215dd78ebaef5a8",
+    "structuralHash": "80979dee35c5552346fddddbf7ee54c8bbdd82d73da791b38215dd78ebaef5a8"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/optionalDataType.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/optionalDataType.mustache",
+    "language": null,
+    "sizeBytes": 252,
+    "contentHash": "0ac5c34893623f7c760310204eb668d94c27e91a1733cea527f7efc44fe08389",
+    "structuralHash": "0ac5c34893623f7c760310204eb668d94c27e91a1733cea527f7efc44fe08389"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/pathParams.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/pathParams.mustache",
+    "language": null,
+    "sizeBytes": 1506,
+    "contentHash": "f87d9d3e4b04b7fb6b73b7b2417cf932ba71d24ddeeb1dab2efa7b83ed0e2679",
+    "structuralHash": "f87d9d3e4b04b7fb6b73b7b2417cf932ba71d24ddeeb1dab2efa7b83ed0e2679"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/queryParams.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/queryParams.mustache",
+    "language": null,
+    "sizeBytes": 2428,
+    "contentHash": "d6f98c82b6b32088a6401ab471192d201e525ecd978dd9f16a22eb82ee1d71ed",
+    "structuralHash": "d6f98c82b6b32088a6401ab471192d201e525ecd978dd9f16a22eb82ee1d71ed"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/returnTypes.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/returnTypes.mustache",
+    "language": null,
+    "sizeBytes": 365,
+    "contentHash": "b69fa38015fde510b7ddea8d042cfe3668631e7a611e4a03b3522f6d0e6927cb",
+    "structuralHash": "b69fa38015fde510b7ddea8d042cfe3668631e7a611e4a03b3522f6d0e6927cb"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/returnValue.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/returnValue.mustache",
+    "language": null,
+    "sizeBytes": 312,
+    "contentHash": "05d8399f1d30525bcc50cb91bf2bfcf092b28e19e7ef0a2ca1def2ef695302f9",
+    "structuralHash": "05d8399f1d30525bcc50cb91bf2bfcf092b28e19e7ef0a2ca1def2ef695302f9"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/service.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/service.mustache",
+    "language": null,
+    "sizeBytes": 1425,
+    "contentHash": "fcc8a801d15f4b84956e7c810cd724b9894cb6aab14f40d67600cde4508fb8fb",
+    "structuralHash": "fcc8a801d15f4b84956e7c810cd724b9894cb6aab14f40d67600cde4508fb8fb"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/serviceImpl.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/serviceImpl.mustache",
+    "language": null,
+    "sizeBytes": 858,
+    "contentHash": "8060edfff7afe5119bb6ded816ae84872c05e6074fe99a96d48a96efddcdb4c1",
+    "structuralHash": "8060edfff7afe5119bb6ded816ae84872c05e6074fe99a96d48a96efddcdb4c1"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/springdocDocumentationConfig.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/springdocDocumentationConfig.mustache",
+    "language": null,
+    "sizeBytes": 2482,
+    "contentHash": "d0e2b09a1e4ec101c602f07b01f6b5ef9806a3b5fecccd7cd99882a1a1ee2e4b",
+    "structuralHash": "d0e2b09a1e4ec101c602f07b01f6b5ef9806a3b5fecccd7cd99882a1a1ee2e4b"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/springfoxDocumentationConfig.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/springfoxDocumentationConfig.mustache",
+    "language": null,
+    "sizeBytes": 2736,
+    "contentHash": "cf00e9f2c8913176114d5c46eba7d2c104e4632c98c8e7ae86dc4b832706f154",
+    "structuralHash": "cf00e9f2c8913176114d5c46eba7d2c104e4632c98c8e7ae86dc4b832706f154"
+  },
+  "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/typeInfoAnnotation.mustache": {
+    "path": "convention-plugin/src/main/resources/openapi-templates/kotlin-spring/typeInfoAnnotation.mustache",
+    "language": null,
+    "sizeBytes": 883,
+    "contentHash": "e4e0246e487b2c989a1e937a8f19a4e138f53955e2b9dc3845db66c58c731db5",
+    "structuralHash": "e4e0246e487b2c989a1e937a8f19a4e138f53955e2b9dc3845db66c58c731db5"
+  },
+  "gradle/gradle-daemon-jvm.properties": {
+    "path": "gradle/gradle-daemon-jvm.properties",
+    "language": null,
+    "sizeBytes": 1138,
+    "contentHash": "47685cfb52a4cd8e673027ec2b25656063bb1bf6b55e730a03c10a5d21ee4bf0",
+    "structuralHash": "47685cfb52a4cd8e673027ec2b25656063bb1bf6b55e730a03c10a5d21ee4bf0"
+  },
+  "gradle/wrapper/gradle-wrapper.jar": {
+    "path": "gradle/wrapper/gradle-wrapper.jar",
+    "language": null,
+    "sizeBytes": 43468,
+    "contentHash": "d2630fec8f65fdcd2a08975c64008a029299d6d100ff71272f95a8c88178dc2d",
+    "structuralHash": "d2630fec8f65fdcd2a08975c64008a029299d6d100ff71272f95a8c88178dc2d"
+  },
+  "gradle/wrapper/gradle-wrapper.properties": {
+    "path": "gradle/wrapper/gradle-wrapper.properties",
+    "language": null,
+    "sizeBytes": 232,
+    "contentHash": "da862291b6a5016fb50933421f3f1905fe8f722f1dafa2eba344538c16f1ab50",
+    "structuralHash": "da862291b6a5016fb50933421f3f1905fe8f722f1dafa2eba344538c16f1ab50"
+  },
+  "gradlew": {
+    "path": "gradlew",
+    "language": null,
+    "sizeBytes": 8595,
+    "contentHash": "fb68debc1b1acf8ec55dc0d5e5495e1dedd0bd6b61f304bee61613eeb2bd9b92",
+    "structuralHash": "fb68debc1b1acf8ec55dc0d5e5495e1dedd0bd6b61f304bee61613eeb2bd9b92"
+  },
+  "gradlew.bat": {
+    "path": "gradlew.bat",
+    "language": null,
+    "sizeBytes": 2803,
+    "contentHash": "9ca26d733ada3a45f27b2151288f54e75c9f95b287d1f82ef942ec5cc2d4f006",
+    "structuralHash": "9ca26d733ada3a45f27b2151288f54e75c9f95b287d1f82ef942ec5cc2d4f006"
+  },
+  "settings.gradle.kts": {
+    "path": "settings.gradle.kts",
+    "language": null,
+    "sizeBytes": 1974,
+    "contentHash": "82730d01eb2d8e2a7639cff5fa4c268cf36ac779d0e00ebb0655903e7e9a1f12",
+    "structuralHash": "82730d01eb2d8e2a7639cff5fa4c268cf36ac779d0e00ebb0655903e7e9a1f12"
+  },
+  "version-catalog/build.gradle.kts": {
+    "path": "version-catalog/build.gradle.kts",
+    "language": null,
+    "sizeBytes": 1447,
+    "contentHash": "4b70b98f0102845de918cd4fc1a591fb2f3df6929525a359b4d07a72f1681e79",
+    "structuralHash": "4b70b98f0102845de918cd4fc1a591fb2f3df6929525a359b4d07a72f1681e79"
+  },
+  "version-catalog/libs.versions.toml": {
+    "path": "version-catalog/libs.versions.toml",
+    "language": null,
+    "sizeBytes": 14339,
+    "contentHash": "698b0a36ae45637b7f08408037f69f62fa72efb5596b125691a1701f15c4fc91",
+    "structuralHash": "698b0a36ae45637b7f08408037f69f62fa72efb5596b125691a1701f15c4fc91"
+  }
+}

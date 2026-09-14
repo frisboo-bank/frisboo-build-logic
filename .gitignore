@@ -38,3 +38,6 @@ out/
 
 ### Kotlin ###
 .kotlin
+
+### Understand Anything toolchain (local shim, not part of repo) ###
+.ua-plugin/
